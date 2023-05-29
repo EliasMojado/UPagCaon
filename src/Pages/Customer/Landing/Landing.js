@@ -1,6 +1,7 @@
-import logo from './logo.svg';
-import kaha from './kaha.svg';
-import footer from './footer-logo.svg';
+import logo from '../../../Assets/logo.svg';
+import kaha from '../../../Assets/kaha.svg';
+import footer from '../../../Assets/footer-logo.svg';
+import '../Landing/Landing.css';
 
 function Landing(){
     return(

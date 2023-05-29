@@ -16,7 +16,7 @@
 }
 
 .landing {
-    background-image: url('../public/bg.svg');
+    background-image: url(../../../Assets/bg.svg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;

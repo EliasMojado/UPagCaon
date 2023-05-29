@@ -6,10 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import './index.css';
 
-import Landing from './landing';
-import Login from './Pages/Login/Login';
-import "./landing.css";
-import "./Pages/Login/Login.css";
+import Landing from '../src/Pages/Customer/Landing/Landing';
+import Login from './Pages/Admin/Login/Login';
 
 import reportWebVitals from './reportWebVitals';
 
