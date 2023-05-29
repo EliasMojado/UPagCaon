@@ -23,7 +23,7 @@
 }
 
 .logo{
-    width: 10%;
+    width: 8%;
     height: auto;
     max-width: 100%;
     max-height: 100%;
@@ -47,6 +47,21 @@
 
 body{
     overflow: hidden;
+}
+
+.login{
+    background: #481E1E;
+    border: none;
+    border-radius: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #FFFFFF;
+    font-weight: bold;
+    width: 15%;
+    height: max-content;
+    padding: 1%;
 }
   
   

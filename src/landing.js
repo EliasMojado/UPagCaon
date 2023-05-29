@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import kaha from './kaha.svg';
-import 'typeface-inter';
 
 function Landing(){
     return(
