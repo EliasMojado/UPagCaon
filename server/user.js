@@ -2,14 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const db = require('./db');
 const uuid = require('uuid');
-
 const router = express.Router();
-
-/* 
-  TO DO:
-  1. Do not allow users to sign up multiple times with same email
-  2. 
-*/
 
 // POST /user/signup - Sign up a new user
 router.post('/signup', (req, res) => {
