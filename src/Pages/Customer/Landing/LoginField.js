@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../Landing/LoginField.css';
 
-const TextFieldComponent = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
+const TextFieldComponent = ({
+  email,
+  password,
+  handleEmailChange,
+  handlePasswordChange,
+}) => {
   return (
     <div className='input'>
       <input
