@@ -10,6 +10,8 @@ router.post('/signup', (req, res) => {
 
   // Hash the password before storing it
   const hashedPassword = bcrypt.hashSync(password, 10);
+
+  // generate a unique id
   const id = uuid.v4();
 
   const user = {
@@ -64,5 +66,29 @@ router.post('/login', (req, res) => {
   });
 });
 
+// PUT /user/:id
+router.put('/:id', (req, res) => {
+  const userId = req.params.id;
+  const { attribute, value } = req.body;
+
+  // Update the user attribute in the database
+  const query = `UPDATE users SET ${attribute} = ? WHERE id = ?`;
+  db.query(query, [value, userId], (err, results) => {
+    if (err) {
+      console.error('Error updating user:', err);
+      res.status(500).json({ error: 'An error occurred while updating the user.' });
+      return;
+    }
+
+    if (results.affectedRows === 0) {
+      // No user found with the given id
+      res.status(404).json({ error: 'User not found.' });
+      return;
+    }
+
+    console.log('User updated successfully!');
+    res.status(200).json({ message: 'User updated successfully!' });
+  });
+});
 
 module.exports = router;
