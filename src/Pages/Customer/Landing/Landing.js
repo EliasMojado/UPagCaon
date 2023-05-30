@@ -8,7 +8,7 @@ import LoginForm from './LoginForm';
 function Landing() {
   const [showModal, setShowModal] = useState(false);
   const Toggle = () => setShowModal(!showModal);
-
+  const closeModal = () => setShowModal(false);
   return (
     <div className="landing">
       <header>
@@ -23,7 +23,10 @@ function Landing() {
         <div>
           <img src={kaha} alt="kaha" className="kaha" />
         </div>
-        <div className="login-button">
+        <div className="buttons">
+        <button className="signup" onClick={() => Toggle()}>
+            SIGN UP
+          </button>
           <button className="login" onClick={() => Toggle()}>
             LOG IN
           </button>
@@ -35,7 +38,7 @@ function Landing() {
         <a className="deep">   deep solutions</a>
       </footer>
 
-      <LoginForm show={showModal}/>
+      <LoginForm show={showModal} close={closeModal}/>
     </div>
   )
 }
