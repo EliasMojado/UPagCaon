@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
 import '../Landing/LoginForm.css';
-import React, {useState} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import TextFieldComponent from '../Landing/LoginField.js';
 
 const LoginForm = ({ show, close }) => {
@@ -74,12 +73,17 @@ const LoginForm = ({ show, close }) => {
           </header>
           <main className="modal_content">
           <div>
-            <TextFieldComponent />
+            <TextFieldComponent 
+              email={email}
+              password={password}
+              handleEmailChange={handleEmailChange}
+              handlePasswordChange={handlePasswordChange} 
+            />
         </div>
           </main>
           <footer className="modal_footer">
             {/* <button className="signup">Sign up</button> */}
-            <button className="login" onClick={() => close()}>
+            <button className="login" onClick={() => handleLogIn()}>
               Login
             </button>
           </footer>
