@@ -4,8 +4,10 @@
     align-items: center;
   }
   
+.name, 
 .email,
-.password {
+.password,
+.contact {
     ::placeholder {
         font: 'Inter';
     }

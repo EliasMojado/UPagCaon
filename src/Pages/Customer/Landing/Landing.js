@@ -3,12 +3,18 @@ import logo from '../../../Assets/logo.svg';
 import kaha from '../../../Assets/kaha.svg';
 import footer from '../../../Assets/footer-logo.svg';
 import '../Landing/Landing.css';
-import LoginForm from './LoginForm';
+import LoginForm from './LoginModal';
+import SignupForm from './SignupModal';
 
 function Landing() {
-  const [showModal, setShowModal] = useState(false);
-  const Toggle = () => setShowModal(!showModal);
-  const closeModal = () => setShowModal(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const ToggleL = () => setShowLoginModal(!showLoginModal);
+  const closeLoginModal = () => setShowLoginModal(false);
+
+  const [showSignupModal, setShowSignupModal] = useState(false);
+  const ToggleS = () => setShowSignupModal(!showSignupModal);
+  const closeSignupModal = () => setShowSignupModal(false);
+
   return (
     <div className="landing">
       <header>
@@ -24,10 +30,10 @@ function Landing() {
           <img src={kaha} alt="kaha" className="kaha" />
         </div>
         <div className="buttons">
-        <button className="signup" onClick={() => Toggle()}>
+        <button className="signup" onClick={() => ToggleS()}>
             SIGN UP
           </button>
-          <button className="login" onClick={() => Toggle()}>
+          <button className="login" onClick={() => ToggleL()}>
             LOG IN
           </button>
         </div>
@@ -38,7 +44,8 @@ function Landing() {
         <a className="deep">   deep solutions</a>
       </footer>
 
-      <LoginForm show={showModal} close={closeModal}/>
+      <LoginForm show={showLoginModal} close={closeLoginModal}/>
+      <SignupForm show={showSignupModal} close={closeSignupModal}/>
     </div>
   )
 }
