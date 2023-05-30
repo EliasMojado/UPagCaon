@@ -49,20 +49,20 @@ body{
     overflow: hidden;
 }
 
-.login{
+.login {
     background: #481E1E;
     border: none;
     border-radius: 25px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     font-family: 'Inter', Arial, sans-serif;
     color: #FFFFFF;
     font-weight: bold;
     width: 15%;
     height: max-content;
     padding: 1%;
-}
+    cursor: pointer; 
+}  
 
 .footer {
     box-sizing: content-box;
