@@ -64,6 +64,29 @@ body{
     cursor: pointer; 
 }  
 
+.signup {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 25px;
+    display: block;
+    margin: 0 auto;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #481E1E;
+    font-weight: bold;
+    width: 15%;
+    height: max-content;
+    padding: 1%;
+    cursor: pointer; 
+    margin-right: 1rem;
+} 
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2 rem;
+}  
+
 .footer {
     box-sizing: content-box;
     display: relative;
