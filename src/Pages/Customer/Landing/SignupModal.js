@@ -1,9 +1,13 @@
 import '../Landing/SignupModal.css';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import TextFieldComponent from './SignupForm.js';
 
 const SignupModal = ({ show, close }) => {
   const modalRef = useRef(null);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [contact_number, setContactNumber] = useState('');
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -19,6 +23,51 @@ const SignupModal = ({ show, close }) => {
     };
   }, [close]);
 
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleContactNumberChange = (event) => {
+    setContactNumber(event.target.value);
+  };
+
+  const handleSignUp = () => {
+    // Create a request body with the form data
+    const requestBody = {
+      name: name,
+      email: email,
+      password: password,
+      contact_number: contact_number,
+    };
+
+    // Make a POST request to your signup route
+    fetch('http://localhost:3000/user/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response from the server
+        console.log('Response:', data);
+        // Perform any necessary actions based on the response
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        // Handle any errors that occurred during the request
+      });
+  };
+
   return (
     <>
       {show ? (
@@ -29,11 +78,20 @@ const SignupModal = ({ show, close }) => {
             </header>
             <main className="modal_content">
               <div>
-                <TextFieldComponent />
+                <TextFieldComponent
+                  name={name}
+                  email={email}
+                  password={password}
+                  contact_number={contact_number}
+                  handleNameChange={handleNameChange}
+                  handleEmailChange={handleEmailChange}
+                  handlePasswordChange={handlePasswordChange}
+                  handleContactNumberChange={handleContactNumberChange}
+                />
               </div>
             </main>
             <footer className="modal_footer">
-              <button className="login" onClick={close}>
+              <button className="login" onClick={handleSignUp}>
                 Sign up
               </button>
             </footer>

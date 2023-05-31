@@ -20,6 +20,7 @@ const LoginForm = ({ show, close }) => {
       email: email,
       password: password,
     };
+
     // Make a POST request to your login route
     fetch('http://localhost:3000/user/login', {
       method: 'POST',
@@ -39,6 +40,8 @@ const LoginForm = ({ show, close }) => {
         // Handle any errors that occurred during the request
       });
   };
+
+
   return (
     <>
       {show ? (
@@ -68,4 +71,5 @@ const LoginForm = ({ show, close }) => {
     </>
   );
 };
+
 export default LoginForm;

@@ -9,7 +9,7 @@ const TextFieldComponent = ({
     handleNameChange,
     handleEmailChange,
     handlePasswordChange,
-    handleContactChange,
+    handleContactNumberChange,
 }) => {
 
   return (
@@ -40,7 +40,7 @@ const TextFieldComponent = ({
         type="number"
         placeholder="Contact Number"
         value={contact}
-        onChange={handleContactChange}
+        onChange={handleContactNumberChange}
       />
     </div>
   );
