@@ -40,8 +40,8 @@ function Landing() {
       </div>
       <footer className="footer">
         <img src={footer} alt="footer" className="footer-logo" />
-        <a className="powered">Powered by</a>
-        <a className="deep">   deep solutions</a>
+        <span className="powered">Powered by</span>
+        <span className="deep">   deep solutions</span>
       </footer>
 
       <LoginForm show={showLoginModal} close={closeLoginModal}/>
