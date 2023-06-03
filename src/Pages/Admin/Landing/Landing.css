@@ -1,0 +1,108 @@
+.transparent-button {
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Inter';
+    color: #00573F;
+    font-weight: bold
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    padding-top: 2%;
+}
+
+.landing {
+    background-image: url(../../../Assets/bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.logo{
+    width: 8%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.kaha{
+    width: 25%;
+    height: 25%;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.login {
+    background: #481E1E;
+    border: none;
+    border-radius: 25px;
+    display: block;
+    margin: 0 auto;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #FFFFFF;
+    font-weight: bold;
+    width: 15%;
+    height: max-content;
+    padding: 1%;
+    cursor: pointer; 
+}  
+
+.button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2 rem;
+}  
+
+.footer {
+    text-align: left;
+    position: fixed;
+    left: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 !important;
+    bottom: 0 !important;
+    
+}  
+  
+.footer-logo{
+    width: 5%;
+    align-items: baseline;
+    margin: 0 !important;
+    bottom: 0 !important;
+    padding: 0 !important;
+}
+  
+.powered{
+    font-family: 'Inter';
+    font-size: 10px;
+}
+
+.deep{
+    font-family: 'Inter';
+    font-size: 10px;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

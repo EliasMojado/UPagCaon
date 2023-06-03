@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './index.css';
 
 import Landing from '../src/Pages/Customer/Landing/Landing';
-import Login from './Pages/Admin/Login/Login';
+import Admin from '../src/Pages/Admin/Landing/Landing';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -19,7 +19,7 @@ root.render(
      <Router>
       <Routes>
         <Route path='/' element = {<Landing/>} />
-        <Route path='/login' element = {<Login/>} />
+        <Route path='/admin' element = {<Admin/>} />
       </Routes>
      </Router>
   </React.StrictMode>

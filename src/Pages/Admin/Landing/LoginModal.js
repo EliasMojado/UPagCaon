@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../Landing/LoginForm.css';
-import TextFieldComponent from '../Landing/LoginForm.js';
-import '../Landing/LoginModal.css';
+import TextFieldComponent from './LoginForm.js';
+import '../Landing/LoginModal.css'
 
 const LoginForm = ({ show, close }) => {
   const [email, setEmail] = useState('');
