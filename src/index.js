@@ -8,6 +8,7 @@ import './index.css';
 
 import Landing from '../src/Pages/Customer/Landing/Landing';
 import Admin from '../src/Pages/Admin/Landing/Landing';
+import Dashboard from './Pages/Admin/Dashboard/Dashboard';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -20,6 +21,7 @@ root.render(
       <Routes>
         <Route path='/' element = {<Landing/>} />
         <Route path='/admin' element = {<Admin/>} />
+        <Route path='/admin/dashboard' element = {<Dashboard/>} />
       </Routes>
      </Router>
   </React.StrictMode>

@@ -1,0 +1,23 @@
+.dashboard {
+    background-image: url(../../../Assets/bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.dash {
+    position: absolute;
+    width: 537px;
+    height: 55px;
+    left: 100px;
+    top: 20px;
+    font-family: 'Inter';
+    font-style: bold;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 73px;
+    display: flex;
+    align-items: center;
+    color: #520000;
+}
+  
