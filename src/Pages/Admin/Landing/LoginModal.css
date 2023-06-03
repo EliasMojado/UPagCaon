@@ -16,14 +16,14 @@
   background-color: #fff;
   padding: 2rem;
   border-radius: 20px;
-  background-color: #B88D5D;
+  background-color: #520000;
   backdrop-filter: blur(5px);
   box-shadow: 1px 4px 4px 2px rgba(0, 0, 0, 0.5);
 }
 
 .modal_header-title {
   text-align: center;
-  color: #520000;
+  color: #fff;
 }
 
 .close {
@@ -37,46 +37,19 @@
   transform: scale(1.1);
 }
 
-/* .modalContainer .modal_content {
-  border-bottom: 1px solid #dddddd;
-  padding: 2rem 0;
-} */
-
-.modal_footer {
-  float: right;
-  /* display: flex;
-  justify-content: center; 
-  align-items: center;  */
-  padding: 3rem 0;
-  padding-bottom: 0;
-}
-
-.modal_footer button {
-  padding: 0.5rem;
-  border-radius: 10px;
-}
-
-
-.login {
-  background-color: #520000;
-  color: #FFFFFF;
-  font: 'Inter';
-  border:none;
-  width: 150px;
-  font-weight: bold;
-}
-
-.signup {
+.loginmodal {
   background-color: #FFFFFF;
   color: #520000;
   font: 'Inter';
   border:none;
   width: 150px;
   font-weight: bold;
-  margin-right: 20px;
-  margin-left: auto;
 }
 
-.login:hover, .signup:hover {
-  background-color: rgba(54, 67, 72, 0.8);
+.loginmodal:hover {
+  background-color: #520000;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
 }
