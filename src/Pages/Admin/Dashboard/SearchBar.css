@@ -1,7 +1,5 @@
 .search {
-    ::placeholder {
-        font-family: 'Inter';
-    }
+    font-family: 'Inter';
     width: 20%;
     height: 30px;
     border-radius: 5px;

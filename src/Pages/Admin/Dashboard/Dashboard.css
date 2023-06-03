@@ -7,17 +7,102 @@
 
 .dash {
     position: absolute;
-    width: 537px;
-    height: 55px;
-    left: 100px;
-    top: 20px;
+    width: 25%;
+    height: 10%;
+    left: 10%;
+    top: 1%;
     font-family: 'Inter';
     font-style: bold;
     font-weight: 900;
-    font-size: 20px;
-    line-height: 73px;
+    font-size: 30px;
     display: flex;
     align-items: center;
     color: #520000;
+}
+
+.container-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 6% 15%;
+}
+  
+.box {
+    width: 40%;
+    height: 100%;
+    background-color: #481E1E;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+  
+.box-content {
+    background-color: #FFFFFF;
+    height: 30px;
+    width: 200px;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.employee-container, .profit-container, .cart-container {
+    padding-top: 5%;
+}
+
+.number {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 97px;
+    color: #FFFFFF;
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 8% 10%;
+    margin-top: -100px;
+}
+
+.box2 {
+    width: 30%;
+    height: 130%;
+    background-color: #481E1E;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.box-content2 {
+    background-color: #FFFFFF;
+    height: 30px;
+    width: 150px;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.viands-container, .drinks-container, .snacks-container, .schoolsupply-container {
+    padding-top: 20%;
 }
   
