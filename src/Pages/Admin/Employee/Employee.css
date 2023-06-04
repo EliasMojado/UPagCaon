@@ -1,0 +1,40 @@
+.employee-page {
+    background-image: url(../../../Assets/bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.e {
+    position: absolute;
+    width: 25%;
+    height: 10%;
+    left: 10%;
+    top: 1%;
+    font-family: 'Inter';
+    font-style: bold;
+    font-weight: 900;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    color: #520000;
+}
+
+.add-employee {
+    font-family: 'Inter';
+    font-style: normal;
+    background-color: #520000;
+    color: #FFFFFF;
+    width: 9%;
+    height: 30px; 
+    border-radius: 5px;
+    border: none;
+    margin: 20px 20px 20px 100px;
+    padding: 5px 20px 0px 5px;
+    float: right;
+    background-image: url(../../../Assets/addemployee.svg);
+    background-size: 16px 16px;
+    background-position: 95% center; 
+    background-repeat: no-repeat;
+    text-align: center;
+}

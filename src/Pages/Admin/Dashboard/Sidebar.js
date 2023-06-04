@@ -14,6 +14,19 @@ import wallet from '../../../Assets/NavIcons/wallet.svg';
 import shutdown from '../../../Assets/NavIcons/shutdown.svg';
 
 function Sidebar() {
+  const userBar = () =>{
+    console.log('napislit');
+  }
+  
+  const logout = () =>{
+    window.location.href = '/admin';
+    localStorage.removeItem('user');
+  }
+
+  const employee = () => {
+    window.location.href = '/admin/employee';
+  }
+
   return (
     <SideNav
       style={{ backgroundColor: '#481E1E' }}
@@ -31,7 +44,7 @@ function Sidebar() {
           <NavText className="navtext">Home</NavText>
         </NavItem>
 
-        <NavItem eventKey="user" onClick = {userBar}>
+        <NavItem eventKey="user" onClick = {employee}>
           <NavIcon>
             <img src={user} alt="user" className="nav-icon" />
           </NavIcon>
@@ -91,15 +104,5 @@ function Sidebar() {
     </SideNav>
   );
 }
-
-const userBar = () =>{
-  console.log('napislit');
-}
-
-const logout = () =>{
-  window.location.href = '/admin';
-  localStorage.removeItem('user');
-}
-
 
 export default Sidebar;
