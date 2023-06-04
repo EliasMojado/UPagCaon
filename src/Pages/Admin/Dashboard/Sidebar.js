@@ -24,7 +24,7 @@ function Sidebar() {
       <SideNav.Toggle />
       <SideNav.Nav defaultSelected="home">
     
-        <NavItem eventKey="home" onClick={home}>
+        <NavItem eventKey="home">
           <NavIcon>
             <img src={home} alt="home" className="nav-icon" />
           </NavIcon>
@@ -98,6 +98,7 @@ const userBar = () =>{
 
 const logout = () =>{
   window.location.href = '/admin';
+  localStorage.removeItem('user');
 }
 
 
