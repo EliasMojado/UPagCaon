@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../Landing/LoginForm.css';
 import TextFieldComponent from '../Landing/LoginForm.js';
 import '../Landing/LoginModal.css';
+import {apiUrl} from '../../../config.js';
 
 const LoginForm = ({ show, close }) => {
   const [email, setEmail] = useState('');
@@ -23,7 +24,7 @@ const LoginForm = ({ show, close }) => {
     };
 
     // Make a POST request to your login route
-    fetch('http://localhost:3000/user/login', {
+    fetch(apiUrl + '/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

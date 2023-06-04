@@ -1,6 +1,7 @@
 import '../Landing/SignupModal.css';
 import React, { useRef, useEffect, useState } from 'react';
 import TextFieldComponent from './SignupForm.js';
+import {apiUrl} from '../../../config.js';
 
 const SignupModal = ({ show, close }) => {
   const modalRef = useRef(null);
@@ -50,7 +51,7 @@ const SignupModal = ({ show, close }) => {
     };
 
     // Make a POST request to your signup route
-    fetch('http://localhost:3000/user/signup', {
+    fetch(apiUrl + '/user/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
