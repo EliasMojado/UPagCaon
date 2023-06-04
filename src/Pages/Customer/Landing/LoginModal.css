@@ -48,40 +48,29 @@
 } */
 
 .modal_footer {
+  font-family: "Inter";
   float: right;
-  /* display: flex;
-  justify-content: center; 
-  align-items: center;  */
-  padding: 3rem 0;
+  margin-top: 3%;
+  margin-right: 7%;
   padding-bottom: 0;
-}
-
-.modal_footer button {
-  padding: 0.5rem;
-  border-radius: 10px;
 }
 
 
 .customer-login {
-  background-color: #481E1E;
+  background: #481E1E;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Inter';
   color: #FFFFFF;
-  font: 'Inter';
-  border:none;
-  width: 150px;
-  font-weight: bold;
+  /* font-weight: bold; */
+  font-size: medium;
+  width: 10vw;
+  height: 5vh;
+  padding: 1%;
+  cursor: pointer;
 }
 
-.signup {
-  background-color: #FFFFFF;
-  color: #481E1E;
-  font: 'Inter';
-  border:none;
-  width: 150px;
-  font-weight: bold;
-  margin-right: 20px;
-  margin-left: auto;
-}
-
-.login:hover, .signup:hover {
+.login:hover,
+.signup:hover {
   background-color: rgba(54, 67, 72, 0.8);
 }

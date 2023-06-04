@@ -42,26 +42,21 @@
   transform: scale(1.1);
 }
 
-.modal_footer {
-  float: right;
-  padding: 3rem 0;
-  padding-bottom: 0;
-}
-
-.modal_footer button {
-  padding: 0.5rem;
-  border-radius: 10px;
-}
-
 .customer-signup {
-  background-color: #481E1E;
+  background: #481E1E;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Inter';
   color: #FFFFFF;
-  font: 'Inter';
-  border:none;
-  width: 150px;
-  font-weight: bold;
+  /* font-weight: bold; */
+  font-size: medium;
+  width: 10vw;
+  height: 5vh;
+  padding: 1%;
+  cursor: pointer;
 }
 
-.login:hover, .signup:hover {
+.login:hover,
+.signup:hover {
   background-color: rgba(54, 67, 72, 0.8);
 }

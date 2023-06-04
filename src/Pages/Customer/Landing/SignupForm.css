@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-.name, 
+}
+
+.name,
 .email,
 .password,
 .contact {
@@ -13,6 +13,8 @@
     height: 40px;
     border-radius: 10px;
     border: none;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
+    font-family: 'Inter';
+    padding-inline-start: 5%;
+    padding-inline-end: 5%;
 }
-  

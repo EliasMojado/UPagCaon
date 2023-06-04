@@ -24,16 +24,18 @@ function Landing() {
       </header>
       <div className='content'>
         <div className="img-container">
-          <img src={logo} alt="logo" className="logo" />
+          <img src={logo} alt="logo" className="logo-landing" />
         </div>
         <div>
           <img src={kaha} alt="kaha" className="kaha" />
         </div>
         <div className="buttons">
-        <button className="signup" onClick={() => ToggleS()}>
+        <button className="signup-btn" onClick={() => ToggleS()}>
             SIGN UP
           </button>
-          <button className="login" onClick={() => ToggleL()}>
+          <div className="space">    
+          </div>
+          <button className="login-btn" onClick={() => ToggleL()}>
             LOG IN
           </button>
         </div>
