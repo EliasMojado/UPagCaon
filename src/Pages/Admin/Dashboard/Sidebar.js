@@ -1,4 +1,4 @@
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../Dashboard/Sidebar.css';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
@@ -14,17 +14,23 @@ import wallet from '../../../Assets/NavIcons/wallet.svg';
 import shutdown from '../../../Assets/NavIcons/shutdown.svg';
 
 function Sidebar() {
-  const userBar = () =>{
-    console.log('napislit');
-  }
+  // const userBar = () =>{
+  //   console.log('napislit');
+  // }
   
   const logout = () =>{
     window.location.href = '/admin';
     localStorage.removeItem('user');
   }
 
-  const employee = () => {
-    window.location.href = '/admin/employee';
+  const navigate = useNavigate();
+
+  const goToHomePage = () => {
+    navigate('/admin/dashboard', { replace: true });
+  }
+
+  const goToEmployeePage = () => {
+    navigate('/admin/employee', { replace: true });
   }
 
   return (
@@ -37,14 +43,14 @@ function Sidebar() {
       <SideNav.Toggle />
       <SideNav.Nav defaultSelected="home">
     
-        <NavItem eventKey="home">
+        <NavItem eventKey="home" onClick = {goToHomePage}>
           <NavIcon>
             <img src={home} alt="home" className="nav-icon" />
           </NavIcon>
           <NavText className="navtext">Home</NavText>
         </NavItem>
 
-        <NavItem eventKey="user" onClick = {employee}>
+        <NavItem eventKey="user" onClick = {goToEmployeePage}>
           <NavIcon>
             <img src={user} alt="user" className="nav-icon" />
           </NavIcon>
