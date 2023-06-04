@@ -88,7 +88,7 @@ function Dashboard() {
             </div>
           </div>
           <div className="box2">
-            <span className='box-content2'>Drinks</span>
+            <span className='box-content2'>Beverages</span>
             <div className='drinks-container'>
               <img src={drinks} alt='drinks' className='drinks'/>
             </div>

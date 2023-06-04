@@ -48,9 +48,9 @@ const LoginForm = ({ show, close }) => {
     <>
       {show ? (
         <div className="modalContainer" onClick={() => close()}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
+          <div className="customer-modal" onClick={(e) => e.stopPropagation()}>
             <header className="modal_header">
-              <h2 className="modal_header-title">LOG IN</h2>
+              <h2 className="customer-modal_header-title">LOG IN</h2>
             </header>
             <main className="modal_content">
               <div>
@@ -63,7 +63,7 @@ const LoginForm = ({ show, close }) => {
               </div>
             </main>
             <footer className="modal_footer">
-              <button className="login" onClick={handleLogIn}>
+              <button className="customer-login" onClick={handleLogIn}>
                 Login
               </button>
             </footer>

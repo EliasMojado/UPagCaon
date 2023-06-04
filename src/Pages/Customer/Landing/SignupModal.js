@@ -74,9 +74,9 @@ const SignupModal = ({ show, close }) => {
     <>
       {show ? (
         <div className="modalContainer">
-          <div ref={modalRef} className="modal" onClick={(e) => e.stopPropagation()}>
+          <div ref={modalRef} className="customer_signup-modal" onClick={(e) => e.stopPropagation()}>
             <header className="modal_header">
-              <h2 className="modal_header-title">SIGN UP</h2>
+              <h2 className="customer_signup-modal_header-title">SIGN UP</h2>
             </header>
             <main className="modal_content">
               <div>
@@ -93,7 +93,7 @@ const SignupModal = ({ show, close }) => {
               </div>
             </main>
             <footer className="modal_footer">
-              <button className="login" onClick={handleSignUp}>
+              <button className="customer-signup" onClick={handleSignUp}>
                 Sign up
               </button>
             </footer>
