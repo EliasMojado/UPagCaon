@@ -35,7 +35,7 @@ function Sidebar() {
           <NavIcon>
             <img src={user} alt="user" className="nav-icon" />
           </NavIcon>
-          <NavText className="navtext">User</NavText>
+          <NavText className="navtext">Employees</NavText>
         </NavItem>
 
         <NavItem eventKey="viand">
@@ -49,7 +49,7 @@ function Sidebar() {
           <NavIcon>
             <img src={drink} alt="drink" className="nav-icon" />
           </NavIcon>
-          <NavText className="navtext">Drinks</NavText>
+          <NavText className="navtext">Beverages</NavText>
         </NavItem>        
 
         <NavItem eventKey="snack">
