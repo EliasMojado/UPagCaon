@@ -23,7 +23,7 @@ const LoginForm = ({ show, close }) => {
     };
 
     // Make a POST request to your login route
-    fetch('http://localhost:3000/user/login', {
+    fetch('http://localhost:3000/admin/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,9 +32,16 @@ const LoginForm = ({ show, close }) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        // Handle the response from the server
+
         console.log('Response:', data);
-        // Perform any necessary actions based on the response
+        // Handle the response from the server
+        if(data.type === 'admin'){
+          console.log('Admin user logged in');
+          window.location.href = '/admin/dashboard';
+          console.log(data.type);
+        }else{
+          console.log('Unauthorized access');
+        }
       })
       .catch((error) => {
         console.error('Error:', error);

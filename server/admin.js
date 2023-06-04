@@ -4,7 +4,7 @@ const db = require('./db');
 const uuid = require('uuid');
 const router = express.Router();
 
-// POST /user/signup - Sign up a new user
+// POST /admin/signup - Sign up a new admin
 router.post('/signup', (req, res) => {
   const { name, email, password, contact_number, type} = req.body;
 
@@ -14,7 +14,7 @@ router.post('/signup', (req, res) => {
   // generate a unique id
   const id = uuid.v4();
 
-  const user = {
+  const admin = {
     id,
     name,
     password: hashedPassword,
@@ -23,24 +23,24 @@ router.post('/signup', (req, res) => {
     type
   }
 
-  // Insert the user into the database
-  db.query('INSERT INTO users SET ?', user, (err, results) => {
+  // Insert the admin into the database
+  db.query('INSERT INTO users SET ?', admin, (err, results) => {
     if (err) {
       console.error('Error signing up:', err);
       res.status(500).json({ error: 'An error occurred while signing up.' });
       return;
     }
 
-    console.log('User signed up successfully!');
-    res.status(200).json({ message: 'User signed up successfully!' });
+    console.log('admin signed up successfully!');
+    res.status(200).json({ message: 'Admin signed up successfully!' });
   })
 });
 
-//POST /user/login - Log in user
+//POST /admin/login - Log in admin
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
 
-  // Query the database to check if the user exists
+  // Query the database to check if the admin exists
   db.query('SELECT * FROM users WHERE email = ?', email, (err, results) => {
     if (err) {
       console.error('Error logging in:', err);
@@ -48,47 +48,47 @@ router.post('/login', (req, res) => {
       return;
     }
 
-    // Check if the user exists in the database
+    // Check if the admin exists in the database
     if (results.length === 0) {
       res.status(401).json({ error: 'Invalid credentials.' });
       return;
     }
 
-    const user = results[0];
+    const admin = results[0];
 
     // Compare the provided password with the hashed password stored in the database
-    if (!bcrypt.compareSync(password, user.password)) {
+    if (!bcrypt.compareSync(password, admin.password)) {
       res.status(401).json({ error: 'Invalid credentials.' });
       return;
     }
 
-    // User is authenticated, return a success message or token
-    res.status(200).json({ message: 'Login successful!' , type: user.type});
+    // admin is authenticated, return a success message or token
+    res.status(200).json({ message: 'Login successful!' , type: admin.type});
   });
 });
 
-// PUT /user/:id
+// PUT /admin/:id
 router.put('/:id', (req, res) => {
   const userId = req.params.id;
   const { attribute, value } = req.body;
 
-  // Update the user attribute in the database
+  // Update the admin attribute in the database
   const query = `UPDATE users SET ${attribute} = ? WHERE id = ?`;
   db.query(query, [value, userId], (err, results) => {
     if (err) {
-      console.error('Error updating user:', err);
-      res.status(500).json({ error: 'An error occurred while updating the user.' });
+      console.error('Error updating admin:', err);
+      res.status(500).json({ error: 'An error occurred while updating the admin.' });
       return;
     }
 
     if (results.affectedRows === 0) {
-      // No user found with the given id
-      res.status(404).json({ error: 'User not found.' });
+      // No admin found with the given id
+      res.status(404).json({ error: 'admin not found.' });
       return;
     }
 
-    console.log('User updated successfully!');
-    res.status(200).json({ message: 'User updated successfully!' });
+    console.log('admin updated successfully!');
+    res.status(200).json({ message: 'admin updated successfully!' });
   });
 });
 

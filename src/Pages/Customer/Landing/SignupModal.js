@@ -46,6 +46,7 @@ const SignupModal = ({ show, close }) => {
       email: email,
       password: password,
       contact_number: contact_number,
+      type: "customer"
     };
 
     // Make a POST request to your signup route
