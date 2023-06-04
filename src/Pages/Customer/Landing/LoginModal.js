@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast, {Toaster} from "react-hot-toast";
 import '../Landing/LoginForm.css';
 import TextFieldComponent from '../Landing/LoginForm.js';
 import '../Landing/LoginModal.css';
@@ -35,10 +36,19 @@ const LoginForm = ({ show, close }) => {
       .then((data) => {
         // Handle the response from the server
         console.log('Response:', data);
+        toast.success(Response.data.message,{
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+          duration:3000
+        });
         // Perform any necessary actions based on the response
       })
       .catch((error) => {
         console.error('Error:', error);
+        
         // Handle any errors that occurred during the request
       });
   };
