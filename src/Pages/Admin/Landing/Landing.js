@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import logo from '../../../Assets/logo.svg';
 import kaha from '../../../Assets/kaha.svg';
 import footer from '../../../Assets/footer-logo.svg';
@@ -19,7 +20,7 @@ function Landing() {
       </header>
       <div className='content'>
         <div className="img-container">
-          <img src={logo} alt="logo" className="logo" />
+          <img src={logo} alt="logo" className="logo-landing" />
         </div>
         <div>
           <img src={kaha} alt="kaha" className="kaha" />
