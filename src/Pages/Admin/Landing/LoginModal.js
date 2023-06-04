@@ -39,7 +39,7 @@ const LoginForm = ({ show, close }) => {
         if(data.type === 'admin'){
           console.log('Admin user logged in');
           window.location.href = '/admin/dashboard';
-          console.log(data.type);
+          localStorage.setItem('user', JSON.stringify(data));
         }else{
           console.log('Unauthorized access');
         }
