@@ -2,8 +2,37 @@ import React from 'react';
 import '../Employee/Employee.css';
 import closebutton from '../../../Assets/close-button.svg';
 import deleteicon from '../../../Assets/delete.svg';
+import { apiUrl } from '../../../config';
 
-function DeleteEmployeeModal({ show, close }) {
+function DeleteEmployeeModal({ show, close, employee }) {
+
+  const adminDelete = () =>{
+    fetch(apiUrl + '/admin/delete', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: employee.ID}),
+    }).then((response) => {
+        if (response.ok) {
+          // Delete operation successful
+          console.log('Employee deleted successfully');
+          // Perform any additional actions, such as updating the employee list
+        } else {
+          // Delete operation failed
+          console.error('Error deleting employee');
+          // Handle the error case appropriately
+        }
+      })
+      .catch((error) => {
+        console.error('Error deleting employee:', error);
+        // Handle the error case appropriately
+      });
+
+    close();
+  };
+  
+  
     return (
         <>
         {show ? (
@@ -29,7 +58,7 @@ function DeleteEmployeeModal({ show, close }) {
                     <button className="no" onClick={close}>
                         No
                     </button>
-                    <button className="yes" onClick={close}>
+                    <button className="yes" onClick={adminDelete}>
                         Yes
                     </button>
                 </div>

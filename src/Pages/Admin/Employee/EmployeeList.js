@@ -4,7 +4,14 @@ import DeleteEmployeeModal from './DeleteEmployeeModal';
 
 const EmployeeList = ({ employees }) => {
     const [showDeleteEmployeeModal, setShowDeleteEmployeeModal] = useState(false);
-    const Toggle = () => setShowDeleteEmployeeModal(!showDeleteEmployeeModal);
+    const [selectedEmployee, setSelectedEmployee] = useState({});
+
+    const Toggle = (employee) => {
+        console.log(employee);
+        setShowDeleteEmployeeModal(!showDeleteEmployeeModal);
+        setSelectedEmployee(employee);
+    }
+       
     const closeDeleteEmployeeModal = () => setShowDeleteEmployeeModal(false);
 
   return (
@@ -29,7 +36,7 @@ const EmployeeList = ({ employees }) => {
                     <td>{employee.email}</td>
                     <td>{employee.contact_number}</td>
                     <td> 
-                        <button className='delete' onClick={() => Toggle()}>
+                        <button className='delete' onClick={() => Toggle(employee)}>
                             Delete
                         </button>
                     </td>
@@ -38,7 +45,11 @@ const EmployeeList = ({ employees }) => {
         </tbody>
      </table>
 
-     <DeleteEmployeeModal show={showDeleteEmployeeModal} close={closeDeleteEmployeeModal}/>
+    <DeleteEmployeeModal
+        show={showDeleteEmployeeModal}
+        close={closeDeleteEmployeeModal}
+        employee={selectedEmployee}
+    />
     </div>
   );
 };

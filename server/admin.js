@@ -121,5 +121,22 @@ router.get('/employee', (req, res) => {
   });
 });
 
+// DELETE /admin/delete
+router.delete('/delete', (req, res) => {
+  const { adminID } = req.body
+
+  // Perform the deletion operation in the database
+  db.query('DELETE FROM users WHERE ID = ?', [adminID], (err, results) => {
+    if (err) {
+      console.error('Error deleting admin:', err);
+      res.status(500).json({ error: 'An error occurred while deleting admin.' });
+      return;
+    }
+
+    res.status(200).json({ message: 'Admin deleted successfully!' });
+  });
+  
+});
+
 
 module.exports = router;
