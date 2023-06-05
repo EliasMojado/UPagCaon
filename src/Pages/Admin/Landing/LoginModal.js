@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import '../Landing/LoginForm.css';
 import TextFieldComponent from './LoginForm.js';
 import '../Landing/LoginModal.css'
@@ -38,6 +39,26 @@ const LoginForm = ({ show, close }) => {
         // Handle the response from the server
         if(data.type === 'admin'){
           console.log('Admin user logged in');
+          if (data.error){
+            toast.error(data.error,{
+              style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+              },
+              duration:3000
+            }); 
+          } else {
+            toast.success(data.message,{
+              style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+              },
+              duration:3000
+            });
+          //refreshPage();
+          }
           window.location.href = '/admin/dashboard';
           localStorage.setItem('user', JSON.stringify(data));
         }else{

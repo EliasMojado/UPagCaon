@@ -35,15 +35,26 @@ const LoginForm = ({ show, close }) => {
       .then((response) => response.json())
       .then((data) => {
         // Handle the response from the server
-        console.log('Response:', data);
-        toast.success(Response.data.message,{
-          style: {
-            borderRadius: '10px',
-            background: '#333',
-            color: '#fff',
-          },
-          duration:3000
-        });
+        if (data.error){
+          toast.error(data.error,{
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+            duration:3000
+          }); 
+        } else {
+          toast.success(data.message,{
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+            duration:3000
+          });
+        }
+        //refreshPage();
         // Perform any necessary actions based on the response
       })
       .catch((error) => {
