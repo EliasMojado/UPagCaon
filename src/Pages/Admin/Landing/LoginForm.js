@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Landing/LoginForm.css';
+import '../Landing/Landing.css';
 
 const TextFieldComponent = ({
   email,

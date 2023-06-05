@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import '../Landing/LoginForm.css';
+import '../Landing/Landing.css';
 import TextFieldComponent from './LoginForm.js';
-import '../Landing/LoginModal.css'
 import {apiUrl} from '../../../config.js';
 
 const LoginForm = ({ show, close }) => {
