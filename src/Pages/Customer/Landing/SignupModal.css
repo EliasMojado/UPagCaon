@@ -1,9 +1,6 @@
 .modalContainer {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   background-color: rgba(0, 0, 0, 0.35);
   display: flex;
   justify-content: center;
@@ -19,6 +16,10 @@
   background-color: #B88D5D;
   backdrop-filter: blur(5px);
   box-shadow: 1px 4px 4px 2px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .customer_signup-modal_header-title {
@@ -29,6 +30,7 @@
   line-height: 48px;
   text-align: center;
   color: #520000;
+  margin-top: 10px;
 }
 
 .close {
@@ -47,13 +49,13 @@
   border: none;
   border-radius: 10px;
   font-family: 'Inter';
+  font-weight: 600;
   color: #FFFFFF;
-  /* font-weight: bold; */
   font-size: medium;
   width: 10vw;
   height: 5vh;
-  padding: 1%;
   cursor: pointer;
+  padding: 0;
 }
 
 .login:hover,
