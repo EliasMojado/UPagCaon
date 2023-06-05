@@ -12,7 +12,7 @@ function DeleteEmployeeModal({ show, close, employee }) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ id: employee.ID}),
+      body: JSON.stringify({ adminID: employee.ID}),
     }).then((response) => {
         if (response.ok) {
           // Delete operation successful
