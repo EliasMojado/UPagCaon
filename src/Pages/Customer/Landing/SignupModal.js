@@ -1,5 +1,6 @@
 import '../Landing/SignupModal.css';
 import React, { useRef, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import TextFieldComponent from './SignupForm.js';
 import {apiUrl} from '../../../config.js';
 
@@ -62,10 +63,37 @@ const SignupModal = ({ show, close }) => {
       .then((data) => {
         // Handle the response from the server
         console.log('Response:', data);
-        // Perform any necessary actions based on the response
+        if (data.error){
+          toast.error(data.error,{
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+            duration:3000
+          }); 
+        } else {
+          toast.success(data.message,{
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+            duration:3000
+          });
+        //refreshPage();
+        }
       })
       .catch((error) => {
         console.error('Error:', error);
+          toast.error(error.error,{
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+            duration:3000
+          }); 
         // Handle any errors that occurred during the request
       });
   };
