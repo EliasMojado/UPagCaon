@@ -43,7 +43,6 @@ function Dashboard() {
     fetch(apiUrl + '/admin/count')
       .then((response) => response.json())
       .then((data) => {
-        console.log('Admin Count:', data.adminCount);
         setAdminCount(data.adminCount);
       })
       .catch((error) => {

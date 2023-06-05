@@ -108,5 +108,19 @@ router.get('/count', (req, res) => {
   });
 });
 
+// GET /admin/employee
+router.get('/employee', (req, res) => {
+  // Fetch the admin users from the database
+  db.query('SELECT * FROM users WHERE type = ?', ['admin'], (err, results) => {
+    if (err) {
+      console.error('Error fetching admins:', err);
+      res.status(500).json({ error: 'An error occurred while fetching admins.' });
+      return;
+    }
+
+    res.status(200).json(results);
+  });
+});
+
 
 module.exports = router;
