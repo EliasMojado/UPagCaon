@@ -103,7 +103,6 @@ router.get('/count', (req, res) => {
     }
 
     const adminCount = results[0].adminCount;
-    console.log(adminCount);
     res.status(200).json({ adminCount });
   });
 });
