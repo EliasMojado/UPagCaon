@@ -1,5 +1,5 @@
 import React from 'react';
-import './OrderList.css';
+import './Dashboard.css';
 
 const OrderList = ({ orders }) => {
   return (

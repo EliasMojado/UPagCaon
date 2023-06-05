@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import '../Dashboard/Sidebar.css';
+import '../Dashboard/Dashboard.css';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import logo from '../../../Assets/logowhite.svg';
@@ -38,7 +38,9 @@ function Sidebar() {
       style={{ backgroundColor: '#481E1E' }}
       onSelect={(selected) => {}}
     >
-      <img src={logo} alt="logo" className="logo" />
+      <div>
+        <img src={logo} alt="logo" className="logo" />
+      </div>
       <div></div>
       <SideNav.Toggle />
       <SideNav.Nav defaultSelected="home">

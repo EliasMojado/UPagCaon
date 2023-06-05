@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../Dashboard/SearchBar.css';
+import '../Dashboard/Dashboard.css';
 
 
 const SearchBar = () => {
