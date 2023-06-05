@@ -4,8 +4,12 @@ import SearchBar from '../Dashboard/SearchBar';
 import EmployeeList from './EmployeeList';
 import { useState, useEffect } from 'react';
 import { apiUrl } from '../../../config';
+import AddEmployeeModal from './AddEmployeeModal';
 
 function Employee() {
+    const [showAdddEmployeeModal, setShowAddEmployeeModal] = useState(false);
+    const Toggle = () => setShowAddEmployeeModal(!showAdddEmployeeModal);
+    const closeAddEmployeeModal = () => setShowAddEmployeeModal(false);
 
     const [employees, setEmployees] = useState([]);
 
@@ -27,11 +31,14 @@ function Employee() {
                 <span className="e">EMPLOYEE</span>
                 <SearchBar/>
                 <Sidebar/>
-                <span className='add-employee'>Add Employee</span>
+                <button className='add-employee' onClick={() => Toggle()}>
+                    Add Employee
+                </button>
             </header>
             <EmployeeList employees={employees}/>
-        </div>
 
+            <AddEmployeeModal show={showAdddEmployeeModal} close={closeAddEmployeeModal}/>
+        </div>
     )
 }
 
