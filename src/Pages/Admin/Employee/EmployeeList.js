@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './EmployeeList.css';
+import DeleteEmployeeModal from './DeleteEmployeeModal';
 
 const EmployeeList = ({ employees }) => {
+    const [showDeleteEmployeeModal, setShowDeleteEmployeeModal] = useState(false);
+    const Toggle = () => setShowDeleteEmployeeModal(!showDeleteEmployeeModal);
+    const closeDeleteEmployeeModal = () => setShowDeleteEmployeeModal(false);
+
   return (
     <div className="employee-list"> 
      <table> 
@@ -23,11 +28,17 @@ const EmployeeList = ({ employees }) => {
                     <td>{employee.name}</td>
                     <td>{employee.email}</td>
                     <td>{employee.contact_number}</td>
-                    <td> <span className='delete'>Delete</span></td>
+                    <td> 
+                        <button className='delete' onClick={() => Toggle()}>
+                            Delete
+                        </button>
+                    </td>
                 </tr>
             ))}
         </tbody>
      </table>
+
+     <DeleteEmployeeModal show={showDeleteEmployeeModal} close={closeDeleteEmployeeModal}/>
     </div>
   );
 };

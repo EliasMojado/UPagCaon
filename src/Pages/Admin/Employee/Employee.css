@@ -144,7 +144,6 @@
 .cancel:hover {
     background-color: rgba(54, 67, 72, 0.8);
 }
-  
 
 /* ADD EMPLOYEE FORM CSS */
 
@@ -167,4 +166,94 @@
     margin-bottom: 20px;
     padding-inline-start: 5%;
     padding-inline-end: 5%;
+}
+
+/* DELETE EMPLOYEE CSS */
+
+.delete-employee-container {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.delete-employee-modal {
+    width: 30vw;
+    height: auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: #B88D5D;
+    backdrop-filter: blur(5px);
+    box-shadow: 1px 4px 4px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-icon {
+    width: 90%;
+    height: 90%;
+}
+  
+.delete-employee-modal_header-title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 200%;
+    text-align: center;
+    color: #520000;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+  
+.delete-content {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 100%;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 20%;
+}
+
+.delete-modal_footer {
+    margin-top: 5%;
+}
+
+.yes {
+    background: #481E1E;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter';
+    color: #FFFFFF;
+    font-size: medium;
+    width: 6vw;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.no {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-weight: 600;
+    color: #481E1E;
+    font-size: medium;
+    width: 6vw;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+}
+  
+.no:hover,
+.yes:hover {
+    background-color: rgba(54, 67, 72, 0.8);
 }

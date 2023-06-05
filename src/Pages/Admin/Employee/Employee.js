@@ -7,8 +7,8 @@ import { apiUrl } from '../../../config';
 import AddEmployeeModal from './AddEmployeeModal';
 
 function Employee() {
-    const [showAdddEmployeeModal, setShowAddEmployeeModal] = useState(false);
-    const Toggle = () => setShowAddEmployeeModal(!showAdddEmployeeModal);
+    const [showAddEmployeeModal, setShowAddEmployeeModal] = useState(false);
+    const Toggle = () => setShowAddEmployeeModal(!showAddEmployeeModal);
     const closeAddEmployeeModal = () => setShowAddEmployeeModal(false);
 
     const [employees, setEmployees] = useState([]);
@@ -37,7 +37,7 @@ function Employee() {
             </header>
             <EmployeeList employees={employees}/>
 
-            <AddEmployeeModal show={showAdddEmployeeModal} close={closeAddEmployeeModal}/>
+            <AddEmployeeModal show={showAddEmployeeModal} close={closeAddEmployeeModal}/>
         </div>
     )
 }
