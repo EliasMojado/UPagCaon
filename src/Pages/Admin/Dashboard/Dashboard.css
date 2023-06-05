@@ -105,4 +105,70 @@
 .viands-container, .drinks-container, .snacks-container, .schoolsupply-container {
     padding-top: 20%;
 }
+
+/* ORDER LIST CSS */
+
+.order-list {
+    position: fixed;
+    top: 23%;
+    right: 10%;
+    width: 22%;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
   
+.order-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-list li {
+    margin-bottom: 3%;
+    padding: 2%;
+    background-color: #fff;
+    border-radius: 4px;
+}
+  
+/* SEARCH BAR CSS */
+
+.search {
+    font-family: 'Inter';
+    width: 20%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    margin: 20px;
+    padding-left: 10px; 
+    float: right;
+    background-image: url(../../../Assets/search.svg);
+    background-size: 16px 16px; 
+    background-position: 95% center; 
+    background-repeat: no-repeat;
+    padding-right: 20px;
+}
+
+/* SIDEBAR CSS */
+
+.logo {
+    width: 50px;
+    height: 50px;
+    /* height:50%;
+    width: 50%; */
+    margin: 10%;
+}
+  
+.nav-icon {
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+.navtext {
+    font-family: 'Inter';
+}
+.shutdown {
+    margin-top: 5%;
+}

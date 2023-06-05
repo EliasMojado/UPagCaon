@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './EmployeeList.css';
+import './Employee.css';
 import DeleteEmployeeModal from './DeleteEmployeeModal';
 
 const EmployeeList = ({ employees }) => {
