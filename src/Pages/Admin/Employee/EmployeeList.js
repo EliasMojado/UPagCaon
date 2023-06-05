@@ -8,7 +8,7 @@ const EmployeeList = ({ employees }) => {
         <thead>
             <tr>
                 <th className='first-column'></th>
-                <th>Employee Number</th>
+                <th>Employee ID</th>
                 <th>Employee Name</th>
                 <th>Email</th>
                 <th>Contact Number</th>
