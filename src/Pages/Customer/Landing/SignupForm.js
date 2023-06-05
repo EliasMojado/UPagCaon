@@ -23,7 +23,7 @@ const TextFieldComponent = ({
       />
       <input
         className='email'
-        type="text"
+        type="email"
         placeholder="Email"
         value={email}
         onChange={handleEmailChange}

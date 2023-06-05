@@ -1,5 +1,6 @@
 import '../Landing/SignupModal.css';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import TextFieldComponent from './SignupForm.js';
 import {apiUrl} from '../../../config.js';
@@ -24,6 +25,8 @@ const SignupModal = ({ show, close }) => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, [close]);
+
+  const navigate = useNavigate();
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -81,7 +84,7 @@ const SignupModal = ({ show, close }) => {
             },
             duration:3000
           });
-        //refreshPage();
+        navigate('/');
         }
       })
       .catch((error) => {

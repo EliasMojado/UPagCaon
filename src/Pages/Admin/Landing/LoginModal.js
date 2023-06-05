@@ -57,7 +57,6 @@ const LoginForm = ({ show, close }) => {
               },
               duration:3000
             });
-          //refreshPage();
           }
           window.location.href = '/admin/dashboard';
           localStorage.setItem('user', JSON.stringify(data));

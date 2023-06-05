@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import toast, {Toaster} from "react-hot-toast";
+import toast from "react-hot-toast";
+import { useNavigate } from 'react-router-dom';
 import '../Landing/LoginForm.css';
 import TextFieldComponent from '../Landing/LoginForm.js';
 import '../Landing/LoginModal.css';
@@ -8,7 +9,7 @@ import {apiUrl} from '../../../config.js';
 const LoginForm = ({ show, close }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate();
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -34,32 +35,37 @@ const LoginForm = ({ show, close }) => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log('Response:', data);
         // Handle the response from the server
-        if (data.error){
-          toast.error(data.error,{
-            style: {
-              borderRadius: '10px',
-              background: '#333',
-              color: '#fff',
-            },
-            duration:3000
-          }); 
-        } else {
-          toast.success(data.message,{
-            style: {
-              borderRadius: '10px',
-              background: '#333',
-              color: '#fff',
-            },
-            duration:3000
-          });
+        if(data.type === 'customer'){
+          console.log('Customer user logged in');
+          if (data.error){
+            toast.error(data.error,{
+              style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+              },
+              duration:3000
+            }); 
+          } else {
+            toast.success(data.message,{
+              style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+              },
+              duration:3000
+            });
+          }
+          window.location.href = '/home';
+          localStorage.setItem('user', JSON.stringify(data));
+        }else{
+          console.log('Unauthorized access');
         }
-        //refreshPage();
-        // Perform any necessary actions based on the response
       })
       .catch((error) => {
         console.error('Error:', error);
-        
         // Handle any errors that occurred during the request
       });
   };
