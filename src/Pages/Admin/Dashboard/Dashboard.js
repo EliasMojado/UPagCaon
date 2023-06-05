@@ -14,9 +14,12 @@ import drinks from '../../../Assets/NavIcons/drink.svg';
 import snacks from '../../../Assets/NavIcons/snack.svg';
 import schoolsupply from '../../../Assets/NavIcons/schoolsupply.svg';
 
+import { apiUrl } from '../../../config';
+
 function Dashboard() {
 
   const [authenticated, setAuthenticated] = useState(false);
+  const [adminCount, setAdminCount ] = useState(0);
 
   useEffect(() => {
     // Retrieve the stored user data from local storage
@@ -33,6 +36,19 @@ function Dashboard() {
     }else{
       window.location.href = '/admin';
     }
+  }, []);
+
+  useEffect(() => {
+    // Make an API call to fetch the count of admins
+    fetch(apiUrl + '/admin/count')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Admin Count:', data.adminCount);
+        setAdminCount(data.adminCount);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }, []);
 
   const orders = [
@@ -62,14 +78,14 @@ function Dashboard() {
             <span className='box-content'>Total Employees</span>
             <div className='employee-container'>
               <img src={employee} alt='employee' className='employee'/>
-              <span className='number'>105</span>
+              <span className='number'>{adminCount}</span>
             </div>
           </div>
           <div className="box">
             <span className='box-content'>Total Profit</span>
             <div className='profit-container'>
               <img src={wallet} alt='wallet' className='wallet'/>
-              <span className='number'>500</span>
+              <span className='number'>5.3k</span>
             </div>
           </div>
           <div className="box">

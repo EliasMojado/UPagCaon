@@ -92,4 +92,21 @@ router.put('/:id', (req, res) => {
   });
 });
 
+// GET /admin/count
+router.get('/count', (req, res) => {
+  // Fetch the count of admin users from the database
+  db.query('SELECT COUNT(*) AS adminCount FROM users WHERE type = ?', ['admin'], (err, results) => {
+    if (err) {
+      console.error('Error fetching admin count:', err);
+      res.status(500).json({ error: 'An error occurred while fetching admin count.' });
+      return;
+    }
+
+    const adminCount = results[0].adminCount;
+    console.log(adminCount);
+    res.status(200).json({ adminCount });
+  });
+});
+
+
 module.exports = router;
