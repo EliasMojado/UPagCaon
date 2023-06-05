@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../Home/Home.css';
 
-import SearchBar from '../../Admin/Dashboard/SearchBar';
-import Sidebar from '../../Admin/Dashboard/Sidebar';
+import SearchBar from '../../Customer/Home/SearchBar';
+import Sidebar from '../../Customer/Home/Sidebar';
 // import OrderList from './OrderList';
 import employee from '../../../Assets/NavIcons/employee.svg';
 import wallet from '../../../Assets/NavIcons/wallet.svg';

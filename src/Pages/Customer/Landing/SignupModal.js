@@ -84,7 +84,7 @@ const SignupModal = ({ show, close }) => {
             },
             duration:3000
           });
-        navigate('/');
+        window.location.href = '/';
         }
       })
       .catch((error) => {

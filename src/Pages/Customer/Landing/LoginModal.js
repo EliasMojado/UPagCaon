@@ -38,7 +38,7 @@ const LoginForm = ({ show, close }) => {
         console.log('Response:', data);
         // Handle the response from the server
         if(data.type === 'customer'){
-          console.log('Customer user logged in');
+          // console.log('Customer user logged in');
           if (data.error){
             toast.error(data.error,{
               style: {
@@ -58,10 +58,20 @@ const LoginForm = ({ show, close }) => {
               duration:3000
             });
           }
-          window.location.href = '/home';
-          localStorage.setItem('user', JSON.stringify(data));
+          setTimeout(()=>{
+            window.location.href = '/home';
+            localStorage.setItem('user', JSON.stringify(data));
+          },3000)
         }else{
-          console.log('Unauthorized access');
+          console.log('Unauthorized access.');
+          toast.error('Unauthorized access.',{
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+            duration:3000
+          }); 
         }
       })
       .catch((error) => {

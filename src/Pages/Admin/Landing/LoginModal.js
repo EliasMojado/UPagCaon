@@ -38,7 +38,7 @@ const LoginForm = ({ show, close }) => {
         console.log('Response:', data);
         // Handle the response from the server
         if(data.type === 'admin'){
-          console.log('Admin user logged in');
+          console.log('Admin user logged in.');
           if (data.error){
             toast.error(data.error,{
               style: {
@@ -58,10 +58,20 @@ const LoginForm = ({ show, close }) => {
               duration:3000
             });
           }
+          setTimeout(()=>{
           window.location.href = '/admin/dashboard';
           localStorage.setItem('user', JSON.stringify(data));
-        }else{
-          console.log('Unauthorized access');
+          }, 2000)
+        } else {
+          console.log('Unauthorized access.');
+          toast.error('Unauthorized access.',{
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+            duration:3000
+          }); 
         }
       })
       .catch((error) => {

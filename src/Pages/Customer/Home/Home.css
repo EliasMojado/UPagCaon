@@ -125,3 +125,44 @@ body {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-left: 1ex;
 }
+
+.search {
+    font-family: 'Inter';
+    width: 20%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    margin: 20px;
+    padding-left: 10px;
+    float: right;
+    background-image: url(../../../Assets/search.svg);
+    background-size: 16px 16px;
+    background-position: 95% center;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.nav-icon {
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+.navtext {
+    font-family: 'Inter';
+}
+
+.shutdown {
+    margin-top: 40px;
+}
+
+.sidenav---navicon---3gCRo {
+    bottom: 0 !important;
+}

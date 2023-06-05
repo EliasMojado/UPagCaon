@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import '../Dashboard/Sidebar.css';
+import '../Home/Home.css';
+
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import logo from '../../../Assets/logowhite.svg';
@@ -19,17 +20,17 @@ function Sidebar() {
   // }
   
   const logout = () =>{
-    window.location.href = '/admin';
+    window.location.href = '/';
     localStorage.removeItem('user');
   }
 
   const navigate = useNavigate();
 
   const goToHomePage = () => {
-    navigate('/admin/dashboard', { replace: true });
+    navigate('/home', { replace: true });
   }
 
-  const goToEmployeePage = () => {
+  const goToViand = () => {
     navigate('/admin/employee', { replace: true });
   }
 
@@ -48,13 +49,6 @@ function Sidebar() {
             <img src={home} alt="home" className="nav-icon" />
           </NavIcon>
           <NavText className="navtext">Home</NavText>
-        </NavItem>
-
-        <NavItem eventKey="user" onClick = {goToEmployeePage}>
-          <NavIcon>
-            <img src={user} alt="user" className="nav-icon" />
-          </NavIcon>
-          <NavText className="navtext">Employees</NavText>
         </NavItem>
 
         <NavItem eventKey="viand">
@@ -89,14 +83,14 @@ function Sidebar() {
           <NavIcon>
             <img src={cart} alt="cart" className="nav-icon" />
           </NavIcon>
-          <NavText className="navtext">Orders</NavText>
+          <NavText className="navtext">Cart</NavText>
         </NavItem>
 
-        <NavItem eventKey="wallet">
+        <NavItem eventKey="user">
           <NavIcon>
-            <img src={wallet} alt="wallet" className="nav-icon" />
+            <img src={user} alt="user" className="nav-icon" />
           </NavIcon>
-          <NavText className="navtext">Profit</NavText>
+          <NavText className="navtext">Employees</NavText>
         </NavItem>
 
         <NavItem eventKey="shutdown" className="shutdown" onClick = {logout}>
