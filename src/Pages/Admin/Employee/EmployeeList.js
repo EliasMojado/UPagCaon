@@ -19,10 +19,10 @@ const EmployeeList = ({ employees }) => {
             {employees.map((employee) => (
                 <tr key={employee.id}>
                     <td> <span className='edit'>Edit</span></td>
-                    <td>{employee.id}</td>
+                    <td>{employee.ID}</td>
                     <td>{employee.name}</td>
                     <td>{employee.email}</td>
-                    <td>{employee.contact}</td>
+                    <td>{employee.contact_number}</td>
                     <td> <span className='delete'>Delete</span></td>
                 </tr>
             ))}
