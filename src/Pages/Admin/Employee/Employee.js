@@ -35,9 +35,12 @@ function Employee() {
                     Add Employee
                 </button>
             </header>
-            <EmployeeList employees={employees}/>
 
-            <AddEmployeeModal show={showAddEmployeeModal} close={closeAddEmployeeModal}/>
+            <EmployeeList employees={employees}/>
+            <AddEmployeeModal 
+                show={showAddEmployeeModal} 
+                close={closeAddEmployeeModal}
+            />
         </div>
     )
 }

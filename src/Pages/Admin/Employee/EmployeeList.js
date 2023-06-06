@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 import './Employee.css';
 import DeleteEmployeeModal from './DeleteEmployeeModal';
+import EditEmployeeModal from './EditEmployeeModal';
 
 const EmployeeList = ({ employees }) => {
     const [showDeleteEmployeeModal, setShowDeleteEmployeeModal] = useState(false);
     const [selectedEmployee, setSelectedEmployee] = useState({});
-
     const Toggle = (employee) => {
         console.log(employee);
         setShowDeleteEmployeeModal(!showDeleteEmployeeModal);
         setSelectedEmployee(employee);
     }
-       
     const closeDeleteEmployeeModal = () => setShowDeleteEmployeeModal(false);
+
+    const [showEditEmployeeModal, setShowEditEmployeeModal] = useState(false);
+    const ToggleE = (employee) => {
+        console.log(employee);
+        setShowEditEmployeeModal(!showEditEmployeeModal);
+        setSelectedEmployee(employee);
+    }
+    const closeEditEmployeeModal = () => setShowEditEmployeeModal(false);
+    
+
+
 
   return (
     <div className="employee-list"> 
@@ -30,7 +40,11 @@ const EmployeeList = ({ employees }) => {
         <tbody>
             {employees.map((employee) => (
                 <tr key={employee.id}>
-                    <td> <span className='edit'>Edit</span></td>
+                    <td> 
+                        <button className='edit' onClick={() => ToggleE(employee)}>
+                            Edit
+                        </button>
+                    </td>
                     <td>{employee.ID}</td>
                     <td>{employee.name}</td>
                     <td>{employee.email}</td>
@@ -48,6 +62,11 @@ const EmployeeList = ({ employees }) => {
     <DeleteEmployeeModal
         show={showDeleteEmployeeModal}
         close={closeDeleteEmployeeModal}
+        employee={selectedEmployee}
+    />
+    <EditEmployeeModal 
+        show={showEditEmployeeModal}
+        close={closeEditEmployeeModal}
         employee={selectedEmployee}
     />
     </div>
