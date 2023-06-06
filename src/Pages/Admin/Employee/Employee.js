@@ -5,6 +5,7 @@ import EmployeeList from './EmployeeList';
 import { useState, useEffect } from 'react';
 import { apiUrl } from '../../../config';
 import AddEmployeeModal from './AddEmployeeModal';
+import withAdminAuthentication from '../requireAdminAuthentication';
 
 function Employee() {
     const [showAddEmployeeModal, setShowAddEmployeeModal] = useState(false);
@@ -45,4 +46,4 @@ function Employee() {
     )
 }
 
-export default Employee;
+export default withAdminAuthentication(Employee);
