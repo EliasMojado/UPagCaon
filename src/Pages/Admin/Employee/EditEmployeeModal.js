@@ -13,7 +13,6 @@ function EditEmployeeModal({ show, close, employee }) {
   useEffect(() => {
     setName(employee.name);
     setEmail(employee.email);
-    setPassword(employee.password);
     setContactNumber(employee.contact_number);
   }, [employee]);
 
@@ -35,7 +34,7 @@ function EditEmployeeModal({ show, close, employee }) {
 
   const handleUpdateEmployee = () => {
     const updatedEmployee = {
-      id: employee.id,
+      id: employee.ID,
       name: name,
       email: email,
       password: password,

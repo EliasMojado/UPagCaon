@@ -14,9 +14,6 @@ import wallet from '../../../Assets/NavIcons/wallet.svg';
 import shutdown from '../../../Assets/NavIcons/shutdown.svg';
 
 function Sidebar() {
-  // const userBar = () =>{
-  //   console.log('napislit');
-  // }
   
   const logout = () =>{
     window.location.href = '/admin';

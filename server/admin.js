@@ -67,29 +67,52 @@ router.post('/login', (req, res) => {
   });
 });
 
-// PUT /admin/:id
-router.put('/:id', (req, res) => {
-  const userId = req.params.id;
-  const { attribute, value } = req.body;
+// PUT /admin/update
+router.put('/update', (req, res) => {
+  const { id, name, email, password, contact_number } = req.body;
 
-  // Update the admin attribute in the database
-  const query = `UPDATE users SET ${attribute} = ? WHERE id = ?`;
-  db.query(query, [value, userId], (err, results) => {
-    if (err) {
-      console.error('Error updating admin:', err);
-      res.status(500).json({ error: 'An error occurred while updating the admin.' });
-      return;
-    }
+  // Update the admin attributes in the database
+  const updateQueries = [];
 
-    if (results.affectedRows === 0) {
-      // No admin found with the given id
-      res.status(404).json({ error: 'admin not found.' });
-      return;
-    }
+  if (name) {
+    updateQueries.push({ query: `UPDATE users SET name = '${name}' WHERE ID = '${id}'` });
+  }
 
-    console.log('admin updated successfully!');
-    res.status(200).json({ message: 'admin updated successfully!' });
-  });
+  if (email) {
+    updateQueries.push({ query: `UPDATE users SET email = '${email}' WHERE ID = '${id}'` });
+  }
+
+  if (password) {
+    const hashedPassword = bcrypt.hashSync(password, 10);
+    updateQueries.push({ query: `UPDATE users SET password = '${hashedPassword}' WHERE ID = '${id}'` });
+  }
+
+  if (contact_number) {
+    updateQueries.push({ query: `UPDATE users SET contact_number = '${contact_number}' WHERE ID = '${id}'` });
+  }
+
+  // Execute the update queries in parallel using Promise.all
+  Promise.all(
+    updateQueries.map(({ query }) => {
+      return new Promise((resolve, reject) => {
+        db.query(query, (err, results) => {
+          if (err) {
+            console.error('Error updating admin:', err);
+            reject(err);
+            return;
+          }
+          resolve();
+        });
+      });
+    })
+  )
+    .then(() => {
+      console.log('Attributes updated successfully!');
+      res.status(200).json({ message: 'Attributes updated successfully!' });
+    })
+    .catch(() => {
+      res.status(500).json({ error: 'An error occurred while updating the attributes.' });
+    });
 });
 
 // GET /admin/count
