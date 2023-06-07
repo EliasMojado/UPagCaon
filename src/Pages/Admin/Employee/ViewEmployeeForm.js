@@ -4,20 +4,17 @@ import '../Employee/Employee.css';
 const TextFieldComponent = ({
     initialName,
     initialEmail,
-    initialPassword,
     initialContact,
 }) => {
     const [vname, setName] = useState(initialName);
     const [vemail, setEmail] = useState(initialEmail);
-    const [vpassword, setPassword] = useState(initialPassword);
     const [vcontact, setContact] = useState(initialContact);
 
     useEffect(() => {
         setName(initialName);
         setEmail(initialEmail);
-        setPassword(initialPassword);
         setContact(initialContact);
-    }, [initialName, initialEmail, initialPassword, initialContact]);
+    }, [initialName, initialEmail, initialContact]);
 
     return (
         <div className='input'>
@@ -40,13 +37,6 @@ const TextFieldComponent = ({
                 type="text"
                 placeholder="Email"
                 value={vemail}
-                readOnly
-            />
-            <input
-                className='vpassword'
-                type="password"
-                placeholder="Password"
-                value={vpassword}
                 readOnly
             />
         </div>
