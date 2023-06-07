@@ -2,73 +2,102 @@ import React, { useState } from 'react';
 import './Employee.css';
 import DeleteEmployeeModal from './DeleteEmployeeModal';
 import EditEmployeeModal from './EditEmployeeModal';
+import ViewEmployeeModal from './ViewEmployeeModal';
 
 const EmployeeList = ({ employees }) => {
-    const [showDeleteEmployeeModal, setShowDeleteEmployeeModal] = useState(false);
-    const [selectedEmployee, setSelectedEmployee] = useState({});
-    const Toggle = (employee) => {
-        console.log(employee);
-        setShowDeleteEmployeeModal(!showDeleteEmployeeModal);
-        setSelectedEmployee(employee);
-    }
-    const closeDeleteEmployeeModal = () => setShowDeleteEmployeeModal(false);
+  const [showDeleteEmployeeModal, setShowDeleteEmployeeModal] = useState(false);
+  const [selectedEmployee, setSelectedEmployee] = useState({});
+  const [showViewEmployeeModal, setShowViewEmployeeModal] = useState(false);
+  const [showEditEmployeeModal, setShowEditEmployeeModal] = useState(false);
 
-    const [showEditEmployeeModal, setShowEditEmployeeModal] = useState(false);
-    const ToggleE = (employee) => {
-        console.log(employee);
-        setShowEditEmployeeModal(!showEditEmployeeModal);
-        setSelectedEmployee(employee);
-    }
-    const closeEditEmployeeModal = () => setShowEditEmployeeModal(false);
-    
+  const ToggleD = (employee) => {
+    setShowDeleteEmployeeModal(true);
+    setSelectedEmployee(employee);
+  };
 
+  const closeDeleteModal = () => {
+    setShowDeleteEmployeeModal(false);
+    setSelectedEmployee({});
+  };
 
+  const ToggleE = (employee) => {
+    setShowEditEmployeeModal(true);
+    setSelectedEmployee(employee);
+  };
+
+  const closeEditModal = () => {
+    setShowEditEmployeeModal(false);
+    setSelectedEmployee({});
+  };
+
+  const ToggleV = (employee) => {
+    setShowViewEmployeeModal(true);
+    setSelectedEmployee(employee);
+  };
+
+  const closeViewModal = () => {
+    setShowViewEmployeeModal(false);
+    setSelectedEmployee({});
+  };
 
   return (
-    <div className="employee-list"> 
-     <table> 
+    <div className="employee-list">
+      <table>
         <thead>
-            <tr>
-                <th className='first-column'></th>
-                <th>Employee ID</th>
-                <th>Employee Name</th>
-                <th>Email</th>
-                <th>Contact Number</th>
-                <th className='last-column'></th>
-            </tr>
+          <tr>
+            <th className="first-column"></th>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+            <th className="last-column"></th>
+          </tr>
         </thead>
         <tbody>
-            {employees.map((employee) => (
-                <tr key={employee.id}>
-                    <td> 
-                        <button className='edit' onClick={() => ToggleE(employee)}>
-                            Edit
-                        </button>
-                    </td>
-                    <td>{employee.ID}</td>
-                    <td>{employee.name}</td>
-                    <td>{employee.email}</td>
-                    <td>{employee.contact_number}</td>
-                    <td> 
-                        <button className='delete' onClick={() => Toggle(employee)}>
-                            Delete
-                        </button>
-                    </td>
-                </tr>
-            ))}
+          {employees.map((employee) => (
+            <tr key={employee.id}>
+              <td>
+                <button className="edit" onClick={() => ToggleE(employee)}>
+                  Edit
+                </button>
+              </td>
+              <td className="employee-data" onClick={() => ToggleV(employee)}>
+                {employee.ID}
+              </td>
+              <td className="employee-data" onClick={() => ToggleV(employee)}>
+                {employee.name}
+              </td>
+              <td className="employee-data" onClick={() => ToggleV(employee)}>
+                {employee.email}
+              </td>
+              <td className="employee-data" onClick={() => ToggleV(employee)}>
+                {employee.contact_number}
+              </td>
+              <td>
+                <button className="delete" onClick={() => ToggleD(employee)}>
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
-     </table>
+      </table>
 
-    <DeleteEmployeeModal
+      <DeleteEmployeeModal
         show={showDeleteEmployeeModal}
-        close={closeDeleteEmployeeModal}
+        close={closeDeleteModal}
         employee={selectedEmployee}
-    />
-    <EditEmployeeModal 
+      />
+      <EditEmployeeModal
         show={showEditEmployeeModal}
-        close={closeEditEmployeeModal}
+        close={closeEditModal}
         employee={selectedEmployee}
-    />
+      />
+      <ViewEmployeeModal
+        show={showViewEmployeeModal}
+        close={closeViewModal}
+        employee={selectedEmployee}
+      />
     </div>
   );
 };
