@@ -236,17 +236,38 @@
 
 .name,
 .email,
-.password,
+.password {
+  /* Add your styles here */
+  /* Example styles */
+  font-family: 'Inter';
+  font-weight: 400;
+  width: 150%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  padding-inline-start: 5%;
+  padding-inline-end: 5%;
+}
+
 .contact {
-    font-family: 'Inter';
-    font-weight: 400;
-    width: 150%;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 20px;
-    padding-inline-start: 5%;
-    padding-inline-end: 5%;
+  font-family: 'Inter';
+  font-weight: 400;
+  width: 150%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  padding-inline-start: 5%;
+  padding-inline-end: 5%;
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+.contact::-webkit-outer-spin-button,
+.contact::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* DELETE EMPLOYEE CSS */
