@@ -48,7 +48,6 @@ function Dashboard() {
     <div className="dashboard">
       <header className='header-container'> 
         <span className='dash'>DASHBOARD</span>
-        <SearchBar/>
         <Sidebar/>
       </header>
       <div className="container-wrapper">

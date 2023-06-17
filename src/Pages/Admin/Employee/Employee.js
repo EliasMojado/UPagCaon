@@ -34,20 +34,27 @@ function Employee() {
 
     return (
         <div className="employee-page">
+                            
             <header className="employee-header">
+            <Sidebar/>
+                <div className = "page-header"> 
                 <span className="e">EMPLOYEE</span>
-                <SearchBar items={employees} setFilteredItems={handleSearch} />
-                <Sidebar />
+                </div>
+                
                 <button className='add-employee' onClick={() => Toggle()}>
                     Add Employee
                 </button>
+                    <AddEmployeeModal
+                    show={showAddEmployeeModal}
+                    close={closeAddEmployeeModal}
+                    />
+                    {/* <div className="bar"> */}
+                    <SearchBar items={employees} setFilteredItems={handleSearch} />
+                    {/* </div> */}
             </header>
 
             <EmployeeList employees={filteredEmployees} />
-            <AddEmployeeModal
-                show={showAddEmployeeModal}
-                close={closeAddEmployeeModal}
-            />
+            
         </div>
     )
 }

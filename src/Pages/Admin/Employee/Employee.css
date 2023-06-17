@@ -3,35 +3,47 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    background-position-x: center;
+}
+
+.page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bar {
+    width: 100vw!important;
+    margin-top: 2%;
 }
 
 .e {
-    position: absolute;
-    width: 25%;
+    width: 50%;
     height: 10%;
-    margin: 2% 80% 95% 12%;
+    margin: 2% 0% 0% 12%;
     font-family: 'Inter';
     font-style: bold;
     font-weight: 900;
-    font-size: 30px;
-    display: flex;
+    font-size: xx-large;
     align-items: center;
     color: #520000;
 }
 
 .add-employee {
+    position: fixed;
+    top: 5%;
+    right: 23%;
     font-family: 'Inter';
     font-style: normal;
-    font-size: 15px;
+    font-size: small;
     background-color: #520000;
     color: #FFFFFF;
-    width: 11%;
+    width: 10%;
     height:35px; 
     border-radius: 5px;
     border: none;
-    margin: 20px 20px 20px 100px;
-    padding: 5px 20px 5px 5px;
-    float: right;
+    padding-right: 2%;
     background-image: url(../../../Assets/addemployee.svg);
     background-size: 16px 16px;
     background-position: 95% center; 
@@ -44,6 +56,7 @@
 
 .employee-list {
     position: fixed;
+    z-index: 0!important;
     top: 23%;
     right: 7%;
     width: 80%;
@@ -87,15 +100,12 @@
     height: 30px; 
     border-radius: 5px;
     border: none;
-    float: right;
+    padding-right: 20%;
     background-image: url(../../../Assets/edit.svg);
     background-size: 16px 16px;
     background-position: 95% center; 
     background-repeat: no-repeat;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
 }
 
@@ -109,15 +119,12 @@
     height: 30px; 
     border-radius: 5px;
     border: none;
-    float: right;
+    padding-right: 20%;
     background-image: url(../../../Assets/delete.svg);
     background-size: 16px 16px;
     background-position: 95% center; 
     background-repeat: no-repeat;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
 }
 
@@ -125,11 +132,13 @@
 
 .add-employee-container {
     position: fixed;
+    z-index: 99!important;
     top: 0; right: 0; bottom: 0; left: 0;
     background-color: rgba(0, 0, 0, 0.35);
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
   
 .add-employee-modal {
@@ -145,6 +154,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 99!important;
 }
 
 .exit {
