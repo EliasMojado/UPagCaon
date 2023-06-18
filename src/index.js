@@ -10,6 +10,7 @@ import Admin from '../src/Pages/Admin/Landing/Landing';
 import Dashboard from './Pages/Admin/Dashboard/Dashboard';
 import Employee from './Pages/Admin/Employee/Employee';
 import Viands from './Pages/Admin/Viands/Viands';
+import Drinks from './Pages/Admin/Drinks/Drinks';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -30,6 +31,7 @@ root.render(
         <Route path='/admin/dashboard' element = {<Dashboard/>} />
         <Route path='/admin/employee' element = {<Employee/>} />
         <Route path='/admin/viands' element = {<Viands/>} />
+        <Route path='/admin/drinks' element = {<Drinks/>} />
       </Routes>
      </Router>
   </React.StrictMode>

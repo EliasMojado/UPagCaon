@@ -34,6 +34,10 @@ function Sidebar() {
     navigate('/admin/viands', { replace: true});
   }
 
+  const goToDrinkPage = () => {
+    navigate('/admin/drinks', { replace: true});
+  }
+
   return (
     <SideNav
       style={{ backgroundColor: '#481E1E' }}
@@ -67,7 +71,7 @@ function Sidebar() {
           <NavText className="navtext">Viands</NavText>
         </NavItem>
 
-        <NavItem eventKey="drink">
+        <NavItem eventKey="drink" onClick = {goToDrinkPage}>
           <NavIcon>
             <img src={drink} alt="drink" className="nav-icon" />
           </NavIcon>
