@@ -1,8 +1,6 @@
 // import React {useState} from react;
 import { useEffect } from 'react';
 import { useState } from 'react';
-
-import SearchBar from './SearchBar';
 import '../Dashboard/Dashboard.css';
 import Sidebar from './Sidebar';
 import OrderList from './OrderList';

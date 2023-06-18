@@ -31,13 +31,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10% auto 18% 10%;
+    margin: 10% auto 18% 12%;
 }
   
 .box {
     flex: 1;
-    width: 40%;
-    height: 100%;
+    width: 18vw;
+    height: 22vh;
     background-color: #481E1E;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -50,8 +50,9 @@
   
 .box-content {
     background-color: #FFFFFF;
-    height: 30px;
-    width: 200px;
+    height: 5vh;
+    width: 18vw;
+    font-size: medium;
     margin-top: 0;
     display: flex;
     justify-content: center;
@@ -68,6 +69,11 @@
 
 .employee {
     width: 50%;
+}
+
+.wallet,
+.cart {
+    width: 30%;
 }
 
 .number {
@@ -88,8 +94,8 @@
 
 .box2 {
     flex: 1;
-    width: 30%;
-    height: 130%;
+    width: 14vw;
+    height: 25vh;
     background-color: #481E1E;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -102,8 +108,9 @@
 
 .box-content2 {
     background-color: #FFFFFF;
-    height: 30px;
-    width: 150px;
+    height: 5vh;
+    width: 14vw;
+    font-size: medium;
     margin-top: 0;
     display: flex;
     justify-content: center;
@@ -124,9 +131,9 @@
 
 .order-list {
     position: fixed;
-    top: 23%;
-    right: 10%;
-    width: 22%;
+    top: 22%;
+    right: 2%;
+    width: 20vw;
     background-color: #f5f5f5;
     padding: 10px;
     border: 1px solid #ccc;
