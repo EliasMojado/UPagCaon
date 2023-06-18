@@ -52,6 +52,7 @@ function EditEmployeeModal({ show, close, employee }) {
         if (response.ok) {
           // Edit operation successful
           console.log('Employee updated successfully');
+          window.location.reload();
           // Perform any additional actions, such as updating the employee list
         } else {
           // Edit operation failed

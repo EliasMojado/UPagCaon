@@ -68,6 +68,7 @@ function AddEmployeeModal({ show, close }) {
             },
             duration:3000
           });
+          window.location.reload();
         }
       })
       .catch((error) => {

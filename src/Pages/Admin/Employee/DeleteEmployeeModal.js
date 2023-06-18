@@ -17,6 +17,7 @@ function DeleteEmployeeModal({ show, close, employee }) {
         if (response.ok) {
           // Delete operation successful
           console.log('Employee deleted successfully');
+          window.location.reload();
           // Perform any additional actions, such as updating the employee list
         } else {
           // Delete operation failed
