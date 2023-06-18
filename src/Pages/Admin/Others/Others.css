@@ -1,0 +1,372 @@
+.others-page {
+    background-image: url(../../../Assets/bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position-x: center;
+}
+
+.opageheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.o {
+    width: 50%;
+    height: 10%;
+    margin: 2% 0% 0% 12%;
+    font-family: 'Inter';
+    font-style: bold;
+    font-weight: 900;
+    font-size: xx-large;
+    align-items: center;
+    color: #520000;
+}
+
+.add-other {
+    position: fixed;
+    top: 5%;
+    right: 23%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: small;
+    background-color: #520000;
+    color: #FFFFFF;
+    width: 8%;
+    height:35px; 
+    border-radius: 5px;
+    border: none;
+    padding-right: 2%;
+    background-image: url(../../../Assets/addemployee.svg);
+    background-size: 16px 16px;
+    background-position: 95% center; 
+    background-repeat: no-repeat;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* OTHERS LIST CSS */
+
+.others-list {
+    position: fixed;
+    z-index: 0!important;
+    top: 23%;
+    right: 7%;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.9);    
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.others-list table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.others-list th.ofirst-column {
+    width: 15%;
+}
+
+.others-list th.olast-column {
+    width: 20%;
+}
+  
+.others-list th,
+.others-list td {
+    width: 25%;
+}
+
+.others-list tr:nth-child(odd) {
+    background: #FFFFFF;
+}
+
+.other-edit {
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: medium;
+    background-color: #520000;
+    color: #FFFFFF;
+    width: 100%;
+    height: 30px; 
+    border-radius: 5px;
+    border: none;
+    padding-right: 20%;
+    background-image: url(../../../Assets/edit.svg);
+    background-size: 16px 16px;
+    background-position: 95% center; 
+    background-repeat: no-repeat;
+    text-align: center;
+    cursor: pointer;
+}
+
+.other-delete {
+    font-family: 'Inter';
+    font-style: normal;
+    background-color: #520000;
+    font-size: medium;
+    color: #FFFFFF;
+    width: 100%;
+    height: 30px; 
+    border-radius: 5px;
+    border: none;
+    padding-right: 20%;
+    background-image: url(../../../Assets/delete.svg);
+    background-size: 16px 16px;
+    background-position: 95% center; 
+    background-repeat: no-repeat;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* ADD OTHER MODAL css */
+
+.add-other-container {
+    position: fixed;
+    z-index: 99!important;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+  
+.add-other-modal {
+    width: 30vw;
+    height: auto;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 20px;
+    background-color: #B88D5D;
+    backdrop-filter: blur(5px);
+    box-shadow: 1px 4px 4px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99!important;
+}
+
+.other-exit {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 8%;
+    right: 8%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+  
+.other-exit img {
+    height: 20px;
+}
+  
+.add-other-modal_header-title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 48px;
+    text-align: center;
+    color: #520000;
+    margin-top: 10px;
+}
+  
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+}
+  
+.close:hover img {
+    transform: scale(1.1);
+}
+  
+.other-button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-top: 0; */
+}
+
+.other-okay {
+    background: #481E1E;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter';
+    color: #FFFFFF;
+    font-size: medium;
+    width: 6vw;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.other-cancel {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-weight: 600;
+    color: #481E1E;
+    font-size: medium;
+    width: 6vw;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+}
+  
+.other-okay:hover,
+.other-cancel:hover {
+    background-color: rgba(54, 67, 72, 0.8);
+}
+
+/* ADD OTHER FORM CSS */
+
+.o-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.oname,
+.description,
+.expiry,
+.image {
+  font-family: 'Inter';
+  font-weight: 400;
+  width: 20vw;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  padding-inline-start: 5%;
+  padding-inline-end: 5%;
+}
+
+.price,
+.quantity {
+  font-family: 'Inter';
+  font-weight: 400;
+  width: 20vw;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  padding-inline-start: 5%;
+  padding-inline-end: 5%;
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+.price::-webkit-outer-spin-button,
+.price::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity::-webkit-outer-spin-button,
+.quantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* DELETE OTHER CSS */
+
+.delete-other-container {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.delete-other-modal {
+    width: 30vw;
+    height: auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: #B88D5D;
+    backdrop-filter: blur(5px);
+    box-shadow: 1px 4px 4px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-icon {
+    width: 90%;
+    height: 90%;
+}
+  
+.delete-other-modal_header-title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 200%;
+    text-align: center;
+    color: #520000;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+  
+.delete-content {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 100%;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 20%;
+}
+
+.delete-modal_footer {
+    margin-top: 5%;
+}
+
+.yes {
+    background: #481E1E;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter';
+    color: #FFFFFF;
+    font-size: medium;
+    width: 6vw;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.no {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-weight: 600;
+    color: #481E1E;
+    font-size: medium;
+    width: 6vw;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+}
+  
+.no:hover,
+.yes:hover {
+    background-color: rgba(54, 67, 72, 0.8);
+}

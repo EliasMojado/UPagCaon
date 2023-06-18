@@ -42,6 +42,10 @@ function Sidebar() {
     navigate('/admin/snacks', { replace: true});
   }
 
+  const goToOtherPage = () => {
+    navigate('/admin/others', { replace: true});
+  }
+
   return (
     <SideNav
       style={{ backgroundColor: '#481E1E' }}
@@ -89,7 +93,7 @@ function Sidebar() {
           <NavText className="navtext">Snacks</NavText>
         </NavItem>
 
-        <NavItem eventKey="schoolsupply">
+        <NavItem eventKey="schoolsupply" onClick = {goToOtherPage}>
           <NavIcon>
             <img src={schoolsupply} alt="schoolsupply" className="nav-icon" />
           </NavIcon>

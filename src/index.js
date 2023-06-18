@@ -12,6 +12,7 @@ import Employee from './Pages/Admin/Employee/Employee';
 import Viands from './Pages/Admin/Viands/Viands';
 import Drinks from './Pages/Admin/Drinks/Drinks';
 import Snacks from "./Pages/Admin/Snacks/Snacks";
+import Others from "./Pages/Admin/Others/Others";
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -34,6 +35,7 @@ root.render(
         <Route path='/admin/viands' element = {<Viands/>} />
         <Route path='/admin/drinks' element = {<Drinks/>} />
         <Route path='/admin/snacks' element = {<Snacks/>} />
+        <Route path='/admin/others' element = {<Others/>} />
       </Routes>
      </Router>
   </React.StrictMode>
