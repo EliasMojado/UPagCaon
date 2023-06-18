@@ -2,14 +2,12 @@ import React from 'react';
 import '../Viands/Viands.css';
 
 const TextFieldComponent = ({
-    type,
     vname,
     description,
     price,
     quantity,
     expiry,
     image,
-    handleTypeChange,
     handleNameChange,
     handleDescriptionChange,
     handlePriceChange,
@@ -20,13 +18,6 @@ const TextFieldComponent = ({
 
   return (
     <div className='v-input'>
-      <input
-        className='type'
-        type="text"
-        placeholder="Product Type"
-        value={type}
-        onChange={handleTypeChange}
-      />
       <input
         className='vname'
         type="text"

@@ -23,12 +23,11 @@ const ViandsList = ({ viands }) => {
                     <tr>
                         <th className="vfirst-column"></th>
                         <th>Product ID</th>
-                        <th>Type</th>
                         <th>Product Name</th>    
                         <th>Description</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Expiry</th>
+                        <th>Expiry Date</th>
                         <th>Image</th>
                         <th className="vlast-column"></th>
                     </tr>
@@ -43,9 +42,6 @@ const ViandsList = ({ viands }) => {
                         </td>
                         <td className="viand-data">
                             {viand.id}
-                        </td>
-                        <td className="viand-data">
-                            {viand.type}
                         </td>
                         <td className="viand-data">
                             {viand.name}

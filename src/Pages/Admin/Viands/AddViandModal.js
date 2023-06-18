@@ -4,18 +4,12 @@ import closebutton from '../../../Assets/close-button.svg';
 import TextFieldComponent from "../Viands/AddViandForm";
 
 function AddViandModal ({ show, close}) {
-
-    const [type, setType] = useState('');
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [quantity, setQuantity] = useState('');
     const [expiry, setExpiry] = useState('');
     const [image, setImage] = useState('');
-
-    const handleTypeChange = (event) => {
-        setType(event.target.value)
-    }
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -55,14 +49,12 @@ function AddViandModal ({ show, close}) {
             <main className="modal_content">
               <div>
                 <TextFieldComponent
-                type={type}
                 name={name}
                 description={description}
                 price={price}
                 quantity={quantity}
                 expiry={expiry}
                 image={image}
-                handleTypeChange={handleTypeChange}
                 handleNameChange={handleNameChange}
                 handleDescriptionChange={handleDescriptionChange}
                 handlePriceChange={handlePriceChange}
