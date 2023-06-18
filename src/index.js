@@ -1,9 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-
-import toast, { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import toast, { Toaster } from "react-hot-toast";
+import ReactDOM from 'react-dom/client';
+import React from 'react';
 import './index.css';
 
 import Landing from '../src/Pages/Customer/Landing/Landing';
@@ -11,7 +9,7 @@ import Home from '../src/Pages/Customer/Home/Home';
 import Admin from '../src/Pages/Admin/Landing/Landing';
 import Dashboard from './Pages/Admin/Dashboard/Dashboard';
 import Employee from './Pages/Admin/Employee/Employee';
-
+import Viands from './Pages/Admin/Viands/Viands';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -31,6 +29,7 @@ root.render(
         <Route path='/admin' element = {<Admin/>} />
         <Route path='/admin/dashboard' element = {<Dashboard/>} />
         <Route path='/admin/employee' element = {<Employee/>} />
+        <Route path='/admin/viands' element = {<Viands/>} />
       </Routes>
      </Router>
   </React.StrictMode>

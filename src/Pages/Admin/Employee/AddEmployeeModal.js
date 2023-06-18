@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import TextFieldComponent from './AddEmployeeForm.js';
 import '../Employee/Employee.css';
 import closebutton from '../../../Assets/close-button.svg';

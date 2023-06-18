@@ -48,9 +48,7 @@ function Employee() {
                     show={showAddEmployeeModal}
                     close={closeAddEmployeeModal}
                     />
-                    {/* <div className="bar"> */}
                     <SearchBar items={employees} setFilteredItems={handleSearch} />
-                    {/* </div> */}
             </header>
 
             <EmployeeList employees={filteredEmployees} />
