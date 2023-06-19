@@ -125,7 +125,7 @@ function Sidebar() {
           <NavIcon>
             <img src={schoolsupply} alt="schoolsupply" className="nav-icon" />
           </NavIcon>
-          <NavText className="navtext">School Supplies</NavText>
+          <NavText className="navtext">Others</NavText>
         </NavItem>
         <NavItem eventKey="cart">
           <NavIcon>
