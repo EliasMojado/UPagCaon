@@ -16,6 +16,13 @@ const ViandsList = ({ viands }) => {
     setSelectedViand({});
   };
 
+  const truncateId = (id) => {
+    if (id.length > 10) {
+      return id.slice(0, 10) + '...';
+    }
+    return id;
+  };
+
     return ( 
         <div className="viands-list">
             <table>
@@ -41,7 +48,7 @@ const ViandsList = ({ viands }) => {
                             </button>
                         </td>
                         <td className="viand-data">
-                            {viand.id}
+                            {truncateId(viand.id)}
                         </td>
                         <td className="viand-data">
                             {viand.name}
@@ -60,7 +67,7 @@ const ViandsList = ({ viands }) => {
                         </td>
                         <td className="viand-data">
                             <a href={viand.image} target="_blank" rel="noopener noreferrer">
-                                {viand.image}
+                                <img src={viand.image} alt="Product Image" className="viand-image" />  
                             </a>
                         </td>
                         <td>

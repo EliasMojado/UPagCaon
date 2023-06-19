@@ -40,6 +40,13 @@ const EmployeeList = ({ employees }) => {
     setSelectedEmployee({});
   };
 
+  const truncateId = (ID) => {
+    if (ID.length > 10) {
+      return ID.slice(0, 10) + '...';
+    }
+    return ID;
+  };
+
   return (
     <div className="employee-list">
       <table>
@@ -62,7 +69,7 @@ const EmployeeList = ({ employees }) => {
                 </button>
               </td>
               <td className="employee-data" onClick={() => ToggleV(employee)}>
-                {employee.ID}
+                {truncateId(employee.ID)}
               </td>
               <td className="employee-data" onClick={() => ToggleV(employee)}>
                 {employee.name}
