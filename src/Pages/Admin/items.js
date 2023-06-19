@@ -2,7 +2,7 @@ import { apiUrl } from '../../config.js';
 import toast from 'react-hot-toast';
 
 export function insertItem(formData) {
-  fetch(apiUrl + '/item/add', {
+  fetch(apiUrl + '/item/addItem', {
     method: 'POST',
     body: formData,
   })
@@ -37,3 +37,28 @@ export function insertItem(formData) {
       });
     });
 }
+
+export function getItem(type) {
+  const url = `${apiUrl}/item/getItem?type=${type}`;
+
+  return fetch(url, {
+    method: 'GET',
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch items.');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Process the retrieved items data
+      // Call a separate function to handle the data or update the state
+      return data.items;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle the error condition
+    });
+}
+
+

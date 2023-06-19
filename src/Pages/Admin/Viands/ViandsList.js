@@ -56,10 +56,12 @@ const ViandsList = ({ viands }) => {
                             {viand.quantity}
                         </td>
                         <td className="viand-data">
-                            {viand.expiry}
+                            {new Date(viand.expiry_date).toLocaleDateString('en-US')}
                         </td>
                         <td className="viand-data">
-                            {viand.image}
+                            <a href={viand.image} target="_blank" rel="noopener noreferrer">
+                                {viand.image}
+                            </a>
                         </td>
                         <td>
                             <button className="viand-delete" onClick={() => ToggleD(viand)}>

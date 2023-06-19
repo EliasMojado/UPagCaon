@@ -1,24 +1,30 @@
-import React, { useState }from 'react';
+import React, { useState, useEffect }from 'react';
 import Sidebar from "../Dashboard/Sidebar";
 import SearchBar from "../Dashboard/SearchBar";
 import '../Viands/Viands.css';
 import ViandsList from './ViandsList';
 import AddViandModal from './AddViandModal';
+import { getItem } from '../items'
 
 function Viands() {
-    const viands = [
-        { id: 1271672482, type: 'Viand', name: 'Humba', description: 'sabaw', price: 30, quantity: 20, expiry: '06-18-2023', image: 'img' },
-        { id: 2372837232, type: 'Viand', name: 'Mongos', description: 'sabaw', price: 20, quantity: 20, expiry: '06-18-2023', image: 'img' },
-        { id: 3323436563, type: 'Viand', name: 'Fried Chicken', description: 'di sabaw', price: 35, quantity: 20, expiry: '06-18-2023', image: 'img' },
-        { id: 4696856604, type: 'Viand', name: 'Lumpia', description: 'di sabaw', price: 20, quantity: 20, expiry: '06-18-2023', image: 'img' },
-        { id: 5583983975, type: 'Viand', name: 'Barbeque', description: 'di sabaw', price: 25, quantity: 20, expiry: '06-18-2023', image: 'img' },
-        { id: 6454954586, type: 'Viand', name: 'Fish', description: 'di sabaw', price: 30, quantity: 20, expiry: '06-18-2023', image: 'img' },
-        { id: 7584549557, type: 'Viand', name: 'Sinigang', description: 'sabaw', price: 35, quantity: 20, expiry: '06-18-2023', image: 'img' },
-      ];
-
       const [showAddViandModal, setShowAddViandModal] = useState(false);
+      const [viands, setViands] = useState([]);
       const Toggle = () => setShowAddViandModal(!showAddViandModal);
       const closeAddViandModal = () => setShowAddViandModal(false);
+
+      useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const data = await getItem('viand');
+            setViands(data); // Update the state with retrieved items
+          } catch (error) {
+            console.error('Error:', error);
+            // Handle the error condition
+          }
+        };
+    
+        fetchData();
+      }, []);
   
     return (
         <div className="viands-page">
