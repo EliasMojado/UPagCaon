@@ -62,10 +62,14 @@ export function getItem(type) {
 }
 
 export function deleteItem(item) {
-  const url = `${apiUrl}/item/deleteItem?id=${item.id}`;
+  const url = `${apiUrl}/item/deleteItem`;
 
   return fetch(url, {
     method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(item),
   })
     .then(response => {
       if (response.ok) {
