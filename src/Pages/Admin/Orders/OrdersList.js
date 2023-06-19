@@ -34,7 +34,6 @@ const OrdersList = ({ orders }) => {
           <tr>
             <th className="order-first-column"></th>
             <th>Order ID</th>
-            <th>Purchase ID</th>
             <th>User</th>
             <th>Payment ID</th>
             <th>Purchase Date</th>
@@ -46,10 +45,9 @@ const OrdersList = ({ orders }) => {
           {orders.map((order) => (
             <tr key={order.id}>
               <td>
-                <button className="order-edit">Edit</button>
+                <button className="order-view">View</button>
               </td>
               <td className="order-data">{order.id}</td>
-              <td className="order-data">{order.purchase}</td>
               <td className="order-data">{order.user}</td>
               <td className="order-data">{order.payment}</td>
               <td className="order-data">{order.date}</td>

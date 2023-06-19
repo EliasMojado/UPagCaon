@@ -63,7 +63,7 @@
     background: #FFFFFF;
 }
 
-.order-edit {
+.order-view {
     font-family: 'Inter';
     font-style: normal;
     font-size: medium;
@@ -74,9 +74,9 @@
     border-radius: 5px;
     border: none;
     padding-right: 20%;
-    background-image: url(../../../Assets/edit.svg);
+    background-image: url(../../../Assets/view.svg);
     background-size: 16px 16px;
-    background-position: 95% center; 
+    background-position: 90% center; 
     background-repeat: no-repeat;
     text-align: center;
     cursor: pointer;
