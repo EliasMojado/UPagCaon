@@ -473,11 +473,10 @@
 /* VIEW EMPLOYEE FORM CSS */
 
 .vname,
-.vemail,
-.vpassword {
+.vemail {
   font-family: 'Inter';
   font-weight: 400;
-  width: 150%;
+  width: 100%;
   height: 40px;
   border-radius: 10px;
   border: none;
@@ -491,7 +490,7 @@
 .vcontact {
   font-family: 'Inter';
   font-weight: 400;
-  width: 150%;
+  width: 100%;
   height: 40px;
   border-radius: 10px;
   border: none;
