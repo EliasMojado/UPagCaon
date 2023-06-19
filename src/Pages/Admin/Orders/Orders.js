@@ -3,6 +3,7 @@ import Sidebar from "../Dashboard/Sidebar";
 import SearchBar from "../Dashboard/SearchBar";
 import '../Orders/Orders.css';
 import OrdersList from './OrdersList';
+import withAdminAuthentication from "../requireAdminAuthentication";
 
 function Orders() {
     const orders = [
@@ -29,4 +30,4 @@ function Orders() {
     )
 }
 
-export default Orders;
+export default withAdminAuthentication(Orders);

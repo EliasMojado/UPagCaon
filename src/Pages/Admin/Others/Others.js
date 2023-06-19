@@ -4,6 +4,7 @@ import SearchBar from "../Dashboard/SearchBar";
 import '../Others/Others.css';
 import OthersList from './OthersList';
 import AddOtherModal from './AddOtherModal';
+import withAdminAuthentication from "../requireAdminAuthentication";
 
 function Others() {
     const others = [

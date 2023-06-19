@@ -4,6 +4,7 @@ import SearchBar from "../Dashboard/SearchBar";
 import '../Profits/Profits.css';
 import ProfitsList from './ProfitsList';
 import SubtotalContainers from './SubtotalContainers';
+import withAdminAuthentication from '../requireAdminAuthentication';
 
 function Profits() {
     const profits = [
@@ -38,4 +39,4 @@ function Profits() {
     )
 }
 
-export default Profits;
+export default withAdminAuthentication(Profits);

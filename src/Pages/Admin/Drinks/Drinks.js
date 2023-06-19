@@ -4,6 +4,7 @@ import SearchBar from "../Dashboard/SearchBar";
 import '../Drinks/Drinks.css';
 import DrinksList from './DrinksList';
 import AddDrinkModal from './AddDrinkModal';
+import withAdminAuthentication from "../requireAdminAuthentication";
 
 function Drinks() {
     const drinks = [
@@ -43,4 +44,4 @@ function Drinks() {
     )
 }
 
-export default Drinks;
+export default withAdminAuthentication(Drinks);

@@ -4,6 +4,7 @@ import SearchBar from "../Dashboard/SearchBar";
 import '../Snacks/Snacks.css';
 import SnacksList from './SnacksList';
 import AddSnackModal from './AddSnackModal';
+import withAdminAuthentication from "../requireAdminAuthentication";
 
 function Snacks() {
     const snacks = [
@@ -43,4 +44,4 @@ function Snacks() {
     )
 }
 
-export default Snacks;
+export default withAdminAuthentication(Snacks);

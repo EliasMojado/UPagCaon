@@ -5,6 +5,7 @@ import '../Viands/Viands.css';
 import ViandsList from './ViandsList';
 import AddViandModal from './AddViandModal';
 import { getItem } from '../items'
+import withAdminAuthentication from "../requireAdminAuthentication";
 
 function Viands() {
       const [showAddViandModal, setShowAddViandModal] = useState(false);
@@ -49,4 +50,4 @@ function Viands() {
     )
 }
 
-export default Viands;
+export default withAdminAuthentication(Viands);
