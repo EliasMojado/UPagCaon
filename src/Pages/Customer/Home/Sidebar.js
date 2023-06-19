@@ -90,7 +90,7 @@ function Sidebar() {
           <NavIcon>
             <img src={user} alt="user" className="nav-icon" />
           </NavIcon>
-          <NavText className="navtext">Employees</NavText>
+          <NavText className="navtext">Profile</NavText>
         </NavItem>
 
         <NavItem eventKey="shutdown" className="shutdown" onClick = {logout}>
