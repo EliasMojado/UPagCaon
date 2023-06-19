@@ -123,6 +123,11 @@
     cursor: pointer;
 }
 
+.viand-image {
+    width: 30%;
+    height: 30%;
+}
+
 /* ADD VIAND MODAL css */
 
 .add-viand-container {
