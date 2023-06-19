@@ -1,0 +1,124 @@
+.orders-page {
+    background-image: url(../../../Assets/bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position-x: center;
+}
+
+.orderpageheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order {
+    width: 50%;
+    height: 10%;
+    margin: 2% 0% 0% 12%;
+    font-family: 'Inter';
+    font-style: bold;
+    font-weight: 900;
+    font-size: xx-large;
+    align-items: center;
+    color: #520000;
+}
+
+.add-order {
+    position: fixed;
+    top: 5%;
+    right: 23%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: small;
+    background-color: #520000;
+    color: #FFFFFF;
+    width: 8%;
+    height:35px; 
+    border-radius: 5px;
+    border: none;
+    padding-right: 2%;
+    background-image: url(../../../Assets/addemployee.svg);
+    background-size: 16px 16px;
+    background-position: 95% center; 
+    background-repeat: no-repeat;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* ORDERS LIST CSS */
+
+.orders-list {
+    position: fixed;
+    z-index: 0!important;
+    top: 23%;
+    right: 7%;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.9);    
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.orders-list table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.orders-list th.order-first-column {
+    width: 15%;
+}
+
+.orders-list th.order-last-column {
+    width: 20%;
+}
+  
+.orders-list th,
+.orders-list td {
+    width: 25%;
+}
+
+.orders-list tr:nth-child(odd) {
+    background: #FFFFFF;
+}
+
+.order-edit {
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: medium;
+    background-color: #520000;
+    color: #FFFFFF;
+    width: 100%;
+    height: 30px; 
+    border-radius: 5px;
+    border: none;
+    padding-right: 20%;
+    background-image: url(../../../Assets/edit.svg);
+    background-size: 16px 16px;
+    background-position: 95% center; 
+    background-repeat: no-repeat;
+    text-align: center;
+    cursor: pointer;
+}
+
+.order-status {
+    font-family: 'Inter';
+    font-style: normal;
+    background-color: #520000;
+    font-size: medium;
+    color: #FFFFFF;
+    width: 100%;
+    height: 30px; 
+    border-radius: 5px;
+    border: none;
+    padding-right: 20%;
+    background-image: url(../../../Assets/status.svg);
+    background-size: 16px 16px;
+    background-position: 95% center; 
+    background-repeat: no-repeat;
+    text-align: center;
+    cursor: pointer;
+}

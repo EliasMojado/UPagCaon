@@ -80,6 +80,10 @@ function Sidebar() {
     navigate('/admin/others', { replace: true});
   }
 
+  const goToOrderPage = () => {
+    navigate('/admin/orders', { replace: true});
+  }
+
   return (
     <SideNav
       style={{ backgroundColor: '#481E1E' }}
@@ -127,7 +131,7 @@ function Sidebar() {
           </NavIcon>
           <NavText className="navtext">Others</NavText>
         </NavItem>
-        <NavItem eventKey="cart">
+        <NavItem eventKey="cart" onClick = {goToOrderPage}>
           <NavIcon>
             <img src={cart} alt="cart" className="nav-icon" />
           </NavIcon>
