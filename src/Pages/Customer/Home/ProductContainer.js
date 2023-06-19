@@ -6,9 +6,11 @@ const ProductContainer = ({ imageSrc, title, rating, price }) => {
     <div className='p-container'>
       <img src={imageSrc} alt="Container Image" className='product-img' />
       <h2 className='title'>{title}</h2>
-      {rating.map((star, index) => (
-        <img key={index} src={star} alt='star' className={`rating ${index === 0 ? 'first-star' : ''}`}/>
-      ))}
+      <div className='rate'>
+          {rating.map((star, index) => (
+            <img key={index} src={star} alt='star' className={`rating ${index === 0 ? 'first-star' : ''}`}/>
+          ))}
+      </div>
       <h3 className='product-price'>{price}</h3>
     </div>
   );
