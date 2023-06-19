@@ -25,28 +25,6 @@
     color: #520000;
 }
 
-.add-order {
-    position: fixed;
-    top: 5%;
-    right: 23%;
-    font-family: 'Inter';
-    font-style: normal;
-    font-size: small;
-    background-color: #520000;
-    color: #FFFFFF;
-    width: 8%;
-    height:35px; 
-    border-radius: 5px;
-    border: none;
-    padding-right: 2%;
-    background-image: url(../../../Assets/addemployee.svg);
-    background-size: 16px 16px;
-    background-position: 95% center; 
-    background-repeat: no-repeat;
-    text-align: center;
-    cursor: pointer;
-}
-
 /* ORDERS LIST CSS */
 
 .orders-list {

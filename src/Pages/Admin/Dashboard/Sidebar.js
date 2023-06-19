@@ -84,6 +84,10 @@ function Sidebar() {
     navigate('/admin/orders', { replace: true});
   }
 
+  const goToProfitPage = () => {
+    navigate('/admin/profits', { replace: true});
+  }
+
   return (
     <SideNav
       style={{ backgroundColor: '#481E1E' }}
@@ -137,7 +141,7 @@ function Sidebar() {
           </NavIcon>
           <NavText className="navtext">Orders</NavText>
         </NavItem>
-        <NavItem eventKey="wallet">
+        <NavItem eventKey="wallet" onClick = {goToProfitPage}>
           <NavIcon>
             <img src={wallet} alt="wallet" className="nav-icon" />
           </NavIcon>
