@@ -9,7 +9,7 @@ const ProductContainer = ({ imageSrc, title, rating, price }) => {
       {rating.map((star, index) => (
         <img key={index} src={star} alt='star' className={`rating ${index === 0 ? 'first-star' : ''}`}/>
       ))}
-      <h3 className='price'>{price}</h3>
+      <h3 className='product-price'>{price}</h3>
     </div>
   );
 };
