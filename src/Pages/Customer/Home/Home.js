@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import '../Home/Home.css';
-
 import SearchBar from '../../Customer/Home/SearchBar';
+import React, { useState, useEffect } from 'react';
+import ProductContainer from './ProductContainer';
 import Sidebar from '../../Customer/Home/Sidebar';
-// import OrderList from './OrderList';
-import employee from '../../../Assets/NavIcons/employee.svg';
-import wallet from '../../../Assets/NavIcons/wallet.svg';
-import cart from '../../../Assets/NavIcons/cart.svg';
-import viands from '../../../Assets/NavIcons/viand.svg';
-import drinks from '../../../Assets/NavIcons/drink.svg';
-import snacks from '../../../Assets/NavIcons/snack.svg';
-import schoolsupply from '../../../Assets/NavIcons/schoolsupply.svg';
-
-import { apiUrl } from '../../../config';
+import star from '../../../Assets/Viands/star.svg';
+import humba from '../../../Assets/Viands/humba.svg';
+import lumpia from '../../../Assets/Viands/lumpia.svg';
+import chicken from '../../../Assets/Viands/chicken.svg';
+import '../Home/Home.css';
 
 function Home() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -38,6 +32,10 @@ function Home() {
     return null;
   }
 
+  const rate3 = Array(3).fill(star);
+  const rate4 = Array(4).fill(star);
+  const rate5 = Array(5).fill(star);
+
   return (
     <div className="dashboard">
       <header className='header-container'> 
@@ -45,6 +43,26 @@ function Home() {
         <SearchBar/>
         <Sidebar/>
       </header>
+      <div className='product-containers'>
+        <ProductContainer
+          imageSrc= {humba}
+          title="Humba"
+          rating= {rate3}
+          price="Php30.00"
+        />
+        <ProductContainer
+          imageSrc= {lumpia}
+          title="Lumpia"
+          rating= {rate4}
+          price="Php20.00"
+        />
+        <ProductContainer
+          imageSrc= {chicken}
+          title="Chicken"
+          rating= {rate5}
+          price="Php30.00"
+        />
+    </div>
     </div>
   );
 }
