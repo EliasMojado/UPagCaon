@@ -1,24 +1,18 @@
-import { useNavigate } from 'react-router-dom';
-import '../Home/Home.css';
-
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import logo from '../../../Assets/logowhite.svg';
-import home from '../../../Assets/NavIcons/home.svg';
-import user from '../../../Assets/NavIcons/user.svg';
+import schoolsupply from '../../../Assets/NavIcons/schoolsupply.svg';
+import shutdown from '../../../Assets/NavIcons/shutdown.svg';
 import viand from '../../../Assets/NavIcons/viand.svg';
 import drink from '../../../Assets/NavIcons/drink.svg';
 import snack from '../../../Assets/NavIcons/snack.svg';
-import schoolsupply from '../../../Assets/NavIcons/schoolsupply.svg';
+import home from '../../../Assets/NavIcons/home.svg';
+import user from '../../../Assets/NavIcons/user.svg';
 import cart from '../../../Assets/NavIcons/cart.svg';
-import wallet from '../../../Assets/NavIcons/wallet.svg';
-import shutdown from '../../../Assets/NavIcons/shutdown.svg';
+import logo from '../../../Assets/logowhite.svg';
+import { useNavigate } from 'react-router-dom';
+import '../Home/Home.css';
 
-function Sidebar() {
-  // const userBar = () =>{
-  //   console.log('napislit');
-  // }
-  
+function Sidebar() {  
   const logout = () =>{
     window.location.href = '/';
     localStorage.removeItem('user');
