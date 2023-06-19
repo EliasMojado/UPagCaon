@@ -76,5 +76,22 @@ router.get("/getItem", (req, res) => {
   });
 });
 
+// DELETE /item/delete
+router.delete("/deleteItem", (req, res) => {
+  const itemID  = req.query.id;
+
+  const query = 'DELETE FROM items WHERE id = ?';
+  db.query(query, [itemID], (err, results) => {
+    if (err) {
+      console.error('Error deleting item:', err);
+      res.status(500).json({ error: 'An error occurred while deleting item.' });
+      return;
+    }
+
+    res.status(200).json({ message: 'Item deleted successfully!' });
+  });
+  
+});
+
 
 module.exports = router;

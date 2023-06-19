@@ -61,4 +61,46 @@ export function getItem(type) {
     });
 }
 
+export function deleteItem(item) {
+  const url = `${apiUrl}/item/deleteItem?id=${item.id}`;
+
+  return fetch(url, {
+    method: 'DELETE',
+  })
+    .then(response => {
+      if (response.ok) {
+        console.log('Item deleted successfully!');
+        // Optionally, you can return the response data if needed
+        return response.json();
+      } else {
+        throw new Error('An error occurred while deleting the item.');
+      }
+    })
+    .then(data => {
+      // Handle the response data if needed
+      // For example, you can show a success toast message
+      toast.success('Item deleted successfully!', {
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+        duration: 3000,
+      });
+    })
+    .catch(error => {
+      console.error('Error deleting item:', error);
+      // Handle the error condition
+      // For example, you can show an error toast message
+      toast.error('An error occurred while deleting the item.', {
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+        duration: 3000,
+      });
+    });
+}
+
 

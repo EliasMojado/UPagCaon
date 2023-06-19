@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import './Viands.css';
-import DeleteEmployeeModal from "../Employee/DeleteEmployeeModal";
+import DeleteItemModal from ".././DeleteItemModal";
 
 const ViandsList = ({ viands }) => {
   const [selectedViand, setSelectedViand] = useState({});
-  const [showDeleteEmployeeModal, setShowDeleteEmployeeModal] = useState(false);
+  const [showDeleteItemModal, setShowDeleteItemModal] = useState(false);
 
   const ToggleD = (viand) => {
-    setShowDeleteEmployeeModal(true);
+    setShowDeleteItemModal(true);
     setSelectedViand(viand);
   };
 
   const closeDeleteModal = () => {
-    setShowDeleteEmployeeModal(false);
+    setShowDeleteItemModal(false);
     setSelectedViand({});
   };
 
@@ -74,10 +74,10 @@ const ViandsList = ({ viands }) => {
                 </tbody>
             </table>
 
-            <DeleteEmployeeModal
-                show={showDeleteEmployeeModal}
+            <DeleteItemModal
+                show={showDeleteItemModal}
                 close={closeDeleteModal}
-                viand={selectedViand}
+                item={selectedViand}
             />
 
         </div>
