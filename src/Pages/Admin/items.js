@@ -107,4 +107,45 @@ export function deleteItem(item) {
     });
 }
 
+export function updateItem(itemId, formData) {
+  const url = `${apiUrl}/item/updateItem?id=${itemId}`;
 
+  return fetch(url, {
+    method: 'PUT',
+    body: formData,
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Item updated successfully!');
+        // Optionally, you can return the response data if needed
+        return response.json();
+      } else {
+        throw new Error('An error occurred while updating the item.');
+      }
+    })
+    .then((data) => {
+      // Handle the response data if needed
+      // For example, you can show a success toast message
+      toast.success('Item updated successfully!', {
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+        duration: 3000,
+      });
+    })
+    .catch((error) => {
+      console.error('Error updating item:', error);
+      // Handle the error condition
+      // For example, you can show an error toast message
+      toast.error('An error occurred while updating the item.', {
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+        duration: 3000,
+      });
+    });
+}
