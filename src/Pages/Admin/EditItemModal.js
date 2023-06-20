@@ -31,7 +31,7 @@ const EditItemModal = ({ show, close, item }) => {
 
   const handlePriceChange = (event) => {
     setPrice(event.target.value);
-  };
+  };  
 
   const handleQuantityChange = (event) => {
     setQuantity(event.target.value);
@@ -41,8 +41,8 @@ const EditItemModal = ({ show, close, item }) => {
     setExpiry(event.target.value);
   };
 
-  const handleImageChange = (event) => {
-    setImage(event.target.value);
+  const handleImageChange = (imageData) => {
+    setImage(imageData);
   };
 
   return (

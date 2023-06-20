@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../Admin/EditItemModal.css";
+import moment from "moment/moment";
 
 const TextFieldComponent = ({
   initialName,
@@ -19,15 +20,18 @@ const TextFieldComponent = ({
   const [description, setDescription] = useState(initialDescription);
   const [price, setPrice] = useState(initialPrice);
   const [quantity, setQuantity] = useState(initialQuantity);
-  const [expiry_date, setExpiry] = useState(initialExpiry);
+  const [expiry_date, setExpiry] = useState("");
+  const newExpiryDate = moment.utc(initialExpiry).format("YYYY-MM-DD");
   const [image, setImage] = useState(initialImage);
+
+  console.log(image);
 
   useEffect(() => {
     setName(initialName);
     setDescription(initialDescription);
     setPrice(initialPrice);
     setQuantity(initialQuantity);
-    setExpiry(initialExpiry);
+    setExpiry(newExpiryDate);   
     setImage(initialImage);
   }, [
     initialName,
@@ -64,7 +68,7 @@ const TextFieldComponent = ({
   };
 
   const handleImageInputChange = (event) => {
-    setImage(event.target.value);
+    setImage(event.targetvalue);
     handleImageChange(event);
   };
 
@@ -110,6 +114,7 @@ const TextFieldComponent = ({
         className="editvimage"
         type="file"
         accept="image/*"
+        // type="string"
         value={image}
         onChange={handleImageInputChange}
       />
