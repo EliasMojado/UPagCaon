@@ -311,6 +311,11 @@
     width: 90%;
     height: 90%;
 }
+
+.drink-image {
+    width: 60%;
+    height: 60%;
+}
   
 .delete-drink-modal_header-title {
     font-family: 'Inter';
