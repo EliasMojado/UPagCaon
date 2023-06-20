@@ -32,7 +32,7 @@
     line-height: 48px;
     text-align: center;
     color: #520000;
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 .close {
@@ -141,5 +141,18 @@
 .editvquantity::-webkit-outer-spin-button,
 .editvquantity::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  margin: 0;
+}
+
+.initial-image-label {
+  /* align-items: flex-start; */
+  font-size: small;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.initial-image-name {
+  font-size: small;
+  color: #000000;
   margin: 0;
 }

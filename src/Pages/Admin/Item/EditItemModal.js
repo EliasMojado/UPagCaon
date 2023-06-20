@@ -64,7 +64,7 @@ const EditItemModal = ({ show, close, item }) => {
                   initialPrice={price}
                   initialQuantity={quantity}
                   initialExpiry={expiry_date}
-                  intialImage={image}
+                  initialImage={image}
                   handleNameChange={handleNameChange}
                   handleDescriptionChange={handleDescriptionChange}
                   handlePriceChange={handlePriceChange}
