@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Viands.css";
-import DeleteItemModal from "../Item/DeleteItemModal";
+import DeleteItemModal from '../Item/DeleteItemModal';
 import EditItemModal from "../Item/EditItemModal";
 
 const ViandsList = ({ viands }) => {

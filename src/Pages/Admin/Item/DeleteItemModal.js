@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Admin/Employee/Employee.css';
-import closebutton from '../../../Assets/close-button.svg'
+import closebutton from '../../../Assets/close-button.svg';
 import deleteicon from '../../../Assets/delete.svg';
 import { deleteItem } from './items';
 
