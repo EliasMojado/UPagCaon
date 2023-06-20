@@ -56,10 +56,12 @@ const DrinksList = ({ drinks }) => {
                             {drink.quantity}
                         </td>
                         <td className="drink-data">
-                            {drink.expiry}
+                            {new Date(drink.expiry_date).toLocaleDateString("en-US")}
                         </td>
                         <td className="drink-data">
-                            {drink.image}
+                            <a href={drink.image} target="_blank" rel="noopener noreferrer">
+                                <img src={drink.image} alt="Product Image" className="drink-image" />
+                            </a>
                         </td>
                         <td>
                             <button className="drink-delete" onClick={() => ToggleD(drink)}>
