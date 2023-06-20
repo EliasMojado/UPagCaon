@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../Admin/EditItemModal.css";
+import "./EditItemModal.css";
 
 const TextFieldComponent = ({
   initialName,
