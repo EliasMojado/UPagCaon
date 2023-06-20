@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import './Drinks.css';
-import DeleteEmployeeModal from "../Employee/DeleteEmployeeModal";
+import DeleteItemModal from "../Item/DeleteItemModal";
 
 const DrinksList = ({ drinks }) => {
   const [selectedDrink, setSelectedDrink] = useState({});
-  const [showDeleteEmployeeModal, setShowDeleteEmployeeModal] = useState(false);
+  const [showDeleteItemModal, setShowDeleteItemModal] = useState(false);
 
   const ToggleD = (drink) => {
-    setShowDeleteEmployeeModal(true);
+    setShowDeleteItemModal(true);
     setSelectedDrink(drink);
   };
 
   const closeDeleteModal = () => {
-    setShowDeleteEmployeeModal(false);
+    setShowDeleteItemModal(false);
     setSelectedDrink({});
   };
 
@@ -74,10 +74,10 @@ const DrinksList = ({ drinks }) => {
                 </tbody>
             </table>
 
-            <DeleteEmployeeModal
-                show={showDeleteEmployeeModal}
+            <DeleteItemModal
+                show={showDeleteItemModal}
                 close={closeDeleteModal}
-                drink={selectedDrink}
+                item={selectedDrink}
             />
 
         </div>
