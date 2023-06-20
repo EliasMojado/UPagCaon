@@ -5,7 +5,7 @@ import '../Drinks/Drinks.css';
 import DrinksList from './DrinksList';
 import AddDrinkModal from './AddDrinkModal';
 import withAdminAuthentication from "../requireAdminAuthentication";
-import { getItem } from '../Item/items';
+import { getItem } from '../Item/Items';
 
 function Drinks() {
     const [showAddDrinkModal, setShowAddDrinkModal] = useState(false);
