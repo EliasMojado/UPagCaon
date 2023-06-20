@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import "../Viands/Viands.css";
 import closebutton from "../../../Assets/close-button.svg";
 import TextFieldComponent from "../Viands/AddViandForm";
-import { insertItem } from "../items";
+import { insertItem } from "../Item/items";
 
 function AddViandModal({ show, close }) {
   const [name, setName] = useState("");
