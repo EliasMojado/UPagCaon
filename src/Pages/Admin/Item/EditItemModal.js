@@ -1,8 +1,8 @@
-import closebutton from "../../Assets/close-button.svg";
+import closebutton from "../../../Assets/close-button.svg";
 import TextFieldComponent from "./EditItemForm";
 import React, { useState, useEffect } from "react";
-import "../Admin/EditItemModal.css";
-import { updateItem } from "./items";
+import "../../Admin/Item/EditItemModal.css";
+import { updateItem } from "../Item/items";
 
 const EditItemModal = ({ show, close, item }) => {
   const [name, setName] = useState("");

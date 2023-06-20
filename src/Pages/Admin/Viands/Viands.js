@@ -4,7 +4,7 @@ import SearchBar from "../Dashboard/SearchBar";
 import '../Viands/Viands.css';
 import ViandsList from './ViandsList';
 import AddViandModal from './AddViandModal';
-import { getItem } from '../items'
+import { getItem } from '../Item/items';
 import withAdminAuthentication from "../requireAdminAuthentication";
 
 function Viands() {
