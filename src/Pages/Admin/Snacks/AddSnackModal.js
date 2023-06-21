@@ -80,9 +80,6 @@ function AddSnackModal ({ show, close}) {
                     handleExpiryChange={handleExpiryChange}
                     handleImageChange={handleImageChange}
                     />
-                    {image && (
-                      <p>Selected File: {image.name}</p>
-                    )}
                   </div>
                 <footer className="modal_footer">
                     <div className='snack-button-row'>
