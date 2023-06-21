@@ -24,6 +24,7 @@ export function insertItem(formData) {
         },
         duration: 3000,
       });
+      window.location.reload();
     })
     .catch((error) => {
       console.error('Error inserting item:', error);
@@ -91,6 +92,7 @@ export function deleteItem(item) {
         },
         duration: 3000,
       });
+      window.location.reload();
     })
     .catch(error => {
       console.error('Error deleting item:', error);
