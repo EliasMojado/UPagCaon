@@ -16,6 +16,13 @@ const DrinksList = ({ drinks }) => {
     setSelectedDrink({});
   };
 
+  const truncateId = (id) => {
+    if (id.length > 10) {
+        return id.slice(0, 10) + "...";
+    }
+    return id;
+  };
+
     return ( 
         <div className="drinks-list">
             <table>
@@ -41,7 +48,7 @@ const DrinksList = ({ drinks }) => {
                             </button>
                         </td>
                         <td className="drink-data">
-                            {drink.id}
+                            {truncateId(drink.id)}
                         </td>
                         <td className="drink-data">
                             {drink.name}
