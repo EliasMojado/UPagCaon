@@ -19,6 +19,7 @@ router.post("/addItem", upload.single("image"), (req, res) => {
     "INSERT INTO items (id, name, price, type, description, quantity, expiry_date, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
   const values = [id, name, price, type, description, quantity, expiryDate];
   const imageFile = req.file;
+
   if (!imageFile) {
     // Handle the case where no image file was uploaded
     console.log("No image file provided.");
