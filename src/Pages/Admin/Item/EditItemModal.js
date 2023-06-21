@@ -57,6 +57,9 @@ const EditItemModal = ({ show, close, item }) => {
     formData.append("image", image);
     formData.append("imageURL", item.image)
 
+    console.log("passed expiry date: ");
+    console.log(expiry_date);
+
     updateItem(formData);
 
     close();
