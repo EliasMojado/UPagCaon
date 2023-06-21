@@ -2,7 +2,7 @@ import closebutton from "../../../Assets/close-button.svg";
 import TextFieldComponent from "./EditItemForm";
 import React, { useState, useEffect } from "react";
 import "../../Admin/Item/EditItemModal.css";
-import { updateItem } from "./Items";
+import { apiUrl } from "../../../config";
 
 const EditItemModal = ({ show, close, item }) => {
   const [name, setName] = useState("");
@@ -45,6 +45,43 @@ const EditItemModal = ({ show, close, item }) => {
     setImage(imageData);
   };
 
+  const handleUpdateItem = () => {
+    const updatedItem = {
+      id: item.id,
+      name: name,
+      price: price,
+      description: description,
+      quantity: quantity,
+      expiry_date: expiry_date
+    };
+
+    fetch(apiUrl + '/admin/updateItem', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedItem),
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Edit operation successful
+          console.log('Item updated successfully');
+          window.location.reload();
+          // Perform any additional actions, such as updating the employee list
+        } else {
+          // Edit operation failed
+          console.error('Error updating item');
+          // Handle the error case appropriately
+        }
+      })
+      .catch((error) => {
+        console.error('Error updating item:', error);
+        // Handle the error case appropriately
+      });
+
+    close();
+  };
+
   return (
     <>
       {show ? (
@@ -79,7 +116,7 @@ const EditItemModal = ({ show, close, item }) => {
                 <button className="cancel" onClick={close}>
                   Cancel
                 </button>
-                <button className="okay" onClick={() => updateItem(item.id, FormData)}>
+                <button className="okay" onClick={handleUpdateItem}>
                   Okay
                 </button>
               </div>
