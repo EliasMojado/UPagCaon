@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import './Snacks.css';
 import DeleteItemModal from "../Item/DeleteItemModal";
+import EditItemModal from "../Item/EditItemModal";
 
 const SnacksList = ({ snacks }) => {
   const [selectedSnack, setSelectedSnack] = useState({});
   const [showDeleteItemModal, setShowDeleteItemModal] = useState(false);
+  const [showEditItemModal, setShowEditItemModal] = useState(false);
 
   const ToggleD = (snack) => {
     setShowDeleteItemModal(true);
     setSelectedSnack(snack);
   };
+
+  const ToggleE = (snack) => {
+    setShowEditItemModal(true);
+    setSelectedSnack(snack);
+  }
+
+  const closeEditModal = () => {
+    setShowEditItemModal(false);
+    setSelectedSnack({});
+  }
 
   const closeDeleteModal = () => {
     setShowDeleteItemModal(false);
@@ -43,7 +55,7 @@ const SnacksList = ({ snacks }) => {
                     {snacks.map((snack) => (
                         <tr key={snack.id}>
                         <td>
-                            <button className="snack-edit">
+                            <button className="snack-edit" onClick={()=>ToggleE(snack)}>
                             Edit
                             </button>
                         </td>
@@ -80,6 +92,12 @@ const SnacksList = ({ snacks }) => {
 
                 </tbody>
             </table>
+
+            <EditItemModal
+                show = {showEditItemModal}
+                close = {closeEditModal}
+                item = {selectedSnack}
+            />
 
             <DeleteItemModal
                 show={showDeleteItemModal}
