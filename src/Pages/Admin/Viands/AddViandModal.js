@@ -80,9 +80,6 @@ function AddViandModal({ show, close }) {
                     handleExpiryChange={handleExpiryChange}
                     handleImageChange={handleFileSelect}
                   />
-                  {image && (
-                    <p>Selected File: {image.name}</p>
-                  )}
                 </div>
                 <footer className="modal_footer">
                   <div className="viand-button-row">
