@@ -79,6 +79,34 @@ router.get("/getItem", (req, res) => {
 });
 
 // DELETE /item/delete
+router.delete("/deleteItem", async (req, res) => {
+  const itemID = req.body.id;
+  const imageURL = req.body.image;
+  // Delete SQL record
+  const deleteQuery = 'DELETE FROM items WHERE id = ?';
+  db.query(deleteQuery, [itemID], async (err, results) => {
+    if (err) {
+      console.error('Error deleting item:', err);
+      res.status(500).json({ error: 'An error occurred while deleting item.' });
+      return;
+    }
+    // Delete image from Firebase Storage
+    try {
+      const bucketName = 'upagcaon.appspot.com'; // Replace with your Firebase Storage bucket name
+      const bucket = storage.bucket(bucketName);
+      // Extract the filename from the imageURL
+      const filename = imageURL.split('/').pop();
+      const imageFile = bucket.file(filename);
+      // Delete the image file
+      await imageFile.delete();
+      res.status(200).json({ message: 'Item deleted successfully!' });
+    } catch (error) {
+      console.error('Error deleting image:', error);
+      res.status(500).json({ error: 'An error occurred while deleting image.' });
+    }
+  });
+});
+
 // UPDATE /item/update
 router.put("/updateItem", upload.single("image"), (req, res) => {
   const { id, name, price, description, quantity, expiry_date, imageURL } = req.body;
