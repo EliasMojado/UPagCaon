@@ -2,8 +2,7 @@ import closebutton from "../../../Assets/close-button.svg";
 import TextFieldComponent from "./EditItemForm";
 import React, { useState, useEffect } from "react";
 import "../../Admin/Item/EditItemModal.css";
-import { apiUrl } from "../../../config";
-import { toast } from "react-hot-toast";
+import { updateItem } from "./Items";
 
 const EditItemModal = ({ show, close, item }) => {
   const [name, setName] = useState("");
@@ -56,33 +55,9 @@ const EditItemModal = ({ show, close, item }) => {
     formData.append("quantity", quantity);
     formData.append("expiryDate", expiry_date);
     formData.append("image", image);
+    formData.append("imageURL", item.image)
 
-    fetch(apiUrl + '/item/updateItem', {
-      method: 'PUT',
-      body: formData,
-    })
-      .then((response) => {
-        if (response.ok) {
-          console.log('Item updated successfully');
-          window.location.reload();
-        } else {
-          console.error('Error updating item');
-        }
-      }).then((data) => {
-        // Handle the response data if needed
-        toast.success('Item updated successfully!', {
-          style: {
-            borderRadius: '10px',
-            background: '#333',
-            color: '#fff',
-          },
-          duration: 3000,
-        });
-      })
-      .catch((error) => {
-        console.error('Error updating item:', error);
-        // Handle the error case appropriately
-      });
+    updateItem(formData);
 
     close();
   };
