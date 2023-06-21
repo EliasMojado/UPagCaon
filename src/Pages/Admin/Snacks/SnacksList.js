@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 import './Snacks.css';
-import DeleteEmployeeModal from "../Employee/DeleteEmployeeModal";
+import DeleteItemModal from "../Item/DeleteItemModal";
 
 const SnacksList = ({ snacks }) => {
   const [selectedSnack, setSelectedSnack] = useState({});
-  const [showDeleteEmployeeModal, setShowDeleteEmployeeModal] = useState(false);
+  const [showDeleteItemModal, setShowDeleteItemModal] = useState(false);
 
   const ToggleD = (snack) => {
-    setShowDeleteEmployeeModal(true);
+    setShowDeleteItemModal(true);
     setSelectedSnack(snack);
   };
 
   const closeDeleteModal = () => {
-    setShowDeleteEmployeeModal(false);
+    setShowDeleteItemModal(false);
     setSelectedSnack({});
+  };
+
+  const truncateId = (id) => {
+    if (id.length > 10) {
+        return id.slice(0, 10) + "...";
+    }
+    return id;
   };
 
     return ( 
@@ -41,7 +48,7 @@ const SnacksList = ({ snacks }) => {
                             </button>
                         </td>
                         <td className="snack-data">
-                            {snack.id}
+                            {truncateId(snack.id)}
                         </td>
                         <td className="snack-data">
                             {snack.name}
@@ -56,10 +63,12 @@ const SnacksList = ({ snacks }) => {
                             {snack.quantity}
                         </td>
                         <td className="snack-data">
-                            {snack.expiry}
+                            {new Date(snack.expiry_date).toLocaleDateString("en-US")}
                         </td>
                         <td className="snack-data">
-                            {snack.image}
+                            <a href={snack.image} target="_blank" rel="noopener noreferrer">
+                                <img src={snack.image} alt="Product Image" className="snack-image" />
+                            </a>
                         </td>
                         <td>
                             <button className="snack-delete" onClick={() => ToggleD(snack)}>
@@ -72,10 +81,10 @@ const SnacksList = ({ snacks }) => {
                 </tbody>
             </table>
 
-            <DeleteEmployeeModal
-                show={showDeleteEmployeeModal}
+            <DeleteItemModal
+                show={showDeleteItemModal}
                 close={closeDeleteModal}
-                snack={selectedSnack}
+                item={selectedSnack}
             />
 
         </div>

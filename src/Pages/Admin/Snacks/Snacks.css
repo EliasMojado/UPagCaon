@@ -311,6 +311,11 @@
     width: 90%;
     height: 90%;
 }
+
+.snack-image {
+    width: 30%;
+    height: 30%;
+}
   
 .delete-snack-modal_header-title {
     font-family: 'Inter';
