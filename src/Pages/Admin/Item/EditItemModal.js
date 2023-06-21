@@ -68,7 +68,7 @@ const EditItemModal = ({ show, close, item }) => {
         <div className="edit-item-container">
           <div className="edit-item-modal" onClick={(e) => e.stopPropagation()}>
             <header className="modal-header">
-              <h2 className="edit-item-modal-header-title">Edit Viand</h2>
+              <h2 className="edit-item-modal-header-title">Edit Item</h2>
               <button className="exit" onClick={close}>
                 <img src={closebutton} alt="exit" />
               </button>
@@ -92,7 +92,7 @@ const EditItemModal = ({ show, close, item }) => {
                   />
                 </div>
                 <footer className="modal-footer">
-                <div className="edit-viand-button-row">
+                <div className="edit-item-button-row">
                     <button className="cancel" onClick={close}>
                       Cancel
                     </button>

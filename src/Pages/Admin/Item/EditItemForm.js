@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../Admin/Item/EditItemModal.css";
-import moment from "moment/moment";
+import moment from 'moment';
+import 'moment-timezone';
 
 const TextFieldComponent = ({
   initialName,
@@ -21,7 +22,11 @@ const TextFieldComponent = ({
   const [price, setPrice] = useState(initialPrice);
   const [quantity, setQuantity] = useState(initialQuantity);
   const [expiry_date, setExpiry] = useState("");
-  const newExpiryDate = moment.utc(initialExpiry).format("YYYY-MM-DD");
+  // const newExpiryDate = moment.utc(initialExpiry).format("YYYY-MM-DD");
+  const newExpiryDate = moment.utc(initialExpiry).tz('America/New_York').format('YYYY-MM-DD');
+
+  console.log(initialExpiry);
+  console.log(newExpiryDate);
 
   useEffect(() => {
     setName(initialName);

@@ -65,11 +65,11 @@
 
 .modal-footer {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 16px;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-.edit-viand-button-row {
+.edit-item-button-row {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,7 +147,8 @@
 .initial-image-label {
   /* align-items: flex-start; */
   font-size: small;
-  color: #FFFFFF;
+  font-weight: 500;
+  color: #000000;
   margin: 0;
 }
 
