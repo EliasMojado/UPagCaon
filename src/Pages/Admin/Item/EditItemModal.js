@@ -42,8 +42,8 @@ const EditItemModal = ({ show, close, item }) => {
     setExpiry(event.target.value);
   };
 
-  const handleImageChange = (event) => {
-    setImage(event.target.files[0]);
+  const handleImageChange = (file) => {
+    setImage(file);
   };
 
   const handleUpdateItem = () => {
@@ -56,15 +56,6 @@ const EditItemModal = ({ show, close, item }) => {
     formData.append("quantity", quantity);
     formData.append("expiryDate", expiry_date);
     formData.append("image", image);
-
-    // const updatedItem = {
-    //   id: item.id,
-    //   name: name,
-    //   price: price,
-    //   description: description,
-    //   quantity: quantity,
-    //   expiry_date: expiry_date
-    // };
 
     fetch(apiUrl + '/item/updateItem', {
       method: 'PUT',
@@ -130,7 +121,7 @@ const EditItemModal = ({ show, close, item }) => {
                     <button className="cancel" onClick={close}>
                       Cancel
                     </button>
-                    <button className="okay" onClick={handleUpdateItem}>
+                    <button className="okay" type = "submit">
                       Okay
                     </button>
                   </div>
