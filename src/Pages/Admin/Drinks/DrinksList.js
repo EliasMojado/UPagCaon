@@ -1,20 +1,32 @@
 import React, { useState } from "react";
 import './Drinks.css';
 import DeleteItemModal from "../Item/DeleteItemModal";
+import EditItemModal from "../Item/EditItemModal"
 
 const DrinksList = ({ drinks }) => {
   const [selectedDrink, setSelectedDrink] = useState({});
   const [showDeleteItemModal, setShowDeleteItemModal] = useState(false);
+  const [showEditItemModal, setShowEditItemModal] = useState(false);
 
   const ToggleD = (drink) => {
     setShowDeleteItemModal(true);
     setSelectedDrink(drink);
   };
 
+  const ToggleE = (drink) => {
+    setShowEditItemModal(true);
+    setSelectedDrink(drink);
+  }
+
   const closeDeleteModal = () => {
     setShowDeleteItemModal(false);
     setSelectedDrink({});
   };
+
+  const closeEditModal = () => {
+    setShowEditItemModal(false);
+    setSelectedDrink({});
+  }
 
   const truncateId = (id) => {
     if (id.length > 10) {
@@ -43,7 +55,7 @@ const DrinksList = ({ drinks }) => {
                     {drinks.map((drink) => (
                         <tr key={drink.id}>
                         <td>
-                            <button className="drink-edit">
+                            <button className="drink-edit" onClick={()=>ToggleE(drink)}>
                             Edit
                             </button>
                         </td>
@@ -80,6 +92,12 @@ const DrinksList = ({ drinks }) => {
 
                 </tbody>
             </table>
+
+            <EditItemModal
+                show = {showEditItemModal}
+                close = {closeEditModal}
+                item = {selectedDrink}
+            />
 
             <DeleteItemModal
                 show={showDeleteItemModal}
