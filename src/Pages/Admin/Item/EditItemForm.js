@@ -22,17 +22,14 @@ const TextFieldComponent = ({
   const [quantity, setQuantity] = useState(initialQuantity);
   const [expiry_date, setExpiry] = useState("");
   const newExpiryDate = moment.utc(initialExpiry).format("YYYY-MM-DD");
-  const [image, setImage] = useState(initialImage);
-
-  console.log(image);
+  const [image, setImage] = useState("");
 
   useEffect(() => {
     setName(initialName);
     setDescription(initialDescription);
     setPrice(initialPrice);
     setQuantity(initialQuantity);
-    setExpiry(newExpiryDate);   
-    setImage(initialImage);
+    setExpiry(newExpiryDate);
   }, [
     initialName,
     initialDescription,
@@ -68,8 +65,9 @@ const TextFieldComponent = ({
   };
 
   const handleImageInputChange = (event) => {
-    setImage(event.targetvalue);
-    handleImageChange(event);
+    const file = event.target.files[0];
+    setImage(file ? file.name : "");
+    handleImageChange(file);
   };
 
   return (
@@ -114,10 +112,16 @@ const TextFieldComponent = ({
         className="editvimage"
         type="file"
         accept="image/*"
-        // type="string"
-        value={image}
         onChange={handleImageInputChange}
       />
+      <p className="initial-image-label">
+        Uploaded Image:
+      </p>
+      {initialImage && 
+        <p className="initial-image-name"> 
+          {initialImage.substring(initialImage.lastIndexOf("/") + 1)}
+        </p>
+      }      
     </div>
   );
 };

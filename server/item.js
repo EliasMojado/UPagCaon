@@ -112,6 +112,106 @@ router.delete("/deleteItem", async (req, res) => {
   });
 });
 
+// UPDATE /item/update
+router.put("/updateItem", upload.single("image"), (req, res) => {
+  const { id, name, price, description, quantity, expiry_date } = req.body;
 
+  //Update the item attributes in the database
+  const updateQueries = []; 
+
+  if (name) {
+    updateQueries.push({ query: `UPDATE items SET name = '${name}' WHERE ID = '${id}'` });
+  }
+
+  if (price) {
+    updateQueries.push({ query: `UPDATE items SET price = '${price}' WHERE ID = '${id}'` });
+  }
+
+  if (description) {
+    updateQueries.push({ query: `UPDATE items SET description = '${description}' WHERE ID = '${id}'` });
+  }
+
+  if (quantity) {
+    updateQueries.push({ query: `UPDATE items SET quantity = '${quantity}' WHERE ID = '${id}'` });
+  }
+
+  if (expiry_date) {
+    updateQueries.push({ query: `UPDATE items SET expiry_date = '${expiry_date}' WHERE ID = '${id}'` });
+  }
+
+  const imageFile = req.file;
+  if (imageFile) {
+    // Upload the new image to Firebase Storage
+    const bucket = storage.bucket();
+    const imageName = `${id}-${imageFile.originalname}`;
+    const imageFileRef = bucket.file(imageName);
+    const imageMetadata = { contentType: imageFile.mimetype };
+
+    imageFileRef
+      .createWriteStream({
+        metadata: imageMetadata
+      })
+      .on("error", (error) => {
+        console.error("Error uploading image:", error);
+        res.status(500).json({ error: "An error occurred while uploading the image." });
+      })
+      .on("finish", () => {
+        // Get the download URL of the uploaded image
+        const imageUrl = `https://storage.googleapis.com/${bucket.name}/${imageName}`;
+
+        // Update the item with the new image URL
+        updateQueries.push({ query: `UPDATE items SET image = '${imageUrl}' WHERE id = '${id}'` });
+
+        // Execute the update queries in parallel using Promise.all
+        Promise.all(
+          updateQueries.map(({ query }) => {
+            return new Promise((resolve, reject) => {
+              db.query(query, (err, results) => {
+                if (err) {
+                  console.error("Error updating item:", err);
+                  reject(err);
+                  return;
+                }
+                resolve();
+              });
+            });
+          })
+        )
+          .then(() => {
+            console.log("Item updated successfully!");
+            res.status(200).json({ message: "Item updated successfully!" });
+          })
+          .catch((error) => {
+            console.error("An error occurred while updating the item:", error);
+            res.status(500).json({ error: "An error occurred while updating the item." });
+          });
+      })
+      .end(imageFile.buffer);
+  } else {
+    // No new image provided, execute the update queries directly
+    Promise.all(
+      updateQueries.map(({ query }) => {
+        return new Promise((resolve, reject) => {
+          db.query(query, (err, results) => {
+            if (err) {
+              console.error("Error updating item:", err);
+              reject(err);
+              return;
+            }
+            resolve();
+          });
+        });
+      })
+    )
+      .then(() => {
+        console.log("Item updated successfully!");
+        res.status(200).json({ message: "Item updated successfully!" });
+      })
+      .catch((error) => {
+        console.error("An error occurred while updating the item:", error);
+        res.status(500).json({ error: "An error occurred while updating the item." });
+      });
+  }
+});
 
 module.exports = router;
