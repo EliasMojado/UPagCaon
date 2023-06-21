@@ -22,7 +22,6 @@ const TextFieldComponent = ({
   const [quantity, setQuantity] = useState(initialQuantity);
   const [expiry_date, setExpiry] = useState("");
   const newExpiryDate = moment.utc(initialExpiry).format("YYYY-MM-DD");
-  const [image, setImage] = useState("");
 
   useEffect(() => {
     setName(initialName);
@@ -36,7 +35,6 @@ const TextFieldComponent = ({
     initialPrice,
     initialQuantity,
     initialExpiry,
-    initialImage,
   ]);
 
   const handleNameInputChange = (event) => {
@@ -66,7 +64,6 @@ const TextFieldComponent = ({
 
   const handleImageInputChange = (event) => {
     const file = event.target.files[0];
-    setImage(file ? file.name : "");
     handleImageChange(file);
   };
 
@@ -114,14 +111,14 @@ const TextFieldComponent = ({
         accept="image/*"
         onChange={handleImageInputChange}
       />
-      <p className="initial-image-label">
-        Uploaded Image:
-      </p>
-      {initialImage && 
-        <p className="initial-image-name"> 
-          {initialImage.substring(initialImage.lastIndexOf("/") + 1)}
-        </p>
-      }      
+      {initialImage && (
+        <div>
+          <p className="initial-image-label">Uploaded Image:</p>
+          <p className="initial-image-name">
+            {initialImage.name || initialImage.substring(initialImage.lastIndexOf("/") + 1)}
+          </p>
+        </div>
+      )}
     </div>
   );
 };

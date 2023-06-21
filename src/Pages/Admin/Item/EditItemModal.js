@@ -3,6 +3,7 @@ import TextFieldComponent from "./EditItemForm";
 import React, { useState, useEffect } from "react";
 import "../../Admin/Item/EditItemModal.css";
 import { apiUrl } from "../../../config";
+import { toast } from "react-hot-toast";
 
 const EditItemModal = ({ show, close, item }) => {
   const [name, setName] = useState("");
@@ -10,7 +11,7 @@ const EditItemModal = ({ show, close, item }) => {
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
   const [expiry_date, setExpiry] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
 
   useEffect(() => {
     setName(item.name);
@@ -41,38 +42,42 @@ const EditItemModal = ({ show, close, item }) => {
     setExpiry(event.target.value);
   };
 
-  const handleImageChange = (imageData) => {
-    setImage(imageData);
+  const handleImageChange = (file) => {
+    setImage(file);
   };
 
   const handleUpdateItem = () => {
-    const updatedItem = {
-      id: item.id,
-      name: name,
-      price: price,
-      description: description,
-      quantity: quantity,
-      expiry_date: expiry_date
-    };
+    const formData = new FormData();
+    formData.append("id", item.id);
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("type", "viand");
+    formData.append("description", description);
+    formData.append("quantity", quantity);
+    formData.append("expiryDate", expiry_date);
+    formData.append("image", image);
 
-    fetch(apiUrl + '/admin/updateItem', {
+    fetch(apiUrl + '/item/updateItem', {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(updatedItem),
+      body: formData,
     })
       .then((response) => {
         if (response.ok) {
-          // Edit operation successful
           console.log('Item updated successfully');
           window.location.reload();
-          // Perform any additional actions, such as updating the employee list
         } else {
-          // Edit operation failed
           console.error('Error updating item');
-          // Handle the error case appropriately
         }
+      }).then((data) => {
+        // Handle the response data if needed
+        toast.success('Item updated successfully!', {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+          duration: 3000,
+        });
       })
       .catch((error) => {
         console.error('Error updating item:', error);
@@ -94,33 +99,35 @@ const EditItemModal = ({ show, close, item }) => {
               </button>
             </header>
             <main className="modal-content">
-              <div>
-                <TextFieldComponent
-                  initialName={name}
-                  initialDescription={description}
-                  initialPrice={price}
-                  initialQuantity={quantity}
-                  initialExpiry={expiry_date}
-                  initialImage={image}
-                  handleNameChange={handleNameChange}
-                  handleDescriptionChange={handleDescriptionChange}
-                  handlePriceChange={handlePriceChange}
-                  handleQuantityChange={handleQuantityChange}
-                  handleExpiryChange={handleExpiryChange}
-                  handleImageChange={handleImageChange}
-                />
-              </div>
+              <form onSubmit={handleUpdateItem}>
+                <div>
+                  <TextFieldComponent
+                    initialName={name}
+                    initialDescription={description}
+                    initialPrice={price}
+                    initialQuantity={quantity}
+                    initialExpiry={expiry_date}
+                    initialImage={image}
+                    handleNameChange={handleNameChange}
+                    handleDescriptionChange={handleDescriptionChange}
+                    handlePriceChange={handlePriceChange}
+                    handleQuantityChange={handleQuantityChange}
+                    handleExpiryChange={handleExpiryChange}
+                    handleImageChange={handleImageChange}
+                  />
+                </div>
+                <footer className="modal-footer">
+                <div className="edit-viand-button-row">
+                    <button className="cancel" onClick={close}>
+                      Cancel
+                    </button>
+                    <button className="okay" type = "submit">
+                      Okay
+                    </button>
+                  </div>
+                </footer>
+              </form>
             </main>
-            <footer className="modal-footer">
-              <div className="edit-viand-button-row">
-                <button className="cancel" onClick={close}>
-                  Cancel
-                </button>
-                <button className="okay" onClick={handleUpdateItem}>
-                  Okay
-                </button>
-              </div>
-            </footer>
           </div>
         </div>
       ) : null}
