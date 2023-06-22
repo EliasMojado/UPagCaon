@@ -29,11 +29,11 @@
 
 .profits-list {
     position: fixed;
-    z-index: 0!important;
+    z-index: 0 !important;
     top: 23%;
     left: 12%;
     width: 50%;
-    background: rgba(255, 255, 255, 0.9);    
+    background: rgba(255, 255, 255, 0.9);
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -45,7 +45,7 @@
     table-layout: fixed;
     width: 100%;
 }
-  
+
 .profits-list th,
 .profits-list td {
     width: 25%;
@@ -84,7 +84,7 @@
     font-family: 'Inter';
     font-size: medium;
     font-weight: 600;
-    background-color: #481E1E;
+    background-color: #520000;
     color: #FFFFFF;
     height: 7vh;
     width: 18vw;
@@ -106,5 +106,3 @@
     text-align: center;
     height: 300%;
 }
-
-  

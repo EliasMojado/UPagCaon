@@ -1,6 +1,5 @@
-// import React {useState} from react;
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../Dashboard/Dashboard.css';
 import Sidebar from './Sidebar';
 import OrderList from './OrderList';
@@ -16,6 +15,23 @@ import { apiUrl } from '../../../config';
 import withAdminAuthentication from '../requireAdminAuthentication';
 
 function Dashboard() {
+  const navigate = useNavigate();
+
+  const goToViandPage = () => {
+    navigate('/admin/viands', { replace: true});
+  }
+
+  const goToDrinkPage = () => {
+    navigate('/admin/drinks', { replace: true});
+  }
+
+  const goToSnackPage = () => {
+    navigate('/admin/snacks', { replace: true});
+  }
+
+  const goToOtherPage = () => {
+    navigate('/admin/others', { replace: true});
+  }
 
   // const [authenticated, setAuthenticated] = useState(false);
   const [adminCount, setAdminCount ] = useState(0);
@@ -73,26 +89,26 @@ function Dashboard() {
           </div>
         </div>
         <div className="container2">
-          <div className="box2">
+          <div className="box2" onClick={goToViandPage}>
             <span className='box-content2'>Viands</span>
             <div className='viands-container'>
               <img src={viands} alt='viands' className='viands'/>
             </div>
           </div>
-          <div className="box2">
-            <span className='box-content2'>Beverages</span>
+          <div className="box2" onClick={goToDrinkPage}>
+            <span className='box-content2'>Drinks</span>
             <div className='drinks-container'>
               <img src={drinks} alt='drinks' className='drinks'/>
             </div>
           </div>
-          <div className="box2">
+          <div className="box2" onClick={goToSnackPage}>
             <span className='box-content2'>Snacks</span>
             <div className='snacks-container'>
               <img src={snacks} alt='snacks' className='snacks'/>
             </div>
           </div>
-          <div className="box2">
-            <span className='box-content2'>School Supplies</span>
+          <div className="box2" onClick={goToOtherPage}>
+            <span className='box-content2'>Others</span>
             <div className='schoolsupply-container'>
               <img src={schoolsupply} alt='schoolsupply' className='schoolsupply'/>
             </div>
