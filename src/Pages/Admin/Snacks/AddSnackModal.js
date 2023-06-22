@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../Snacks/Snacks.css';
 import closebutton from '../../../Assets/close-button.svg';
-import TextFieldComponent from "../Snacks/AddSnackForm";
+import TextFieldComponent from "../Item/AddItemForm";
 import { insertItem } from "../Item/Items";
 
 function AddSnackModal ({ show, close}) {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../Drinks/Drinks.css';
 import closebutton from '../../../Assets/close-button.svg';
-import TextFieldComponent from "../Drinks/AddDrinkForm";
+import TextFieldComponent from "../Item/AddItemForm";
 import { insertItem } from "../Item/Items";
 
 function AddDrinkModal ({ show, close}) {

@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import "../Viands/Viands.css";
 import closebutton from "../../../Assets/close-button.svg";
 import toast from 'react-hot-toast';
-import TextFieldComponent from "../Viands/AddViandForm";
+import TextFieldComponent from "../Item/AddItemForm";
 import { insertItem } from "../Item/Items";
 
 function AddViandModal({ show, close }) {

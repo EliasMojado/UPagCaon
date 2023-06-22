@@ -1,8 +1,8 @@
 import React from 'react';
-import '../Drinks/Drinks.css';
+import '../Item/EditItemModal.css';
 
 const TextFieldComponent = ({
-    dname,
+    itemsname,
     description,
     price,
     quantity,
@@ -17,12 +17,12 @@ const TextFieldComponent = ({
 }) => {
 
   return (
-    <div className='d-input'>
+    <div className='items-input'>
       <input
-        className='dname'
+        className='itemsname'
         type="text"
         placeholder="Product Name"
-        value={dname}
+        value={itemsname}
         onChange={handleNameChange}
       />
       <input

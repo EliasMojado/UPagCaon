@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../Others/Others.css';
 import closebutton from '../../../Assets/close-button.svg';
-import TextFieldComponent from "../Others/AddOtherForm";
+import TextFieldComponent from "../Item/AddItemForm";
 import { insertItem } from "../Item/Items";
 
 function AddOtherModal ({ show, close}) {
