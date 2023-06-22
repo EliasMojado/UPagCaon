@@ -1,26 +1,32 @@
-import React, { useState }from 'react';
+import React, { useState, useEffect }from 'react';
 import Sidebar from "../Dashboard/Sidebar";
 import SearchBar from "../Dashboard/SearchBar";
 import '../Others/Others.css';
 import OthersList from './OthersList';
 import AddOtherModal from './AddOtherModal';
+import { getItem } from '../Item/Items';
 import withAdminAuthentication from "../requireAdminAuthentication";
 
 function Others() {
-    const others = [
-        { id: 1271672482, type: 'Other', name: 'Rice', description: 'di mani sud an', price: 10, quantity: 20, expiry: '06-18-2023', image: 'img' },
-        { id: 2372837232, type: 'Other', name: 'Bluebook', description: 'goodluck', price: 6, quantity: 20, expiry: '06-18-2023', image: 'img' },
-        { id: 3323436563, type: 'Other', name: 'Tissue', description: 'hihi', price: 20, quantity: 20, expiry: '06-18-2023', image: 'img' },
-        { id: 4696856604, type: 'Other', name: 'Lanyard', description: 'wowers', price: 100, quantity: 20, expiry: '06-18-2023', image: 'img' },
-        { id: 5583983975, type: 'Other', name: 'Paper', description: 'hatdog', price: 30, quantity: 20, expiry: '06-18-2023', image: 'img' },
-        { id: 6454954586, type: 'Other', name: 'Ballpen', description: 'pero way ball', price: 20, quantity: 20, expiry: '06-18-2023', image: 'img' },
-        { id: 7584549557, type: 'Other', name: 'Ice', description: 'di mani beverage di ba', price: 5, quantity: 20, expiry: '06-18-2023', image: 'img' },
-      ];
-
       const [showAddOtherModal, setShowAddOtherModal] = useState(false);
+      const [others, setOthers] = useState([]);
       const Toggle = () => setShowAddOtherModal(!showAddOtherModal);
       const closeAddOtherModal = () => setShowAddOtherModal(false);
   
+      useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const data = await getItem('other');
+            setOthers(data); // Update the state with retrieved items
+          } catch (error) {
+            console.error('Error:', error);
+            // Handle the error condition
+          }
+        };
+
+        fetchData();
+    }, []);
+
     return (
         <div className="others-page">
             <header className="others-header">
@@ -44,4 +50,4 @@ function Others() {
     )
 }
 
-export default Others;
+export default withAdminAuthentication(Others);

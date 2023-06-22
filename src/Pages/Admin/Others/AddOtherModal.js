@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import '../Others/Others.css';
 import closebutton from '../../../Assets/close-button.svg';
 import TextFieldComponent from "../Others/AddOtherForm";
+import { insertItem } from "../Item/Items";
 
 function AddOtherModal ({ show, close}) {
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
-    const [price, setPrice] = useState('');
-    const [quantity, setQuantity] = useState('');
-    const [expiry, setExpiry] = useState('');
-    const [image, setImage] = useState('');
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [quantity, setQuantity] = useState("");
+    const [expiry, setExpiry] = useState("");
+    const [image, setImage] = useState(null);
 
     const handleNameChange = (event) => {
-        setName(event.target.value);
+      setName(event.target.value);
     };
 
     const handleDescriptionChange = (event) => {
@@ -31,9 +32,27 @@ function AddOtherModal ({ show, close}) {
     setExpiry(event.target.value);
     };
 
-    const handleImageChange = (event) => {
-    setImage(event.target.value);
+    const handleFileSelect = (event) => {
+      setImage(event.target.files[0]);
     };
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("price", price);
+      formData.append("type", "other");
+      formData.append("description", description);
+      formData.append("quantity", quantity);
+      formData.append("expiryDate", expiry);
+      formData.append("image", image);
+
+      insertItem(formData);
+
+      close();
+      };
+
 
       return (
         <>
@@ -47,6 +66,7 @@ function AddOtherModal ({ show, close}) {
               </button>
             </header>
             <main className="modal_content">
+              <form onSubmit={handleSubmit}>
               <div>
                 <TextFieldComponent
                 name={name}
@@ -54,32 +74,31 @@ function AddOtherModal ({ show, close}) {
                 price={price}
                 quantity={quantity}
                 expiry={expiry}
-                image={image}
                 handleNameChange={handleNameChange}
                 handleDescriptionChange={handleDescriptionChange}
                 handlePriceChange={handlePriceChange}
                 handleQuantityChange={handleQuantityChange}
                 handleExpiryChange={handleExpiryChange}
-                handleImageChange={handleImageChange}
+                handleImageChange={handleFileSelect}
                 />
               </div>
-            </main>
             <footer className="modal_footer">
                 <div className='other-button-row'>
                     <button className="other-cancel" onClick={close}>
                         Cancel
                     </button>
-                    <button className="other-okay" onClick={close}>
+                    <button className="other-okay" type="submit">
                         Okay
                     </button>
                 </div>
             </footer>
-          </div>
-        </div>
-      ) : null}
+          </form>
+        </main>
+      </div>
+    </div>
+    ) : null}
     </>
-
-      )
+    );
 }
 
 export default AddOtherModal;

@@ -123,6 +123,11 @@
     cursor: pointer;
 }
 
+.other-image {
+    width: 30%;
+    height: 30%;
+}
+
 /* ADD OTHER MODAL css */
 
 .add-other-container {

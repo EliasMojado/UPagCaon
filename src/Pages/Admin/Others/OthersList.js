@@ -1,19 +1,38 @@
 import React, { useState } from "react";
 import './Others.css';
-import DeleteEmployeeModal from "../Employee/DeleteEmployeeModal";
+import DeleteItemModal from "../Item/DeleteItemModal";
+import EditItemModal from "../Item/EditItemModal";
 
 const OthersList = ({ others }) => {
   const [selectedOther, setSelectedOther] = useState({});
-  const [showDeleteEmployeeModal, setShowDeleteEmployeeModal] = useState(false);
+  const [showDeleteItemModal, setShowDeleteItemModal] = useState(false);
+  const [showEditItemModal, setShowEditItemModal] = useState(false);
 
   const ToggleD = (other) => {
-    setShowDeleteEmployeeModal(true);
+    setShowDeleteItemModal(true);
     setSelectedOther(other);
   };
 
   const closeDeleteModal = () => {
-    setShowDeleteEmployeeModal(false);
+    setShowDeleteItemModal(false);
     setSelectedOther({});
+  };
+
+  const ToggleE = (other) => {
+    setShowEditItemModal(true);
+    setSelectedOther(other);
+  };
+
+  const closeEditModal = () => {
+    setShowEditItemModal(false);
+    setSelectedOther({});
+  };
+
+  const truncateId = (id) => {
+    if (id.length > 10) {
+      return id.slice(0, 10) + "...";
+    }
+    return id;
   };
 
     return ( 
@@ -36,12 +55,12 @@ const OthersList = ({ others }) => {
                     {others.map((other) => (
                         <tr key={other.id}>
                         <td>
-                            <button className="other-edit">
+                            <button className="other-edit" onClick={() => ToggleE(other)}> 
                             Edit
                             </button>
                         </td>
                         <td className="other-data">
-                            {other.id}
+                            {truncateId(other.id)}
                         </td>
                         <td className="other-data">
                             {other.name}
@@ -56,10 +75,12 @@ const OthersList = ({ others }) => {
                             {other.quantity}
                         </td>
                         <td className="other-data">
-                            {other.expiry}
+                            {new Date(other.expiry_date).toLocaleDateString("en-US")}
                         </td>
                         <td className="other-data">
-                            {other.image}
+                            <a href={other.image} target="_blank" rel="noopener noreferrer">
+                            <img src={other.image} alt="Product Image" className="other-image" />
+                            </a>
                         </td>
                         <td>
                             <button className="other-delete" onClick={() => ToggleD(other)}>
@@ -71,11 +92,17 @@ const OthersList = ({ others }) => {
 
                 </tbody>
             </table>
+            
+            <EditItemModal
+                show={showEditItemModal}
+                close={closeEditModal}
+                item={selectedOther}
+            />
 
-            <DeleteEmployeeModal
-                show={showDeleteEmployeeModal}
+            <DeleteItemModal
+                show={showDeleteItemModal}
                 close={closeDeleteModal}
-                other={selectedOther}
+                item={selectedOther}
             />
 
         </div>
