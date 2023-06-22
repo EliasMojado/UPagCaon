@@ -9,23 +9,29 @@ import withAdminAuthentication from "../requireAdminAuthentication";
 
 function Others() {
       const [showAddOtherModal, setShowAddOtherModal] = useState(false);
-      const [others, setOthers] = useState([]);
       const Toggle = () => setShowAddOtherModal(!showAddOtherModal);
       const closeAddOtherModal = () => setShowAddOtherModal(false);
+      
+      const [others, setOthers] = useState([]);
+      const [filteredOthers, setFilteredOther] = useState([]);
   
       useEffect(() => {
         const fetchData = async () => {
           try {
             const data = await getItem('other');
-            setOthers(data); // Update the state with retrieved items
+            setOthers(data); 
+            setFilteredOther(data);
           } catch (error) {
             console.error('Error:', error);
-            // Handle the error condition
           }
         };
 
         fetchData();
     }, []);
+
+    const handleSearch = (filteredItems) => {
+      setFilteredOther(filteredItems);
+    }
 
     return (
         <div className="others-page">
@@ -41,10 +47,14 @@ function Others() {
                 show={showAddOtherModal}
                 close={closeAddOtherModal}
                 />
-                <SearchBar/>
+                <SearchBar
+                  items={others}
+                  setFilteredItems={handleSearch}
+                  itemType="items"
+                />
             </header>
 
-            <OthersList others={others}/>
+            <OthersList others={filteredOthers}/>
 
         </div>
     )

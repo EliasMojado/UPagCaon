@@ -6,18 +6,22 @@ import SnacksList from './SnacksList';
 import AddSnackModal from './AddSnackModal';
 import withAdminAuthentication from "../requireAdminAuthentication";
 import { getItem } from '../Item/Items';
+import Drinks from '../Drinks/Drinks';
 
 function Snacks() {
-    const [snacks, setSnacks] = useState([]);
     const [showAddSnackModal, setShowAddSnackModal] = useState(false);
     const Toggle = () => setShowAddSnackModal(!showAddSnackModal);
     const closeAddSnackModal = () => setShowAddSnackModal(false);
     
+    const [snacks, setSnacks] = useState([]);
+    const [filteredSnacks, setFilteredSnacks] = useState([]);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await getItem('snack');
                 setSnacks(data);
+                setFilteredSnacks(data);
             }catch (error) {
                 console.error('Error:', error);
             }
@@ -25,6 +29,10 @@ function Snacks() {
 
         fetchData();
     }, []);
+
+    const handleSearch = (filteredItems) => {
+        setFilteredSnacks(filteredItems);
+    }
     
     return (
         <div className="snacks-page">
@@ -40,10 +48,14 @@ function Snacks() {
                 show={showAddSnackModal}
                 close={closeAddSnackModal}
                 />
-                <SearchBar/>
+                <SearchBar
+                    items={snacks}
+                    setFilteredItems={handleSearch}
+                    itemType="items"
+                />
             </header>
 
-            <SnacksList snacks={snacks}/>
+            <SnacksList snacks={filteredSnacks}/>
 
         </div>
     )

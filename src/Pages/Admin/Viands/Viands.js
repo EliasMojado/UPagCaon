@@ -9,23 +9,29 @@ import withAdminAuthentication from "../requireAdminAuthentication";
 
 function Viands() {
       const [showAddViandModal, setShowAddViandModal] = useState(false);
-      const [viands, setViands] = useState([]);
       const Toggle = () => setShowAddViandModal(!showAddViandModal);
       const closeAddViandModal = () => setShowAddViandModal(false);
+
+      const [viands, setViands] = useState([]);
+      const [filteredViands, setFilteredViands] = useState([]);
 
       useEffect(() => {
         const fetchData = async () => {
           try {
             const data = await getItem('viand');
-            setViands(data); // Update the state with retrieved items
+            setViands(data); 
+            setFilteredViands(data);
           } catch (error) {
             console.error('Error:', error);
-            // Handle the error condition
           }
         };
     
         fetchData();
       }, []);
+
+      const handleSearch = (filteredItems) => {
+        setFilteredViands(filteredItems);
+      };
   
     return (
         <div className="viands-page">
@@ -41,10 +47,14 @@ function Viands() {
                 show={showAddViandModal}
                 close={closeAddViandModal}
                 />
-                <SearchBar/>
+                <SearchBar 
+                  items={viands} 
+                  setFilteredItems={handleSearch}
+                  itemType="items"
+                />
             </header>
 
-            <ViandsList viands={viands}/>
+            <ViandsList viands={filteredViands}/>
 
         </div>
     )

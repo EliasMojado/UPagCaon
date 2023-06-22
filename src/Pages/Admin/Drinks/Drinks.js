@@ -9,15 +9,18 @@ import { getItem } from '../Item/Items';
 
 function Drinks() {
     const [showAddDrinkModal, setShowAddDrinkModal] = useState(false);
-    const [drinks, setDrinks] = useState([]);
     const Toggle = () => setShowAddDrinkModal(!showAddDrinkModal);
     const closeAddDrinkModal = () => setShowAddDrinkModal(false);
+
+    const [drinks, setDrinks] = useState([]);
+    const [filteredDrinks, setFilteredDrinks] = useState([]);
 
     useEffect(() =>{
     const fetchData = async () => {
         try {
             const data = await getItem('drink');
             setDrinks(data);
+            setFilteredDrinks(data);
         }catch (error){
             console.error('Error:', error);
         }
@@ -25,6 +28,10 @@ function Drinks() {
 
     fetchData();
     }, []);
+
+    const handleSearch = (filteredItems) => {
+        setFilteredDrinks(filteredItems);
+    }
   
     return (
         <div className="drinks-page">
@@ -40,10 +47,14 @@ function Drinks() {
                 show={showAddDrinkModal}
                 close={closeAddDrinkModal}
                 />
-                <SearchBar/>
+                <SearchBar
+                    items={drinks}
+                    setFilteredItems={handleSearch}
+                    itemType="items"
+                />
             </header>
 
-            <DrinksList drinks={drinks}/>
+            <DrinksList drinks={filteredDrinks}/>
 
         </div>
     )
