@@ -121,7 +121,7 @@ function Sidebar() {
           <NavIcon>
             <img src={drink} alt="drink" className="nav-icon" />
           </NavIcon>
-          <NavText className="navtext">Beverages</NavText>
+          <NavText className="navtext">Drinks</NavText>
         </NavItem>        
         <NavItem eventKey="snack" onClick = {goToSnackPage}>
           <NavIcon>
