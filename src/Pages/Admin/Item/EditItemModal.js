@@ -3,6 +3,7 @@ import TextFieldComponent from "./EditItemForm";
 import React, { useState, useEffect } from "react";
 import "../../Admin/Item/EditItemModal.css";
 import { updateItem } from "./Items";
+import moment from "moment";
 
 const EditItemModal = ({ show, close, item }) => {
   const [name, setName] = useState("");
@@ -17,7 +18,7 @@ const EditItemModal = ({ show, close, item }) => {
     setDescription(item.description);
     setPrice(item.price);
     setQuantity(item.quantity);
-    setExpiry(item.expiry_date);
+    setExpiry(moment(item.expiry_date).format("M/DD/YYYY"));
     setImage(item.image);
   }, [item]);
 

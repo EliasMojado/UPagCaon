@@ -17,16 +17,12 @@ const TextFieldComponent = ({
   handleExpiryChange,
   handleImageChange,
 }) => {
+  const newExpiryDate = moment(initialExpiry).format("YYYY-MM-DD");
   const [editvname, setName] = useState(initialName);
   const [description, setDescription] = useState(initialDescription);
   const [price, setPrice] = useState(initialPrice);
   const [quantity, setQuantity] = useState(initialQuantity);
-  const [expiry_date, setExpiry] = useState("");
-  // const newExpiryDate = moment.utc(initialExpiry).format("YYYY-MM-DD");
-  const newExpiryDate = moment.utc(initialExpiry).tz('America/New_York').format('YYYY-MM-DD');
-
-  // console.log(initialExpiry);
-  // console.log(newExpiryDate);
+  const [expiry_date, setExpiry] = useState(newExpiryDate);
 
   useEffect(() => {
     setName(initialName);
