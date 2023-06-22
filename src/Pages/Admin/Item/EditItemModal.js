@@ -1,11 +1,11 @@
 import closebutton from "../../../Assets/close-button.svg";
 import TextFieldComponent from "./EditItemForm";
 import React, { useState, useEffect } from "react";
-import "../../Admin/Item/EditItemModal.css";
+import "../../Admin/Item/Item.css";
 import { updateItem } from "./Items";
 import moment from "moment";
 
-const EditItemModal = ({ show, close, item }) => {
+const EditItemModal = ({ show, close, item, modalHeader }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -51,7 +51,6 @@ const EditItemModal = ({ show, close, item }) => {
     formData.append("id", item.id);
     formData.append("name", name);
     formData.append("price", price);
-    formData.append("type", "viand");
     formData.append("description", description);
     formData.append("quantity", quantity);
     formData.append("expiryDate", expiry_date);
@@ -69,7 +68,7 @@ const EditItemModal = ({ show, close, item }) => {
         <div className="edit-item-container">
           <div className="edit-item-modal" onClick={(e) => e.stopPropagation()}>
             <header className="modal-header">
-              <h2 className="edit-item-modal-header-title">Edit Item</h2>
+              <h2 className="edit-item-modal-header-title">{modalHeader}</h2>
               <button className="exit" onClick={close}>
                 <img src={closebutton} alt="exit" />
               </button>

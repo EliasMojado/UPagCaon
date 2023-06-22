@@ -97,6 +97,7 @@ const OthersList = ({ others }) => {
                 show={showEditItemModal}
                 close={closeEditModal}
                 item={selectedOther}
+                modalHeader="Edit Other"
             />
 
             <DeleteItemModal

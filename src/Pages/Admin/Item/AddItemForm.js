@@ -1,14 +1,16 @@
 import React from 'react';
-import '../Drinks/Drinks.css';
+import '../Item/Item.css';
 
 const TextFieldComponent = ({
-    dname,
+    itemsname,
+    type,
     description,
     price,
     quantity,
     expiry,
     image,
     handleNameChange,
+    handleTypeChange,
     handleDescriptionChange,
     handlePriceChange,
     handleQuantityChange,
@@ -17,13 +19,20 @@ const TextFieldComponent = ({
 }) => {
 
   return (
-    <div className='d-input'>
+    <div className='items-input'>
       <input
-        className='dname'
+        className='itemsname'
         type="text"
         placeholder="Product Name"
-        value={dname}
+        value={itemsname}
         onChange={handleNameChange}
+      />
+      <input
+        className='type'
+        type="text"
+        placeholder="Type"
+        value={type}
+        onChange={handleTypeChange}
       />
       <input
         className='description'

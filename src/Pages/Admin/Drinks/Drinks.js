@@ -3,7 +3,7 @@ import Sidebar from "../Dashboard/Sidebar";
 import SearchBar from "../Dashboard/SearchBar";
 import '../Drinks/Drinks.css';
 import DrinksList from './DrinksList';
-import AddDrinkModal from './AddDrinkModal';
+import AddDrinkModal from '../Item/AddItemModal';
 import withAdminAuthentication from "../requireAdminAuthentication";
 import { getItem } from '../Item/Items';
 
@@ -46,6 +46,7 @@ function Drinks() {
                 <AddDrinkModal
                 show={showAddDrinkModal}
                 close={closeAddDrinkModal}
+                modalHeader="Add Drink"
                 />
                 <SearchBar
                     items={drinks}
