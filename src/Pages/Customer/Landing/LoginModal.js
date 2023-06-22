@@ -101,7 +101,7 @@ const LoginForm = ({ show, close }) => {
             </main>
             <footer className="modal_footer">
               <button className="customer-login" onClick={handleLogIn}>
-                Login
+                Log in
               </button>
             </footer>
           </div>

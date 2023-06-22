@@ -66,6 +66,14 @@ body {
     cursor: pointer;
 }
 
+.login-btn:hover {
+    background: #670000;
+    border-radius: 25px;
+    font-family: 'Inter';
+    color: #FFFFFF;
+    border-color: #520000;
+}
+
 .signup-btn {
     background: #FFFFFF;
     border: none;
@@ -78,7 +86,14 @@ body {
     height: max-content;
     padding: 1%;
     cursor: pointer;
+}
 
+.signup-btn:hover {
+    background: #E9EFCB;
+    border-radius: 25px;
+    font-family: 'Inter';
+    color: #520000;
+    border-color: #FFFFFF;
 }
 
 .buttons {

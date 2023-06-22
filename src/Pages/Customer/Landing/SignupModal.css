@@ -61,6 +61,14 @@
   padding: 0;
 }
 
+.customer-signup:hover {
+  background-color: #B88D5D;
+  color: #520000;
+  border-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+}
+
 .login:hover,
 .signup:hover {
   background-color: rgba(54, 67, 72, 0.8);
