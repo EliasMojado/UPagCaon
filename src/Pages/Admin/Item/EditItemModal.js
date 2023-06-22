@@ -51,7 +51,6 @@ const EditItemModal = ({ show, close, item, modalHeader }) => {
     formData.append("id", item.id);
     formData.append("name", name);
     formData.append("price", price);
-    formData.append("type", "viand");
     formData.append("description", description);
     formData.append("quantity", quantity);
     formData.append("expiryDate", expiry_date);
