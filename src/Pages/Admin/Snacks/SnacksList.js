@@ -97,6 +97,7 @@ const SnacksList = ({ snacks }) => {
                 show = {showEditItemModal}
                 close = {closeEditModal}
                 item = {selectedSnack}
+                modalHeader="Edit Snack"
             />
 
             <DeleteItemModal

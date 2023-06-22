@@ -5,7 +5,7 @@ import "../../Admin/Item/EditItemModal.css";
 import { updateItem } from "./Items";
 import moment from "moment";
 
-const EditItemModal = ({ show, close, item }) => {
+const EditItemModal = ({ show, close, item, modalHeader }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -69,7 +69,7 @@ const EditItemModal = ({ show, close, item }) => {
         <div className="edit-item-container">
           <div className="edit-item-modal" onClick={(e) => e.stopPropagation()}>
             <header className="modal-header">
-              <h2 className="edit-item-modal-header-title">Edit Item</h2>
+              <h2 className="edit-item-modal-header-title">{modalHeader}</h2>
               <button className="exit" onClick={close}>
                 <img src={closebutton} alt="exit" />
               </button>
