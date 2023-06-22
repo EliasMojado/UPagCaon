@@ -54,6 +54,7 @@ const TextFieldComponent = ({
         value={expiry}
         onChange={handleExpiryChange}
       />
+      <div className='img-input'>
       <input
         className='image-upload'
         type="file"
@@ -61,6 +62,7 @@ const TextFieldComponent = ({
         value={image}
         onChange={handleImageChange}
       />
+      </div>
     </div>
   );
 };

@@ -32,10 +32,10 @@
   font-style: normal;
   font-weight: 800;
   font-size: 30px;
-  line-height: 48px;
+  /* line-height: 48px; */
   text-align: center;
   color: #520000;
-  margin-top: 0;
+  margin-top: 10px;
 }
 
 .close {
@@ -122,11 +122,10 @@
 .editvdescription,
 .editvprice,
 .editvquantity,
-.editvexpiry,
-.editvimage {
+.editvexpiry {
   font-family: 'Inter';
   font-weight: 400;
-  width: 100%;
+  width: 20vw;
   height: 40px;
   border-radius: 10px;
   border: none;
@@ -152,11 +151,12 @@
   font-size: small;
   font-weight: 500;
   color: #000000;
-  margin: 0;
+  margin: 0%;
 }
 
 .initial-image-name {
   font-size: small;
   color: #000000;
-  margin: 0;
+  margin: 0%;
+  margin-bottom: 2%;
 }

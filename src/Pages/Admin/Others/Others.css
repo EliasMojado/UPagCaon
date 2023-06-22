@@ -272,7 +272,7 @@
 .image-upload {
     font-family: 'Inter' !important;
     font-weight: 400;
-    width: 22vw;
+    width: 22vw !important;
     /* height: 40px; */
     border-radius: 10px;
     border: none;

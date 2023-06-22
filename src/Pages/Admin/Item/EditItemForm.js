@@ -69,57 +69,64 @@ const TextFieldComponent = ({
   };
 
   return (
-    <div className="edit-viand-input">
-      <input
-        className="editvname"
-        type="text"
-        placeholder="Product Name"
-        value={editvname}
-        onChange={handleNameInputChange}
-      />
-      <input
-        className="editvdescription"
-        type="text"
-        placeholder="Description"
-        value={description}
-        onChange={handleDescriptionInputChange}
-      />
-      <input
-        className="editvprice"
-        type="number"
-        step="0.01"
-        placeholder="Price"
-        value={price}
-        onChange={handlePriceInputChange}
-      />
-      <input
-        className="editvquantity"
-        type="number"
-        placeholder="Quantity"
-        value={quantity}
-        onChange={handleQuantityInputChange}
-      />
-      <input
-        className="editvexpiry"
-        type="date"
-        placeholder="Expiry Date"
-        value={expiry_date}
-        onChange={handleExpiryInputChange}
-      />
-      <input
-        className="editvimage"
-        type="file"
-        accept="image/*"
-        onChange={handleImageInputChange}
-      />
-      {initialImage && (
+    <div>
+      <div className="edit-viand-input">
+        <input
+          className="editvname"
+          type="text"
+          placeholder="Product Name"
+          value={editvname}
+          onChange={handleNameInputChange}
+        />
+        <input
+          className="editvdescription"
+          type="text"
+          placeholder="Description"
+          value={description}
+          onChange={handleDescriptionInputChange}
+        />
+        <input
+          className="editvprice"
+          type="number"
+          step="0.01"
+          placeholder="Price"
+          value={price}
+          onChange={handlePriceInputChange}
+        />
+        <input
+          className="editvquantity"
+          type="number"
+          placeholder="Quantity"
+          value={quantity}
+          onChange={handleQuantityInputChange}
+        />
+        <input
+          className="editvexpiry"
+          type="date"
+          placeholder="Expiry Date"
+          value={expiry_date}
+          onChange={handleExpiryInputChange}
+        />
+      </div>
+      
         <div>
-          <p className="initial-image-label">Uploaded Image:</p>
-          <p className="initial-image-name">
-            {initialImage.name || initialImage.substring(initialImage.lastIndexOf("/") + 1)}
-          </p>
+        <div className='img-input'>
+          <input
+            className="image-upload"
+            type="file"
+            accept="image/*"
+            onChange={handleImageInputChange}
+          />
+          </div>
+          {initialImage && (
+            <div>
+              <p className="initial-image-label">Uploaded Image:</p>
+              <p className="initial-image-name">
+                {initialImage.name || initialImage.substring(initialImage.lastIndexOf("/") + 1)}
+              </p>
+            </div>
+          )}
         </div>
-      )}
     </div>
   );
 };
