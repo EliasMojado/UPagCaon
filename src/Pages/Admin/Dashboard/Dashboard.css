@@ -172,6 +172,10 @@
     background-repeat: no-repeat;
 }
 
+.search::-webkit-search-cancel-button {
+    appearance: none;
+} 
+
 /* SIDEBAR CSS */
 
 .logo {
