@@ -35,7 +35,8 @@
   /* line-height: 48px; */
   text-align: center;
   color: #520000;
-  margin-top: 10px;
+  margin: 0%;
+  /* margin-top: 10px; */
 }
 
 .close {

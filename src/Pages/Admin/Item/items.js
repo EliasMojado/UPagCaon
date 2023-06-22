@@ -22,7 +22,7 @@ export function insertItem(formData) {
           background: '#333',
           color: '#fff',
         },
-        duration: 3000,
+        duration: 5000,
       });
       window.location.reload();
     })
@@ -47,6 +47,14 @@ export function getItem(type) {
   })
     .then(response => {
       if (!response.ok) {
+        toast.error('Failed to fetch items.',{
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+          duration:3000
+        }); 
         throw new Error('Failed to fetch items.');
       }
       return response.json();
@@ -58,6 +66,14 @@ export function getItem(type) {
     })
     .catch(error => {
       console.error('Error:', error);
+      toast.error('Error.',{
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+        duration:3000
+      });
       // Handle the error condition
     });
 }
