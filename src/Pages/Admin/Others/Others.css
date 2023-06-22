@@ -244,13 +244,20 @@
 .o-input {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+}
+
+.img-input {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: flex-start !important;
 }
 
 .oname,
 .description,
-.expiry,
-.image {
+.expiry {
     font-family: 'Inter';
     font-weight: 400;
     width: 20vw;
@@ -261,6 +268,36 @@
     padding-inline-start: 5%;
     padding-inline-end: 5%;
 }
+
+.image-upload {
+    font-family: 'Inter' !important;
+    font-weight: 400;
+    width: 22vw;
+    /* height: 40px; */
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+    padding: 0% !important;
+}
+
+input[type="file"]::file-selector-button {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter';
+    color: rgba(0, 0, 0, 0.85);
+    font-size: small;
+    width: 6vw;
+    height: 5vh;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 0% !important;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: rgba(54, 67, 72, 0.8);
+}
+
 
 .price,
 .quantity {

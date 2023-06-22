@@ -18,7 +18,8 @@ const TextFieldComponent = ({
 
   return (
     <div className='o-input'>
-      <input
+      <div className='o-input'>
+        <input
         className='oname'
         type="text"
         placeholder="Product Name"
@@ -54,13 +55,16 @@ const TextFieldComponent = ({
         value={expiry}
         onChange={handleExpiryChange}
       />
+      </div>
+      <div className='img-input'>
       <input
-        className='image'
+        className='image-upload'
         type="file"
         accept="image/*"
         value={image}
         onChange={handleImageChange}
       />
+      </div>
     </div>
   );
 };

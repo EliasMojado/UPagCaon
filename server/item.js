@@ -69,7 +69,7 @@ router.get("/getItem", (req, res) => {
   const query = 'SELECT * FROM items WHERE type = ?';
   db.query(query, [itemType], (err, results) => {
     if (err) {
-      console.error('Error retrieving items:', err);
+      console.error('Error retrieving items.', err);
       res.status(500).json({ error: 'An error occurred while retrieving items.' });
       return;
     }
