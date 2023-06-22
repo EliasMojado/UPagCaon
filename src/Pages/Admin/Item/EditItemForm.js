@@ -25,8 +25,8 @@ const TextFieldComponent = ({
   // const newExpiryDate = moment.utc(initialExpiry).format("YYYY-MM-DD");
   const newExpiryDate = moment.utc(initialExpiry).tz('America/New_York').format('YYYY-MM-DD');
 
-  console.log(initialExpiry);
-  console.log(newExpiryDate);
+  // console.log(initialExpiry);
+  // console.log(newExpiryDate);
 
   useEffect(() => {
     setName(initialName);

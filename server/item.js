@@ -109,7 +109,7 @@ router.delete("/deleteItem", async (req, res) => {
 
 // UPDATE /item/update
 router.put("/updateItem", upload.single("image"), (req, res) => {
-  const { id, name, price, description, quantity, expiry_date, imageURL } = req.body;
+  const { id, name, price, description, quantity, expiryDate, imageURL } = req.body;
 
   // Update the item attributes in the database
   const updateQueries = [];
@@ -130,8 +130,8 @@ router.put("/updateItem", upload.single("image"), (req, res) => {
     updateQueries.push({ query: `UPDATE items SET quantity = '${quantity}' WHERE ID = '${id}'` });
   }
 
-  if (expiry_date) {
-    updateQueries.push({ query: `UPDATE items SET expiry_date = '${expiry_date}' WHERE ID = '${id}'` });
+  if (expiryDate) {
+    updateQueries.push({ query: `UPDATE items SET expiry_date = '${expiryDate}' WHERE ID = '${id}'` });
   }
 
   const imageFile = req.file;

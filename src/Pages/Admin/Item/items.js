@@ -110,6 +110,11 @@ export function deleteItem(item) {
 }
 
 export function updateItem(formData) {
+  console.log('FormData:');
+  for (let pair of formData.entries()) {
+    console.log(pair[0] + ':', pair[1]);
+  }
+
   return fetch(apiUrl + '/item/updateItem', {
     method: 'PUT',
     body: formData,
