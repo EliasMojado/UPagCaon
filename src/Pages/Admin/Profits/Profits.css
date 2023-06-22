@@ -30,7 +30,7 @@
 .profits-list {
     position: fixed;
     z-index: 0 !important;
-    top: 23%;
+    top: 18%;
     left: 12%;
     width: 50%;
     background: rgba(255, 255, 255, 0.9);
@@ -39,6 +39,8 @@
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
+    overflow-y: scroll;
+    max-height: 65%;
 }
 
 .profits-list table {
