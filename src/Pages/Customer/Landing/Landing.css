@@ -53,7 +53,7 @@ body {
 }
 
 .login-btn {
-    background: #481E1E;
+    background: #520000;
     border: none;
     border-radius: 25px;
     font-family: 'Inter';
@@ -71,7 +71,7 @@ body {
     border: none;
     border-radius: 25px;
     font-family: 'Inter';
-    color: #481E1E;
+    color: #520000;
     font-weight: bold;
     font-size: medium;
     width: 10%;

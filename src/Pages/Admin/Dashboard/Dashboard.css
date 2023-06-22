@@ -33,12 +33,12 @@
     align-items: center;
     margin: 10% auto 18% 12%;
 }
-  
+
 .box {
     flex: 1;
     width: 18vw;
     height: 22vh;
-    background-color: #481E1E;
+    background-color: #520000;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-right: 5%;
@@ -47,7 +47,7 @@
     justify-content: flex-start;
     align-items: center;
 }
-  
+
 .box-content {
     background-color: #FFFFFF;
     height: 5vh;
@@ -60,8 +60,8 @@
     border-radius: 10px 10px 0px 0px;
 }
 
-.employee-container, 
-.profit-container, 
+.employee-container,
+.profit-container,
 .cart-container {
     width: fit-content;
     height: fit-content;
@@ -96,7 +96,7 @@
     flex: 1;
     width: 14vw;
     height: 25vh;
-    background-color: #481E1E;
+    background-color: #520000;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-right: 5%;
@@ -119,9 +119,9 @@
     border-radius: 10px 10px 0px 0px;
 }
 
-.viands-container, 
-.drinks-container, 
-.snacks-container, 
+.viands-container,
+.drinks-container,
+.snacks-container,
 .schoolsupply-container {
     padding-top: 20%;
     width: fit-content;
@@ -141,7 +141,7 @@
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-  
+
 .order-list ul {
     list-style-type: none;
     padding: 0;
@@ -154,7 +154,7 @@
     background-color: #fff;
     border-radius: 4px;
 }
-  
+
 /* SEARCH BAR CSS */
 
 .search {
@@ -167,8 +167,8 @@
     border-radius: 5px;
     border: none;
     background-image: url(../../../Assets/search.svg);
-    background-size: 16px 16px; 
-    background-position: 95% center; 
+    background-size: 16px 16px;
+    background-position: 95% center;
     background-repeat: no-repeat;
 }
 
@@ -179,15 +179,17 @@
     height: 50px;
     margin: 10%;
 }
-  
+
 .nav-icon {
     height: 30px;
     width: 30px;
     margin: 10px;
 }
+
 .navtext {
     font-family: 'Inter';
 }
+
 .shutdown {
     margin-top: 5%;
 }

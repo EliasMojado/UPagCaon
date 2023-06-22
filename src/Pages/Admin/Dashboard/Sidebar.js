@@ -90,7 +90,7 @@ function Sidebar() {
 
   return (
     <SideNav
-      style={{ backgroundColor: '#481E1E' }}
+      style={{ backgroundColor: '#520000' }}
       onSelect={() => {}}
     >
       <div>

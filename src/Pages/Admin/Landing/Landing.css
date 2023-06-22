@@ -1,198 +1,201 @@
 .transparent-button {
-    background: transparent;
-    border: none;
-    display: flex;
-    justify-content: flex-end;
-    font-family: 'Inter';
-    color: #481E1E;
-    font-weight: bold
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'Inter';
+  color: #520000;
+  font-weight: bold
 }
 
 .button-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 5%;
-    padding-top: 2%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5%;
+  padding-top: 2%;
 }
 
 .landing {
-    background-image: url(../../../Assets/bg.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
+  background-image: url(../../../Assets/bg.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .logo {
-    width: 8%;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
+  width: 8%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .kaha {
-    width: 25%;
-    height: 25%;
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  width: 25%;
+  height: 25%;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .img-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .login {
-    background: #481E1E;
-    border: none;
-    border-radius: 25px;
-    display: block;
-    margin: 0 auto;
-    font-family: 'Inter', Arial, sans-serif;
-    color: #FFFFFF;
-    font-weight: bold;
-    width: 15%;
-    height: max-content;
-    padding: 1%;
-    cursor: pointer;
-    font-size: medium;
+  background: #520000;
+  border: none;
+  border-radius: 25px;
+  display: block;
+  margin: 0 auto;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #FFFFFF;
+  font-weight: bold;
+  width: 15%;
+  height: max-content;
+  padding: 1%;
+  cursor: pointer;
+  font-size: medium;
 }
 
 .button {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 2 rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 2 rem;
 }
 
 .footer {
-    text-align: left;
-    position: fixed;
-    left: 10px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0 !important;
-    bottom: 0 !important;
+  text-align: left;
+  position: fixed;
+  left: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 !important;
+  bottom: 0 !important;
 
 }
 
 .footer-logo {
-    width: 5%;
-    align-items: baseline;
-    margin: 0 !important;
-    bottom: 0 !important;
-    padding: 0 !important;
+  width: 5%;
+  align-items: baseline;
+  margin: 0 !important;
+  bottom: 0 !important;
+  padding: 0 !important;
 }
 
 .powered {
-    font-family: 'Inter';
-    font-size: 10px;
+  font-family: 'Inter';
+  font-size: 10px;
 }
 
 .deep {
-    font-family: 'Inter';
-    font-size: 10px;
-    font-weight: bold;
-    font-style: italic;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'Inter';
+  font-size: 10px;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* LOGIN MODAL CSS */
 
 .modalContainer {
-    position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background-color: rgba(0, 0, 0, 0.35);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal {
-    width: 30vw;
-    height: auto;
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 20px;
-    background-color: #481E1E;
-    backdrop-filter: blur(5px);
-    box-shadow: 1px 4px 4px 2px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .modal_header-title {
-    text-align: center;
-    color: #fff;
-    margin-top: 10px;
-  }
-  
-  .close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: transparent;
-  }
-  
-  .close:hover img {
-    transform: scale(1.1);
-  } 
-  
-  .loginmodal {
-    background: #FFFFFF;
-    border: none;
-    border-radius: 10px;
-    font-family: 'Inter';
-    font-family: 600;
-    color: #481E1E;
-    font-size: medium;
-    width: 10vw;
-    height: 5vh;
-    cursor: pointer;
-    margin: auto;
-  }
-  
-  .loginmodal:hover {
-    background-color: #481E1E;
-    color: #FFFFFF;
-    border-color: #FFFFFF;
-    border-width: 1px;
-    border-style: solid;
-  }
-  
-  footer.modal_footer {
-    margin: 0;
-    padding: 0;
-  }
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 30vw;
+  height: auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  background-color: #520000;
+  backdrop-filter: blur(5px);
+  box-shadow: 1px 4px 4px 2px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_header-title {
+  text-align: center;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+}
+
+.close:hover img {
+  transform: scale(1.1);
+}
+
+.loginmodal {
+  background: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-family: 600;
+  color: #520000;
+  font-size: medium;
+  width: 10vw;
+  height: 5vh;
+  cursor: pointer;
+  margin: auto;
+}
+
+.loginmodal:hover {
+  background-color: #520000;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  border-width: 1px;
+  border-style: solid;
+}
+
+footer.modal_footer {
+  margin: 0;
+  padding: 0;
+}
 
 /* LOGIN FORM CSS */
 
 .input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .email,
 .password {
-    font-family: 'Inter';
-    font-weight: 400;
-    width: 150%;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 20px; 
+  font-family: 'Inter';
+  font-weight: 400;
+  width: 150%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
 }
