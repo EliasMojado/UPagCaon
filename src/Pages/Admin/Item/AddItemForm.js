@@ -1,14 +1,16 @@
 import React from 'react';
-import '../Item/EditItemModal.css';
+import '../Item/Item.css';
 
 const TextFieldComponent = ({
     itemsname,
+    type,
     description,
     price,
     quantity,
     expiry,
     image,
     handleNameChange,
+    handleTypeChange,
     handleDescriptionChange,
     handlePriceChange,
     handleQuantityChange,
@@ -24,6 +26,13 @@ const TextFieldComponent = ({
         placeholder="Product Name"
         value={itemsname}
         onChange={handleNameChange}
+      />
+      <input
+        className='type'
+        type="text"
+        placeholder="Type"
+        value={type}
+        onChange={handleTypeChange}
       />
       <input
         className='description'

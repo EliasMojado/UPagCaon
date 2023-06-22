@@ -3,7 +3,7 @@ import Sidebar from "../Dashboard/Sidebar";
 import SearchBar from "../Dashboard/SearchBar";
 import '../Snacks/Snacks.css';
 import SnacksList from './SnacksList';
-import AddSnackModal from './AddSnackModal';
+import AddSnackModal from '../Item/AddItemModal';
 import withAdminAuthentication from "../requireAdminAuthentication";
 import { getItem } from '../Item/Items';
 import Drinks from '../Drinks/Drinks';
@@ -45,8 +45,9 @@ function Snacks() {
                     Add Snack
                 </button>
                 <AddSnackModal
-                show={showAddSnackModal}
-                close={closeAddSnackModal}
+                    show={showAddSnackModal}
+                    close={closeAddSnackModal}
+                    modalHeader="Add Snack"
                 />
                 <SearchBar
                     items={snacks}

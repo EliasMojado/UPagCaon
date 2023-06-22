@@ -3,7 +3,7 @@ import Sidebar from "../Dashboard/Sidebar";
 import SearchBar from "../Dashboard/SearchBar";
 import '../Others/Others.css';
 import OthersList from './OthersList';
-import AddOtherModal from './AddOtherModal';
+import AddOtherModal from '../Item/AddItemModal';
 import { getItem } from '../Item/Items';
 import withAdminAuthentication from "../requireAdminAuthentication";
 
@@ -44,8 +44,9 @@ function Others() {
                     Add Other
                 </button>
                 <AddOtherModal
-                show={showAddOtherModal}
-                close={closeAddOtherModal}
+                  show={showAddOtherModal}
+                  close={closeAddOtherModal}
+                  modalHeader="Add Other"
                 />
                 <SearchBar
                   items={others}

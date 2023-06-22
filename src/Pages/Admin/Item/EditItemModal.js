@@ -1,7 +1,7 @@
 import closebutton from "../../../Assets/close-button.svg";
 import TextFieldComponent from "./EditItemForm";
 import React, { useState, useEffect } from "react";
-import "../../Admin/Item/EditItemModal.css";
+import "../../Admin/Item/Item.css";
 import { updateItem } from "./Items";
 import moment from "moment";
 

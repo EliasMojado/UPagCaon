@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../Admin/Item/EditItemModal.css";
+import "../../Admin/Item/Item.css";
 import moment from 'moment';
 import 'moment-timezone';
 
