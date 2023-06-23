@@ -67,6 +67,14 @@ body {
   font-size: medium;
 }
 
+.login:hover {
+  background-color: #FFFFFF;
+  color: #520000;
+  border-color: #520000;
+  border-width: 1px;
+  border-style: solid;
+}
+
 .button {
   display: flex;
   justify-content: space-evenly;
