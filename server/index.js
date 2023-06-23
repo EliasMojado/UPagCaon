@@ -5,6 +5,7 @@ const cors = require('cors');
 const userRoutes = require('./user');
 const adminRoutes = require('./admin');
 const itemRoutes = require('./item');
+const orderRoutes = require('./order');
 const db = require('./db');
 
 app.use(express.json()); // Parse JSON request bodies
@@ -22,6 +23,7 @@ app.use(function(req, res, next) {
 app.use('/user', userRoutes);
 app.use('/admin', adminRoutes);
 app.use('/item', itemRoutes);
+app.use('/order', orderRoutes);
 
 
 // Handle other routes or middleware as needed

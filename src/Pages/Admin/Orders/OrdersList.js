@@ -3,6 +3,12 @@ import "./Orders.css";
 
 const OrdersList = ({ orders }) => {
   const [orderStatus, setOrderStatus] = useState({});
+  if(Array.isArray(orders)){
+    console.log("is array");
+  }else{
+    console.log("not an array");
+  }
+
 
   const handleStatusChange = (orderId) => {
     setOrderStatus((prevStatus) => {
@@ -42,27 +48,28 @@ const OrdersList = ({ orders }) => {
           </tr>
         </thead>
         <tbody>
-          {orders.map((order) => (
-            <tr key={order.id}>
-              <td>
-                <button className="order-view">View</button>
-              </td>
-              <td className="order-data">{order.id}</td>
-              <td className="order-data">{order.user}</td>
-              <td className="order-data">{order.payment}</td>
-              <td className="order-data">{order.date}</td>
-              <td className="order-data">{order.total}</td>
-              <td>
-                <button
-                  className={`order-status ${orderStatus[order.id] || "pending"}`}
-                  onClick={() => handleStatusChange(order.id)}
-                >
-                  {(orderStatus[order.id] || "pending").charAt(0).toUpperCase() +
-                    (orderStatus[order.id] || "pending").slice(1)}
-                </button>
-              </td>
-            </tr>
-          ))}
+          {Array.isArray(orders) &&
+            orders.map((order) => (
+              <tr key={order.id}>
+                <td>
+                  <button className="order-view">View</button>
+                </td>
+                <td className="order-data">{order.id}</td>
+                <td className="order-data">{order.user}</td>
+                <td className="order-data">{order.payment}</td>
+                <td className="order-data">{order.date}</td>
+                <td className="order-data">{order.total}</td>
+                <td>
+                  <button
+                    className={`order-status ${orderStatus[order.id] || "pending"}`}
+                    onClick={() => handleStatusChange(order.id)}
+                  >
+                    {(orderStatus[order.id] || "pending").charAt(0).toUpperCase() +
+                      (orderStatus[order.id] || "pending").slice(1)}
+                  </button>
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
