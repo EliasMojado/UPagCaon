@@ -4,7 +4,7 @@ import './Dashboard.css';
 const OrderList = ({ orders }) => {
   return (
     <div className="order-list">
-      <h3>Queue</h3>
+      <h3 className='queue'>Queue</h3>
       <ul>
         {orders.map((order) => (
           // <li key={order.id}></li>

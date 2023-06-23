@@ -19,6 +19,14 @@ import withAdminAuthentication from '../requireAdminAuthentication';
 function Dashboard() {
   const navigate = useNavigate();
 
+  const goToEmpPage = () => {
+    navigate('/admin/employee', { replace: true});
+  }
+
+  const goToProfPage = () => {
+    navigate('admin/profits', { replace: true});
+  }
+
   const goToViandPage = () => {
     navigate('/admin/viands', { replace: true});
   }
@@ -72,14 +80,14 @@ function Dashboard() {
       </header>
       <div className="container-wrapper">
         <div className="container">
-          <div className="box">
+          <div className="box" onClick={goToEmpPage}>
             <span className='box-content'>Total Employees</span>
             <div className='employee-container'>
               <img src={employee} alt='employee' className='employee'/>
               <span className='number'>{adminCount}</span>
             </div>
           </div>
-          <div className="box">
+          <div className="box" onClick={goToProfPage}>
             <span className='box-content'>Total Profit</span>
             <div className='profit-container'>
               <img src={wallet} alt='wallet' className='wallet'/>

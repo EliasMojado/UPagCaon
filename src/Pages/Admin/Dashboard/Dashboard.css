@@ -24,13 +24,14 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 100vh;
+    width: 100vw;
 }
 
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* margin: 10% */
     margin: 10% auto 18% 12%;
 }
 
@@ -46,12 +47,14 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
 }
 
 .box-content {
     background-color: #FFFFFF;
     height: 5vh;
     width: 18vw;
+    font-weight: bold;
     font-size: medium;
     margin-top: 0;
     display: flex;
@@ -117,6 +120,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px 10px 0px 0px;
+    font-weight: bold;
 }
 
 .viands-container,
@@ -155,6 +159,11 @@
     border-radius: 4px;
 }
 
+.queue {
+    margin: 0% !important;
+    /* margin-left: 5% !important; */
+}
+
 /* SEARCH BAR CSS */
 
 .search {
@@ -174,7 +183,7 @@
 
 .search::-webkit-search-cancel-button {
     appearance: none;
-} 
+}
 
 /* SIDEBAR CSS */
 
