@@ -107,8 +107,6 @@ router.get("/getOrders", (req, res) => {
                 total: paymentMap[order.payment_id]
               }));
 
-              console.log(ordersWithDetails);
-
               res.status(200).json(ordersWithDetails);
             }
           });

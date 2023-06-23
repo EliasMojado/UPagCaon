@@ -8,7 +8,7 @@ const OrderList = ({ orders }) => {
       <ul>
         {orders.map((order) => (
           // <li key={order.id}></li>
-          <div>{order.id} - {order.date}</div>
+          <div>{order.id} - {new Date(order.date).toLocaleString()}</div>
         ))}
       </ul>
     </div>

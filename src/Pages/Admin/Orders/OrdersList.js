@@ -2,13 +2,9 @@ import React, { useState } from "react";
 import "./Orders.css";
 
 const OrdersList = ({ orders }) => {
-  const [orderStatus, setOrderStatus] = useState({});
-  if(Array.isArray(orders)){
-    console.log("is array");
-  }else{
-    console.log("not an array");
-  }
 
+  orders.sort((a, b) => new Date(a.date) - new Date(b.date));
+  const [orderStatus, setOrderStatus] = useState({});
 
   const handleStatusChange = (orderId) => {
     setOrderStatus((prevStatus) => {
@@ -57,7 +53,7 @@ const OrdersList = ({ orders }) => {
                 <td className="order-data">{order.id}</td>
                 <td className="order-data">{order.user}</td>
                 <td className="order-data">{order.payment}</td>
-                <td className="order-data">{order.date}</td>
+                <td className="order-data">{new Date(order.date).toLocaleString()}</td>
                 <td className="order-data">{order.total}</td>
                 <td>
                   <button
