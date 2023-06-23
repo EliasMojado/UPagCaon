@@ -10,6 +10,8 @@ import viands from '../../../Assets/NavIcons/viand.svg';
 import drinks from '../../../Assets/NavIcons/drink.svg';
 import snacks from '../../../Assets/NavIcons/snack.svg';
 import schoolsupply from '../../../Assets/NavIcons/schoolsupply.svg';
+import { getOrders } from '../Orders/OrderFunction';
+
 
 import { apiUrl } from '../../../config';
 import withAdminAuthentication from '../requireAdminAuthentication';
@@ -35,6 +37,7 @@ function Dashboard() {
 
   // const [authenticated, setAuthenticated] = useState(false);
   const [adminCount, setAdminCount ] = useState(0);
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     // Make an API call to fetch the count of admins
@@ -46,17 +49,20 @@ function Dashboard() {
       .catch((error) => {
         console.error('Error:', error);
       });
+
+    
+      fetchOrders();
   }, []);
 
-  const orders = [
-    { id: 1, name: 'Order #2134' },
-    { id: 2, name: 'Order #2134' },
-    { id: 3, name: 'Order #2134' },
-    { id: 4, name: 'Order #2134' },
-    { id: 5, name: 'Order #2134' },
-    { id: 6, name: 'Order #2134' },
-    { id: 7, name: 'Order #2134' },
-  ];
+  const fetchOrders = async () => {
+    try {
+      const orders = await getOrders();
+      setOrders(orders);
+    } catch (error) {
+      console.error('Error retrieving orders:', error);
+      // Handle the error case appropriately
+    }
+  };
 
   return (
     <div className="dashboard">

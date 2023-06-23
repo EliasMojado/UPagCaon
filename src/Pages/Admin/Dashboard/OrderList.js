@@ -7,7 +7,8 @@ const OrderList = ({ orders }) => {
       <h3>Queue</h3>
       <ul>
         {orders.map((order) => (
-          <li key={order.id}>{order.name}</li>
+          // <li key={order.id}></li>
+          <div>{order.id} - {order.date}</div>
         ))}
       </ul>
     </div>
