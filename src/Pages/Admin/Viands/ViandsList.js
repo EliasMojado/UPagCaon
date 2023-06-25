@@ -98,7 +98,7 @@ const ViandsList = ({ viands }) => {
         show={showEditItemModal}
         close={closeEditModal}
         item={selectedViand}
-        modalHeader="Edit Viand"
+        modalHeader="Viand"
       />
       <DeleteItemModal 
         show={showDeleteItemModal} 
