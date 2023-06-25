@@ -7,9 +7,9 @@ import lumpia from '../../../Assets/Viands/lumpia.svg';
 import chicken from '../../../Assets/Viands/chicken.svg';
 import Rating from '../ItemContainer/Rating';
 import ProductPage from '../Product/ProductPage';
-import '../Home/Home.css';
 
-function Home() {
+
+function Viands() {
   const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ function Home() {
     },
   ];
 
-  return <ProductPage title="HOME" products={products} />;
+  return <ProductPage title="VIANDS" products={products} />;
 }
 
-export default Home;
+export default Viands;
