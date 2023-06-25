@@ -27,6 +27,7 @@ function ProductPage({ title, products }) {
             name={product.name}
             rating={Rating(product.rating)}
             price={product.price}
+            product={product}
           />
         </div>
       ));

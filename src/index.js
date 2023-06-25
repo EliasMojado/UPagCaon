@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom/client';
 import React from 'react';
 import './index.css';
 
+import AboutUs from '../src/Pages/AboutUs/AboutUs';
+
 import Landing from '../src/Pages/Customer/Landing/Landing';
 import Home from '../src/Pages/Customer/Home/Home';
 import ViandsUser from '../src/Pages/Customer/Home/Viands';
@@ -49,6 +51,10 @@ root.render(
         <Route path='/admin/others' element = {<Others/>} />
         <Route path='/admin/orders' element = {<Orders/>} />
         <Route path='/admin/profits' element = {<Profits/>} />
+
+        {/* About Us */}
+        <Route path = '/about' element = {<AboutUs/>} />
+
       </Routes>
      </Router>
   </React.StrictMode>
