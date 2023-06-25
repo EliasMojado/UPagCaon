@@ -14,6 +14,7 @@ const OrdersList = ({ orders }) => {
   const ToggleV = (order) => {
     setShowViewOrderModal(true);
     setSelectedOrder(order);
+    console.log(order);
   };
 
   const closeViewModal = () => {
@@ -32,6 +33,7 @@ const OrdersList = ({ orders }) => {
             <th>Payment ID</th>
             <th>Purchase Date</th>
             <th>Total</th>
+            <th>Order Status</th>
           </tr>
         </thead>
         <tbody>
@@ -46,6 +48,7 @@ const OrdersList = ({ orders }) => {
                 <td className="order-data">{order.payment}</td>
                 <td className="order-data">{new Date(order.date).toLocaleString()}</td>
                 <td className="order-data">{order.total}</td>
+                <td className="order-data">{order.status}</td>
               </tr>
             ))}
         </tbody>
