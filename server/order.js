@@ -181,6 +181,19 @@ router.get("/updateOrderStatus/:id", (req, res) => {
       res.status(200).json({ message: 'Order status updated successfully!' });
     }
   });
+
+  if(decision === 'completed'){
+    db.query("UPDATE payment SET status = TRUE WHERE orderID = ?", [id], (error, results) => {
+      if (error) {
+        console.error('Error updating payment status:', error);
+        // Handle the error case appropriately
+        res.status(500).json({ error: 'Failed to update payment status' });
+      } else {
+        console.log('Payment status updated successfully');
+        res.status(200).json({ message: 'Payment status updated successfully!' });
+      }
+    });
+  }
 });
 
 
