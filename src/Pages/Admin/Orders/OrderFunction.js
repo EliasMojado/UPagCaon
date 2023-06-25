@@ -38,7 +38,7 @@ export function updateOrderStatus(id, status) {
     body: JSON.stringify({ decision: status }),
   };
 
-  return fetch(`/updateOrderStatus/${id}`, requestOptions)
+  return fetch(apiUrl + `/order/updateOrderStatus/` + id, requestOptions)
     .then(response => {
       if (!response.ok) {
         throw new Error('Failed to update order status');

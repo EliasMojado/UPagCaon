@@ -167,7 +167,7 @@ router.get("/getOrderedItems/:id", (req, res) => {
   });
 });
 
-router.get("/updateOrderStatus/:id", (req, res) => {
+router.put("/updateOrderStatus/:id", (req, res) => {
   const {id} = req.params;
   const {decision} = req.body;
 
