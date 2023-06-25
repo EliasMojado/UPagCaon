@@ -9,16 +9,40 @@ import home from '../../../Assets/NavIcons/home.svg';
 import user from '../../../Assets/NavIcons/user.svg';
 import cart from '../../../Assets/NavIcons/cart.svg';
 import logo from '../../../Assets/logowhite.svg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import '../Home/Home.css';
 
 function Sidebar() {  
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [selected,setSelected] = useState('home');
   const logout = () =>{
     window.location.href = '/';
     localStorage.removeItem('user');
   }
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    switch (true)  {
+      case location.pathname.includes('/home'):
+        setSelected('home');
+        break;
+      case location.pathname.includes('/viand'):
+        setSelected('viand');
+        break;
+      case location.pathname.includes('/drink'):
+        setSelected('drink');
+        break;
+      case location.pathname.includes('/snack'):
+        setSelected('snack');
+        break;
+      case location.pathname.includes('/other'):
+        setSelected('schoolsupply');
+      default:
+        setSelected('home');
+        break;
+    }
+  }, [location]);
 
   const goToHomePage = () => {
     navigate('/home', { replace: true });
@@ -43,13 +67,12 @@ function Sidebar() {
   return (
     <SideNav
       style={{ backgroundColor: '#520000' }}
-      onSelect={(selected) => {}}
+      onSelect={() => {}}
     >
       <img src={logo} alt="logo" className="logo" />
       <div></div>
       <SideNav.Toggle />
-      <SideNav.Nav defaultSelected="home">
-    
+      <SideNav.Nav selected= {selected}>    
         <NavItem eventKey="home" onClick = {goToHomePage}>
           <NavIcon>
             <img src={home} alt="home" className="nav-icon" />
