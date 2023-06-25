@@ -182,6 +182,10 @@ body {
     padding: 10% 10% 10% 10%;
 }
 
+.product-containerss {
+    display: flex;
+    padding: 20% 20% 20% 20%;
+}
 .product-img {
     width: 20vw;
     border-radius: 25px;

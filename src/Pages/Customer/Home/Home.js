@@ -1,11 +1,11 @@
 import SearchBar from '../../Customer/Home/SearchBar';
 import React, { useState, useEffect } from 'react';
-import ProductContainer from './ProductContainer';
+import ProductContainer from '../ItemContainer/ProductContainer';
 import Sidebar from '../../Customer/Home/Sidebar';
-import star from '../../../Assets/Viands/star.svg';
 import humba from '../../../Assets/Viands/humba.svg';
 import lumpia from '../../../Assets/Viands/lumpia.svg';
 import chicken from '../../../Assets/Viands/chicken.svg';
+import Rating from '../ItemContainer/Rating';
 import '../Home/Home.css';
 
 function Home() {
@@ -32,10 +32,6 @@ function Home() {
     return null;
   }
 
-  const rate3 = Array(3).fill(star);
-  const rate4 = Array(4).fill(star);
-  const rate5 = Array(5).fill(star);
-
   return (
     <div className="dashboard">
       <header className='header-container'> 
@@ -47,22 +43,48 @@ function Home() {
         <ProductContainer
           imageSrc= {humba}
           title="Humba"
-          rating= {rate3}
+          rating= {Rating(3)}
           price="Php30.00"
         />
         <ProductContainer
           imageSrc= {lumpia}
           title="Lumpia"
-          rating= {rate4}
+          rating= {Rating(4)}
           price="Php20.00"
         />
         <ProductContainer
           imageSrc= {chicken}
           title="Chicken"
-          rating= {rate5}
+          rating= {Rating(5)}
           price="Php30.00"
         />
-    </div>
+      </div>
+      <div className='product-containerss'>
+        <ProductContainer
+          imageSrc= {humba}
+          title="Humba"
+          rating= {Rating(3)}
+          price="Php30.00"
+        />
+        <ProductContainer
+          imageSrc= {lumpia}
+          title="Lumpia"
+          rating= {Rating(4)}
+          price="Php20.00"
+        />
+        <ProductContainer
+          imageSrc= {chicken}
+          title="Chicken"
+          rating= {Rating(5)}
+          price="Php30.00"
+        />
+        <ProductContainer
+          imageSrc= {chicken}
+          title="Chicken"
+          rating= {Rating(5)}
+          price="Php30.00"
+        />
+      </div>
     </div>
   );
 }
