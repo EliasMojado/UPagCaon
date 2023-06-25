@@ -52,12 +52,6 @@
   transform: scale(1.1);
 }
 
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .exit {
   background: transparent;
   border: none;
