@@ -28,6 +28,18 @@ function Sidebar() {
     navigate('/viand', { replace: true });
   }
 
+  const goToDrink = () => {
+    navigate('/drink', { replace: true });
+  }
+
+  const gotToSnack = () => {
+    navigate('/snack', { replace: true });
+  }
+
+  const goToOther = () => {
+    navigate('/other', { replace: true });
+  }
+
   return (
     <SideNav
       style={{ backgroundColor: '#520000' }}
@@ -52,21 +64,21 @@ function Sidebar() {
           <NavText className="navtext">Viands</NavText>
         </NavItem>
 
-        <NavItem eventKey="drink">
+        <NavItem eventKey="drink" onClick = {goToDrink}>
           <NavIcon>
             <img src={drink} alt="drink" className="nav-icon" />
           </NavIcon>
           <NavText className="navtext">Beverages</NavText>
         </NavItem>        
 
-        <NavItem eventKey="snack">
+        <NavItem eventKey="snack" onClick = {gotToSnack}>
           <NavIcon>
             <img src={snack} alt="snack" className="nav-icon" />
           </NavIcon>
           <NavText className="navtext">Snacks</NavText>
         </NavItem>
 
-        <NavItem eventKey="schoolsupply">
+        <NavItem eventKey="schoolsupply" onClick = {goToOther}>
           <NavIcon>
             <img src={schoolsupply} alt="schoolsupply" className="nav-icon" />
           </NavIcon>

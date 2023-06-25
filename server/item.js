@@ -260,10 +260,12 @@ router.get("/getProducts/:page", (req, res) => {
   } else if (page === 'drink') {
     query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'drink';";
   } else if (page === 'others') {
-    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'others';";
+    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'other';";
   } else if (page === 'all') {
     query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id;";
-  } else {
+  } else if (page === 'snack'){
+    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'snack';";
+  }else {
     res.status(400).json({ error: 'Invalid page parameter.' });
     return;
   }

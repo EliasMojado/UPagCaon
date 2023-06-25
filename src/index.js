@@ -7,6 +7,9 @@ import './index.css';
 import Landing from '../src/Pages/Customer/Landing/Landing';
 import Home from '../src/Pages/Customer/Home/Home';
 import ViandsUser from '../src/Pages/Customer/Home/Viands';
+import DrinksUser from '../src/Pages/Customer/Home/Drinks';
+import SnacksUser from '../src/Pages/Customer/Home/Snacks';
+import OthersUser from '../src/Pages/Customer/Home/Others';
 
 import Admin from '../src/Pages/Admin/Landing/Landing';
 import Dashboard from './Pages/Admin/Dashboard/Dashboard';
@@ -32,6 +35,9 @@ root.render(
         <Route path='/' element = {<Landing/>} />
         <Route path='/home' element = {<Home/>} />
         <Route path = '/viand' element = {<ViandsUser/>} />
+        <Route path = '/drink' element = {<DrinksUser/>} />
+        <Route path = '/snack' element = {<SnacksUser/>} />
+        <Route path = '/other' element = {<OthersUser/>} />
 
         {/* Admin */}
         <Route path='/admin' element = {<Admin/>} />
