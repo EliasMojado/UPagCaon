@@ -95,7 +95,17 @@ function ViewOrderModal({ show, close, order }) {
                                         <div className="order-info">
                                             <div className='order-left'>
                                                 <img src={payment} className="order-icon" alt="Payment" />
-                                                <span>Payment Status: </span>
+                                                <div className="status-content">
+                                                    Order Status:  <div className='status-order'></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="order-info">
+                                            <div className='order-left'>
+                                                <img src={payment} className="order-icon" alt="Payment" />
+                                                <div className="status-content">
+                                                    Payment Status:  <div className='status'></div>
+                                                </div>
                                             </div>
                                             <div className='order-right'>
                                                 <span>Total: PHP {order.total} </span>
