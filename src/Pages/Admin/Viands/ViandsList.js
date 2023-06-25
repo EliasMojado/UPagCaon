@@ -98,12 +98,13 @@ const ViandsList = ({ viands }) => {
         show={showEditItemModal}
         close={closeEditModal}
         item={selectedViand}
-        modalHeader="Edit Viand"
+        modalHeader="Viand"
       />
       <DeleteItemModal 
         show={showDeleteItemModal} 
         close={closeDeleteModal} 
         item={selectedViand} 
+        modalHeader="Viand"
       />
       <ViewItemModal
         show={showViewItemModal}

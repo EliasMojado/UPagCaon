@@ -63,7 +63,7 @@ const ViewItemModal = ({ show, close, item, modalHeader }) => {
           <div className="view-item-modal" 
           onClick={(e) => e.stopPropagation()}
           >
-            <header className="modal-header">
+            <header>
               <h2 className="view-item-modal-header-title"> View {modalHeader}</h2>
               <button className="exit" onClick={close}>
                 <img src={closebutton} alt="exit" />
@@ -105,7 +105,7 @@ const ViewItemModal = ({ show, close, item, modalHeader }) => {
           show={showEditItemModal}
           close={closeEditModal}
           item={selectedItem}
-          modalHeader={"Edit Viand"}
+          modalHeader={modalHeader}
         />
     </>
   );

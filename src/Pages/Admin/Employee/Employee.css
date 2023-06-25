@@ -308,8 +308,8 @@
 }
 
 .delete-icon {
-    width: 90%;
-    height: 90%;
+    width: 50% !important;
+    height: 50% !important;
 }
 
 .delete-employee-modal_header-title {
