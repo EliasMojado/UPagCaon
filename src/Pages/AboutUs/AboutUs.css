@@ -31,9 +31,12 @@
 }
 
 .text-container {
-    background-color: #340808; /* Set the desired background color */
-    padding: 20px; /* Add padding to the container */
-    margin-top: 20px; /* Add top margin to create space between the container and the previous element */
+    background-color: #340808;
+    color: #FFFFFF;
+    padding: 20px; 
+    margin-top: 20px; 
+    /* margin-right: 160px; */
+    /* margin-left: 50px; */
 }
 
 .footer-image {

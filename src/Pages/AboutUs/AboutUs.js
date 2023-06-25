@@ -25,15 +25,11 @@ function AboutUs() {
             <img src={upcOble} alt="upc" className="upcbanner" />         
 
             <div className="text-container">
-                <h1>Colored Rectangle Container</h1>
-                <p>This is the content inside the colored rectangle container.</p>
+                <h1>Welcome to DeepAI Solutions</h1>
+                <p>At DeepAI, we are passionate about revolutionizing canteen operations at universities. Our cutting-edge database management system provides seamless integration and inventory control, offering enhanced efficiency for both students and canteen vendors through UPagcaon.</p>
             </div>
 
       <div className="content-container">
-                <h1>Welcome to DeepAI Solutions</h1>
-                <p>
-                    At DeepAI, we are passionate about revolutionizing canteen operations at universities. Our cutting-edge database management system provides seamless integration and inventory control, offering enhanced efficiency for both students and canteen vendors.
-                </p>
 
                 <h2>Streamlined Canteen Operations</h2>
                 <p>
