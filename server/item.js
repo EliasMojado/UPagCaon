@@ -250,5 +250,33 @@ router.put("/updateItem", upload.single("image"), (req, res) => {
   }
 });
 
+router.get("/getProducts/:page", (req, res) => {
+  const { page } = req.params;
+
+  let query = '';
+
+  if (page === 'viand') {
+    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'viand';";
+  } else if (page === 'drink') {
+    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'drink';";
+  } else if (page === 'others') {
+    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'others';";
+  } else if (page === 'all') {
+    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id;";
+  } else {
+    res.status(400).json({ error: 'Invalid page parameter.' });
+    return;
+  }
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error retrieving items.', err);
+      res.status(500).json({ error: 'An error occurred while retrieving items.' });
+      return;
+    }
+
+    res.status(200).json({ items: results });
+  });
+});
 
 module.exports = router;
