@@ -4,7 +4,7 @@ import closebutton from '../../../Assets/close-button.svg';
 import deleteicon from '../../../Assets/delete.svg';
 import { deleteItem } from './Items';
 
-function DeleteItemModal({ show, close, item }) {
+function DeleteItemModal({ show, close, item, modalHeader }) {
   return (
       <>
       {show ? (
@@ -12,7 +12,7 @@ function DeleteItemModal({ show, close, item }) {
         <div className="delete-employee-modal" onClick={(e) => e.stopPropagation()}>
           <header className="modal_header">
             <img src={deleteicon} alt='delete-icon' className='delete-icon'/>
-            <h2 className="delete-employee-modal_header-title">Delete</h2>
+            <h2 className="delete-employee-modal_header-title">Delete {modalHeader}</h2>
             <button className='exit' onClick={close}>
               <img src={closebutton} alt='exit'/>
             </button>

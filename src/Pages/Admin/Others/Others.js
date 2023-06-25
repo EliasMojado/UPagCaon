@@ -41,7 +41,7 @@ function Others() {
                     <span className="o">OTHERS</span>
                 </div>
                 <button className="add-other" onClick={() => Toggle()}>
-                    Add Other
+                    Add Item
                 </button>
                 <AddOtherModal
                   show={showAddOtherModal}

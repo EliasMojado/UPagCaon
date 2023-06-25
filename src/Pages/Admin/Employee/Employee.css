@@ -181,7 +181,8 @@
     line-height: 48px;
     text-align: center;
     color: #520000;
-    margin-top: 10px;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .close {
@@ -307,8 +308,8 @@
 }
 
 .delete-icon {
-    width: 90%;
-    height: 90%;
+    width: 50% !important;
+    height: 50% !important;
 }
 
 .delete-employee-modal_header-title {
@@ -407,7 +408,8 @@
     line-height: 48px;
     text-align: center;
     color: #520000;
-    margin-top: 10px;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 /* VIEW EMPLOYEE CSS */
@@ -447,7 +449,8 @@
     line-height: 48px;
     text-align: center;
     color: #520000;
-    margin-top: 10px;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .view-edit {
@@ -479,8 +482,8 @@
     margin-right: 10px;
 }
 
-.employee-data {
-    cursor: pointer;
+.employee-data .view-data {
+    cursor: pointer !important;
 }
 
 /* VIEW EMPLOYEE FORM CSS */
@@ -489,7 +492,7 @@
 .vemail {
     font-family: 'Inter';
     font-weight: 400;
-    width: 100%;
+    width: 150%;
     height: 40px;
     border-radius: 10px;
     border: none;
@@ -503,7 +506,7 @@
 .vcontact {
     font-family: 'Inter';
     font-weight: 400;
-    width: 100%;
+    width: 150%;
     height: 40px;
     border-radius: 10px;
     border: none;

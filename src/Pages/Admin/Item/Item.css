@@ -37,8 +37,8 @@
   /* line-height: 48px; */
   text-align: center;
   color: #520000;
-  margin: 0%;
-  /* margin-top: 10px; */
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .close {
@@ -52,12 +52,6 @@
   transform: scale(1.1);
 }
 
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .exit {
   background: transparent;
   border: none;
@@ -65,8 +59,9 @@
 }
 
 .modal-content {
-  margin-top: 16px;
+  margin-top: 5%;
   padding: 0;
+
 }
 
 .modal-footer {
@@ -270,7 +265,7 @@
   font-size: 30px;
   text-align: center;
   color: #520000;
-  margin: 0;
+  margin-top: 5%;
   margin-bottom: 5%;
 }
 
@@ -323,4 +318,99 @@
 .item-okay:hover,
 .item-cancel:hover {
   background-color: rgba(54, 67, 72, 0.8);
+}
+
+/* VIEW EMPLOYEE CSS */
+
+.view-item-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.view-item-modal {
+  width: 30vw;
+  height: auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  background-color: #B88D5D;
+  backdrop-filter: blur(5px);
+  box-shadow: 1px 4px 4px 2px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-item-modal-header-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+  /* line-height: 48px; */
+  text-align: center;
+  color: #520000;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.view-edit {
+  background: #520000;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Inter';
+  color: #FFFFFF;
+  font-size: medium;
+  width: 6vw;
+  height: 5vh;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.view-delete {
+  background: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-weight: 600;
+  color: #520000;
+  font-size: medium;
+  width: 6vw;
+  height: 5vh;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.item-data {
+  cursor: pointer;
+}
+
+.vname,
+.vemail {
+  font-family: 'Inter';
+  font-weight: 400;
+  width: 180%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  padding-inline-start: 5%;
+  padding-inline-end: 5%;
+  cursor: default;
+  outline: none;
+}
+
+.view-image {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 15vw;
 }

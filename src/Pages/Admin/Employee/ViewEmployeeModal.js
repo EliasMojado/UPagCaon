@@ -58,7 +58,7 @@ function ViewEmployeeModal({ show, close, employee }) {
               className="view-employee-modal"
               onClick={(e) => e.stopPropagation()}
             >
-              <header className="modal-header">
+              <header>
                 <h2 className="view-employee-modal_header-title">View Employee</h2>
                 <button className="exit" onClick={close}>
                   <img src={closebutton} alt="exit" />

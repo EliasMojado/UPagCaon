@@ -25,7 +25,7 @@ function Sidebar() {
   }
 
   const goToViand = () => {
-    navigate('/admin/employee', { replace: true });
+    navigate('/viand', { replace: true });
   }
 
   return (
@@ -45,7 +45,7 @@ function Sidebar() {
           <NavText className="navtext">Home</NavText>
         </NavItem>
 
-        <NavItem eventKey="viand">
+        <NavItem eventKey="viand" onClick = {goToViand}>
           <NavIcon>
             <img src={viand} alt="viand" className="nav-icon" />
           </NavIcon>
