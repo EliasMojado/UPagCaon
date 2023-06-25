@@ -7,10 +7,12 @@ import lumpia from '../../../Assets/Viands/lumpia.svg';
 import chicken from '../../../Assets/Viands/chicken.svg';
 import Rating from '../ItemContainer/Rating';
 import ProductPage from '../Product/ProductPage';
+import { apiUrl } from '../../../config';
 
 
 function Viands() {
   const [authenticated, setAuthenticated] = useState(false);
+  const [viands, setViands] = useState([]);
 
   useEffect(() => {
     // Retrieve the stored user data from local storage
@@ -27,34 +29,32 @@ function Viands() {
     }else{
       window.location.href = '/';
     }
+
+    fetch(apiUrl + '/item/getProducts/' + 'viand')
+      .then(response => response.json())
+      .then(data => {
+        if (data.items) {
+          // Map the response data to the desired format
+          const mappedProducts = data.items.map(item => ({
+            name: item.name,
+            rating: item.rating,
+            price: item.price,
+            imageSrc: item.image
+          }));
+          setViands(mappedProducts);
+          console.log('Viands:', mappedProducts);
+        }
+      })
+      .catch(error => {
+        console.error('Error retrieving items.', error);
+      });
   }, []);
 
   if(!authenticated){
     return null;
   }
 
-  const products = [
-    {
-      imageSrc: humba,
-      title: 'Humba',
-      rating: 3,
-      price: 'Php30.00',
-    },
-    {
-      imageSrc: lumpia,
-      title: 'Lumpia',
-      rating: 4,
-      price: 'Php20.00',
-    },
-    {
-      imageSrc: chicken,
-      title: 'Chicken',
-      rating: 5,
-      price: 'Php30.00',
-    },
-  ];
-
-  return <ProductPage title="VIANDS" products={products} />;
+  return <ProductPage title="VIANDS" products={viands} />;
 }
 
 export default Viands;
