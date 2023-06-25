@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "./Viands.css";
 import DeleteItemModal from '../Item/DeleteItemModal';
 import EditItemModal from "../Item/EditItemModal";
+import ViewItemModal from "../Item/ViewItemModal";
 
 const ViandsList = ({ viands }) => {
   const [selectedViand, setSelectedViand] = useState({});
   const [showDeleteItemModal, setShowDeleteItemModal] = useState(false);
   const [showEditItemModal, setShowEditItemModal] = useState(false);
+  const [showViewItemModal, setShowViewItemModal] = useState(false);
 
   const ToggleD = (viand) => {
     setShowDeleteItemModal(true);
@@ -25,6 +27,16 @@ const ViandsList = ({ viands }) => {
 
   const closeEditModal = () => {
     setShowEditItemModal(false);
+    setSelectedViand({});
+  };
+
+  const ToggleV = (viand) => {
+    setShowViewItemModal(true);
+    setSelectedViand(viand);
+  };
+
+  const closeViewModal = () => {
+    setShowViewItemModal(false);
     setSelectedViand({});
   };
 
@@ -59,15 +71,15 @@ const ViandsList = ({ viands }) => {
                   Edit
                 </button>
               </td>
-              <td className="viand-data">{truncateId(viand.id)}</td>
-              <td className="viand-data">{viand.name}</td>
-              <td className="viand-data">{viand.description}</td>
-              <td className="viand-data">{viand.price}</td>
-              <td className="viand-data">{viand.quantity}</td>
-              <td className="viand-data">
+              <td className="view-data" onClick={() => ToggleV(viand)}>{truncateId(viand.id)}</td>
+              <td className="view-data" onClick={() => ToggleV(viand)}>{viand.name}</td>
+              <td className="view-data" onClick={() => ToggleV(viand)}>{viand.description}</td>
+              <td className="view-data" onClick={() => ToggleV(viand)}>{viand.price}</td>
+              <td className="view-data" onClick={() => ToggleV(viand)}>{viand.quantity}</td>
+              <td className="view-data" onClick={() => ToggleV(viand)}>
                 {new Date(viand.expiry_date).toLocaleDateString("en-US")}
               </td>
-              <td className="viand-data">
+              <td className="view-data" onClick={() => ToggleV(viand)}>
                 <a href={viand.image} target="_blank" rel="noopener noreferrer">
                   <img src={viand.image} alt="Product Image" className="viand-image" />
                 </a>
@@ -92,6 +104,12 @@ const ViandsList = ({ viands }) => {
         show={showDeleteItemModal} 
         close={closeDeleteModal} 
         item={selectedViand} 
+      />
+      <ViewItemModal
+        show={showViewItemModal}
+        close={closeViewModal}
+        item={selectedViand}
+        modalHeader="Viand"
       />
     </div>
   );
