@@ -40,7 +40,9 @@ function Drinks() {
             name: item.name,
             rating: item.rating,
             price: item.price,
-            imageSrc: item.image
+            imageSrc: item.image,
+            type: item.type,
+            description: item.description
           }));
           setDrinks(mappedProducts);
           console.log('Drinks:', mappedProducts);
