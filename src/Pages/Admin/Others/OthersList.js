@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import './Others.css';
 import DeleteItemModal from "../Item/DeleteItemModal";
 import EditItemModal from "../Item/EditItemModal";
+import ViewItemModal from "../Item/ViewItemModal";
 
 const OthersList = ({ others }) => {
   const [selectedOther, setSelectedOther] = useState({});
   const [showDeleteItemModal, setShowDeleteItemModal] = useState(false);
   const [showEditItemModal, setShowEditItemModal] = useState(false);
+  const [showViewItemModal, setShowViewItemModal] = useState(false);
 
   const ToggleD = (other) => {
     setShowDeleteItemModal(true);
@@ -25,6 +27,16 @@ const OthersList = ({ others }) => {
 
   const closeEditModal = () => {
     setShowEditItemModal(false);
+    setSelectedOther({});
+  };
+
+  const ToggleV = (other) => {
+    setShowViewItemModal(true);
+    setSelectedOther(other);
+  };
+
+  const closeViewModal = () => {
+    setShowViewItemModal(false);
     setSelectedOther({});
   };
 
@@ -59,25 +71,25 @@ const OthersList = ({ others }) => {
                             Edit
                             </button>
                         </td>
-                        <td className="other-data">
+                        <td className="view-data" onClick={() => ToggleV(other)}>
                             {truncateId(other.id)}
                         </td>
-                        <td className="other-data">
+                        <td className="view-data" onClick={() => ToggleV(other)}>
                             {other.name}
                         </td>
-                        <td className="other-data">
+                        <td className="view-data" onClick={() => ToggleV(other)}>
                             {other.description}
                         </td>
-                        <td className="other-data">
+                        <td className="view-data" onClick={() => ToggleV(other)}>
                             {other.price}
                         </td>
-                        <td className="other-data">
+                        <td className="view-data" onClick={() => ToggleV(other)}>
                             {other.quantity}
                         </td>
-                        <td className="other-data">
+                        <td className="view-data" onClick={() => ToggleV(other)}>
                             {new Date(other.expiry_date).toLocaleDateString("en-US")}
                         </td>
-                        <td className="other-data">
+                        <td className="view-data" onClick={() => ToggleV(other)}>
                             <a href={other.image} target="_blank" rel="noopener noreferrer">
                             <img src={other.image} alt="Product Image" className="other-image" />
                             </a>
@@ -97,13 +109,21 @@ const OthersList = ({ others }) => {
                 show={showEditItemModal}
                 close={closeEditModal}
                 item={selectedOther}
-                modalHeader="Edit Other"
+                modalHeader="Item"
             />
 
             <DeleteItemModal
                 show={showDeleteItemModal}
                 close={closeDeleteModal}
                 item={selectedOther}
+                modalHeader="Item"
+            />
+
+            <ViewItemModal
+                show={showViewItemModal}
+                close={closeViewModal}
+                item={selectedOther}
+                modalHeader="Item"
             />
 
         </div>
