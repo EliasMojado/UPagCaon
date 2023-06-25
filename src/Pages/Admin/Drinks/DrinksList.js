@@ -116,6 +116,7 @@ const DrinksList = ({ drinks }) => {
                 show={showDeleteItemModal}
                 close={closeDeleteModal}
                 item={selectedDrink}
+                modalHeader="Drink"
             />
 
             <ViewItemModal

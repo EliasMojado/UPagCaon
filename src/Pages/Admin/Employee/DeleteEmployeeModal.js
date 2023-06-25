@@ -41,7 +41,7 @@ function DeleteEmployeeModal({ show, close, employee }) {
           <div className="delete-employee-modal" onClick={(e) => e.stopPropagation()}>
             <header className="modal_header">
               <img src={deleteicon} alt='delete-icon' className='delete-icon'/>
-              <h2 className="delete-employee-modal_header-title">Delete</h2>
+              <h2 className="delete-employee-modal_header-title">Delete Employee</h2>
               <button className='exit' onClick={close}>
                 <img src={closebutton} alt='exit'/>
               </button>

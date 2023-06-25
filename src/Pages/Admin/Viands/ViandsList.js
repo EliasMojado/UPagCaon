@@ -104,6 +104,7 @@ const ViandsList = ({ viands }) => {
         show={showDeleteItemModal} 
         close={closeDeleteModal} 
         item={selectedViand} 
+        modalHeader="Viand"
       />
       <ViewItemModal
         show={showViewItemModal}
