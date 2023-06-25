@@ -127,7 +127,7 @@ router.get("/getOrderedItems/:id", (req, res) => {
       console.log('Purchases retrieved successfully');
 
       const itemIds = purchases.map(purchase => purchase.itemID);
-      db.query('SELECT name, price FROM items WHERE ID IN (?)', [itemIds], (error, items) => {
+      db.query('SELECT ID, name, price FROM items WHERE ID IN (?)', [itemIds], (error, items) => {
         if (error) {
           console.error('Error retrieving item details:', error);
           // Handle the error case appropriately
@@ -143,19 +143,30 @@ router.get("/getOrderedItems/:id", (req, res) => {
             };
           });
 
-          const purchasesWithDetails = purchases.map(purchase => ({
-            id: purchase.ID,
-            item: itemMap[purchase.itemID],
-            quantity: purchase.quantity,
-            total: itemMap[purchase.itemID].price * purchase.quantity
-          }));
+          const purchasesWithDetails = purchases.map(purchase => {
+            const item = itemMap[purchase.itemID];
+            if (!item) {
+              console.error(`Item not found for itemID: ${purchase.itemID}`);
+              return null;
+            }
+            return {
+              id: purchase.itemID,
+              item: item,
+              quantity: purchase.quantity,
+              total: item.price * purchase.quantity
+            };
+          });
 
-          res.status(200).json(purchasesWithDetails);
+          // Filter out any null entries in case an item was not found
+          const validPurchasesWithDetails = purchasesWithDetails.filter(purchase => purchase !== null);
+
+          res.status(200).json(validPurchasesWithDetails);
+          console.log(validPurchasesWithDetails);
         }
       });
     }
   });
-
 });
+
 
 module.exports = router;

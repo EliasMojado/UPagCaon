@@ -74,12 +74,13 @@ function ViewOrderModal({ show, close, order }) {
                                             <div className='order-leftt'>
                                                 <img src={item} className="order-icon" alt="Item" />
                                                 <span>Item/s: </span>
+                                                {orderedItems.map((item, index) => (
+                                                    <div key={index}>
+                                                        {/* <img src={item.item.imageSrc} className="order-icon" alt="Item" /> */}
+                                                        <span>{item.item.name}</span>
+                                                    </div>
+                                                ))}
                                             </div>
-                                            {/* <div className='order-right'>
-                                            {orderedItems.map((item) => (
-                                                <div key={item.id}>{item.item}</div>
-                                            ))}
-                                            </div> */}
                                         </div>
                                         <div className="order-info">
                                             <div className='order-left'>
