@@ -172,20 +172,22 @@ body {
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 25px 25px 25px 25px;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     flex-direction: column;
 }
 
 .product-containers {
     display: flex;
-    padding: 10% 10% 10% 10%;
+    /* padding: 10% 10% 10% 10%; */
 }
 
-.product-containerss {
-    display: flex;
-    padding: 20% 20% 20% 20%;
+.product-cont {
+    margin-top: 5% !important;
+    margin-left: 8%;
+    overflow-y: scroll;
 }
+
 
 .product-img {
     width: 20vw;
