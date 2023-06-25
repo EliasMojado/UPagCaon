@@ -5,6 +5,8 @@ import footer from '../../../Assets/footer-logo.svg';
 import '../Landing/Landing.css';
 import LoginForm from './LoginModal';
 import SignupForm from './SignupModal';
+import AboutUs from '../../AboutUs/AboutUs';
+import { useNavigate } from 'react-router-dom';
 
 function Landing() {
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -15,11 +17,15 @@ function Landing() {
   const ToggleS = () => setShowSignupModal(!showSignupModal);
   const closeSignupModal = () => setShowSignupModal(false);
 
+  const AboutUs = ()=> {
+    window.location.href = '/about';
+  }
+
   return (
     <div className="landing">
       <header>
         <div className="button-container">
-          <button className="transparent-button">ABOUT US</button>
+          <button className="transparent-button" onClick={AboutUs}>ABOUT US</button>
         </div>
       </header>
       <div className='content'>

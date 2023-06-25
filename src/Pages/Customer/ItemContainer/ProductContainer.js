@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState } from "react";
 import '../Product/ProductPage.css';
 import rating from '../ItemContainer/Rating';
+import OrderModal from './AddOrderModal';
 
-const ProductContainer = ({ imageSrc, title, rating, price }) => {
+const ProductContainer = ({ imageSrc, name, rating, price, product }) => {
+  const [selectedProd, setSelectedProd] = useState({});
+  const [showOrderModal, setShowOrderModal] = useState(false);
+  const ToggleO = (product) => {
+    setShowOrderModal(true);
+    setSelectedProd(product);
+  };
+  const closeOrderModal = () => {
+    setShowOrderModal(false);
+    setSelectedProd({});
+  };
+
   return (
-    <div className='p-container'>
+    <div>
+    <div className='p-container' onClick={() => ToggleO(product)}>
       <img src={imageSrc} alt="Container Image" className='product-img' />
-      <h2 className='title'>{title}</h2>
+      <h2 className='title'>{name}</h2>
       <div className='rate'>
           {rating.map((star, index) => (
             <img key={index} src={star} alt='star' className={`rating ${index === 0 ? 'first-star' : ''}`}/>
@@ -14,6 +27,13 @@ const ProductContainer = ({ imageSrc, title, rating, price }) => {
       </div>
       <h3 className='product-price'>{price}</h3>
     </div>
+    <OrderModal
+        show={showOrderModal}
+        close={closeOrderModal}
+        item={selectedProd}
+      />
+    </div>
+    
   );
 };
 

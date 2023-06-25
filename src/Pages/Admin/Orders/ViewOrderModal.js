@@ -5,14 +5,14 @@ import userIcon from '../../../Assets/ViewOrder/user.svg';
 import item from '../../../Assets/ViewOrder/item.svg';
 import payment from '../../../Assets/ViewOrder/payment.svg';
 import '../Orders/Orders.css'
-import { getOrderedItems } from './OrderFunction';
+import { getOrderedItems, updateOrderStatus } from './OrderFunction';
 
 function ViewOrderModal({ show, close, order }) {
-    const [id, setId] = useState ("");
-    const [user, setUser] = useState ("");
-    const [date, setDate] = useState ("");
-    const [total, setTotal] = useState ("");
-    const [orderedItems, setOrderedItems] = useState ([]);
+    const [id, setId] = useState("");
+    const [user, setUser] = useState("");
+    const [date, setDate] = useState("");
+    const [total, setTotal] = useState("");
+    const [orderedItems, setOrderedItems] = useState([]);
 
     useEffect(() => {
         if (order) {
@@ -32,11 +32,21 @@ function ViewOrderModal({ show, close, order }) {
 
     }, [order]);
 
+    const handleUpdateStatus = (newStatus) => {
+        updateOrderStatus(id, newStatus)
+            .then(() => {
+                console.log(`Order ${id} status updated to ${newStatus}`);
+            })
+            .catch(error => {
+                console.error(`Failed to update order ${id} status:`, error);
+            });
+    };
+
     return (
         <>
             {show ? (
                 <div className='view-order-container'>
-                    <div 
+                    <div
                         className='view-order-modal'
                         onClick={(e) => e.stopPropagation()}
                     >
@@ -46,29 +56,29 @@ function ViewOrderModal({ show, close, order }) {
                                 <img src={closebutton} alt='exit' />
                             </button>
                         </header>
-                        <main> 
+                        <main>
                             <table className='table'>
                                 <tbody>
-                                <tr key={order.id}>
-                                    <td className='orders-info'>
-                                        <div className="order-info">
-                                            <div className='order-left'>
-                                                <img src={cart} className="order-icon" alt="Cart" />
-                                                <span>Order ID: {order.id}</span>
+                                    <tr key={order.id}>
+                                        <td className='orders-info'>
+                                            <div className="order-info">
+                                                <div className='order-left'>
+                                                    <img src={cart} className="order-icon" alt="Cart" />
+                                                    <span>Order ID: {order.id}</span>
+                                                </div>
+                                                <div className='order-right'>
+                                                    <span>{new Date(order.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                                                </div>
                                             </div>
-                                            <div className='order-right'>
-                                                <span>{new Date(order.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                                            <div className="order-info">
+                                                <div className='order-right'>
+                                                    <img src={userIcon} className="order-icon" alt="User" />
+                                                    <span>Customer</span>
+                                                </div>
+                                                <div className='order-left'>
+                                                    {order.user}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="order-info">
-                                            <div className='order-right'>
-                                                <img src={userIcon} className="order-icon" alt="User" />
-                                                <span>Customer</span>
-                                            </div>
-                                            <div className='order-left'>
-                                                {order.user}
-                                            </div>
-                                        </div>
                                         <div className="order-info">
                                             <div className='order-leftt'>
                                                 <img src={item} className="order-icon" alt="Item" />
@@ -98,14 +108,14 @@ function ViewOrderModal({ show, close, order }) {
                         </main>
                         <footer className='view-order-footer'>
                             <div className='footer-buttons'>
-                                <button className='failed'>Failed</button>
-                                <button className='serving'>Serving</button>
-                                <button className='complete'>Complete</button>
+                                <button className='failed' onClick={() => handleUpdateStatus('failed')}>Failed</button>
+                                <button className='serving' onClick={() => handleUpdateStatus('serving')}>Serving</button>
+                                <button className='complete' onClick={() => handleUpdateStatus('completed')}>Complete</button>
                             </div>
                         </footer>
                     </div>
                 </div>
-            ) : null }
+            ) : null}
         </>
     );
 }

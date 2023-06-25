@@ -21,7 +21,7 @@ router.post('/addOrder', (req, res) => {
       // Handle the success case appropriately
       items.forEach((item) => {
         const { item_id, quantity, price } = item;
-        order_total += price;
+        order_total += price*quantity;
 
         db.query('INSERT INTO purchase (orderID, itemID, quantity) VALUES (?, ?, ?)', [order_id, item_id, quantity], (error, results) => {
           if (error) {
@@ -62,7 +62,7 @@ router.post('/addOrder', (req, res) => {
 });
 
 router.get("/getOrders", (req, res) => {
-  db.query("SELECT * FROM orders WHERE status = 'pending'", (error, orders) => {
+  db.query("SELECT * FROM orders WHERE status IN ('pending', 'serving')", (error, orders) => {
     if (error) {
       console.error('Error retrieving orders:', error);
       // Handle the error case appropriately
@@ -161,11 +161,39 @@ router.get("/getOrderedItems/:id", (req, res) => {
           const validPurchasesWithDetails = purchasesWithDetails.filter(purchase => purchase !== null);
 
           res.status(200).json(validPurchasesWithDetails);
-          console.log(validPurchasesWithDetails);
         }
       });
     }
   });
+});
+
+router.put("/updateOrderStatus/:id", (req, res) => {
+  const {id} = req.params;
+  const {decision} = req.body;
+
+  db.query("UPDATE orders SET status = ? WHERE ID = ?", [decision, id], (error, results) => {
+    if (error) {
+      console.error('Error updating order status:', error);
+      // Handle the error case appropriately
+      res.status(500).json({ error: 'Failed to update order status' });
+    } else {
+      console.log('Order status updated successfully');
+      res.status(200).json({ message: 'Order status updated successfully!' });
+    }
+  });
+
+  if(decision === 'completed'){
+    db.query("UPDATE payment SET status = TRUE WHERE orderID = ?", [id], (error, results) => {
+      if (error) {
+        console.error('Error updating payment status:', error);
+        // Handle the error case appropriately
+        res.status(500).json({ error: 'Failed to update payment status' });
+      } else {
+        console.log('Payment status updated successfully');
+        res.status(200).json({ message: 'Payment status updated successfully!' });
+      }
+    });
+  }
 });
 
 
