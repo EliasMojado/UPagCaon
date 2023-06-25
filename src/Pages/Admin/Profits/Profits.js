@@ -1,28 +1,27 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Sidebar from "../Dashboard/Sidebar";
 import SearchBar from "../Dashboard/SearchBar";
 import '../Profits/Profits.css';
 import ProfitsList from './ProfitsList';
 import SubtotalContainers from './SubtotalContainers';
 import withAdminAuthentication from '../requireAdminAuthentication';
+import { getPayments, getEarned, updatePayments } from './ProfitFunction';
 
 function Profits() {
-    const profits = [
-        { id: 1271672482, payment: 12345678, total: 45.00 },
-        { id: 2372837232, payment: 12345678, total: 99.00 },
-        { id: 3323436563, payment: 12345678, total: 25 },
-        { id: 4696856604, payment: 12345678, total: 100 },
-        { id: 5583983975, payment: 12345678, total: 89 },
-        { id: 6454954586, payment: 12345678, total: 55 },
-        { id: 7584549557, payment: 12345678, total: 100 },
-        { id: 1271672482, payment: 12345678, total: 45.00 },
-        { id: 2372837232, payment: 12345678, total: 99.00 },
-        { id: 3323436563, payment: 12345678, total: 25 },
-        { id: 4696856604, payment: 12345678, total: 100 },
-        { id: 5583983975, payment: 12345678, total: 89 },
-        { id: 6454954586, payment: 12345678, total: 55 },
-        { id: 7584549557, payment: 12345678, total: 100 },
-      ];
+    const [profits, setProfits] = React.useState([]);
+
+    useEffect(() => {
+        fetchProfits();
+    }, []);
+
+    const fetchProfits = async () => {
+        try {
+            const profits = await getPayments();
+            setProfits(profits);
+        } catch (error) {
+            console.error('Error retrieving profits:', error);
+        }
+    };
 
     return (
         <div className="profits-page">

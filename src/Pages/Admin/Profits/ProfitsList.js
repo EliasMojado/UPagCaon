@@ -14,7 +14,8 @@ const ProfitsList = ({ profits }) => {
           </tr>
         </thead>
         <tbody>
-          {profits.map((profit) => (
+          {Array.isArray(profits) &&
+            profits.map((profit) => (
             <tr key={profit.id}>
               <td className="profit-data">{profit.id}</td>
               <td className="profit-data">{profit.payment}</td>

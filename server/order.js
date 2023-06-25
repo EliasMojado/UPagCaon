@@ -62,7 +62,7 @@ router.post('/addOrder', (req, res) => {
 });
 
 router.get("/getOrders", (req, res) => {
-  db.query('SELECT * FROM orders', (error, orders) => {
+  db.query("SELECT * FROM orders WHERE status = 'pending'", (error, orders) => {
     if (error) {
       console.error('Error retrieving orders:', error);
       // Handle the error case appropriately
