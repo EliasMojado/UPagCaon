@@ -6,6 +6,8 @@ import './index.css';
 
 import Landing from '../src/Pages/Customer/Landing/Landing';
 import Home from '../src/Pages/Customer/Home/Home';
+import ViandsUser from '../src/Pages/Customer/Home/Viands';
+
 import Admin from '../src/Pages/Admin/Landing/Landing';
 import Dashboard from './Pages/Admin/Dashboard/Dashboard';
 import Employee from './Pages/Admin/Employee/Employee';
@@ -29,6 +31,7 @@ root.render(
         {/* Customer */}
         <Route path='/' element = {<Landing/>} />
         <Route path='/home' element = {<Home/>} />
+        <Route path = '/viand' element = {<ViandsUser/>} />
 
         {/* Admin */}
         <Route path='/admin' element = {<Admin/>} />

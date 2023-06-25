@@ -1,0 +1,223 @@
+.transparent-button {
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Inter';
+    color: #00573F;
+    font-weight: bold;
+    font-family: 'Inter';
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    padding-top: 2%;
+    font-family: 'Inter';
+}
+
+.landing {
+    background-image: url(../../../Assets/bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.logo-landing {
+    width: 10%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.kaha {
+    width: 25%;
+    height: 25%;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Inter';
+}
+
+.login-btn {
+    background: #520000;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Inter';
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: medium;
+    width: 10%;
+    height: max-content;
+    padding: 1%;
+    cursor: pointer;
+}
+
+.signup-btn {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Inter';
+    color: #520000;
+    font-weight: bold;
+    font-size: medium;
+    width: 10%;
+    height: max-content;
+    padding: 1%;
+    cursor: pointer;
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.space {
+    margin: 3% !important;
+}
+
+.footer {
+    text-align: left;
+    position: fixed;
+    left: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 !important;
+    bottom: 0 !important;
+
+}
+
+.footer-logo {
+    width: 5%;
+    align-items: baseline;
+    margin: 0 !important;
+    bottom: 0 !important;
+    padding: 0 !important;
+}
+
+.powered {
+    font-family: 'Inter';
+    font-size: x-small;
+}
+
+.deep {
+    font-family: 'Inter';
+    font-size: x-small;
+    font-weight: bolder !important;
+    font-style: italic;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 1ex;
+}
+
+.search {
+    font-family: 'Inter';
+    width: 15%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    padding-right: 20px;
+    background-image: url(../../../Assets/search.svg);
+    background-size: 16px 16px;
+    background-position: 95% center;
+    background-repeat: no-repeat;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.nav-icon {
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+}
+
+.navtext {
+    font-family: 'Inter';
+}
+
+.shutdown {
+    margin-top: 40px;
+}
+
+.sidenav---navicon---3gCRo {
+    bottom: 0 !important;
+}
+
+.p-container {
+    height: 100%;
+    width: 20vw;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px 25px 25px 25px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-containers {
+    display: flex;
+    padding: 10% 10% 10% 10%;
+}
+
+.product-containerss {
+    display: flex;
+    padding: 20% 20% 20% 20%;
+}
+.product-img {
+    width: 20vw;
+    border-radius: 25px;
+}
+
+.title {
+    font-family: 'Inter';
+    font-size: x-large;
+    font-weight: 700;
+    margin: auto;
+    margin-left: 5%;
+}
+
+.rate {
+    display: flex;
+}
+
+.rating {
+    width: 10%;
+    height: 10%;
+    margin: 0;
+}
+
+.first-star {
+    margin-left: 4%;
+}
+
+.product-price {
+    font-family: 'Inter';
+    font-size: x-large;
+    font-weight: 500;
+    margin: auto;
+    margin-right: 5%;
+    padding-bottom: 3%;
+}

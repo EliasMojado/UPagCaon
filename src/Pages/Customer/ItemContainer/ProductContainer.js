@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Home/Home.css';
+import '../Product/ProductPage.css';
 import rating from '../ItemContainer/Rating';
 
 const ProductContainer = ({ imageSrc, title, rating, price }) => {
