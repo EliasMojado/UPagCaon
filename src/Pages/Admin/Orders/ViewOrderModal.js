@@ -4,6 +4,7 @@ import cart from '../../../Assets/ViewOrder/cart.svg';
 import userIcon from '../../../Assets/ViewOrder/user.svg';
 import item from '../../../Assets/ViewOrder/item.svg';
 import payment from '../../../Assets/ViewOrder/payment.svg';
+import orderstatus from '../../../Assets/ViewOrder/order.svg';
 import '../Orders/Orders.css'
 import { getOrderedItems, updateOrderStatus } from './OrderFunction';
 
@@ -94,7 +95,7 @@ function ViewOrderModal({ show, close, order }) {
                                         </div>
                                         <div className="order-info">
                                             <div className='order-left'>
-                                                <img src={payment} className="order-icon" alt="Payment" />
+                                                <img src={orderstatus} className="order-icon" alt="Payment" />
                                                 <div className="status-content">
                                                     Order Status:  <div className='status-order'></div>
                                                 </div>
