@@ -38,7 +38,7 @@ function Employee() {
             <header className="employee-header">
             <Sidebar/>
                 <div className = "page-header"> 
-                <span className="e">EMPLOYEE</span>
+                <span className="e">EMPLOYEES</span>
                 </div>
                 
                 <button className='add-employee' onClick={() => Toggle()}>

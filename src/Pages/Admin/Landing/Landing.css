@@ -54,17 +54,18 @@ body {
 .login {
   background: #520000;
   border: none;
-  border-radius: 25px;
+  border-radius: 20px;
   display: block;
   margin: 0 auto;
   font-family: 'Inter', Arial, sans-serif;
   color: #FFFFFF;
   font-weight: bold;
+  font-size: large;
   width: 15%;
   height: max-content;
   padding: 1%;
   cursor: pointer;
-  font-size: medium;
+  /* font-size: medium; */
 }
 
 .login:hover {
