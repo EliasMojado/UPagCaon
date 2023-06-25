@@ -26,7 +26,6 @@ function ViewOrderModal({ show, close, order }) {
             getOrderedItems(order.id)
                 .then(orderedItems => {
                     setOrderedItems(orderedItems);
-                    console.log(orderedItems);
                 }
             );
         }
@@ -74,10 +73,11 @@ function ViewOrderModal({ show, close, order }) {
                                             <div className='order-leftt'>
                                                 <img src={item} className="order-icon" alt="Item" />
                                                 <span>Item/s: </span>
+                                                </div>
+                                            <div className='order-rightt'>
                                                 {orderedItems.map((item, index) => (
                                                     <div key={index}>
-                                                        {/* <img src={item.item.imageSrc} className="order-icon" alt="Item" /> */}
-                                                        <span>{item.item.name}</span>
+                                                        <span>{item.quantity} {item.item.name}</span>
                                                     </div>
                                                 ))}
                                             </div>
