@@ -35,6 +35,7 @@ function Others() {
         if (data.items) {
           // Map the response data to the desired format
           const mappedProducts = data.items.map(item => ({
+            id : item.id,
             name: item.name,
             rating: item.rating,
             price: item.price,
