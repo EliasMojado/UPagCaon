@@ -55,11 +55,11 @@ body {
 .login-btn {
     background: #520000;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
     font-family: 'Inter';
     color: #FFFFFF;
     font-weight: bold;
-    font-size: medium;
+    font-size: large;
     width: 10%;
     height: max-content;
     padding: 1%;
@@ -69,11 +69,11 @@ body {
 .signup-btn {
     background: #FFFFFF;
     border: none;
-    border-radius: 25px;
+    border-radius: 20px;
     font-family: 'Inter';
     color: #520000;
     font-weight: bold;
-    font-size: medium;
+    font-size: large;
     width: 10%;
     height: max-content;
     padding: 1%;
@@ -186,6 +186,7 @@ body {
     display: flex;
     padding: 20% 20% 20% 20%;
 }
+
 .product-img {
     width: 20vw;
     border-radius: 25px;

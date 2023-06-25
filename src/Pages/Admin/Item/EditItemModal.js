@@ -19,6 +19,7 @@ const EditItemModal = ({ show, close, item, modalHeader }) => {
     setPrice(item.price);
     setQuantity(item.quantity);
     setExpiry(moment(item.expiry_date).format("M/DD/YYYY"));
+    setExpiry(moment(item.expiry_date).format("M/DD/YYYY"));
     setImage(item.image);
   }, [item]);
 
