@@ -116,4 +116,46 @@ router.get("/getOrders", (req, res) => {
   });
 });
 
+router.get("/getOrderedItems/:id", (req, res) => {
+  const { id } = req.params;
+  db.query("SELECT * FROM purchase WHERE orderID = ?", [id], (error, purchases) => {
+    if (error) {
+      console.error('Error retrieving purchases:', error);
+      // Handle the error case appropriately
+      res.status(500).json({ error: 'Failed to retrieve purchases' });
+    } else {
+      console.log('Purchases retrieved successfully');
+
+      const itemIds = purchases.map(purchase => purchase.itemID);
+      db.query('SELECT name, price FROM items WHERE ID IN (?)', [itemIds], (error, items) => {
+        if (error) {
+          console.error('Error retrieving item details:', error);
+          // Handle the error case appropriately
+          res.status(500).json({ error: 'Failed to retrieve item details' });
+        } else {
+          console.log('Item details retrieved successfully');
+
+          const itemMap = {};
+          items.forEach(item => {
+            itemMap[item.ID] = {
+              name: item.name,
+              price: item.price
+            };
+          });
+
+          const purchasesWithDetails = purchases.map(purchase => ({
+            id: purchase.ID,
+            item: itemMap[purchase.itemID],
+            quantity: purchase.quantity,
+            total: itemMap[purchase.itemID].price * purchase.quantity
+          }));
+
+          res.status(200).json(purchasesWithDetails);
+        }
+      });
+    }
+  });
+
+});
+
 module.exports = router;

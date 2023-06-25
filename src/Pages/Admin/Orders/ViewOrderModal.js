@@ -5,12 +5,14 @@ import userIcon from '../../../Assets/ViewOrder/user.svg';
 import item from '../../../Assets/ViewOrder/item.svg';
 import payment from '../../../Assets/ViewOrder/payment.svg';
 import '../Orders/Orders.css'
+import { getOrderedItems } from './OrderFunction';
 
 function ViewOrderModal({ show, close, order }) {
     const [id, setId] = useState ("");
     const [user, setUser] = useState ("");
     const [date, setDate] = useState ("");
     const [total, setTotal] = useState ("");
+    const [orderedItems, setOrderedItems] = useState ([]);
 
     useEffect(() => {
         if (order) {
@@ -19,6 +21,15 @@ function ViewOrderModal({ show, close, order }) {
             setDate(new Date(order.created).toLocaleDateString());
             setTotal(order.total);
         }
+
+        if (order && order.id) {
+            getOrderedItems(order.id)
+                .then(orderedItems => {
+                    setOrderedItems(orderedItems);
+                }
+            );
+        }
+
     }, [order]);
 
     return (

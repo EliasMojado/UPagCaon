@@ -15,3 +15,18 @@ export function getOrders() {
       // Handle the error case appropriately
     });
 }
+
+export function getOrderedItems(id) {
+  return fetch(apiUrl + '/order/getOrderedItems/' + id)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to retrieve ordered items');
+      }
+      return response.json();
+    })
+    .catch(error => {
+      console.error('Error retrieving ordered items:', error);
+      toast.error('Failed to retrieve ordered items');
+      // Handle the error case appropriately
+    });
+}
