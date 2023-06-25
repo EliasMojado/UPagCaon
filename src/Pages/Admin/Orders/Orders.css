@@ -158,7 +158,9 @@
     line-height: 48px;
     text-align: center;
     color: #520000;
-    margin-top: 10px;
+    margin: 0;
+    margin-top: -10%;
+    margin-bottom: 10%;
 }
 
 /* VIEW ORDER TABLE */
@@ -195,7 +197,7 @@
 
 .view-order-footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -212,20 +214,24 @@
     height: 5vh;
     cursor: pointer;
     padding: 0;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
     margin-top: 10%;
 }
 
 .failed {
-    background: #FFFFFF;
-    color: #520000;
-    font-size: medium;
+    background: #520000;
 }
   
 .serving {
-    background: #520000;
+    background: #ECCA00;
 }
 
 .complete {
     background: #245B0A;
 }
+
+/* .order-icon {
+    width: 30%;
+    height: 30%;
+} */

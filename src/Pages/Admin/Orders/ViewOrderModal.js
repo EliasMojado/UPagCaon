@@ -26,6 +26,7 @@ function ViewOrderModal({ show, close, order }) {
             getOrderedItems(order.id)
                 .then(orderedItems => {
                     setOrderedItems(orderedItems);
+                    console.log(orderedItems);
                 }
             );
         }
@@ -70,10 +71,15 @@ function ViewOrderModal({ show, close, order }) {
                                             </div>
                                         </div>
                                         <div className="order-info">
-                                            <div className='order-right'>
+                                            <div className='order-leftt'>
                                                 <img src={item} className="order-icon" alt="Item" />
                                                 <span>Item/s: </span>
                                             </div>
+                                            {/* <div className='order-right'>
+                                            {orderedItems.map((item) => (
+                                                <div key={item.id}>{item.item}</div>
+                                            ))}
+                                            </div> */}
                                         </div>
                                         <div className="order-info">
                                             <div className='order-left'>
@@ -81,7 +87,7 @@ function ViewOrderModal({ show, close, order }) {
                                                 <span>Payment Status: </span>
                                             </div>
                                             <div className='order-right'>
-                                                <span>Total: PHP 45.00 </span>
+                                                <span>Total: PHP {order.total} </span>
                                             </div>
                                         </div>
                                     </td>
