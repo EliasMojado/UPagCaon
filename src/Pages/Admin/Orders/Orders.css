@@ -71,14 +71,14 @@
     font-size: medium;
     background-color: #520000;
     color: #FFFFFF;
-    width: 100%;
+    width: 80%;
     height: 30px; 
     border-radius: 5px;
     border: none;
     padding-right: 20%;
     background-image: url(../../../Assets/view.svg);
     background-size: 16px 16px;
-    background-position: 90% center; 
+    background-position: 80% center; 
     background-repeat: no-repeat;
     text-align: center;
     cursor: pointer;
@@ -101,4 +101,131 @@
     background-repeat: no-repeat;
     text-align: center;
     cursor: pointer;
+}
+
+/* ADD ORDER MODAL */
+
+.view-order-container {
+    position: fixed;
+    z-index: 99 !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view-order-modal {
+    width: 30vw;
+    height: auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: #B88D5D;
+    backdrop-filter: blur(5px);
+    box-shadow: 1px 4px 4px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 99 !important;
+}
+
+.exit {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 8%;
+    right: 8%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.exit img {
+    height: 20px;
+}
+
+.view-order-modal_header-title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 48px;
+    text-align: center;
+    color: #520000;
+    margin-top: 10px;
+}
+
+/* VIEW ORDER TABLE */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.order-info{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin: 2%;
+    color: #837A7A;
+}
+
+.order-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-left {
+    display: flex;
+    align-items: center;
+}
+  
+.order-right {
+    text-align: right;
+}
+
+.view-order-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.failed, 
+.serving,
+.complete {
+    background: #520000;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter';
+    color: #FFFFFF;
+    font-size: medium;
+    width: 8vw;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 20px;
+    margin-top: 10%;
+}
+
+.failed {
+    background: #FFFFFF;
+    color: #520000;
+    font-size: medium;
+}
+  
+.serving {
+    background: #520000;
+}
+
+.complete {
+    background: #245B0A;
 }
