@@ -40,8 +40,8 @@
     border: none;
     padding-right: 2%;
     background-image: url(../../../Assets/addemployee.svg);
-    background-size: 16px 16px;
-    background-position: 95% center;
+    background-size: 15%;
+    background-position: 85% 50%;
     background-repeat: no-repeat;
     text-align: center;
     cursor: pointer;
