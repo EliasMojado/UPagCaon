@@ -306,4 +306,30 @@ body {
     margin-left: 20%;
 }
 
-.istar {}
+.istar {
+    margin-bottom: 10%;
+    margin-left: 20%;
+}
+
+.add-order-cart {
+    position: fixed;
+    top: 5%;
+    right: 23%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: small;
+    background-color: #520000;
+    color: #FFFFFF;
+    width: 5%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    padding-right: 3%;
+    padding-left: 1%;
+    background-image: url(../../../Assets//NavIcons/cart.svg);
+    background-size: 20%;
+    background-position: 75% 50%;
+    background-repeat: no-repeat;
+    text-align: center;
+    cursor: pointer;
+}

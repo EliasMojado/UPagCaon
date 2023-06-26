@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import ProductContainer from '../ItemContainer/ProductContainer';
 import Sidebar from '../Home/Sidebar';
@@ -41,10 +42,20 @@ function ProductPage({ title, products }) {
     return productRows;
   };
 
+    
+  const navigate = useNavigate();
+
+  const Toggle = () => {
+    navigate('/cart', { replace: true});
+  }
+
   return (
     <div className="dashboard">
       <header className="header-container">
         <span className="dash">{title.toUpperCase()}</span>
+        <button className="add-order-cart" onClick={() => Toggle()}>
+            Cart
+      </button>
         <SearchBar />
         <Sidebar />
       </header>
