@@ -114,9 +114,6 @@
     align-items: center;
     text-align: center;
     height: 20%;
-    /* line-height: 0%; */
-    /* margin-bottom: 30%; */
-
 }
 
 .daily-subtotal-title,
@@ -127,7 +124,6 @@
     text-align: center;
     height: 20%;
     color: 	#036704;
-    /* margin-bottom: 20%; */
 }
 
 .daily-subtotal-gcash,
@@ -138,10 +134,9 @@
     text-align: center;
     height: 20%;
     color: #022DB8;
-    /* margin-bottom: 20%; */
 }
 
 
 .margin {
-    margin-top: 20%!important;
+    margin-top: 5%!important;
 }
