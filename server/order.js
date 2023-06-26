@@ -104,7 +104,8 @@ router.get("/getOrders", (req, res) => {
                 user: userMap[order.user_id],
                 payment: order.payment_id,
                 date: order.purchase_date,
-                total: paymentMap[order.payment_id]
+                total: paymentMap[order.payment_id],
+                status: order.status
               }));
 
               res.status(200).json(ordersWithDetails);

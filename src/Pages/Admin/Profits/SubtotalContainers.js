@@ -1,9 +1,10 @@
 import React from "react";
 import '../Profits/Profits.css';
-import { getEarned } from './ProfitFunction';
+import { getEarned, getTodayEarnings, getMonthlyEarnings } from './ProfitFunction';
 
 const SubtotalContainers = () => {
-  const [earned, setEarned] = React.useState('');
+  const [dailyEarnings, setDailyEarnings] = React.useState('');
+  const [monthlyEarnings, setMonthlyEarnings] = React.useState('');
 
   React.useEffect(() => {
     fetchEarned();
@@ -11,9 +12,13 @@ const SubtotalContainers = () => {
 
   const fetchEarned = async () => {
     try {
-      const response = await getEarned();
-      const totalEarned = response.total || '0';
-      setEarned(totalEarned);
+      const daily = await getTodayEarnings();
+      const monthly = await getMonthlyEarnings();
+      const totalDailyEarned = daily.total || '0';
+      const totalMonthlyEarned = monthly.total || '0';
+
+      setDailyEarnings(totalDailyEarned);
+      setMonthlyEarnings(totalMonthlyEarned)
     } catch (error) {
       console.error('Error retrieving earned:', error);
     }
@@ -24,13 +29,13 @@ const SubtotalContainers = () => {
       <div className='daily-subtotal'>
         <span className='daily-subtotal-content'>DAILY SUBTOTAL</span>
         <div className='daily-subtotal-container'>
-          <span className='daily-subtotal-text'>{earned}</span>
+          <span className='daily-subtotal-text'>{dailyEarnings}</span>
         </div>
       </div>
       <div className='monthly-subtotal'>
         <span className='monthly-subtotal-content'>MONTHLY SUBTOTAL</span>
         <div className='monthly-subtotal-container'>
-          <span className='monthly-subtotal-text'>6759.00</span>
+          <span className='monthly-subtotal-text'>{monthlyEarnings}</span>
         </div>
       </div>
     </div>
