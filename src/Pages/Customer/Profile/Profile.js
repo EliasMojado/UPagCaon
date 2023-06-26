@@ -65,11 +65,11 @@ function Profile() {
       <div className='profile-box'>
       <img src={user} alt="user" className="user-m" />
       <table className="summary-table">
-      <thead>
+      <div className="user-table-row-h">
         <tr>
-          <th className="user-table-header" colSpan="12">USER ID : [insert here]</th>
+          <th  colSpan="12">USER ID : [insert here]</th>
         </tr>
-      </thead>
+      </div>
 
       <tbody>
         <tr className='tr-row'>
@@ -107,14 +107,15 @@ function Profile() {
                 </div>
             </footer>
       </div>
+
       <div className='profile-box'>
       <img src={cart} alt="user" className="user-m" />
       <table className="summary-table mt-2">
-      <thead>
+      <div className="user-table-row-h">
         <tr>
           <th className="user-table-header" colSpan="12">ORDER HISTORY</th>
         </tr>
-      </thead>
+      </div>
 
       {/* <thead> */}
         <tr className='tr-row'>

@@ -28,8 +28,10 @@
 .user-table-row-h {
     background-color: #520000;
     color: #FFFFFF;
-    font-weight: normal;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 /* thead tr th:first-child {
