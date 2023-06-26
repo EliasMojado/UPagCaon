@@ -25,11 +25,11 @@ function AddOrderModal ({ show, close, item }) {
     localStorage.setItem('cart', JSON.stringify(cart));
   
     // Console log all items in the cart
-    // console.log("Items in the cart:");
-    // cart.forEach(cartItem => {
-    //   console.log("Item ID:", cartItem.item_id);
-    //   console.log("Quantity:", cartItem.quantity);
-    // });
+    console.log("Items in the cart:");
+    cart.forEach(cartItem => {
+      console.log("Item ID:", cartItem.item_id);
+      console.log("Quantity:", cartItem.quantity);
+    });
   
     // Close the modal after adding to cart
     close();
@@ -66,7 +66,6 @@ function AddOrderModal ({ show, close, item }) {
                   <div>{item.name}</div>
                   <div>{item.description}</div> 
                   <div>{item.type}</div>
-                  <div>{item.description}</div>
                   <div>{item.price}</div>
                   <div>{item.rating}</div>
                 </div>
