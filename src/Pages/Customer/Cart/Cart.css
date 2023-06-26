@@ -115,3 +115,42 @@
     width: 40%;
     height: 40%;
 }
+
+/* ORDER TYPE CSS */
+
+.order-type {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25vw;
+    height: 80vh;
+    border-collapse: collapse;
+    border-radius: 15px;
+    overflow: hidden;
+    height: auto;
+    background-color: #FFFFFF;
+    margin: 12% 2% 12% 68%;
+    padding: 2% 0 2% 0;
+}
+
+.orderrr-type {
+    margin-bottom: 10%;
+}
+
+.orderr-type {
+    margin-bottom: 5%;
+}
+
+.order-type-content {
+    color: #000000;
+    align-items: left;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: large;
+}
+
+input[type="checkbox"] {
+    width: 100%;
+    height: 100%;
+}

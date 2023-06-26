@@ -52,8 +52,48 @@ function Cart() {
                             </div>
                         </tbody>
                     </table>
-                    {/* <table className="order-type-table">
-                    </table> */}
+                </div>
+                <div className="order-type">
+                    <table className="order-type-table">
+                        <div  className="orderrr-type">
+                            <tr>
+                                <th className="summary-table-header" colSpan="6">ORDER TYPE</th>
+                            </tr>
+                            <tbody>
+                                <tr className="order-type-content">
+                                    <td>
+                                    <input type="checkbox" />
+                                    </td>
+                                    <td>Dine In</td>
+                                </tr>
+                                <tr className="order-type-content">
+                                    <td>
+                                    <input type="checkbox" />
+                                    </td>
+                                    <td>Take Out</td>
+                                </tr>
+                            </tbody>
+                        </div>
+                        <div className="orderr-type">
+                            <tr>
+                                <th className="summary-table-header" colSpan="6">PAYMENT TYPE</th>
+                            </tr>
+                            <tbody>
+                                <tr className="order-type-content">
+                                    <td>
+                                    <input type="checkbox" />
+                                    </td>
+                                    <td>OTC</td>
+                                </tr>
+                                <tr className="order-type-content">
+                                    <td>
+                                    <input type="checkbox" />
+                                    </td>
+                                    <td>GCASH</td>
+                                </tr>
+                            </tbody>
+                        </div>
+                    </table>
                 </div>
             </main>
         </div>
