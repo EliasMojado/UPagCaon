@@ -128,7 +128,25 @@ function ViewOrderModal({ show, close, order }) {
                                             <div className='order-left'>
                                                 <img src={payment} className="order-icon" alt="Payment" />
                                                 <div className="status-content">
-                                                    Payment Status:  <div className='status'></div>
+                                                    Payment Status:  
+                                                    {/* <div className='status'></div> */}
+                                                    {(() => {
+                                                        let paymentStatus;
+
+                                                        switch (order.payment) {
+                                                        case 0:
+                                                            paymentStatus = <div className="status-order-pending"></div>;
+                                                            break;
+                                                        case 1:
+                                                            paymentStatus = <div className="status-order-complete"></div>;
+                                                            break;
+                                                        default:
+                                                            paymentStatus = <div className="status-order-failed"></div>;
+                                                            break;
+                                                        }
+                                                        
+                                                        return paymentStatus;
+                                                    })()}
                                                 </div>
                                             </div>
                                             <div className='order-right'>
