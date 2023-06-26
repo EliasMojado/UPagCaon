@@ -1,11 +1,27 @@
+.big-landing{
+    height:100vh;
+    margin-bottom: 2%;
+}
 .landing {
     height: 100vh; 
-    overflow-y: auto;
     overflow-x:hidden;
+    overflow-y: auto;
+  }
+
+  .inside-scroll {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(98vh - 100px); 
+    overflow-x:hidden;
+    overflow-y: auto;
   }
   
   .content-container {
-    padding: 20px; 
+    overflow-y:hidden;
+    padding: 20px;
+    column-count: 2;
+    column-gap: 20px;
   }
 
   .header {
@@ -13,6 +29,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    color:#520000;
+    border-bottom: 20px solid #520000;
 }
 
 .about {
@@ -25,13 +43,14 @@
 }
 
 .upcbanner {
-    width: 100vw; 
+    width: 100vw;
     opacity:0.8;
-
+    margin-top: 10%;
+    border-bottom: 20px solid #520000;
 }
 
 .text-container {
-    background-color: #340808;
+    background-color: #520000;
     color: #FFFFFF;
     padding: 20px; 
     margin-top: 20px; 
@@ -40,10 +59,10 @@
 }
 
 .footer-image {
-    position: fixed;
+    position: relative;
     width: 20%;
-    height: auto; /* Maintain aspect ratio */
-    bottom: 0;
-    left: 0;
+    height: 20%; 
+    margin-top: 20%;
     z-index: -1;
 }
+
