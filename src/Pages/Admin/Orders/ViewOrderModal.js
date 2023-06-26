@@ -97,7 +97,30 @@ function ViewOrderModal({ show, close, order }) {
                                             <div className='order-left'>
                                                 <img src={orderstatus} className="order-icon" alt="Payment" />
                                                 <div className="status-content">
-                                                    Order Status:  <div className='status-order'></div>
+                                                    Order Status:  
+                                                    {(() => {
+                                                        let orderStatus;
+
+                                                        switch (order.status) {
+                                                        case "pending":
+                                                            orderStatus = <div className="status-order-pending"></div>;
+                                                            break;
+                                                        case "failed":
+                                                            orderStatus = <div className="status-order-failed"></div>;
+                                                            break;
+                                                        case "serving":
+                                                            orderStatus = <div className="status-order-serving"></div>;
+                                                            break;
+                                                        case "complete":
+                                                            orderStatus = <div className="status-order-complete"></div>;
+                                                            break;
+                                                        default:
+                                                            orderStatus = <div className="status-order-pending"></div>;
+                                                            break;
+                                                        }
+                                                        
+                                                        return orderStatus;
+                                                    })()}
                                                 </div>
                                             </div>
                                         </div>
