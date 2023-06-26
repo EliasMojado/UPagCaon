@@ -1,7 +1,15 @@
 import star from '../../../Assets/Viands/star.svg';
+import whitestar from '../../../Assets/Viands/whitestar.svg';
 
 function Rating(rate) {
-  const rating = Array(rate).fill(star);
+  let rating;
+  
+  if (rate === 0) {
+    rating = Array(3).fill(whitestar);
+  } else {
+    rating = Array(rate).fill(star);
+  }
+  
   return rating;
 }
 

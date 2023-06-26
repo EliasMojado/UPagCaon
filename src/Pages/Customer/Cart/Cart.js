@@ -122,7 +122,7 @@ function Cart() {
                   <td>{item.name}</td>
                   {/* <td>{dot}</td> */}
                   <td className="order-summary-price">
-                    {item.price ? `Php ${item.price}` : ""}
+                    {item.price ? `₱${item.price}` : ""}
                   </td>
                   <td className="LCol">
                     <img
@@ -141,7 +141,7 @@ function Cart() {
               ))}
               <tr className="summary-total-footer">
                 <td className="order-total">TOTAL</td>
-                <td className="order-summary-total">Php {calculateTotal()}</td>
+                <td className="order-summary-total">₱{calculateTotal()}</td>
               </tr>
             </tbody>
           </table>
