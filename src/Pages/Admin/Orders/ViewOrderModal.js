@@ -135,13 +135,13 @@ function ViewOrderModal({ show, close, order }) {
 
                                                         switch (order.payment) {
                                                         case 0:
-                                                            paymentStatus = <div className="status-order-pending"></div>;
+                                                            paymentStatus = <div className="status-payment-pending"></div>;
                                                             break;
                                                         case 1:
-                                                            paymentStatus = <div className="status-order-complete"></div>;
+                                                            paymentStatus = <div className="status-payment-complete"></div>;
                                                             break;
                                                         default:
-                                                            paymentStatus = <div className="status-order-failed"></div>;
+                                                            paymentStatus = <div className="status-payment-pending"></div>;
                                                             break;
                                                         }
                                                         
