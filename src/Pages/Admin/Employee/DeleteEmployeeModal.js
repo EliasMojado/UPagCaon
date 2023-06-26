@@ -3,6 +3,7 @@ import '../Employee/Employee.css';
 import closebutton from '../../../Assets/close-button.svg';
 import deleteicon from '../../../Assets/delete.svg';
 import { apiUrl } from '../../../config';
+import toast from 'react-hot-toast';
 
 function DeleteEmployeeModal({ show, close, employee }) {
 
@@ -13,22 +14,51 @@ function DeleteEmployeeModal({ show, close, employee }) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ adminID: employee.ID}),
-    }).then((response) => {
-        if (response.ok) {
-          // Delete operation successful
-          console.log('Employee deleted successfully');
-          window.location.reload();
-          // Perform any additional actions, such as updating the employee list
-        } else {
-          // Delete operation failed
-          console.error('Error deleting employee');
-          // Handle the error case appropriately
-        }
+    })
+    // .then((response) => {
+    //     if (response.ok) {
+    //       // Delete operation successful
+    //       console.log('Employee deleted successfully');
+    //       window.location.reload();
+    //       // Perform any additional actions, such as updating the employee list
+    //     } else {
+    //       // Delete operation failed
+    //       console.error('Error deleting employee');
+    //       // Handle the error case appropriately
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error deleting employee:', error);
+    //     // Handle the error case appropriately
+    //   });
+
+      .then((data) => {
+        // Handle the response data if needed
+        toast.success('Employee Removed', {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+          duration: 3000
+        });
+
+        // window.location.reload();
       })
       .catch((error) => {
-        console.error('Error deleting employee:', error);
-        // Handle the error case appropriately
+        console.error('Error removing employee:', error);
+        toast.error('An error occurred while removing the employee.', {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+          duration: 3000,
+        });
       });
+
+
+
 
     close();
   };

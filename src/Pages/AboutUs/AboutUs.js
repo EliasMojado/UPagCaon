@@ -63,6 +63,9 @@ function AboutUs() {
             <img src={profileilin} alt="ilin" className="icon-ilin" />
             <img src={profileelias} alt="elias" className="icon-elias" />
             <img src={profilepnx} alt="pnx" className="icon-pnx" />
+
+            
+
           </div>
 
 

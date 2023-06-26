@@ -72,11 +72,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 3%; /* Adjust the height value as needed */
+  height: 3%;
 }
 
 .footer-image {
-  width: 20%; /* Adjust the width value as needed */
+  width: 20%; 
   height: auto;
 }
 
@@ -85,5 +85,5 @@
 }
 
 .team img {
-  margin: 10px; /* Adjust the value as per your preference */
+  margin: 10px; 
 }
