@@ -80,6 +80,7 @@ function Cart() {
 
                             {cartItems.map((item) => (
                                 <tr key={item.item_id}>
+                                <td>{item.quantity}</td>
                                 <td>{item.name}</td>
                                 <td>{dot}</td>
                                 <td className="order-summary-price">
