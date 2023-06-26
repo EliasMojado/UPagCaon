@@ -97,14 +97,51 @@
     margin-top: 0;
 }
 
+.daily-subtotal-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .daily-subtotal-text,
 .monthly-subtotal-text {
     font-family: 'Inter';
     font-weight: 800;
-    font-size: xx-large;
+    font-size: xx-large!important;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 300%;
+    height: 20%;
+    /* line-height: 0%; */
+    /* margin-bottom: 30%; */
+
+}
+
+.daily-subtotal-title,
+.monthly-subtotal-title{
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: small;
+    text-align: center;
+    height: 20%;
+    color: 	#036704;
+    /* margin-bottom: 20%; */
+}
+
+.daily-subtotal-gcash,
+.monthly-subtotal-gcash{
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: small;
+    text-align: center;
+    height: 20%;
+    color: #022DB8;
+    /* margin-bottom: 20%; */
+}
+
+
+.margin {
+    margin-top: 20%!important;
 }

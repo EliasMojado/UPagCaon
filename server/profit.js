@@ -43,29 +43,33 @@ router.get("/getEarned", (req, res) => {
   });
 });
 
-router.get("/getTodayEarnings", (req,res) =>{
+router.get("/getTodayEarnings", (req, res) => {
   const today = new Date();
   const startDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
   const endDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 23, 59, 59);
-  
-  db.query(
-    'SELECT SUM(p.amount) AS total FROM orders o JOIN payment p ON o.ID = p.orderID WHERE o.purchase_date >= ? AND o.purchase_date <= ?',
-    [startDate, endDate],
-    (error, results) => {
-      if (error) {
-        console.error('Error retrieving total earned for the day:', error);
-        res.status(500).json({ error: 'Failed to retrieve total earned for the day.' });
-      } else {
-        console.log('Total earned for the day retrieved successfully.');
-  
-        const totalEarned = results.length > 0 ? results[0].total : 0;
-        res.status(200).json({ total: totalEarned });
-      }
+
+  const query = `
+    SELECT
+      (SELECT SUM(p.amount) FROM orders o JOIN payment p ON o.ID = p.orderID WHERE o.status = TRUE AND o.purchase_date >= ? AND o.purchase_date <= ? AND p.type = 'otc') AS otcTotal,
+      (SELECT SUM(p.amount) FROM orders o JOIN payment p ON o.ID = p.orderID WHERE o.status = TRUE AND o.purchase_date >= ? AND o.purchase_date <= ? AND p.type = 'gcash') AS gcashTotal`;
+
+  const params = [startDate, endDate, startDate, endDate];
+
+  db.query(query, params, (error, results) => {
+    if (error) {
+      console.error('Error retrieving total earnings for the day:', error);
+      res.status(500).json({ error: 'Failed to retrieve total earnings for the day.' });
+    } else {
+      console.log('Total earnings for the day retrieved successfully.');
+
+      const otcTotal = results[0].otcTotal || 0;
+      const gcashTotal = results[0].gcashTotal || 0;
+      res.status(200).json({ otcTotal, gcashTotal });
     }
-  );  
+  });
 });
 
-router.get("/getMonthlyEarnings", (req,res)=>{
+router.get("/getMonthlyEarnings", (req, res) => {
   const currentDate = new Date();
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth() + 1; // Adding 1 since getMonth() returns a zero-based index
@@ -73,21 +77,25 @@ router.get("/getMonthlyEarnings", (req,res)=>{
   const startDate = new Date(year, month - 1, 1, 0, 0, 0);
   const endDate = new Date(year, month, 0, 23, 59, 59);
 
-  db.query(
-    'SELECT SUM(p.amount) AS total FROM orders o JOIN payment p ON o.ID = p.orderID WHERE o.purchase_date >= ? AND o.purchase_date <= ?',
-    [startDate, endDate],
-    (error, results) => {
-      if (error) {
-        console.error('Error retrieving total earned for the month:', error);
-        res.status(500).json({ error: 'Failed to retrieve total earned for the month.' });
-      } else {
-        console.log('Total earned for the month retrieved successfully.');
+  const query = `
+    SELECT
+      (SELECT SUM(p.amount) FROM orders o JOIN payment p ON o.ID = p.orderID WHERE o.status = TRUE AND o.purchase_date >= ? AND o.purchase_date <= ? AND p.type = 'otc') AS otcTotal,
+      (SELECT SUM(p.amount) FROM orders o JOIN payment p ON o.ID = p.orderID WHERE o.status = TRUE AND o.purchase_date >= ? AND o.purchase_date <= ? AND p.type = 'gcash') AS gcashTotal`;
 
-        const totalEarned = results.length > 0 ? results[0].total : 0;
-        res.status(200).json({ total: totalEarned });
-      }
+  const params = [startDate, endDate, startDate, endDate];
+
+  db.query(query, params, (error, results) => {
+    if (error) {
+      console.error('Error retrieving total earnings for the month:', error);
+      res.status(500).json({ error: 'Failed to retrieve total earnings for the month.' });
+    } else {
+      console.log('Total earnings for the month retrieved successfully.');
+
+      const otcTotal = results[0].otcTotal || 0;
+      const gcashTotal = results[0].gcashTotal || 0;
+      res.status(200).json({ otcTotal, gcashTotal });
     }
-  );
+  });
 });
 
 router.get("/getCompletedPayments", (req, res) => {

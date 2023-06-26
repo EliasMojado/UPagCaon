@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import '../Profits/Profits.css';
-import { getEarned, getTodayEarnings, getMonthlyEarnings } from './ProfitFunction';
+import { getTodayEarnings, getMonthlyEarnings } from './ProfitFunction';
 
 const SubtotalContainers = () => {
-  const [dailyEarnings, setDailyEarnings] = React.useState('');
-  const [monthlyEarnings, setMonthlyEarnings] = React.useState('');
+  const [dailyEarnings, setDailyEarnings] = useState({ cash: '0', gcash: '0' });
+  const [monthlyEarnings, setMonthlyEarnings] = useState({ cash: '0', gcash: '0' });
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchEarned();
   }, []);
 
@@ -14,13 +14,15 @@ const SubtotalContainers = () => {
     try {
       const daily = await getTodayEarnings();
       const monthly = await getMonthlyEarnings();
-      const totalDailyEarned = daily.total || '0';
-      const totalMonthlyEarned = monthly.total || '0';
+      const totalDailyCashEarned = daily.otcTotal || '0';
+      const totalDailyGcashEarned = daily.gcashTotal || '0';
+      const totalMonthlyCashEarned = monthly.otcTotal || '0';
+      const totalMonthlyGcashEarned = monthly.gcashTotal || '0';
 
-      setDailyEarnings(totalDailyEarned);
-      setMonthlyEarnings(totalMonthlyEarned)
+      setDailyEarnings({ cash: totalDailyCashEarned, gcash: totalDailyGcashEarned });
+      setMonthlyEarnings({ cash: totalMonthlyCashEarned, gcash: totalMonthlyGcashEarned });
     } catch (error) {
-      console.error('Error retrieving earned:', error);
+      console.error('Error retrieving earnings:', error);
     }
   };
 
@@ -29,13 +31,23 @@ const SubtotalContainers = () => {
       <div className='daily-subtotal'>
         <span className='daily-subtotal-content'>DAILY SUBTOTAL</span>
         <div className='daily-subtotal-container'>
-          <span className='daily-subtotal-text'>{dailyEarnings}</span>
+          <div className='mt-2'></div>
+          <span className='daily-subtotal-title'>Cash</span>
+          <span className='daily-subtotal-text'>{dailyEarnings.cash}</span>
+          <span className='margin'> </span>
+          <span className='daily-subtotal-gcash'>GCash</span>
+          <span className='daily-subtotal-text'>{dailyEarnings.gcash}</span>
         </div>
       </div>
+
       <div className='monthly-subtotal'>
         <span className='monthly-subtotal-content'>MONTHLY SUBTOTAL</span>
-        <div className='monthly-subtotal-container'>
-          <span className='monthly-subtotal-text'>{monthlyEarnings}</span>
+        <div className='daily-subtotal-container'>
+          <span className='daily-subtotal-title'>Cash</span>
+          <span className='daily-subtotal-text'>{monthlyEarnings.cash}</span>
+          <span className='margin'> </span>
+          <span className='daily-subtotal-gcash'>GCash</span>
+          <span className='daily-subtotal-text'>{monthlyEarnings.gcash}</span>
         </div>
       </div>
     </div>
