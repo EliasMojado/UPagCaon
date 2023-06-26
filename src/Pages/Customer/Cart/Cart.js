@@ -5,6 +5,7 @@ import './Cart.css';
 import cancel from '../../../Assets/Cart/cancel.svg'; 
 import out from '../../../Assets/Cart/out.svg';
 import { useState, useEffect } from "react";
+import { checkOut } from "./CartFunction";
 
 function Cart() {
     const dot = "........................................";
@@ -56,9 +57,15 @@ function Cart() {
 
     const handeCheckOut = () =>{
         const user = JSON.parse(localStorage.getItem('userId'));
-        console.log(user);
-    }
 
+        if (!user || !cartItems || !paymentType || !orderType) {
+            console.error('Invalid parameters');
+            // Handle the error case appropriately
+            return;
+        }
+
+        checkOut(user, cartItems, paymentType, orderType);
+    }
 
     return (
         <div className="cart-page">
@@ -161,11 +168,10 @@ function Cart() {
                             </tbody>
                         </div>
                         <div className="proceed-button-container">
-                            <button className="proceed-button">PROCEED</button>
+                            <button className="proceed-button" onClick={handeCheckOut}>PROCEED</button>
                         </div>
                     </table>
                 </div>
-                <button className="check-out" onClick={handeCheckOut}>Check Out</button>
             </main>
         </div>
     )

@@ -59,8 +59,7 @@ const LoginForm = ({ show, close }) => {
             });
           }
 
-          const userId = data.id;
-          localStorage.setItem('userId', userId);
+          localStorage.setItem('userId', JSON.stringify(data.id));
           localStorage.setItem('user', JSON.stringify(data));
           setTimeout(()=>{
             window.location.href = '/home';
