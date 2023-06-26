@@ -1,0 +1,111 @@
+.cart-page {
+    background-image: url(../../../Assets/bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.cart-header {
+    position: fixed;
+    width: 25%;
+    height: 10%;
+    margin: 2% 0% 0% 12%;
+    font-family: 'Inter';
+    font-style: bold;
+    font-weight: 900;
+    font-size: xx-large;
+    align-items: center;
+    color: #520000;
+}
+
+.order-total {
+    font-family: 'Inter';
+    font-style: bold;
+    font-weight: 900;
+    font-size: xx-large;
+    align-items: center;
+    color: #520000;
+}
+
+.order-summary-total {
+    font-family: 'Inter';
+    font-style: bold;
+    font-weight: 700;
+    font-size: large;
+    color: #000000;
+    margin-left: auto;
+    text-align: center;
+    width: max-content;
+}
+
+.summary-total-footer {
+    margin-top: 20%;
+}
+
+.summary-table {
+    padding: 5%;
+}
+
+.order-summary {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 80vh;
+    border-collapse: collapse;
+    border-radius: 15px;
+    overflow: hidden;
+    height: auto;
+    background-color: #FFFFFF;
+    margin: 20%;
+}
+
+.order-summary-price {
+    margin-left: auto;
+    text-align: center;
+    width: max-content;
+}
+
+.order-summary table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.order-summary td.last-col {
+    width: 3%; 
+}
+  
+.order-summary th,
+.order-summary td {
+    width: 25%;
+}
+
+.summary-table-header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: bold;
+    font-weight: 900;
+    font-size: xx-large;
+    align-items: center;
+    color: #520000;
+}
+
+.summary-info {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin: 2%;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-summary-out,
+.order-summary-cancel {
+    width: 10%;
+    height: 10%;
+}

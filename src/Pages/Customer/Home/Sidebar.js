@@ -38,6 +38,10 @@ function Sidebar() {
         break;
       case location.pathname.includes('/other'):
         setSelected('schoolsupply');
+        break;
+      case location.pathname.includes('/cart'):
+        setSelected('cart');
+        break;
       default:
         setSelected('home');
         break;
@@ -62,6 +66,10 @@ function Sidebar() {
 
   const goToOther = () => {
     navigate('/other', { replace: true });
+  }
+
+  const goToCart = () => {
+    navigate('/cart', { replace: true });
   }
 
   return (
@@ -108,7 +116,7 @@ function Sidebar() {
           <NavText className="navtext">Others</NavText>
         </NavItem>
 
-        <NavItem eventKey="cart">
+        <NavItem eventKey="cart" onClick = {goToCart}>
           <NavIcon>
             <img src={cart} alt="cart" className="nav-icon" />
           </NavIcon>
