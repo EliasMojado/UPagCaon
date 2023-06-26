@@ -8,6 +8,7 @@ import SearchBar from '../Home/SearchBar';
 import './Profile.css';
 
 import user from '../../../Assets/user-m.svg';
+import cart from '../../../Assets/cartsvg.svg';
 import EditProfileModal from './EditProfileModal';
 
 function Profile() {
@@ -107,7 +108,46 @@ function Profile() {
             </footer>
       </div>
       <div className='profile-box'>
-        kjshdakjsh
+      <img src={cart} alt="user" className="user-m" />
+      <table className="summary-table mt-2">
+      <thead>
+        <tr>
+          <th className="user-table-header" colSpan="12">ORDER HISTORY</th>
+        </tr>
+      </thead>
+
+      {/* <thead> */}
+        <tr className='tr-row'>
+          <th colSpan="4" >ORDER ID</th>
+          <th className='user-margin'  ></th>
+          <th colSpan="4">ORDER DATE</th>
+        </tr>
+      {/* </thead> */}
+
+      <tbody>
+        <tr className='tr-row'>
+            <td colSpan="4" className="user-details">1 </td>
+            <td className='user-margin' ></td>
+            <td colSpan="8" className='user-details' > January 2, 2002 </td>
+        </tr>
+        <tr className='tr-row'>
+            <td colSpan="4" className="user-details">2 </td>
+            <td className='user-margin'> </td>
+            <td colSpan="8" className='user-details' > January 2, 2002 </td>
+        </tr>
+        <tr className='tr-row'>
+            <td colSpan="4" className="user-details" >3 </td>
+            <td className='user-margin'> </td>
+            <td colSpan="8" className='user-details'> January 2, 2002 </td>
+        </tr>
+        <tr className='tr-row'colSpan="12">
+            <td colSpan="4"className="user-details">4 </td>
+            <td className='user-margin'> </td>
+            <td colSpan="8" className='user-details'> January 2, 2002 </td>
+        </tr>
+      </tbody>
+
+      </table>
       </div>
       </div>
 
