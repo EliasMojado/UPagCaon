@@ -46,7 +46,7 @@ function Sidebar() {
       case location.pathname.includes('/admin/orders'):
         setSelected('cart');
         break;
-      case location.pathname.includes('/admin/profit'):
+      case location.pathname.includes('/admin/earnings'):
         setSelected('wallet');
         break;
       default:
@@ -85,7 +85,7 @@ function Sidebar() {
   }
 
   const goToProfitPage = () => {
-    navigate('/admin/profits', { replace: true});
+    navigate('/admin/earnings', { replace: true});
   }
 
   return (
@@ -145,7 +145,7 @@ function Sidebar() {
           <NavIcon>
             <img src={wallet} alt="wallet" className="nav-icon" />
           </NavIcon>
-          <NavText className="navtext">Profits</NavText>
+          <NavText className="navtext">Earnings</NavText>
         </NavItem>
         <NavItem eventKey="shutdown" className="shutdown" onClick = {logout}>
           <NavIcon>

@@ -28,7 +28,7 @@ function Profits() {
             <header className="profits-header">
                 <Sidebar/>
                 <div className="profitpageheader">
-                    <span className="profit">TOTAL PROFIT</span>
+                    <span className="profit">TOTAL EARNINGS</span>
                 </div>
                 <SearchBar/>
             </header>
