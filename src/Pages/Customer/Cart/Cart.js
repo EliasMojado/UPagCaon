@@ -54,6 +54,11 @@ function Cart() {
         }
     };
 
+    const handeCheckOut = () =>{
+        const user = JSON.parse(localStorage.getItem('userId'));
+        console.log(user);
+    }
+
 
     return (
         <div className="cart-page">
@@ -157,7 +162,7 @@ function Cart() {
                         </div>
                     </table>
                 </div>
-                <button className="check-out">Check Out</button>
+                <button className="check-out" onClick={handeCheckOut}>Check Out</button>
             </main>
         </div>
     )

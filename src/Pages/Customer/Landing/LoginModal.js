@@ -58,9 +58,12 @@ const LoginForm = ({ show, close }) => {
               duration:3000
             });
           }
+
+          const userId = data.id;
+          localStorage.setItem('userId', userId);
+          localStorage.setItem('user', JSON.stringify(data));
           setTimeout(()=>{
             window.location.href = '/home';
-            localStorage.setItem('user', JSON.stringify(data));
           },3000)
         }else{
           console.log('Unauthorized access.');
