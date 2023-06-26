@@ -215,11 +215,17 @@ body {
 
 .rate {
     display: flex;
+    flex-direction: row;
+    margin: 0;
+    /* height: 20% !important; */
 }
 
 .rating {
-    width: 10%;
-    height: 10%;
+    width: 10% !important;
+    background-image: url(../../../Assets/Viands/star.svg);
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
     margin: 0;
 }
 

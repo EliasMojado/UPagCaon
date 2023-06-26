@@ -191,20 +191,6 @@ body {
     margin-left: 5%;
 }
 
-.rate {
-    display: flex;
-}
-
-.rating {
-    width: 10%;
-    height: 10%;
-    margin: 0;
-}
-
-.first-star {
-    margin-left: 4%;
-}
-
 .product-price {
     font-family: 'Inter';
     font-size: x-large;
@@ -271,7 +257,7 @@ body {
     flex-direction: row;
     margin-bottom: 5%;
     align-items: center;
-
+    width: max-content;
 }
 
 .item-image {
@@ -283,9 +269,7 @@ body {
 }
 
 .item-details-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 10vw;
 }
 
 .iname {
@@ -314,6 +298,7 @@ body {
 .istar {
     margin-bottom: 10%;
     margin-left: 20%;
+    max-width: 100%;
 }
 
 .add-order-cart {

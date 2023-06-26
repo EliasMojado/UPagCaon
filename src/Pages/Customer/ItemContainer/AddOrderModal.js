@@ -1,10 +1,25 @@
 import React, { useState } from "react";
+import star from '../../../Assets/Viands/star.svg';
 import '../../Admin/Item/Item.css';
 import '../Home/Home.css'
 import closebutton from '../../../Assets/close-button.svg';
+import Rating from '../ItemContainer/Rating';
 // import rating from '../ItemContainer/Rating';
 
 function AddOrderModal ({ show, close, item }) {
+
+  const StarRating = ({ numberOfStars }) => {
+    const starsArray = Array.from({ length: numberOfStars });
+  
+    return (
+      <div>
+        {starsArray.map((_, index) => (
+          <img key={index} src={star} alt="star" />
+        ))}
+      </div>
+    );
+  };
+
   const [quantity, setQuantity] = useState(1);
   let rating = item.rating;
 
@@ -49,7 +64,7 @@ function AddOrderModal ({ show, close, item }) {
     }
   };
 
-
+  let stars = parseInt(item.rating);
 
   return (
     <>
@@ -67,14 +82,15 @@ function AddOrderModal ({ show, close, item }) {
                 <div className="item-image">
                   <img src={item.imageSrc} alt="Container Image" className='item-image' />
                 </div>
-                <div>
+                <div className="item-details-col">
                   <div className="iname">{item.name}</div>
                   <div className="idescription">{item.description}</div> 
                   <div className="itype">{item.type}</div>
                   <div className="iname">₱{item.price}</div>
                   
-                      <div className="istar">{item.rating}</div>
-
+                  <div className="istar"><StarRating numberOfStars={stars} />
+                  </div>
+                  
                   
                         
                 </div>
