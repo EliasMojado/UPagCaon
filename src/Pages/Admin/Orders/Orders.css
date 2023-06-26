@@ -78,7 +78,7 @@
     padding-right: 20%;
     background-image: url(../../../Assets/view.svg);
     background-size: 16px 16px;
-    background-position: 80% center; 
+    background-position: 90% center; 
     background-repeat: no-repeat;
     text-align: center;
     cursor: pointer;
@@ -254,11 +254,35 @@
     margin-left: 5px;
 }
 
-.status-order {
+.status-order-pending {
     width: 12px;
     height: 12px;
     border-radius: 50%;
     background-color: #837A7A;
+    margin-left: 5px;
+}
+
+.status-order-failed {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #520000;
+    margin-left: 5px;
+}
+
+.status-order-serving {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ECCA00;
+    margin-left: 5px;
+}
+
+.status-order-complete {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #245B0A;
     margin-left: 5px;
 }
 

@@ -182,11 +182,6 @@ body {
     /* padding: 10% 10% 10% 10%; */
 }
 
-.product-img {
-    width: 20vw;
-    border-radius: 25px;
-}
-
 .title {
     font-family: 'Inter';
     font-size: x-large;

@@ -24,7 +24,6 @@ export function getPayments() {
       });
   }
   
-
 export function getEarned(){
     return fetch(apiUrl + '/payment/getEarned')
     .then(response => {
@@ -36,6 +35,32 @@ export function getEarned(){
         console.error('Error retrieving earned:', error);
         toast.error('Failed to retrieve earned');
     });
+}
+
+export function getTodayEarnings(){
+    return fetch(apiUrl + '/payment/getTodayEarnings')
+    .then(response =>{
+        if(!response.ok){
+            throw new Error('Failed to retrieve today earnings');
+        }
+        return response.json();
+    }).catch(error=>{
+        console.error('Error retrieving today earnings:', error);
+        toast.error('Failed to retrieve today earnings');
+    })
+}
+
+export function getMonthlyEarnings(){
+    return fetch (apiUrl + '/payment/getMonthlyEarnings')
+    .then(response=>{
+        if(!response.ok){
+            throw new Error('Failed to retrieve monthly earnings');
+        }
+        return response.json();
+    }).catch(error=>{
+        console.error('Error retrieving monthly earnings:', error);
+        toast.error('Failed to retrieve monthly earnings');
+    })
 }
 
 export function updatePayments(payments, decision){

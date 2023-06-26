@@ -11,6 +11,7 @@ import drinks from '../../../Assets/NavIcons/drink.svg';
 import snacks from '../../../Assets/NavIcons/snack.svg';
 import schoolsupply from '../../../Assets/NavIcons/schoolsupply.svg';
 import { getOrders } from '../Orders/OrderFunction';
+import { getEarned } from '../Profits/ProfitFunction';
 
 
 import { apiUrl } from '../../../config';
@@ -46,6 +47,7 @@ function Dashboard() {
   // const [authenticated, setAuthenticated] = useState(false);
   const [adminCount, setAdminCount ] = useState(0);
   const [orders, setOrders] = useState([]);
+  const [earnings, setEarnings] = useState(0);
 
   useEffect(() => {
     // Make an API call to fetch the count of admins
@@ -58,9 +60,18 @@ function Dashboard() {
         console.error('Error:', error);
       });
 
-    
+      getEarnings();
       fetchOrders();
   }, []);
+
+  const getEarnings = async () => {
+    try{
+      const earned = await getEarned();
+      setEarnings(earned);
+    }catch(error){
+      console.error('Error retrieving earnings:', error);
+    }
+  }
 
   const fetchOrders = async () => {
     try {
@@ -91,14 +102,14 @@ function Dashboard() {
             <span className='box-content'>Total Profit</span>
             <div className='profit-container'>
               <img src={wallet} alt='wallet' className='wallet'/>
-              <span className='number'>5.3k</span>
+              <span className="number">{earnings?.total ?? 0}</span>
             </div>
           </div>
           <div className="box">
             <span className='box-content'>Orders in Queue</span>
             <div className='cart-container'>
               <img src={cart} alt='cart' className='cart'/>
-              <span className='number'>150</span>
+              <span className='number'>{orders.length}</span>
             </div>
           </div>
         </div>
