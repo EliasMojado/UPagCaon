@@ -228,3 +228,7 @@ footer.modal_footer {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.button-container button.transparent-button:hover {
+  cursor: pointer;
+}

@@ -8,20 +8,25 @@
     overflow-y: auto;
   }
 
-  .inside-scroll {
+.transparent-button.home-button:hover {
+    cursor: pointer;
+}
+  
+.inside-scroll {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: calc(98vh - 100px); 
     overflow-x:hidden;
     overflow-y: auto;
-  }
+}
   
   .content-container {
     overflow-y:hidden;
     padding: 20px;
     column-count: 2;
     column-gap: 20px;
+    border-bottom: 20px solid #520000;
   }
 
   .header {
@@ -58,11 +63,27 @@
     /* margin-left: 50px; */
 }
 
-.footer-image {
-    position: relative;
-    width: 20%;
-    height: 20%; 
-    margin-top: 20%;
-    z-index: -1;
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3%; /* Adjust the height value as needed */
 }
 
+.footer-image {
+  width: 20%; /* Adjust the width value as needed */
+  height: auto;
+}
+
+.team{
+  text-align: center;
+}
+
+.team img {
+  margin: 10px; /* Adjust the value as per your preference */
+}

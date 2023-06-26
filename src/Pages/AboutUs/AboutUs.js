@@ -3,6 +3,11 @@ import '../Customer/Landing/Landing.css';
 import upcOble from '../../Assets/upcOble.svg';
 import plainwoodbg from '../../Assets/plainwoodbg.svg';
 import footerpowered from '../../Assets/footerpowered.svg';
+import profiledops from '../../Assets/profile-dops.svg';
+import profileilin from '../../Assets/profile-ilin.svg';
+import profileelias from '../../Assets/profile-elias.svg';
+import profilepnx from '../../Assets/profile-pnx.svg';
+
 
 import '../AboutUs/AboutUs.css';
 
@@ -17,7 +22,7 @@ function AboutUs() {
       <header className="header">
         <span className='about'>ABOUT US</span>
         <div className="button-container">
-          <button className="transparent-button" onClick={home}>HOME</button>
+          <button className="transparent-button home-button" onClick={home}>HOME</button>
         </div>
       </header>
 
@@ -51,9 +56,18 @@ function AboutUs() {
               Experience the convenience, efficiency, and innovation brought to you by deepAI Solutions. Together, let's transform canteen operations and enhance the overall university experience. Contact us today for more information or to get started!
             </p>
           </div>
+
+          <div className="team">
+            <h2>Meet The Team</h2>
+            <img src={profiledops} alt="dops" className="icon-dops" />
+            <img src={profileilin} alt="ilin" className="icon-ilin" />
+            <img src={profileelias} alt="elias" className="icon-elias" />
+            <img src={profilepnx} alt="pnx" className="icon-pnx" />
+          </div>
+
+
         </div>
       </div>
-
       <footer className="footer">
         <img src={footerpowered} alt="Footer Powered" className="footer-image" />
       </footer>
