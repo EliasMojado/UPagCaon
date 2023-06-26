@@ -4,7 +4,6 @@ import '../Home/Home.css'
 import closebutton from '../../../Assets/close-button.svg';
 // import rating from '../ItemContainer/Rating';
 
-
 function AddOrderModal ({ show, close, item }) {
   const [quantity, setQuantity] = useState(1);
   let rating = item.rating;

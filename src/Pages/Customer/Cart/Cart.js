@@ -71,40 +71,11 @@ function Cart() {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* <tr>
-                                <td>1 Fried Chicken</td>
-                                <td>{dot}</td>
-                                <td className="order-summary-price">Php 40.00</td>
-                                <td className="LCol"><img src={cancel} alt="order-summary-cancel" className="order-summary-cancel"/></td>
-                                <td className="LCol"><img src={out} alt="order-summary-out" className="order-summary-out"/></td>
-                            </tr>
-                            <tr>
-                                <td>5 Puto Cheese</td>
-                                <td>{dot}</td>
-                                <td className="order-summary-price">Php 50.00</td>
-                                <td className="LCol"><img src={cancel} alt="order-summary-cancel" className="order-summary-cancel"/></td>
-                                <td className="LCol"><img src={out} alt="order-summary-out" className="order-summary-out"/></td>
-                            </tr>
-                            <tr>
-                                <td>1 Cucumber Lemonade</td>
-                                <td>{dot}</td>
-                                <td className="order-summary-price">Php 25.00</td>
-                                <td className="LCol"><img src={cancel} alt="order-summary-cancel" className="order-summary-cancel"/></td>
-                                <td className="LCol"><img src={out} alt="order-summary-out" className="order-summary-out"/></td>
-                            </tr>
-                            <div className="summary-total-footer">
-                                <tr>
-                                    <td className="order-total">TOTAL</td>
-                                    <td className="order-summary-total">Php 115.00</td>
-                                </tr>
-                            </div> */}
-
-
                             {cartItems.map((item) => (
                                 <tr key={item.item_id}>
                                 <td>{item.quantity}</td>
                                 <td>{item.name}</td>
-                                <td>{dot}</td>
+                                {/* <td>{dot}</td> */}
                                 <td className="order-summary-price">
                                     {item.price ? `Php ${item.price}` : ""}
                                 </td>
@@ -186,6 +157,7 @@ function Cart() {
                         </div>
                     </table>
                 </div>
+                <button className="check-out">Check Out</button>
             </main>
         </div>
     )
