@@ -32,7 +32,7 @@
     width: 100%;
 }
 
-thead tr th:first-child {
+/* thead tr th:first-child {
     background-color: #520000;
     color: #FFFFFF;
     font-weight: normal;
@@ -43,11 +43,11 @@ thead tr th:first-child {
 
 tbody tr td:first-child {
     display: flex;
-    float: left !important;
-    align-items: start !important;
-    align-self: flex-start !important;
-    justify-self: flex-start !important;
-}
+    float: left;
+    align-items: start;
+    align-self: flex-start;
+    justify-self: flex-start;
+} */
 
 .user-details {
     width: 3.5vw;
