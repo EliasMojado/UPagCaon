@@ -97,8 +97,13 @@ function Cart() {
   }
 
   const isItemUnavailable = (itemId) => {
+    if (unavailableItems.length === 0) {
+      return false; // No unavailable items, so the item is not unavailable
+    }
+  
     return unavailableItems.some((item) => item.item_id === itemId);
-  }
+  };
+  
 
   return (
     <div className="cart-page">

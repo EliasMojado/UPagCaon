@@ -215,17 +215,19 @@ router.post("/checkCartItems", (req, res) => {
 
       // Check if each item meets the availability criteria
       for (const item of items) {
-        const availableItem = availableItems.find(available => available.item_id === item.item_id);
-
+        const availableItem = availableItems.find(available => available.id === item.item_id);
+        console.log(availableItem);
         if (!availableItem || availableItem.quantity === 0 || isExpired(availableItem.expiry_date)) {
           unavailableItems.push(item);
         }
       }
 
       if (unavailableItems.length > 0) {
+        console.log("dili ok");
         res.status(200).json({ message: 'Some items are unavailable.', unavailableItems });
       } else {
-        res.status(200).json({ message: 'All items are available.' });
+        res.status(200).json({ message: 'All items are available.', unavailableItems });
+        console.log("ok");
       }
     }
   });
@@ -241,6 +243,7 @@ function isExpired(date) {
 
   return expiryDate <= currentDate;
 }
+
 
 
 module.exports = router;
