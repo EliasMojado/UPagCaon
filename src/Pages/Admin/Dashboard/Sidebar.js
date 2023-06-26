@@ -94,7 +94,7 @@ function Sidebar() {
       onSelect={() => {}}
     >
       <div>
-        <img src={logo} alt="logo" className="logo" />
+        <img src={logo} alt="logo" className="logo" onClick={goToHomePage} />
       </div>
       <div></div>
       <SideNav.Toggle />

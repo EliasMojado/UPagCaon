@@ -189,15 +189,19 @@ body {
 }
 
 .product-cont {
-    margin-top: 8%;
+    margin-top: 6%;
     margin-left: 8%;
     overflow-y: scroll;
 }
 
 
 .product-img {
-    width: 10vw;
+    width: fit-content;
+    height: 25vh;
     border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .title {
