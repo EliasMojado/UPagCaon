@@ -256,15 +256,15 @@ router.get("/getProducts/:page", (req, res) => {
   let query = '';
 
   if (page === 'viand') {
-    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'viand';";
+    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'viand' AND items.quantity > 0 AND items.expiry_date >= NOW();";
   } else if (page === 'drink') {
-    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'drink';";
+    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'drink' AND items.quantity > 0 AND items.expiry_date >= NOW();";
   } else if (page === 'others') {
-    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'other';";
+    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'other' AND items.quantity > 0 AND items.expiry_date >= NOW();";
   } else if (page === 'all') {
-    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id;";
+    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.quantity > 0 AND items.expiry_date >= NOW();";
   } else if (page === 'snack'){
-    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'snack';";
+    query = "SELECT items.*, IFNULL(feedback_avg.average_rating, 0) AS rating FROM items LEFT JOIN (SELECT item_id, AVG(rating) AS average_rating FROM feedbacks GROUP BY item_id) AS feedback_avg ON items.id = feedback_avg.item_id WHERE items.type = 'snack' AND items.quantity > 0 AND items.expiry_date >= NOW();";
   }else {
     res.status(400).json({ error: 'Invalid page parameter.' });
     return;
