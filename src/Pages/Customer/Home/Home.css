@@ -270,17 +270,22 @@ body {
     display: flex;
     flex-direction: row;
     margin-bottom: 5%;
+    align-items: center;
+
 }
 
 .item-image {
     width: 15vw;
     border: none;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .item-details-col {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .iname {
