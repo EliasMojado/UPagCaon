@@ -47,6 +47,7 @@ export function updateOrderStatus(id, status) {
     })
     .then(data => {
       console.log('Order status updated successfully:', data.message);
+      window.location.reload();
       return data;
     })
     .catch(error => {
