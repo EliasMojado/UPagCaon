@@ -10,6 +10,8 @@ function Cart() {
     const dot = "........................................";
 
     const [cartItems, setCartItems] = useState([]);
+    const [orderType, setOrderType] = useState(null);
+    const [paymentType, setPaymentType] = useState(null);
 
     useEffect(() => {
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -30,6 +32,26 @@ function Cart() {
         }
       });
       return total;
+    };
+  
+    const handleOrderTypeChange = (selectedOrderType) => {
+        if (orderType === selectedOrderType) {
+            // Deselect the order type if it's already selected
+            setOrderType(null);
+        } else {
+            // Select the new order type and deselect the other type
+            setOrderType(selectedOrderType);
+        }
+    };
+
+    const handlePaymentTypeChange = (selectedPaymentType) => {
+        if (paymentType === selectedPaymentType) {
+            // Deselect the payment type if it's already selected
+            setPaymentType(null);
+        } else {
+            // Select the new payment type and deselect the other type
+            setPaymentType(selectedPaymentType);
+        }
     };
 
 
@@ -115,13 +137,21 @@ function Cart() {
                             <tbody>
                                 <tr className="order-type-content">
                                     <td>
-                                    <input type="checkbox" />
+                                    <input 
+                                        type="checkbox"
+                                        checked={orderType === "dine-in"}
+                                        onChange={() => handleOrderTypeChange("dine-in")}
+                                    />
                                     </td>
                                     <td>Dine In</td>
                                 </tr>
                                 <tr className="order-type-content">
                                     <td>
-                                    <input type="checkbox" />
+                                    <input 
+                                        type="checkbox"
+                                        checked={orderType === "take-out"}
+                                        onChange={() => handleOrderTypeChange("take-out")} 
+                                    />
                                     </td>
                                     <td>Take Out</td>
                                 </tr>
@@ -134,13 +164,21 @@ function Cart() {
                             <tbody>
                                 <tr className="order-type-content">
                                     <td>
-                                    <input type="checkbox" />
+                                    <input 
+                                        type="checkbox"
+                                        checked={paymentType === "otc"}
+                                        onChange={() => handlePaymentTypeChange("otc")}
+                                    />
                                     </td>
                                     <td>OTC</td>
                                 </tr>
                                 <tr className="order-type-content">
                                     <td>
-                                    <input type="checkbox" />
+                                    <input 
+                                        type="checkbox"
+                                        checked={paymentType === "gcash"}
+                                        onChange={() => handlePaymentTypeChange("gcash")}
+                                    />
                                     </td>
                                     <td>GCASH</td>
                                 </tr>
