@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import '../Product/ProductPage.css';
-import rating from '../ItemContainer/Rating';
+// import Rating from '../ItemContainer/Rating';
 import OrderModal from './AddOrderModal';
 
 const ProductContainer = ({ imageSrc, name, rating, price, product }) => {
@@ -21,9 +21,11 @@ const ProductContainer = ({ imageSrc, name, rating, price, product }) => {
       <img src={imageSrc} alt="Container Image" className='product-img' />
       <h2 className='title'>{name}</h2>
       <div className='rate'>
+        {/* {rating} */}
           {rating.map((star, index) => (
             <img key={index} src={star} alt='star' className={`rating ${index === 0 ? 'first-star' : ''}`}/>
           ))}
+        {/* <Rating rate={rating} /> */}
       </div>
       <h3 className='product-price'>{price}</h3>
     </div>

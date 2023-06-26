@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import '../../Admin/Item/Item.css';
 import closebutton from '../../../Assets/close-button.svg';
+// import rating from '../ItemContainer/Rating';
+
 
 function AddOrderModal ({ show, close, item }) {
   const [quantity, setQuantity] = useState(1);
+  let rating = item.rating;
 
   const handleQuantityChange = (event) => {
     setQuantity(parseInt(event.target.value));
@@ -46,6 +49,8 @@ function AddOrderModal ({ show, close, item }) {
     }
   };
 
+
+
   return (
     <>
       {show && (
@@ -67,7 +72,17 @@ function AddOrderModal ({ show, close, item }) {
                   <div>{item.description}</div> 
                   <div>{item.type}</div>
                   <div>{item.price}</div>
-                  <div>{item.rating}</div>
+                  {/* <div>{item.rating}</div> */}
+                  
+                      <div>{item.rating}</div>
+
+                    {/* <div className='rate'>
+                        {rating.map((star, index) => (
+                          <img key={index} src={star} alt='star' className={`rating ${index === 0 ? 'first-star' : ''}`}/>
+                        ))}
+                    </div> */}
+                  
+                        
                 </div>
               </div>
               <div className='row-quan'>

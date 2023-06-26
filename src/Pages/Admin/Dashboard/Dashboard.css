@@ -29,11 +29,29 @@
 }
 
 .container {
+    margin-top: 10% !important;
+    margin-right: 15% !important;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     /* margin: 10% */
-    margin: 10% auto 18% 12%;
+    /* margin: 10% auto 18% 12%; */
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 50vw;
+    margin-bottom: 5%
+}
+
+.container2 {
+    margin-right: 16% !important;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* margin: -12% auto 0 9.5%; */
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 28vw;
 }
 
 .box {
@@ -69,6 +87,10 @@
 .cart-container {
     width: fit-content;
     height: fit-content;
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+
 }
 
 .employee {
@@ -89,12 +111,7 @@
     color: #FFFFFF;
 }
 
-.container2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: -12% auto 0 9.5%;
-}
+
 
 .box2 {
     flex: 1;
@@ -137,8 +154,8 @@
 
 .order-list {
     position: fixed;
-    top: 22%;
-    right: 2%;
+    top: 20%;
+    right: 4%;
     width: 20vw;
     background-color: #f5f5f5;
     padding: 10px;

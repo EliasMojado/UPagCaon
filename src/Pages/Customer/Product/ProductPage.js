@@ -25,7 +25,7 @@ function ProductPage({ title, products }) {
           <ProductContainer
             imageSrc={product.imageSrc}
             name={product.name}
-            rating={Rating(product.rating)}
+            rating={Rating(parseInt(product.rating))}
             price={product.price}
             product={product}
           />
