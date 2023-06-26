@@ -23,7 +23,7 @@ function AddOrderModal ({ show, close, item }) {
       cart[existingItemIndex].quantity += quantity;
     } else {
       // Add the item to the cart
-      cart.push({ item_id: item.id, quantity });
+      cart.push({ item_id: item.id, name: item.name, price: item.price, quantity });
     }
   
     localStorage.setItem('cart', JSON.stringify(cart));

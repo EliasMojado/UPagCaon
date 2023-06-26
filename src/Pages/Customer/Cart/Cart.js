@@ -4,9 +4,35 @@ import SearchBar from "../Home/SearchBar";
 import './Cart.css';
 import cancel from '../../../Assets/Cart/cancel.svg'; 
 import out from '../../../Assets/Cart/out.svg';
+import { useState, useEffect } from "react";
 
 function Cart() {
     const dot = "........................................";
+
+    const [cartItems, setCartItems] = useState([]);
+
+    useEffect(() => {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      setCartItems(cart);
+    }, []);
+  
+    const removeItemFromCart = (itemId) => {
+      const updatedCart = cartItems.filter((item) => item.item_id !== itemId);
+      setCartItems(updatedCart);
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+    };
+  
+    const calculateTotal = () => {
+      let total = 0;
+      cartItems.forEach((item) => {
+        if (item.price) {
+          total += item.price * item.quantity;
+        }
+      });
+      return total;
+    };
+
+
     return (
         <div className="cart-page">
             <header className="header-container">
@@ -23,7 +49,7 @@ function Cart() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            {/* <tr>
                                 <td>1 Fried Chicken</td>
                                 <td>{dot}</td>
                                 <td className="order-summary-price">Php 40.00</td>
@@ -49,7 +75,33 @@ function Cart() {
                                     <td className="order-total">TOTAL</td>
                                     <td className="order-summary-total">Php 115.00</td>
                                 </tr>
-                            </div>
+                            </div> */}
+
+
+                            {cartItems.map((item) => (
+                                <tr key={item.item_id}>
+                                <td>{item.name}</td>
+                                <td>{dot}</td>
+                                <td className="order-summary-price">
+                                    {item.price ? `Php ${item.price}` : ""}
+                                </td>
+                                <td className="LCol">
+                                    <img
+                                    src={cancel}
+                                    alt="order-summary-cancel"
+                                    className="order-summary-cancel"
+                                    onClick={() => removeItemFromCart(item.item_id)}
+                                    />
+                                </td>
+                                <td className="LCol">
+                                    <img src={out} alt="order-summary-out" className="order-summary-out" />
+                                </td>
+                                </tr>
+                            ))}
+                            <tr className="summary-total-footer">
+                                <td className="order-total">TOTAL</td>
+                                <td className="order-summary-total">Php {calculateTotal()}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
