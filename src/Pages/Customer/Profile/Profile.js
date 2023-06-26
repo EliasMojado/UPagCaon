@@ -7,12 +7,18 @@ import Sidebar from '../Home/Sidebar';
 import SearchBar from '../Home/SearchBar';
 import './Profile.css';
 
-import user from '../../../Assets/user-m.svg';
+import userPic from '../../../Assets/user-m.svg';
 import cart from '../../../Assets/cartsvg.svg';
 import EditProfileModal from './EditProfileModal';
 
 function Profile() {
+  const [user, setUser] = useState();
+
   useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem('user'));
+    setUser(userInfo);
+
+    console.log(userInfo);
     // Retrieve the stored user data from local storage
     const storedUser = localStorage.getItem('user');
     if (!storedUser || JSON.parse(storedUser).type !== 'customer') {
@@ -63,11 +69,11 @@ function Profile() {
       </header>
       <div className="profile-container">
       <div className='profile-box'>
-      <img src={user} alt="user" className="user-m" />
+      <img src={userPic} alt="user" className="user-m" />
       <table className="summary-table">
       <div className="user-table-row-h">
         <tr>
-          <th  colSpan="12">USER ID : [insert here]</th>
+          <th  colSpan="12">USER ID : {user.id}</th>
         </tr>
       </div>
 
@@ -75,17 +81,17 @@ function Profile() {
         <tr className='tr-row'>
             <td colSpan="4" className="user-details">Name: </td>
             <td className='user-margin' ></td>
-            <td colSpan="4" className='user-deets' > Ellenmarie </td>
+            <td colSpan="4" className='user-deets' > {user.name} </td>
         </tr>
         <tr className='tr-row'>
             <td colSpan="4" className="user-details">Email: </td>
             <td className='user-margin'> </td>
-            <td colSpan="4" className='user-deets' > Ellenmarie </td>
+            <td colSpan="4" className='user-deets' > {user.email} </td>
         </tr>
         <tr className='tr-row'>
             <td colSpan="4" className="user-details" >Contact: </td>
             <td className='user-margin'> </td>
-            <td colSpan="4" className='user-deets'> Ellenmarie </td>
+            <td colSpan="4" className='user-deets'> {user.contact_number} </td>
         </tr>
         <tr className='tr-row'colSpan="12">
             <td colSpan="4"className="user-details">Type: </td>
