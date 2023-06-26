@@ -54,10 +54,10 @@ function Profile() {
     <div className="dashboard">
       <header className="header-container">
         <span className="dash">PROFILE</span>
-        <button className="add-order-cart" onClick={() => Toggle()}>
+        {/* <button className="add-order-cart" onClick={() => Toggle()}>
             Cart
-        </button>
-        <SearchBar />
+        </button> */}
+        {/* <SearchBar /> */}
         <Sidebar />
       </header>
       <div className="profile-container">
