@@ -97,9 +97,12 @@
     width: 50%;
 }
 
-.wallet,
-.cart {
+.wallet {
     width: 30%;
+}
+
+.cart {
+    width: 60%;
 }
 
 .number {
