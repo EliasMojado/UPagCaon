@@ -13,6 +13,7 @@ import DrinksUser from '../src/Pages/Customer/Home/Drinks';
 import SnacksUser from '../src/Pages/Customer/Home/Snacks';
 import OthersUser from '../src/Pages/Customer/Home/Others';
 import Cart from '../src/Pages/Customer/Cart/Cart';
+import Profile from '../src/Pages/Customer/Profile/Profile';
 
 import Admin from '../src/Pages/Admin/Landing/Landing';
 import Dashboard from './Pages/Admin/Dashboard/Dashboard';
@@ -42,6 +43,7 @@ root.render(
         <Route path = '/snack' element = {<SnacksUser/>} />
         <Route path = '/other' element = {<OthersUser/>} />
         <Route path = '/cart' element = {<Cart/>} />
+        <Route path = '/profile' element = {<Profile/>} />
 
         {/* Admin */}
         <Route path='/admin' element = {<Admin/>} />

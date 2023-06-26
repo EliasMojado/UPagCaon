@@ -1,44 +1,39 @@
 import React, {useState} from 'react';
 import '../Home/Home.css';
-const SearchBar = () => {
 
- const [searchInput, setSearchInput] = useState("");
+const SearchBar = ({ items, setFilteredItems, itemType}) => {
+  const [searchInput, setSearchInput] = useState('');
 
- const items = [
+  const handleChange = (e) => {
+    setSearchInput(e.target.value);
+    filterItems(e.target.value);
+  };
 
-  { name: "Fried Chicken", type: "viand" },
-  { name: "Lumpia", type: "viand" },
-  { name: "Humba", type: "viand" },
-  { name: "Mango Tapioca", type: "drink" },
-  { name: "Cucumber Lemonade", type: "drink" },
-  { name: "Coffee Jelly", type: "drink" },
-  { name: "Bluebook", type: "school supply" },
-  { name: "Ballpen", type: "school supply" },
-  { name: "Yellow Paper", type: "school supply" },
+  const filterItems = (searchValue) => {
+    let filteredItems;
+    if (itemType === "items") {
+      filteredItems = items.filter((item) => {
+        return (
+          item.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+          item.price.toString().includes(searchValue.toLowerCase()) ||
+          item.type.toLowerCase().includes(searchValue.toLowerCase())
+        );
+      });
+    }
+    setFilteredItems(filteredItems);
+  };
 
-];
-
-const handleChange = (e) => {
-  e.preventDefault();
-  setSearchInput(e.target.value);
-};
-
-if (searchInput.length > 0) {
-    items.filter((item) => {
-    return item.name.match(searchInput);
-});
-}
-
-return <div>
-
-<input
-   className='search'
-   type="search"
-   placeholder="Search"
-   onChange={handleChange}  
-   value={searchInput} />
-</div>
-
+  return (
+    <div>
+      <input
+        className='search'
+        type='search'
+        placeholder='Search'
+        onChange={handleChange}
+        value={searchInput}
+      />
+    </div>
+  );
 };
 
 export default SearchBar;
