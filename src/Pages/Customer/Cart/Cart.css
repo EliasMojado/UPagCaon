@@ -25,6 +25,7 @@
     font-size: large;
     align-items: center;
     color: #520000;
+    padding-right: 20vw;
 }
 
 .order-summary-total {
@@ -97,6 +98,7 @@
     align-items: center;
     color: #520000;
     padding: 0;
+    padding-bottom: 8%;
 }
 
 .summary-info {
