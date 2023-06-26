@@ -25,7 +25,7 @@ function Dashboard() {
   }
 
   const goToProfPage = () => {
-    navigate('/admin/profits', { replace: true});
+    navigate('/admin/earnings', { replace: true});
   }
 
   const goToViandPage = () => {

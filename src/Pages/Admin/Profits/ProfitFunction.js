@@ -10,12 +10,12 @@ export function getPayments() {
         return response.json();
       })
       .then(data => {
-        if (!data || !data.payments || data.payments.length === 0) {
-            // Handle case when there are no completed payments
-            // For example, display a message or take alternative actions
-            throw new Error('No completed payments found.');
+        if (data && Array.isArray(data.payments) && data.payments.length > 0) {
+            console.log(data.payments);
+          return data.payments;
+        } else {
+          throw new Error('No completed payments found.');
         }
-        return data.payments;
       })
       .catch(error => {
         console.error('Error retrieving payments:', error);
@@ -23,6 +23,7 @@ export function getPayments() {
         throw error; // re-throw the error to propagate it to the caller if needed
       });
   }
+  
   
 export function getEarned(){
     return fetch(apiUrl + '/payment/getEarned')
