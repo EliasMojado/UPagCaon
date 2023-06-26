@@ -29,6 +29,16 @@ const SearchBar = ({ items, setFilteredItems, itemType}) => {
           item.expiry_date.toLowerCase().includes(searchValue.toLowerCase())
         );
       });
+    } else if (itemType === "orders") {
+      filteredItems = items.filter((item) => {
+        return (
+          item.user.toLowerCase().includes(searchValue.toLowerCase()) ||
+          item.payment.toString().includes(searchValue.toLowerCase()) ||
+          item.status.toLowerCase().includes(searchValue.toLowerCase()) ||
+          item.total.toString().includes(searchValue.toLowerCase()) ||
+          item.id.toString().includes(searchValue.toLowerCase())
+        );
+      });
     }
     setFilteredItems(filteredItems);
   };

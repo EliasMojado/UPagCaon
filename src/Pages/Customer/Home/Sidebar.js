@@ -42,6 +42,9 @@ function Sidebar() {
       case location.pathname.includes('/cart'):
         setSelected('cart');
         break;
+      case location.pathname.includes('/profile'):
+        setSelected('profile');
+        break;
       default:
         setSelected('home');
         break;
@@ -70,6 +73,10 @@ function Sidebar() {
 
   const goToCart = () => {
     navigate('/cart', { replace: true });
+  }
+
+  const goToProfile = () => {
+    navigate('/profile', { replace: true });
   }
 
   return (
@@ -123,7 +130,7 @@ function Sidebar() {
           <NavText className="navtext">Cart</NavText>
         </NavItem>
 
-        <NavItem eventKey="user">
+        <NavItem eventKey="profile" onClick = {goToProfile}>
           <NavIcon>
             <img src={user} alt="user" className="nav-icon" />
           </NavIcon>
