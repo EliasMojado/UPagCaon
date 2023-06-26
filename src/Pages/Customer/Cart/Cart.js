@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import Sidebar from "../Home/Sidebar";
 import SearchBar from "../Home/SearchBar";
 import './Cart.css';
@@ -10,7 +11,11 @@ import { toast } from "react-hot-toast";
 
 function Cart() {
   const dot = "........................................";
+  const navigate = useNavigate();
 
+  const Toggle = () => {
+    navigate('/track', { replace: true});
+  }
   const [cartItems, setCartItems] = useState([]);
   const [orderType, setOrderType] = useState(null);
   const [paymentType, setPaymentType] = useState(null);
@@ -65,11 +70,11 @@ function Cart() {
     }
   };
 
-  const handeCheckOut = () => {
+  const handleCheckOut = () => {
     const user = JSON.parse(localStorage.getItem('userId'));
 
     if (!user || !cartItems || !paymentType || !orderType) {
-        toast.error("Invalid or incomplete paramters.", {
+        toast.error("Invalid or incomplete parameters.", {
             style: {
               borderRadius: '10px',
               background: '#333',
@@ -109,6 +114,9 @@ function Cart() {
     <div className="cart-page">
       <header className="header-container">
         <span className="cart-header">CART</span>
+        <button className="add-order-track" onClick={() => Toggle()}>
+            Track
+        </button>
         <SearchBar />
         <Sidebar />
       </header>
@@ -210,7 +218,7 @@ function Cart() {
             <div className="proceed-button-container">
               <button
                 className="proceed-button"
-                onClick={handeCheckOut}
+                onClick={handleCheckOut}
                 // disabled={unavailableItems.length > 0}
               >
                 PROCEED

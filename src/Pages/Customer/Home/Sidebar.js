@@ -42,6 +42,9 @@ function Sidebar() {
       case location.pathname.includes('/cart'):
         setSelected('cart');
         break;
+      case location.pathname.includes('/track'):
+          setSelected('cart');
+          break;
       case location.pathname.includes('/profile'):
         setSelected('profile');
         break;
