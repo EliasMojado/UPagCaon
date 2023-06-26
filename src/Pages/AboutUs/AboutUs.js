@@ -57,16 +57,28 @@ function AboutUs() {
             </p>
           </div>
 
+          
+
           <div className="team">
-            <h2>Meet The Team</h2>
-            <img src={profiledops} alt="dops" className="icon-dops" />
-            <img src={profileilin} alt="ilin" className="icon-ilin" />
-            <img src={profileelias} alt="elias" className="icon-elias" />
-            <img src={profilepnx} alt="pnx" className="icon-pnx" />
-
-            
-
+              <h2>Meet The Team</h2>
+            <div className="team-member">
+              <img src={profiledops} alt="dops" className="icon-dops" />
+              <p>Daughpane Reponte</p>
+            </div>
+            <div className="team-member">
+              <img src={profileilin} alt="ilin" className="icon-ilin" />
+              <p>Insert Name</p>
+            </div>
+            <div className="team-member">
+              <img src={profileelias} alt="elias" className="icon-elias" />
+              <p>Insert Name</p>
+            </div>
+            <div className="team-member">
+              <img src={profilepnx} alt="pnx" className="icon-pnx" />
+              <p>Insert Name</p>
+            </div>
           </div>
+
 
 
         </div>

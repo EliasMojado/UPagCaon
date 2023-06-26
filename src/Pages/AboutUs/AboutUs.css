@@ -80,10 +80,25 @@
   height: auto;
 }
 
-.team{
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.team img {
-  margin: 10px; 
+.team-member {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-member p {
+  margin-bottom: 5px;
+}
+
+.team h2{
+  text-align: center;
 }

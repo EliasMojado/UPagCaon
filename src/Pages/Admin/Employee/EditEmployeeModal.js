@@ -3,6 +3,7 @@ import TextFieldComponent from './EditEmployeeForm.js';
 import '../Employee/Employee.css';
 import closebutton from '../../../Assets/close-button.svg';
 import { apiUrl } from '../../../config';
+import toast from 'react-hot-toast';
 
 function EditEmployeeModal({ show, close, employee }) {
   const [name, setName] = useState('');
@@ -52,18 +53,37 @@ function EditEmployeeModal({ show, close, employee }) {
         if (response.ok) {
           // Edit operation successful
           console.log('Employee updated successfully');
+          
+          toast.success('Employee Updated', {
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+            duration: 3000
+          });
+
           window.location.reload();
           // Perform any additional actions, such as updating the employee list
         } else {
           // Edit operation failed
           console.error('Error updating employee');
           // Handle the error case appropriately
+          toast.error('An error occurred while updating the employee.', {
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+            duration: 3000,
+          });
         }
       })
       .catch((error) => {
         console.error('Error updating employee:', error);
         // Handle the error case appropriately
       });
+
 
     close();
   };
