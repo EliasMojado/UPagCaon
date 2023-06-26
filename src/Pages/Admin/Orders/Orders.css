@@ -276,6 +276,49 @@
     margin-left: 5px;
 }
 
+/* .status-order-pending:hover::after {
+    content: "pending";
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #837A7A;
+    font-size: small;
+    white-space: nowrap;
+}
+
+.status-order-failed:hover::after {
+    content: "failed";
+    top: 56%;
+    left: 60%;
+    transform: translateX(200%);
+    color: #520000;
+    font-size: small;
+    white-space: nowrap;
+}
+
+.status-order-serving:hover::after {
+    content: "serving";
+    position: absolute;
+    top: 56%;
+    left: 45%;
+    transform: translateX(-60%);
+    color: #ECCA00;
+    font-size: small;
+    white-space: nowrap;
+}
+
+.status-order-complete:hover::after {
+    content: "complete";
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #245B0A;
+    font-size: small;
+    white-space: nowrap;
+} */
+
 .order-icon {
     width: 25px;
     height: 25px;
