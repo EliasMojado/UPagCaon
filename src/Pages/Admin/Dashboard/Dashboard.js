@@ -25,7 +25,7 @@ function Dashboard() {
   }
 
   const goToProfPage = () => {
-    navigate('admin/profits', { replace: true});
+    navigate('/admin/profits', { replace: true});
   }
 
   const goToViandPage = () => {
@@ -38,6 +38,10 @@ function Dashboard() {
 
   const goToSnackPage = () => {
     navigate('/admin/snacks', { replace: true});
+  }
+
+  const goToQueue = () => {
+    navigate('/admin/orders', {replace: true});
   }
 
   const goToOtherPage = () => {
@@ -105,7 +109,7 @@ function Dashboard() {
               <span className="number">{earnings?.total ?? 0}</span>
             </div>
           </div>
-          <div className="box">
+          <div className="box" onClick={goToQueue}>
             <span className='box-content'>Orders in Queue</span>
             <div className='cart-container'>
               <img src={cart} alt='cart' className='cart'/>
