@@ -1,11 +1,4 @@
-import SearchBar from '../../Customer/Home/SearchBar';
 import React, { useState, useEffect } from 'react';
-import ProductContainer from '../ItemContainer/ProductContainer';
-import Sidebar from '../../Customer/Home/Sidebar';
-import humba from '../../../Assets/Viands/humba.svg';
-import lumpia from '../../../Assets/Viands/lumpia.svg';
-import chicken from '../../../Assets/Viands/chicken.svg';
-import Rating from '../ItemContainer/Rating';
 import ProductPage from '../Product/ProductPage';
 import { apiUrl } from '../../../config';
 

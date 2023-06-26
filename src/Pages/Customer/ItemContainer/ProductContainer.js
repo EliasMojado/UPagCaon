@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import '../Product/ProductPage.css';
-// import Rating from '../ItemContainer/Rating';
 import OrderModal from './AddOrderModal';
 
 const ProductContainer = ({ imageSrc, name, rating, price, product }) => {
@@ -33,13 +32,11 @@ const ProductContainer = ({ imageSrc, name, rating, price, product }) => {
             Cart
       </button>
       <div className='rate'>
-        {/* {rating} */}
           {rating.map((star, index) => (
             <img key={index} src={star} alt='star' className={`rating ${index === 0 ? 'first-star' : ''}`}/>
           ))}
-        {/* <Rating rate={rating} /> */}
       </div>
-      <h3 className='product-price'>{price}</h3>
+      <h3 className='product-price'>₱{price}</h3>
     </div>
     <OrderModal
         show={showOrderModal}
