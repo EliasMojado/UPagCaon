@@ -199,5 +199,48 @@ router.put("/updateOrderStatus/:id", (req, res) => {
   });
 });
 
+router.post("/checkCartItems", (req, res) => {
+  const { items } = req.body;
+
+  // Assuming your items are passed as an array of objects, each containing item_id and quantity properties
+  const itemIds = items.map(item => item.item_id);
+
+  // Get the available items from the database based on the item IDs
+  db.query('SELECT id, quantity, expiry_date FROM items WHERE id IN (?)', [itemIds], (error, availableItems) => {
+    if (error) {
+      console.error('Error retrieving available items:', error);
+      res.status(500).json({ error: 'Failed to retrieve available items.' });
+    } else {
+      const unavailableItems = [];
+
+      // Check if each item meets the availability criteria
+      for (const item of items) {
+        const availableItem = availableItems.find(available => available.item_id === item.item_id);
+
+        if (!availableItem || availableItem.quantity === 0 || isExpired(availableItem.expiry_date)) {
+          unavailableItems.push(item);
+        }
+      }
+
+      if (unavailableItems.length > 0) {
+        res.status(200).json({ message: 'Some items are unavailable.', unavailableItems });
+      } else {
+        res.status(200).json({ message: 'All items are available.' });
+      }
+    }
+  });
+});
+
+function isExpired(date) {
+  const currentDate = new Date();
+  const expiryDate = new Date(date);
+
+  // Set the time to 00:00:00 to compare only the dates
+  currentDate.setHours(0, 0, 0, 0);
+  expiryDate.setHours(0, 0, 0, 0);
+
+  return expiryDate <= currentDate;
+}
+
 
 module.exports = router;

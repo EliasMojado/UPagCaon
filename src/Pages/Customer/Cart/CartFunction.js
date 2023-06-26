@@ -56,5 +56,33 @@ export function checkOut(user_id, items, payment_type, order_type) {
       });
     });
   }
+  export function checkCartItems(items) {
+    const requestBody = { 
+      items: items
+    };
+  
+    return fetch(apiUrl + '/order/checkCartItems', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestBody)
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to check cart items');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Handle the response data
+        return data;
+      })
+      .catch(error => {
+        console.error('Error checking cart items:', error);
+        throw error; // re-throw the error to propagate it to the caller if needed
+      });
+  }
+  
   
   
