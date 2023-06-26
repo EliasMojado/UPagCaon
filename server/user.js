@@ -63,7 +63,7 @@ router.post('/login', (req, res) => {
     }
 
     // User is authenticated, return a success message or token
-    res.status(200).json({ message: 'Login successful!' , type: user.type, id: user.id});
+    res.status(200).json({ message: 'Login successful!' , type: user.type, id: user.ID});
   });
 });
 

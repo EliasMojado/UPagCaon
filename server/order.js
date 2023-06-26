@@ -3,11 +3,12 @@ const db = require('./db');
 const router = express.Router();
 
 router.post('/addOrder', (req, res) => {
-  const { user_id, purchase_date, items, payment_type } = req.body;
+  const { user_id, purchase_date, items, payment_type, order_type } = req.body;
 
-  const orderQuery = "INSERT INTO orders (user_id, purchase_date, status) VALUES (?, ?, 'pending')";
-  const orderValues = [user_id, purchase_date];
+  const orderQuery = "INSERT INTO orders (user_id, purchase_date, status, type) VALUES (?, ?, 'pending', ?)";
+  const orderValues = [user_id, purchase_date, order_type];
   let order_id, order_total = 0;
+  let purchaseCount = 0;
 
   db.query(orderQuery, orderValues, (error, results) => {
     if (error) {
@@ -16,7 +17,7 @@ router.post('/addOrder', (req, res) => {
     } else {
       order_id = results.insertId;
       console.log('Data inserted into orders successfully');
-      res.status(200).json({ message: 'Order added successfully!' });
+      // Do not send the response here
 
       // Handle the success case appropriately
       items.forEach((item) => {
@@ -30,36 +31,39 @@ router.post('/addOrder', (req, res) => {
             res.status(500).json({ error: 'An error occurred while adding purchase.' });
           } else {
             console.log('Data inserted into purchase successfully');
-            res.status(200).json({ message: 'Purchase added successfully!' });
-            // Handle the success case appropriately
+            purchaseCount++;
+
+            if (purchaseCount === items.length) {
+              // Send the response only after all items have been processed
+              db.query('INSERT INTO payment (orderID, type, status, amount) VALUES (?, ?, ?, ?)', [order_id, payment_type, false, order_total], (error, results) => {
+                if (error) {
+                  console.error('Error inserting data into payment:', error);
+                  // Handle the error case appropriately
+                  res.status(500).json({ error: 'An error occurred while adding payment.' });
+                } else {
+                  console.log('Data inserted into payment successfully');
+
+                  db.query('UPDATE orders SET payment_id = ? WHERE ID = ?', [results.insertId, order_id], (error) => {
+                    if (error) {
+                      console.error('Error updating payment ID in orders:', error);
+                      // Handle the error case appropriately
+                      res.status(500).json({ error: 'An error occurred while updating payment ID.' });
+                    } else {
+                      console.log('Payment ID updated in orders successfully');
+                      // Handle the success case appropriately
+                      res.status(200).json({ message: 'Order added successfully!' });
+                    }
+                  });
+                }
+              });
+            }
           }
         });
-      });
-
-      db.query('INSERT INTO payment (orderID, type, status, amount) VALUES (?, ?, ?, ?)', [order_id, payment_type, false, order_total], (error, results) => {
-        if (error) {
-          console.error('Error inserting data into payment:', error);
-          // Handle the error case appropriately
-          res.status(500).json({ error: 'An error occurred while adding payment.' });
-        } else {
-          console.log('Data inserted into payment successfully');
-
-          db.query('UPDATE orders SET payment_id = ? WHERE ID = ?', [results.insertId, order_id], (error) => {
-            if (error) {
-              console.error('Error updating payment ID in orders:', error);
-              // Handle the error case appropriately
-              res.status(500).json({ error: 'An error occurred while updating payment ID.' });
-            } else {
-              console.log('Payment ID updated in orders successfully');
-              // Handle the success case appropriately
-              res.status(200).json({ message: 'Payment added successfully!' });
-            }
-          });
-        }
       });
     }
   });
 });
+
 
 router.get("/getOrders", (req, res) => {
   db.query("SELECT * FROM orders WHERE status IN ('pending', 'serving')", (error, orders) => {
