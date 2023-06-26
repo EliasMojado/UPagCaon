@@ -54,7 +54,7 @@ root.render(
         <Route path='/admin/snacks' element = {<Snacks/>} />
         <Route path='/admin/others' element = {<Others/>} />
         <Route path='/admin/orders' element = {<Orders/>} />
-        <Route path='/admin/profits' element = {<Profits/>} />
+        <Route path='/admin/earnings' element = {<Profits/>} />
 
         {/* About Us */}
         <Route path = '/about' element = {<AboutUs/>} />

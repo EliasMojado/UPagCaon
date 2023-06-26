@@ -29,7 +29,7 @@ const SubtotalContainers = () => {
   return (
     <div className='subtotal-containers'>
       <div className='daily-subtotal'>
-        <span className='daily-subtotal-content'>DAILY SUBTOTAL</span>
+        <span className='daily-subtotal-content'>DAILY EARNINGS</span>
         <div className='daily-subtotal-container'>
           <div className='mt-2'></div>
           <span className='daily-subtotal-title'>Cash</span>
@@ -41,7 +41,7 @@ const SubtotalContainers = () => {
       </div>
 
       <div className='monthly-subtotal'>
-        <span className='monthly-subtotal-content'>MONTHLY SUBTOTAL</span>
+        <span className='monthly-subtotal-content'>MONTHLY EARNINGS</span>
         <div className='daily-subtotal-container'>
           <span className='daily-subtotal-title'>Cash</span>
           <span className='daily-subtotal-text'>{monthlyEarnings.cash}</span>
