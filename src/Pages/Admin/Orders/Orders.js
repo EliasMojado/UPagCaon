@@ -8,20 +8,41 @@ import { getOrders } from './OrderFunction';
 
 function Orders() {
   const [orders, setOrders] = useState([]);
+  const [filteredOrders, setFilteredOrders] = useState([]);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   fetchOrders();
+  // }, []);
+
+  // const fetchOrders = async () => {
+  //   try {
+  //     const orders = await getOrders();
+  //     setOrders(orders);
+  //     setFilteredOrders(orders)
+  //   } catch (error) {
+  //     console.error('Error retrieving orders:', error);
+  //     // Handle the error case appropriately
+  //   }
+  // };
+
+  useEffect(() =>{
+    const fetchOrders = async () => {
+        try {
+            const orders = await getOrders();
+            setOrders(orders);
+            setFilteredOrders(orders);
+            console.log(orders);
+        }catch (error){
+          console.error('Error retrieving orders:', error);
+        }
+    };
+
     fetchOrders();
-  }, []);
+    }, []);
 
-  const fetchOrders = async () => {
-    try {
-      const orders = await getOrders();
-      setOrders(orders);
-    } catch (error) {
-      console.error('Error retrieving orders:', error);
-      // Handle the error case appropriately
+    const handleSearch = (filteredItems) => {
+        setFilteredOrders(filteredItems);
     }
-  };
 
   return (
     <div className="orders-page">
@@ -30,9 +51,13 @@ function Orders() {
         <div className="orderpageheader">
           <span className="order">ORDERS IN QUEUE</span>
         </div>
-        <SearchBar />
+        <SearchBar 
+          items={orders}
+          setFilteredItems={handleSearch}
+          itemType="orders"
+        />
       </header>
-      <OrdersList orders={orders} />
+      <OrdersList orders={filteredOrders} />
     </div>
   );
 }
