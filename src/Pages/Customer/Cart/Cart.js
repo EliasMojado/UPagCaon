@@ -160,6 +160,9 @@ function Cart() {
                                 </tr>
                             </tbody>
                         </div>
+                        <div className="proceed-button-container">
+                            <button className="proceed-button">PROCEED</button>
+                        </div>
                     </table>
                 </div>
                 <button className="check-out" onClick={handeCheckOut}>Check Out</button>
