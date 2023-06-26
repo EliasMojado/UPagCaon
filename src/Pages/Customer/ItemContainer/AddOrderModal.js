@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '../../Admin/Item/Item.css';
+import '../Home/Home.css'
 import closebutton from '../../../Assets/close-button.svg';
 // import rating from '../ItemContainer/Rating';
 
@@ -67,20 +68,14 @@ function AddOrderModal ({ show, close, item }) {
                 <div className="item-image">
                   <img src={item.imageSrc} alt="Container Image" className='item-image' />
                 </div>
-                <div className="item-details-col title">
-                  <div>{item.name}</div>
-                  <div>{item.description}</div> 
-                  <div>{item.type}</div>
-                  <div>{item.price}</div>
-                  {/* <div>{item.rating}</div> */}
+                <div>
+                  <div className="iname">{item.name}</div>
+                  <div className="idescription">{item.description}</div> 
+                  <div className="itype">{item.type}</div>
+                  <div className="iname">₱{item.price}</div>
                   
-                      <div>{item.rating}</div>
+                      <div className="istar">{item.rating}</div>
 
-                    {/* <div className='rate'>
-                        {rating.map((star, index) => (
-                          <img key={index} src={star} alt='star' className={`rating ${index === 0 ? 'first-star' : ''}`}/>
-                        ))}
-                    </div> */}
                   
                         
                 </div>
