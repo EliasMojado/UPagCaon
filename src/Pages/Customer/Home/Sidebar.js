@@ -69,7 +69,7 @@ function Sidebar() {
       style={{ backgroundColor: '#520000' }}
       onSelect={() => {}}
     >
-      <img src={logo} alt="logo" className="logo" />
+      <img src={logo} alt="logo" className="logo" onClick = {goToHomePage} />
       <div></div>
       <SideNav.Toggle />
       <SideNav.Nav selected= {selected}>    
