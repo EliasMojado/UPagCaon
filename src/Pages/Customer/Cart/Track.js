@@ -14,14 +14,14 @@ function Track() {
   const [filteredOrders, setFilteredOrders] = useState([]);
   useEffect(() =>{
     const fetchOrders = async () => {
-        try {
-            const orders = await getOrders();
-            setOrders(orders);
-            setFilteredOrders(orders);
-            console.log(orders);
-        }catch (error){
-          console.error('Error retrieving orders:', error);
-        }
+        // try {
+        //     const orders = await getOrders();
+        //     setOrders(orders);
+        //     setFilteredOrders(orders);
+        //     console.log(orders);
+        // }catch (error){
+        //   console.error('Error retrieving orders:', error);
+        // }
     };
 
     fetchOrders();

@@ -4,8 +4,6 @@ import React, { useState, useEffect } from 'react';
 import TextFieldComponent from './EditProfileForm';
 import closebutton from "../../../Assets/close-button.svg";
 
-
-
 const EditProfileModal = ({show, close, user}) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -16,7 +14,7 @@ const EditProfileModal = ({show, close, user}) => {
         setName(user.name);
         setEmail(user.email);
         setPassword(user.password);
-        setContact(user.contact);
+        setContact(user.contact_number);
       }, [user]);
 
       const handleNameChange = (event) => {
@@ -37,11 +35,10 @@ const EditProfileModal = ({show, close, user}) => {
 
       const handleUpdateUser = () => {
         const formData = new FormData();
-        formData.append("id", user.id);
         formData.append("name", name);
         formData.append("password", password);
         formData.append("email", email);
-        formData.append("contact", contact);
+        formData.append("contact_number", contact);
         
         // updateItem(formData);
     

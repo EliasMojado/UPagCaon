@@ -13,6 +13,9 @@ import EditProfileModal from './EditProfileModal';
 
 function Profile() {
   const [user, setUser] = useState();
+  const [selectedProfile, setSelectedProfile] = useState({});
+  const [showDeleteProfileModal, setShowDeleteProfileModal] = useState(false);
+  const [showEditProfileModal, setShowEditProfileModal] = useState(false);
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem('user'));
@@ -25,10 +28,6 @@ function Profile() {
       window.location.href = '/';
     }
   }, []);
-
-  const [selectedProfile, setSelectedProfile] = useState({});
-  const [showDeleteProfileModal, setShowDeleteProfileModal] = useState(false);
-  const [showEditProfileModal, setShowEditProfileModal] = useState(false);
     
   const navigate = useNavigate();
 
@@ -38,12 +37,12 @@ function Profile() {
 
   const ToggleD = () => {
     setShowDeleteProfileModal(true);
-    setSelectedProfile();
+    setSelectedProfile(user);
   };
 
   const ToggleE = () => {
     setShowEditProfileModal(true);
-    setSelectedProfile();
+    setSelectedProfile(user);
   }
 
   const closeEditModal = () => {
@@ -56,6 +55,9 @@ function Profile() {
     setSelectedProfile({});
   };
 
+  if (!user) {
+    return null; // Render nothing until the user data is retrieved
+  }
 
   return (
     <div className="dashboard">
