@@ -305,20 +305,20 @@ function isExpired(date) {
 
 router.post("/orderHistory/:id", (req, res) => {
   const { id } = req.params;
-  db.query("SELECT * FROM orders WHERE user_id = ? AND status = 'completed';", [id], (error, orders) => {
-    if (error) {
-      console.error('Error retrieving order history:', error);
-      res.status(500).json({ error: 'An error occurred while retrieving order history.' });
-      return;
+  db.query(
+    "SELECT orders.*, payment.amount FROM orders INNER JOIN payment ON orders.ID = payment.orderID WHERE orders.user_id = ? AND orders.status = 'completed';",
+    [id],
+    (error, orders) => {
+      if (error) {
+        console.error('Error retrieving order history:', error);
+        res.status(500).json({ error: 'An error occurred while retrieving order history.' });
+        return;
+      }
+
+      res.status(200).json(orders); // Return the orders array with the amount attribute
+      console.log(orders);
     }
-
-    res.status(200).json(orders); // Return the orders array directly
-    console.log(orders);
-  });
+  );
 });
-
-
-
-
 
 module.exports = router;
