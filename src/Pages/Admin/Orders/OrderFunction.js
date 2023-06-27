@@ -47,11 +47,27 @@ export function updateOrderStatus(id, status) {
     })
     .then(data => {
       console.log('Order status updated successfully:', data.message);
+      toast.success('Order status updated successfully.', {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+          duration: 5000,
+      });
       window.location.reload();
       return data;
     })
     .catch(error => {
       console.error('Error updating order status:', error);
+      toast.error('Error updating order status.',{
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+        duration: 5000,
+      });
       throw error;
     });
 }

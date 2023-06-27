@@ -7,6 +7,7 @@ import payment from '../../../Assets/ViewOrder/payment.svg';
 import orderstatus from '../../../Assets/ViewOrder/order.svg';
 import '../Orders/Orders.css'
 import { getOrderedItems, updateOrderStatus } from './OrderFunction';
+import toast from 'react-hot-toast';
 
 function ViewOrderModal({ show, close, order }) {
     const [id, setId] = useState("");
@@ -37,9 +38,25 @@ function ViewOrderModal({ show, close, order }) {
         updateOrderStatus(id, newStatus)
             .then(() => {
                 console.log(`Order ${id} status updated to ${newStatus}`);
+                toast.success('Order status updated.', {
+                    style: {
+                      borderRadius: '10px',
+                      background: '#333',
+                      color: '#fff',
+                    },
+                    duration: 5000,
+                });
             })
             .catch(error => {
                 console.error(`Failed to update order ${id} status:`, error);
+                toast.error('Failed to update order status.', {
+                    style: {
+                      borderRadius: '10px',
+                      background: '#333',
+                      color: '#fff',
+                    },
+                    duration: 5000,
+                });
             });
     };
 

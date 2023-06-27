@@ -19,7 +19,14 @@ export function getPayments() {
       })
       .catch(error => {
         console.error('Error retrieving payments:', error);
-        toast.error('Failed to retrieve payments');
+        toast.error('Failed to retrieve patments', {
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+            duration: 3000,
+        });
         throw error; // re-throw the error to propagate it to the caller if needed
       });
   }

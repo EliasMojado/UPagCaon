@@ -50,6 +50,14 @@ function Snacks() {
       })
       .catch(error => {
         console.error('Error retrieving items.', error);
+        toast.error('Error retriving items.', {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+          duration: 3000,
+      });
       });
   }, []);
 

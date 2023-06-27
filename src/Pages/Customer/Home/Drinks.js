@@ -8,6 +8,7 @@ import chicken from '../../../Assets/Viands/chicken.svg';
 import Rating from '../ItemContainer/Rating';
 import ProductPage from '../Product/ProductPage';
 import { apiUrl } from '../../../config';
+import toast from 'react-hot-toast';
 
 
 function Drinks() {
@@ -50,6 +51,14 @@ function Drinks() {
       })
       .catch(error => {
         console.error('Error retrieving items.', error);
+        toast.error('Error retrieving items.', {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+          duration: 3000,
+      });
       });
   }, []);
 
