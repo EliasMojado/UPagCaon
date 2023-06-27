@@ -13,15 +13,16 @@ function Track() {
   const [orders, setOrders] = useState([]);
   const [filteredOrders, setFilteredOrders] = useState([]);
   useEffect(() =>{
+    const userId = JSON.parse(localStorage.getItem("userId"));
     const fetchOrders = async () => {
-        // try {
-        //     const orders = await getOrders();
-        //     setOrders(orders);
-        //     setFilteredOrders(orders);
-        //     console.log(orders);
-        // }catch (error){
-        //   console.error('Error retrieving orders:', error);
-        // }
+        try {
+            const orders = await getUserOrders(userId);
+            setOrders(orders);
+            setFilteredOrders(orders);
+            console.log(orders);
+        }catch (error){
+          console.error('Error retrieving orders:', error);
+        }
     };
 
     fetchOrders();

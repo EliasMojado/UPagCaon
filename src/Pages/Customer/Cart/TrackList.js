@@ -29,7 +29,7 @@ const TrackList = ({ orders }) => {
                 <td className="order-data">{new Date(order.date).toLocaleString()}</td>
                 <td className="order-data">{order.id}</td>
                 <td className="order-data">{order.total}</td>
-                {/* <td className="order-data">{order.payment (mao ni si payment type unta gcash or cash)}</td> */} 
+                <td className="order-data">{order.type}</td> 
                 <td className="order-data">{order.status}</td>
               </tr>
             ))}

@@ -84,8 +84,8 @@ export function checkOut(user_id, items, payment_type, order_type) {
       });
   }
   
-  export function getUserOrders() {
-    return fetch(apiUrl + '/order/getUserOrders')
+  export function getUserOrders(user_id) {
+    return fetch(apiUrl + '/order/getUserOrders/' + user_id)
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to retrieve orders');

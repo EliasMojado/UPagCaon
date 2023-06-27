@@ -121,60 +121,63 @@ router.get("/getOrders", (req, res) => {
   });
 });
 
-router.get("/getUserOrders", (req, res) => {
-  db.query("SELECT * FROM orders WHERE status IN ('pending', 'serving')", (error, orders) => {
-    if (error) {
-      console.error('Error retrieving orders:', error);
-      // Handle the error case appropriately
-      res.status(500).json({ error: 'Failed to retrieve orders' });
-    } else {
-      console.log('Orders retrieved successfully');
+router.get("/getUserOrders/:userId", (req, res) => {
+  const userId = req.params.userId;
 
-      const userIds = orders.map(order => order.user_id);
+  db.query(
+    "SELECT * FROM orders WHERE status IN ('pending', 'serving') AND user_id = ?",
+    [userId],
+    (error, orders) => {
+      if (error) {
+        console.error('Error retrieving orders:', error);
+        res.status(500).json({ error: 'Failed to retrieve orders' });
+      } else {
+        console.log('Orders retrieved successfully');
 
-      db.query('SELECT ID, name FROM users WHERE ID IN (?)', [userIds], (error, users) => {
-        if (error) {
-          console.error('Error retrieving user names:', error);
-          // Handle the error case appropriately
-          res.status(500).json({ error: 'Failed to retrieve user names' });
-        } else {
-          console.log('User names retrieved successfully');
+        const userIds = orders.map(order => order.user_id);
 
-          const userMap = {};
-          users.forEach(user => {
-            userMap[user.ID] = user.name;
-          });
+        db.query('SELECT ID, name FROM users WHERE ID IN (?)', [userIds], (error, users) => {
+          if (error) {
+            console.error('Error retrieving user names:', error);
+            res.status(500).json({ error: 'Failed to retrieve user names' });
+          } else {
+            console.log('User names retrieved successfully');
 
-          const paymentIds = orders.map(order => order.payment_id);
-          db.query('SELECT ID, amount FROM payment WHERE ID IN (?)', [paymentIds], (error, payments) => {
-            if (error) {
-              console.error('Error retrieving payment totals:', error);
-              // Handle the error case appropriately
-              res.status(500).json({ error: 'Failed to retrieve payment totals' });
-            } else {
-              console.log('Payment totals retrieved successfully');
+            const userMap = {};
+            users.forEach(user => {
+              userMap[user.ID] = user.name;
+            });
 
-              const paymentMap = {};
-              payments.forEach(payment => {
-                paymentMap[payment.ID] = payment.amount;
-              });
+            const paymentIds = orders.map(order => order.payment_id);
+            db.query('SELECT ID, amount FROM payment WHERE ID IN (?)', [paymentIds], (error, payments) => {
+              if (error) {
+                console.error('Error retrieving payment totals:', error);
+                res.status(500).json({ error: 'Failed to retrieve payment totals' });
+              } else {
+                console.log('Payment totals retrieved successfully');
 
-              const ordersWithDetails = orders.map(order => ({
-                id: order.ID,
-                user: userMap[order.user_id],
-                payment: order.payment_id,
-                date: order.purchase_date,
-                total: paymentMap[order.payment_id],
-                status: order.status
-              }));
+                const paymentMap = {};
+                payments.forEach(payment => {
+                  paymentMap[payment.ID] = payment.amount;
+                });
 
-              res.status(200).json(ordersWithDetails);
-            }
-          });
-        }
-      });
+                const ordersWithDetails = orders.map(order => ({
+                  id: order.ID,
+                  user: userMap[order.user_id],
+                  type: order.type,
+                  date: order.purchase_date,
+                  total: paymentMap[order.payment_id],
+                  status: order.status
+                }));
+
+                res.status(200).json(ordersWithDetails);
+              }
+            });
+          }
+        });
+      }
     }
-  });
+  );
 });
 
 router.get("/getOrderedItems/:id", (req, res) => {
