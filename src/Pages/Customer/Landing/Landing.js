@@ -49,7 +49,7 @@ function Landing() {
       <footer className="footer">
         <img src={footer} alt="footer" className="footer-logo" />
         <span className="powered">Powered by</span>
-        <span className="deep">   deep solutions</span>
+        <span className="deep">   deepAI solutions</span>
       </footer>
 
       <LoginForm show={showLoginModal} close={closeLoginModal}/>
