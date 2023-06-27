@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import '../Product/ProductPage.css';
 import OrderModal from './AddOrderModal';
+import whitestar from '../../../Assets/Viands/whitestar.svg';
+
 
 const ProductContainer = ({ imageSrc, name, rating, price, product }) => {
   const [selectedProd, setSelectedProd] = useState({});
@@ -22,6 +24,22 @@ const ProductContainer = ({ imageSrc, name, rating, price, product }) => {
   const Toggle = () => {
     navigate('/cart', { replace: true});
   }
+  
+  const renderRating = () => {
+    if (rating === 0) {
+      const stars = Array.from({ length: 5 }, () => whitestar);
+      
+      return stars.map((star, index) => (
+        <img key={index} src={star} alt='whitestar' className={`zero-rating-star ${index === 0 ? 'first-star' : ''}`} />
+      ));
+    } else {
+      return rating.map((star, index) => (
+        <img key={index} src={star} alt='star' className={`rating ${index === 0 ? 'first-star' : ''}`} />
+      ));
+    }
+  };
+  
+   
 
   return (
     <div>
@@ -32,9 +50,10 @@ const ProductContainer = ({ imageSrc, name, rating, price, product }) => {
             Cart
       </button>
       <div className='rate'>
-          {rating.map((star, index) => (
+          {/* {rating.map((star, index) => (
             <img key={index} src={star} alt='star' className={`rating ${index === 0 ? 'first-star' : ''}`}/>
-          ))}
+          ))} */}
+          {renderRating()}
       </div>
       <h3 className='product-price'>₱{price}</h3>
     </div>

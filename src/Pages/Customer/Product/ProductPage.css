@@ -222,7 +222,16 @@ body {
 
 .rating {
     width: 10% !important;
-    background-image: url(../../../Assets/Viands/star.svg);
+    background-image: url(../../../Assets/Viands/whitestar.svg);
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+.zero-rating-star {
+    width: 10% !important;
+    background-image: url(../../../Assets/Viands/whitestar.svg);
     background-size: 100%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
