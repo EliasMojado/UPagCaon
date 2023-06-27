@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import TextFieldComponent from './EditProfileForm';
 import closebutton from "../../../Assets/close-button.svg";
+import { updateUser } from './ProfileFunctions';
 
 const EditProfileModal = ({show, close, user}) => {
     const [name, setName] = useState("");
@@ -34,13 +35,7 @@ const EditProfileModal = ({show, close, user}) => {
       };
 
       const handleUpdateUser = () => {
-        const formData = new FormData();
-        formData.append("name", name);
-        formData.append("password", password);
-        formData.append("email", email);
-        formData.append("contact_number", contact);
-        
-        // updateItem(formData);
+        updateUser(user.name, user.password, user.email, user.contact_number);
     
         close();
       };
