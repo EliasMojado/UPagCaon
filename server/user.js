@@ -89,6 +89,25 @@ router.post('/getUser/:id', (req,res) => {
   });
 });
 
+router.delete('/deleteUser/:id', (req,res) => {
+  const {id} = req.params;
+  db.query('DELETE FROM users WHERE id = ?', id, (err, results) => {
+    if (err) {
+      console.error('Error deleting user:', err);
+      res.status(500).json({ error: 'An error occurred while deleting user.' });
+      return;
+    }
+
+    // Check if the user exists in the database
+    if (results.length === 0) {
+      res.status(401).json({ error: 'Invalid credentials.' });
+      return;
+    }
+
+    res.status(200).json({ message: 'User deleted successfully!'});
+  });
+});
+
 // PUT /user/:id
 router.put('/:id', (req, res) => {
   const userId = req.params.id;
