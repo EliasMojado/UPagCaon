@@ -139,21 +139,24 @@ function Profile() {
       </div>
 
       {/* <thead> */}
-        <tr className='tr-row'>
+        <tr className='tr-row-2'>
           <th colSpan="4" >ORDER ID</th>
           <th className='user-margin'  ></th>
           <th colSpan="4">ORDER DATE</th>
+          <th className='user-margin'  ></th>
+          <th colSpan="4">PAYMENT TOTAL</th>
         </tr>
       {/* </thead> */}
 
       <tbody>
       {Array.isArray(orderHistory) && orderHistory.length > 0 ? (
         orderHistory.map((order) => (
-          <tr className='tr-row' key={order.orderId}>
-            <td colSpan="4" className="user-details">{order.ID}</td>
+          <tr className='tr-row-2' key={order.orderId}>
+            <td colSpan="6" className="user-d">{order.ID}</td>
             <td className='user-margin' ></td>
-            <td colSpan="8" className='user-details'>{order.purchase_date}</td>
-            <td colSpan="8" className='user-details'>{order.amount}</td>
+            <td colSpan="6" className='user-d'>{order.purchase_date}</td>
+            <td className='user-margin' ></td>
+            <td colSpan="6" className='user-d'>₱ {order.amount}</td>
             
           </tr>
         ))
