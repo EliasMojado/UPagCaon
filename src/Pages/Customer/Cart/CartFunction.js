@@ -84,5 +84,18 @@ export function checkOut(user_id, items, payment_type, order_type) {
       });
   }
   
-  
+  export function getUserOrders() {
+    return fetch(apiUrl + '/order/getUserOrders')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to retrieve orders');
+        }
+        return response.json();
+      })
+      .catch(error => {
+        console.error('Error retrieving orders:', error);
+        toast.error('Failed to retrieve orders');
+        // Handle the error case appropriately
+      });
+  }
   

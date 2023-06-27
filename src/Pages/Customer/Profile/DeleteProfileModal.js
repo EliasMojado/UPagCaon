@@ -1,5 +1,6 @@
 import React from 'react';
-import '../Employee/Employee.css';
+import '../../Admin/Employee/Employee.css';
+import '../Profile/Profile.css';
 import closebutton from '../../../Assets/close-button.svg';
 import deleteicon from '../../../Assets/delete.svg';
 import { apiUrl } from '../../../config';
@@ -59,18 +60,18 @@ function DeleteProfileModal({ show, close, employee }) {
     return (
         <>
         {show ? (
-        <div className="delete-employee-container">
-          <div className="delete-employee-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="delete-user-container">
+          <div className="delete-user-modal" onClick={(e) => e.stopPropagation()}>
             <header className="modal_header">
-              <img src={deleteicon} alt='delete-icon' className='delete-icon'/>
-              <h2 className="delete-employee-modal_header-title">Delete Profile</h2>
+              <img src={deleteicon} alt='delete-icon' className='delete-user-icon'/>
+              <h2 className="delete-user-modal_header-title">Delete Profile</h2>
               <button className='exit' onClick={close}>
                 <img src={closebutton} alt='exit'/>
               </button>
             </header>
             <main className="modal_content">
               <div>
-                <span className='delete-content'>
+                <span className='delete-user-content'>
                     Are you sure you want to delete your profile data? <br />
                     This process cannot be undone.
                 </span>

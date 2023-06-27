@@ -5,7 +5,7 @@ import './Cart.css';
 import cancel from '../../../Assets/Cart/cancel.svg'; 
 import out from '../../../Assets/Cart/out.svg';
 import { useState, useEffect } from "react";
-import { checkOut, checkCartItems } from "./CartFunction";
+import { getUserOrders } from "./CartFunction";
 import { toast } from "react-hot-toast";
 import TrackList from "./TrackList";
 
