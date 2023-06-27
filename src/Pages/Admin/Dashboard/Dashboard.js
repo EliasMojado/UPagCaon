@@ -103,10 +103,10 @@ function Dashboard() {
             </div>
           </div>
           <div className="box" onClick={goToProfPage}>
-            <span className='box-content'>Total Profit</span>
+            <span className='box-content'>Total Earnings</span>
             <div className='profit-container'>
-              <img src={wallet} alt='wallet' className='wallet'/>
-              <span className="number">{earnings?.total ?? 0}</span>
+              {/* <img src={wallet} alt='wallet' className='wallet'/> */}
+              <span className="number">₱{parseInt(earnings?.total ?? 0)}</span>
             </div>
           </div>
           <div className="box" onClick={goToQueue}>
