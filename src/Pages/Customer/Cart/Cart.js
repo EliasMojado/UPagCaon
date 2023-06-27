@@ -122,7 +122,7 @@ function Cart() {
       </header>
       <main>
         <div className="order-summary">
-          <table className="summary-table">
+          <table className="summary-tablee">
             <thead>
               <tr>
                 <th className="summary-table-header" colSpan="6">ORDER SUMMARY</th>

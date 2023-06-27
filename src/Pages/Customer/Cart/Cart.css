@@ -40,6 +40,13 @@
     margin-top: 5%;
 }
 
+.summary-tablee {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
 .summary-table {
     padding: 5%;
     display: flex;
@@ -80,7 +87,7 @@
     align-self: center;
 }
 
-.summary-table tbody {
+.summary-tablee tbody {
     align-self: center;
 }
 
