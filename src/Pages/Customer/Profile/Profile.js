@@ -154,7 +154,7 @@ function Profile() {
           <tr className='tr-row-2' key={order.orderId}>
             <td colSpan="6" className="user-d">{order.ID}</td>
             <td className='user-margin' ></td>
-            <td colSpan="6" className='user-d'>{new Date(order.purchase_date).toLocalDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'})}</td>
+            <td colSpan="6" className='user-d'>{new Date(order.purchase_date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'})}</td>
             <td className='user-margin' ></td>
             <td colSpan="6" className='user-d'>₱ {order.amount}</td>
             
