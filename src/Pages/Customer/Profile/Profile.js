@@ -1,15 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import ProductContainer from '../ItemContainer/ProductContainer';
-import ProductPage from '../Product/ProductPage';
 import {apiUrl} from '../../../config'
 import Sidebar from '../Home/Sidebar';
-import SearchBar from '../Home/SearchBar';
 import './Profile.css';
 
 import userPic from '../../../Assets/user-m.svg';
 import cart from '../../../Assets/cartsvg.svg';
 import EditProfileModal from './EditProfileModal';
+import DeleteProfileModal from './DeleteProfileModal';
 
 function Profile() {
   const [user, setUser] = useState();
@@ -161,11 +159,17 @@ function Profile() {
       </div>
 
       <EditProfileModal
-                show = {showEditProfileModal}
-                close = {closeEditModal}
-                user = {selectedProfile}
-                // modalHeader="Snack"
-            />
+          show = {showEditProfileModal}
+          close = {closeEditModal}
+          user = {selectedProfile}
+          // modalHeader="Snack"
+      />
+      <DeleteProfileModal
+          show = {showDeleteProfileModal}
+          close = {closeDeleteModal}
+          user = {selectedProfile}
+          // modalHeader="Snack"
+      />
 
     </div>
   );
