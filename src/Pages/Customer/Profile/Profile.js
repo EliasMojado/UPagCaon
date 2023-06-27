@@ -85,13 +85,12 @@ function Profile() {
       <div className="profile-container">
       <div className='profile-box'>
       <img src={userPic} alt="user" className="user-m" />
-      <table className="summary-table">
       <div className="user-table-row-h">
         <tr>
           <th  colSpan="12">USER ID : {user.id}</th>
         </tr>
       </div>
-
+      <table className="summary-table">
       <tbody>
         <tr className='tr-row'>
             <td colSpan="4" className="user-details">Name: </td>
@@ -131,7 +130,6 @@ function Profile() {
 
       <div className='profile-box'>
       <img src={cart} alt="user" className="user-m" />
-      <table className="summary-table mt-2">
       <div className="user-table-row-h">
         <tr>
           <th className="user-table-header" colSpan="12">ORDER HISTORY</th>
@@ -146,6 +144,8 @@ function Profile() {
           <th className='user-margin'  ></th>
           <th colSpan="4">PAYMENT TOTAL</th>
         </tr>
+      <table className="summary-table mt-2">
+
       {/* </thead> */}
 
       <tbody>

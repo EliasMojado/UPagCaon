@@ -52,6 +52,9 @@
     display: flex;
     flex-direction: column;
     align-self: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 35vh;
 }
 
 .order-summary {
@@ -81,7 +84,7 @@
     width: 100%;
     align-self: center;
 }
-  
+
 .order-summary td {
     width: auto;
     align-self: center;
@@ -97,7 +100,7 @@
 }
 
 .FCol {
-    width: fit-content!important;
+    width: fit-content !important;
     text-align: right;
 }
 
@@ -132,31 +135,31 @@
 
 .order-summary-out,
 .order-summary-cancel {
-  width: 40%;
-  height: 40%;
-  cursor: pointer;
-  position: relative;
+    width: 40%;
+    height: 40%;
+    cursor: pointer;
+    position: relative;
 }
 
 .unavailable-wrapper {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .unavailable-text {
-  position: absolute;
-  top: -1.5rem;
-  left: 5rem;
-  transform: translateX(-50%);
-  color: #520000;
-  font-size: small;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+    position: absolute;
+    top: -1.5rem;
+    left: 5rem;
+    transform: translateX(-50%);
+    color: #520000;
+    font-size: small;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .unavailable-wrapper:hover .unavailable-text {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* .order-summary-out:hover::after,
@@ -202,8 +205,8 @@
 
 .summary-table-header th {
     display: flex;
-    align-items: center!important;
-    justify-content: center!important;
+    align-items: center !important;
+    justify-content: center !important;
     align-self: center;
 }
 
@@ -228,7 +231,7 @@ input[type="checkbox"] {
     height: 100%;
 }
 
-.proceed-button{
+.proceed-button {
     background-color: #520000;
     color: #FFFFFF;
     width: 60%;
@@ -249,5 +252,5 @@ input[type="checkbox"] {
 .proceed-button-container {
     display: flex;
     justify-content: center;
-    align-items: center!important;
+    align-items: center !important;
 }
