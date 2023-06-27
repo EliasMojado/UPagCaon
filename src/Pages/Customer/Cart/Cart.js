@@ -138,28 +138,36 @@ function Cart() {
                     {item.price ? `₱${item.price}` : ""}
                   </td>
                   <td className="LCol">
-                    <img
-                      src={cancel}
-                      alt="order-summary-cancel"
-                      className="order-summary-cancel"
-                      onClick={() => removeItemFromCart(item.item_id)}
-                    />
-                  </td>
-                  <td className="LCol">
-                    {isItemUnavailable(item.item_id) && (
-                      <img src={out} alt="order-summary-out" className="order-summary-out" />
-                    )}
+                    <div className="unavailable-wrapper">
+                      <img
+                        src={cancel}
+                        alt="order-summary-cancel"
+                        className="order-summary-cancel"
+                        onClick={() => removeItemFromCart(item.item_id)}
+                      />
+                      <span className="unavailable-text">Cancel</span>
+                    </div>
+                </td>
+                <td className="LCol">
+                  {isItemUnavailable(item.item_id) && (
+                    <div className="unavailable-wrapper">
+                      <img
+                        src={out}
+                        alt="order-summary-out"
+                        className="order-summary-out"
+                      />
+                      <span className="unavailable-text">Out of Stock</span>
+                    </div>
+                  )}
                   </td>
                 </tr>
               ))}
-              <div>
-              <tr className="summary-total-footer">
-                <td className="order-total">TOTAL</td>
-                <td className="order-summary-total">₱{calculateTotal()}.00</td>
-              </tr>
-
+              <div className="summary-total-footer">
+                <tr>
+                  <td className="order-total">TOTAL</td>
+                  <td className="order-summary-total">₱{calculateTotal()}.00</td>
+                </tr>
               </div>
-              
             </tbody>
           </table>
         </div>
