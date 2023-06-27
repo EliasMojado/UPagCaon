@@ -85,13 +85,12 @@ function Profile() {
       <div className="profile-container">
       <div className='profile-box'>
       <img src={userPic} alt="user" className="user-m" />
-      <table className="summary-table">
       <div className="user-table-row-h">
         <tr>
           <th  colSpan="12">USER ID : {user.id}</th>
         </tr>
       </div>
-
+      <table className="summary-table-1">
       <tbody>
         <tr className='tr-row'>
             <td colSpan="4" className="user-details">Name: </td>
@@ -131,7 +130,6 @@ function Profile() {
 
       <div className='profile-box'>
       <img src={cart} alt="user" className="user-m" />
-      <table className="summary-table mt-2">
       <div className="user-table-row-h">
         <tr>
           <th className="user-table-header" colSpan="12">ORDER HISTORY</th>
@@ -139,21 +137,26 @@ function Profile() {
       </div>
 
       {/* <thead> */}
-        <tr className='tr-row'>
+        <tr className='tr-row-2'>
           <th colSpan="4" >ORDER ID</th>
           <th className='user-margin'  ></th>
           <th colSpan="4">ORDER DATE</th>
+          <th className='user-margin'  ></th>
+          <th colSpan="4">PAYMENT TOTAL</th>
         </tr>
+      <table className="summary-table mt-2">
+
       {/* </thead> */}
 
       <tbody>
       {Array.isArray(orderHistory) && orderHistory.length > 0 ? (
         orderHistory.map((order) => (
-          <tr className='tr-row' key={order.orderId}>
-            <td colSpan="4" className="user-details">{order.ID}</td>
+          <tr className='tr-row-2' key={order.orderId}>
+            <td colSpan="6" className="user-d">{order.ID}</td>
             <td className='user-margin' ></td>
-            <td colSpan="8" className='user-details'>{order.purchase_date}</td>
-            <td colSpan="8" className='user-details'>{order.amount}</td>
+            <td colSpan="6" className='user-d'>{new Date(order.purchase_date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'})}</td>
+            <td className='user-margin' ></td>
+            <td colSpan="6" className='user-d'>₱ {order.amount}</td>
             
           </tr>
         ))

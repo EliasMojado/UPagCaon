@@ -98,6 +98,7 @@ function Cart() {
         return;
     }else{
         checkOut(user, cartItems, paymentType, orderType);
+        navigate('/track', { replace: true});
     }
   }
 

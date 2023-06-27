@@ -86,7 +86,7 @@ function AddOrderModal ({ show, close, item }) {
                   <div className="iname">{item.name}</div>
                   <div className="idescription">{item.description}</div> 
                   <div className="itype">{item.type}</div>
-                  <div className="iname">₱{item.price}</div>
+                  <div className="iname">₱ {item.price}</div>
                   
                   <div className="istar"><StarRating numberOfStars={stars} />
                   </div>
