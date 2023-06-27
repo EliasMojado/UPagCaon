@@ -18,10 +18,11 @@ Therefore, the group made a restaurant management system to satisfy the project 
 
 Happy hacking!
 
-SET UP IN THE LOCALHOST
+--**SET UP IN THE LOCALHOST**
+
 1. Clone the repository in your local.
-2. Open the reposity in you Visual Studio Code or other integrated development environments (IDEs)
+2. Open the repository in Visual Studio Code or other integrated development environments (IDEs).
 3. To run in your localhost, open a Terminal and:
-input `cd server` then `node index.js`.
+    input `cd server` then `node index.js`.
 4. Then open another Terminal and input `npm i` then `npm start`.
 5. Wait and explore the program.
