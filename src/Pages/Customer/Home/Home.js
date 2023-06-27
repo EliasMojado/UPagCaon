@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ProductContainer from '../ItemContainer/ProductContainer';
 import ProductPage from '../Product/ProductPage';
-import {apiUrl} from '../../../config'
+import {apiUrl} from '../../../config';
+import toast from 'react-hot-toast';
 
 function Home() {
   const [authenticated, setAuthenticated] = useState(false);

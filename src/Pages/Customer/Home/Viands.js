@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProductPage from '../Product/ProductPage';
 import { apiUrl } from '../../../config';
+import toast from 'react-hot-toast';
 
 
 function Viands() {

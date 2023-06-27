@@ -8,6 +8,7 @@ import chicken from '../../../Assets/Viands/chicken.svg';
 import Rating from '../ItemContainer/Rating';
 import ProductPage from '../Product/ProductPage';
 import { apiUrl } from '../../../config';
+import toast from 'react-hot-toast';
 
 function Others() {
   const [authenticated, setAuthenticated] = useState(false);
