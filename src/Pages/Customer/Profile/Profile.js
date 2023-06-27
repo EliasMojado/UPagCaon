@@ -153,6 +153,8 @@ function Profile() {
             <td colSpan="4" className="user-details">{order.ID}</td>
             <td className='user-margin' ></td>
             <td colSpan="8" className='user-details'>{order.purchase_date}</td>
+            <td colSpan="8" className='user-details'>{order.amount}</td>
+            
           </tr>
         ))
       ) : (
