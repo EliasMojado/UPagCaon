@@ -31,5 +31,22 @@ export function updateUser(id, name, password, email, contact) {
         // Handle the error
       });
   }
+
+  export function getOrderHistory(id) {
+    return fetch(apiUrl + '/order/orderHistory/' + id, {
+      method: 'POST',
+    })
+      .then(response => response.json())
+      .then(orders => {
+        return orders; // Return the orders array directly
+      })
+      .catch(error => {
+        console.error('Error getting order history:', error);
+        // Handle the error
+        throw error; // Rethrow the error to be caught by the caller
+      });
+  }
+  
+
   
   

@@ -303,6 +303,22 @@ function isExpired(date) {
   return expiryDate <= currentDate;
 }
 
+router.post("/orderHistory/:id", (req, res) => {
+  const { id } = req.params;
+  db.query("SELECT * FROM orders WHERE user_id = ? AND status = 'completed';", [id], (error, orders) => {
+    if (error) {
+      console.error('Error retrieving order history:', error);
+      res.status(500).json({ error: 'An error occurred while retrieving order history.' });
+      return;
+    }
+
+    res.status(200).json(orders); // Return the orders array directly
+    console.log(orders);
+  });
+});
+
+
+
 
 
 module.exports = router;

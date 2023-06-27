@@ -8,24 +8,38 @@ import userPic from '../../../Assets/user-m.svg';
 import cart from '../../../Assets/cartsvg.svg';
 import EditProfileModal from './EditProfileModal';
 import DeleteProfileModal from './DeleteProfileModal';
+import { getOrderHistory } from './ProfileFunctions';
 
 function Profile() {
   const [user, setUser] = useState();
   const [selectedProfile, setSelectedProfile] = useState({});
   const [showDeleteProfileModal, setShowDeleteProfileModal] = useState(false);
   const [showEditProfileModal, setShowEditProfileModal] = useState(false);
+  const [orderHistory, setOrderHistory] = useState([]);
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem('user'));
     setUser(userInfo);
-
-    console.log(userInfo);
+  
     // Retrieve the stored user data from local storage
     const storedUser = localStorage.getItem('user');
     if (!storedUser || JSON.parse(storedUser).type !== 'customer') {
       window.location.href = '/';
     }
+  
+    const fetchOrderHistory = async () => {
+      try {
+        const orders = await getOrderHistory(userInfo.id);
+        setOrderHistory(orders);
+        console.log(orders); // Log the updated orders array here
+      } catch (error) {
+        console.error('Error retrieving order history:', error);
+      }
+    };    
+  
+    fetchOrderHistory();
   }, []);
+  
     
   const navigate = useNavigate();
 
@@ -133,26 +147,19 @@ function Profile() {
       {/* </thead> */}
 
       <tbody>
-        <tr className='tr-row'>
-            <td colSpan="4" className="user-details">1 </td>
+      {Array.isArray(orderHistory) && orderHistory.length > 0 ? (
+        orderHistory.map((order) => (
+          <tr className='tr-row' key={order.orderId}>
+            <td colSpan="4" className="user-details">{order.ID}</td>
             <td className='user-margin' ></td>
-            <td colSpan="8" className='user-details' > January 2, 2002 </td>
+            <td colSpan="8" className='user-details'>{order.purchase_date}</td>
+          </tr>
+        ))
+      ) : (
+        <tr>
+          <td colSpan="12">No order history found.</td>
         </tr>
-        <tr className='tr-row'>
-            <td colSpan="4" className="user-details">2 </td>
-            <td className='user-margin'> </td>
-            <td colSpan="8" className='user-details' > January 2, 2002 </td>
-        </tr>
-        <tr className='tr-row'>
-            <td colSpan="4" className="user-details" >3 </td>
-            <td className='user-margin'> </td>
-            <td colSpan="8" className='user-details'> January 2, 2002 </td>
-        </tr>
-        <tr className='tr-row'colSpan="12">
-            <td colSpan="4"className="user-details">4 </td>
-            <td className='user-margin'> </td>
-            <td colSpan="8" className='user-details'> January 2, 2002 </td>
-        </tr>
+      )}
       </tbody>
 
       </table>

@@ -48,11 +48,6 @@ function DeleteProfileModal({ show, close, employee }) {
         console.error('Error deleting employee:', error);
         // Handle the error case appropriately
       });
-
-
-
-
-
     close();
   };
   
