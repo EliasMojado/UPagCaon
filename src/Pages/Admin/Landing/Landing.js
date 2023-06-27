@@ -14,9 +14,6 @@ function Landing() {
   return (
     <div className="landing">
       <header>
-        <div className="button-container">
-          <button className="transparent-button homeb">ABOUT US</button>
-        </div>
       </header>
       <div className='content'>
         <div className="img-container">
