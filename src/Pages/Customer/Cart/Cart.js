@@ -74,7 +74,7 @@ function Cart() {
     const user = JSON.parse(localStorage.getItem('userId'));
 
     if (!user || !cartItems || !paymentType || !orderType) {
-        toast.error("Invalid or incomplete parameters.", {
+        toast.error("Please complete the form", {
             style: {
               borderRadius: '10px',
               background: '#333',
