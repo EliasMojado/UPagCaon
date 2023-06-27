@@ -50,6 +50,7 @@
 .order-summary {
     position: fixed;
     display: flex;
+    align-self: center;
     align-items: center;
     justify-content: center;
     width: 50vw;
@@ -76,10 +77,20 @@
   
 .order-summary td {
     width: auto;
+    align-self: center;
+}
+
+.summary-table tbody {
+    align-self: center;
 }
 
 .LCol {
-    width: 5px;
+    width: 30%;
+    text-align: right;
+}
+
+.FCol {
+    width: fit-content!important;
     text-align: right;
 }
 
@@ -136,6 +147,13 @@
     padding: 2% 0 2% 0;
 }
 
+.summary-table-header th {
+    display: flex;
+    align-items: center!important;
+    justify-content: center!important;
+    align-self: center;
+}
+
 .orderrr-type {
     margin-bottom: 10%;
 }
@@ -172,4 +190,11 @@ input[type="checkbox"] {
     align-items: center;
     align-self: center;
     cursor: pointer;
+}
+
+
+.proceed-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center!important;
 }

@@ -131,9 +131,9 @@ function Cart() {
             <tbody>
               {cartItems.map((item) => (
                 <tr key={item.item_id}>
-                  <td>{item.quantity}</td>
+                  <td className="FCol">{item.quantity}</td>
                   <td>{item.name}</td>
-                  {/* <td>{dot}</td> */}
+                  <td>{dot}</td>
                   <td className="order-summary-price">
                     {item.price ? `₱${item.price}` : ""}
                   </td>
@@ -152,10 +152,14 @@ function Cart() {
                   </td>
                 </tr>
               ))}
+              <div>
               <tr className="summary-total-footer">
                 <td className="order-total">TOTAL</td>
-                <td className="order-summary-total">₱{calculateTotal()}</td>
+                <td className="order-summary-total">₱{calculateTotal()}.00</td>
               </tr>
+
+              </div>
+              
             </tbody>
           </table>
         </div>
