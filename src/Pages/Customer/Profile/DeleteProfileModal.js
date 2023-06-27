@@ -7,11 +7,11 @@ import { apiUrl } from '../../../config';
 import { deleteUser } from './ProfileFunctions';
 import toast from 'react-hot-toast';
 
-function DeleteProfileModal({ show, close, employee }) {
+function DeleteProfileModal({ show, close, user}) {
 
     const adminDelete = async () => {
         try { 
-            const response = await deleteUser(employee.id);
+            const response = await deleteUser(user.id);
             console.log(response);
             toast.success(response.message, {
                 style: {

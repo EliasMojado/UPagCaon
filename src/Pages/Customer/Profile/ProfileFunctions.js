@@ -66,7 +66,7 @@ export function updateUser(id, name, password, email, contact) {
 }
 
 export function deleteUser(id) {
-  return fetch(apiUrl + 'user/deleteUser/' + id, {
+  return fetch(apiUrl + '/user/deleteUser/' + id, {
     method: 'DELETE'
   })
     .then(response => {
