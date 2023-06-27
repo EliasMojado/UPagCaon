@@ -92,7 +92,7 @@ tbody tr td:first-child {
 }
 
 .button-row-profile {
-    margin-top: 5% !important;
+    /* margin-top: 5% !important; */
     display: flex;
     align-items: center !important;
     align-self: center !important;
