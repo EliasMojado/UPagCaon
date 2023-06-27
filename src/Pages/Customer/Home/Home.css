@@ -326,7 +326,7 @@ body {
 
 .add-order-track {
     position: fixed;
-    top: 5%;
+    top: 4.5%;
     right: 23%;
     font-family: 'Inter';
     font-style: normal;
@@ -345,4 +345,67 @@ body {
     background-repeat: no-repeat;
     text-align: center;
     cursor: pointer;
+}
+
+.gcash-button {
+    position: fixed;
+    top: 5%;
+    right: 10%;
+    width: 8%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-image: url(../../../Assets/gcash.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    cursor: pointer;
+}
+
+.gcash-details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+    align-items: center;
+    width: max-content;
+}
+
+.gcash-container {
+    position: fixed;
+    z-index: 99 !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gcash-image {
+    width: 15vw;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+.gcash-close {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-weight: 600;
+    color: #0000FF;
+    font-size: medium;
+    width: 15VW;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 10%;
+    /* margin-right: 10px; */
 }
