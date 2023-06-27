@@ -7,6 +7,7 @@ import profiledops from '../../Assets/profile-dops.svg';
 import profileilin from '../../Assets/profile-ilin.svg';
 import profileelias from '../../Assets/profile-elias.svg';
 import profilepnx from '../../Assets/profile-pnx.svg';
+import profileall from '../../Assets/profile-all.svg';
 
 
 import '../AboutUs/AboutUs.css';
@@ -59,6 +60,7 @@ function AboutUs() {
 
           <div className="meetTitle">
               <h2>Meet The Team</h2>
+              {/* <img src={profileall} alt="profileall" className="prof" /> */}
           </div>
 
           <div className="team">
@@ -72,7 +74,7 @@ function AboutUs() {
             </div>
             <div className="team-member">
               <img src={profileelias} alt="elias" className="icon" />
-              <p><a href="https://www.facebook.com/IdiotUser" className="link-style">John Elias Mojado</a></p>
+              <p><a href="https://www.facebook.com/IdiotUser" className="link-style">Elias Mojado</a></p>
             </div>
             <div className="team-member">
               <img src={profilepnx} alt="pnx" className="icon" />
