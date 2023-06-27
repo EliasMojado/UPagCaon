@@ -90,7 +90,7 @@ function Profile() {
           <th  colSpan="12">USER ID : {user.id}</th>
         </tr>
       </div>
-      <table className="summary-table">
+      <table className="summary-table-1">
       <tbody>
         <tr className='tr-row'>
             <td colSpan="4" className="user-details">Name: </td>
@@ -154,7 +154,7 @@ function Profile() {
           <tr className='tr-row-2' key={order.orderId}>
             <td colSpan="6" className="user-d">{order.ID}</td>
             <td className='user-margin' ></td>
-            <td colSpan="6" className='user-d'>{order.purchase_date}</td>
+            <td colSpan="6" className='user-d'>{new Date(order.purchase_date).toLocalDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'})}</td>
             <td className='user-margin' ></td>
             <td colSpan="6" className='user-d'>₱ {order.amount}</td>
             
