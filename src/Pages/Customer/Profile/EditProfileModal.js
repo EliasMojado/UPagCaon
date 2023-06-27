@@ -35,7 +35,7 @@ const EditProfileModal = ({show, close, user}) => {
       };
 
       const handleUpdateUser = () => {
-        updateUser(user.name, user.password, user.email, user.contact_number);
+        updateUser(user.id, name, password, email, contact);
     
         close();
       };

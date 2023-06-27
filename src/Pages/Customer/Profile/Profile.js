@@ -41,6 +41,7 @@ function Profile() {
   };
 
   const ToggleE = () => {
+    console.log(user);
     setShowEditProfileModal(true);
     setSelectedProfile(user);
   }

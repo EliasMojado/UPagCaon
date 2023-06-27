@@ -70,11 +70,37 @@ router.post('/login', (req, res) => {
 // PUT /user/:id
 router.put('/:id', (req, res) => {
   const userId = req.params.id;
-  const { attribute, value } = req.body;
+  const { attributes } = req.body;
 
-  // Update the user attribute in the database
-  const query = `UPDATE users SET ${attribute} = ? WHERE id = ?`;
-  db.query(query, [value, userId], (err, results) => {
+  // Construct the SET clause for updating user attributes
+  let setClause = '';
+  const values = [];
+
+  for (const attribute of attributes) {
+    const { name, value } = attribute;
+
+    if (name === 'password' && value) {
+      // Hash the password using bcrypt
+      const hashedPassword = bcrypt.hashSync(value, 10);
+      setClause += `password = ?, `;
+      values.push(hashedPassword);
+    } else if (value) {
+      setClause += `${name} = ?, `;
+      values.push(value);
+    }
+  }
+
+  // Remove the trailing comma and space
+  setClause = setClause.slice(0, -2);
+
+  // Construct the SQL query
+  const query = `UPDATE users SET ${setClause} WHERE id = ?`;
+  console.log(query);
+  values.push(userId);
+  console.log(values);
+
+  // Execute the query
+  db.query(query, values, (err, results) => {
     if (err) {
       console.error('Error updating user:', err);
       res.status(500).json({ error: 'An error occurred while updating the user.' });
@@ -91,5 +117,7 @@ router.put('/:id', (req, res) => {
     res.status(200).json({ message: 'User updated successfully!' });
   });
 });
+
+
 
 module.exports = router;
