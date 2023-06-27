@@ -67,6 +67,28 @@ router.post('/login', (req, res) => {
   });
 });
 
+router.post('/getUser/:id', (req,res) => {
+  const { id } = req.params;
+  console.log(id);
+  db.query('SELECT * FROM users WHERE id = ?', id, (err, results) => {
+    if (err) {
+      console.error('Error getting user:', err);
+      res.status(500).json({ error: 'An error occurred while getting user.' });
+      return;
+    }
+
+    // Check if the user exists in the database
+    if (results.length === 0) {
+      res.status(401).json({ error: 'Invalid credentials.' });
+      return;
+    }
+
+    const user = results[0];
+
+    res.status(200).json({ message: 'User retrieved successfully!' , type: user.type, id: user.ID, name: user.name, email: user.email, contact_number: user.contact_number});
+  });
+});
+
 // PUT /user/:id
 router.put('/:id', (req, res) => {
   const userId = req.params.id;
