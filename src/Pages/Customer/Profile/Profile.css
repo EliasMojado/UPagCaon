@@ -84,3 +84,109 @@ tbody tr td:first-child {
     justify-self: center !important;
     justify-content: space-evenly;
 }
+
+.delete-user-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-user-modal {
+    width: 30vw;
+    height: auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: #B88D5D;
+    backdrop-filter: blur(5px);
+    box-shadow: 1px 4px 4px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-user-icon {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0% !important;
+}
+
+.delete-user-modal_header-title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 200%;
+    text-align: center;
+    color: #520000;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.delete-user-content {
+    font-family: 'Inter' !important;
+    font-style: normal;
+    font-weight: 300;
+    font-size: medium;
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    color: #FFFFFF;
+    /* margin-bottom: 20%; */
+}
+
+.delete-modal_footer {
+    margin-top: 5%;
+}
+
+.yes {
+    background: #520000;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter';
+    color: #FFFFFF;
+    font-size: medium;
+    width: 6vw;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.no {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-weight: 600;
+    color: #520000;
+    font-size: medium;
+    width: 6vw;
+    height: 5vh;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.no:hover,
+.yes:hover {
+    background-color: rgba(54, 67, 72, 0.8);
+}
