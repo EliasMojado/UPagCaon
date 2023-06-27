@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProductPage from '../Product/ProductPage';
 import { apiUrl } from '../../../config';
+import toast from 'react-hot-toast';
 
 
 function Viands() {
@@ -43,6 +44,14 @@ function Viands() {
       })
       .catch(error => {
         console.error('Error retrieving items.', error);
+        toast.error('Error retriving items.', {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+          duration: 3000,
+      });
       });
   }, []);
 

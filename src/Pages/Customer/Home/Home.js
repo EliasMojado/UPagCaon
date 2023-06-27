@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ProductContainer from '../ItemContainer/ProductContainer';
 import ProductPage from '../Product/ProductPage';
-import {apiUrl} from '../../../config'
+import {apiUrl} from '../../../config';
+import toast from 'react-hot-toast';
 
 function Home() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -42,6 +43,14 @@ function Home() {
       })
       .catch(error => {
         console.error('Error retrieving items.', error);
+        toast.error('Error retriving items.', {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+          duration: 3000,
+      });
       });
   }, []);
 

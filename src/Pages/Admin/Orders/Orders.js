@@ -5,6 +5,7 @@ import '../Orders/Orders.css';
 import OrdersList from './OrdersList';
 import withAdminAuthentication from "../requireAdminAuthentication";
 import { getOrders } from './OrderFunction';
+import toast from 'react-hot-toast';
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -34,6 +35,14 @@ function Orders() {
             console.log(orders);
         }catch (error){
           console.error('Error retrieving orders:', error);
+          toast.error('Error retrieving orders.', {
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+            duration: 3000,
+        });
         }
     };
 

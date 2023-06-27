@@ -57,25 +57,26 @@ function AboutUs() {
             </p>
           </div>
 
-          
+          <div className="meetTitle">
+              <h2>Meet The Team</h2>
+          </div>
 
           <div className="team">
-              <h2>Meet The Team</h2>
             <div className="team-member">
-              <img src={profiledops} alt="dops" className="icon-dops" />
-              <p>Daughpane Reponte</p>
+              <img src={profiledops} alt="dops" className="icon" />
+              <p><a href="https://www.facebook.com/daughpane05" className="link-style">Daughpane Reponte</a></p>
             </div>
             <div className="team-member">
-              <img src={profileilin} alt="ilin" className="icon-ilin" />
-              <p>Insert Name</p>
+              <img src={profileilin} alt="ilin" className="icon" />
+              <p><a href="https://www.facebook.com/iamellenmarie" className="link-style">Ellenmarie Frances Puyot</a></p>
             </div>
             <div className="team-member">
-              <img src={profileelias} alt="elias" className="icon-elias" />
-              <p>Insert Name</p>
+              <img src={profileelias} alt="elias" className="icon" />
+              <p><a href="https://www.facebook.com/IdiotUser" className="link-style">John Elias Mojado</a></p>
             </div>
             <div className="team-member">
-              <img src={profilepnx} alt="pnx" className="icon-pnx" />
-              <p>Insert Name</p>
+              <img src={profilepnx} alt="pnx" className="icon" />
+              <p><a href="https://www.facebook.com/pmarfa02/" className="link-style">Pinky Grace Marfa</a></p>
             </div>
           </div>
 
