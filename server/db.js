@@ -1,7 +1,14 @@
 const mysql = require('mysql2');
 const express = require('express');
+require('dotenv').config();
 
-const connection = mysql.createConnection('mysql://x02uksibohlrfilhncup:pscale_pw_No0fy5f7l0fuKy2nZ0CM2yp4cMGpyXY9B6bPN4lE5z1@aws.connect.psdb.cloud/upagcaon?ssl={"rejectUnauthorized":true}');
+// const connection = mysql.createConnection(process.env.DATABASE_URL);
+const databaseUrl = process.env.DATABASE_URL;
+
+const connection = mysql.createConnection({
+  uri: databaseUrl,
+  multipleStatements: true // (optional) Enable multiple statements if needed
+});
 
 connection.connect((err) => {
     if (err) {
