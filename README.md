@@ -18,7 +18,8 @@ Therefore, the group made a restaurant management system to satisfy the project 
 
 Happy hacking!
 
---**SET UP IN THE LOCALHOST**
+
+**SETTING UP LOCALHOST**
 
 1. Clone the repository in your local.
 2. Open the repository in Visual Studio Code or other integrated development environments (IDEs).
